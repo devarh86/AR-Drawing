@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rotate_root_v"
+    android:background="@color/editor_bar_clr">
+
+    <ImageView
+        android:id="@+id/tick_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tick_icon"
+     />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/btn_txt_clr"
+        android:text="@string/rotate"
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tick_icon" />
+
+
+    <ImageView
+        android:id="@+id/reset_rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:padding="@dimen/_8sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/tick_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reset_icon_crop" />
+
+    <com.project.crop.ui.main.custom_views.RuleView
+        android:id="@+id/ruleView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:scaleY="-1"
+        app:gv_indicatorLineLen="@dimen/_12sdp"
+        app:gv_longGradationLen="@dimen/_12sdp"
+        app:gv_maxValue="180"
+        app:gv_minValue="-180"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/rotate_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_value_text"
+        app:zjun_bgColor="@color/surface_clr"
+        app:zjun_gradationColor="@color/btn_txt_clr"
+        app:zjun_indicatorLineColor="@color/selected_color"
+        app:zjun_indicatorLineWidth="5dp"
+        app:zjun_textColor="@color/btn_txt_clr"
+        app:zjun_textSize="0dp" />
+
+    <ImageView
+        android:id="@+id/rotate_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ruleView"
+        app:srcCompat="@drawable/rotate_icon_crop" />
+
+    <TextView
+        android:id="@+id/current_value_text"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:text="0\u00B0"
+        android:textColor="@color/selected_color"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintEnd_toEndOf="@+id/ruleView"
+        app:layout_constraintStart_toStartOf="@+id/ruleView"
+        app:layout_constraintTop_toBottomOf="@+id/tick_icon" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="0dp"
+        android:alpha="0.85"
+        android:background="@color/surface_clr"
+        app:layout_constraintBottom_toBottomOf="@+id/ruleView"
+        app:layout_constraintStart_toStartOf="@+id/ruleView"
+        app:layout_constraintTop_toTopOf="@+id/ruleView" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/surface_clr"
+        app:layout_constraintBottom_toBottomOf="@+id/ruleView"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/ruleView" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="0dp"
+        android:alpha="0.85"
+        android:background="@color/surface_clr"
+        app:layout_constraintBottom_toBottomOf="@+id/ruleView"
+        app:layout_constraintEnd_toEndOf="@+id/ruleView"
+        app:layout_constraintTop_toTopOf="@+id/ruleView" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="0dp"
+        android:alpha="0.6"
+        android:background="@color/surface_clr"
+        app:layout_constraintBottom_toBottomOf="@+id/ruleView"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/ruleView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

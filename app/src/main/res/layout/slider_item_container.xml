@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+<!-- android:padding="16dp"-->
+    <!-- ImageView for the image in the ViewPager item -->
+    <ImageView
+        android:id="@+id/image_slider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:adjustViewBounds="true"
+        android:layout_gravity="center"
+        android:src="@drawable/s_ai_enhance"/>
+
+    <!-- Title TextView -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="8dp"
+        android:fontFamily="@font/robotom"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:text="@string/enhance_t_s"
+        android:textStyle="bold"
+       app:layout_constraintBottom_toTopOf="@id/description_text"
+        app:layout_constraintStart_toStartOf="@id/image_slider"
+        app:layout_constraintEnd_toEndOf="@id/image_slider"
+        />
+
+    <!-- Description TextView -->
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enhance_d_s"
+        android:fontFamily="@font/robotom"
+        android:textSize="@dimen/_13ssp"
+        android:textColor="@color/white"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/_20sdp"
+        app:layout_constraintBottom_toBottomOf="@id/image_slider"
+        app:layout_constraintStart_toStartOf="@id/image_slider"
+        app:layout_constraintEnd_toEndOf="@id/image_slider"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/image_slider"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    />-->

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_sketch"
+    app:startDestination="@id/basePencilSketch">
+
+    <fragment
+        android:id="@+id/basePencilSketch"
+        android:name="com.abdul.pencil_sketch.main.fragment.BasePencilSketch"
+        android:label="BasePencilSketch">
+        <action
+            android:id="@+id/action_basePencilSketch_to_galleryPencilSketch"
+            app:destination="@id/galleryPencilSketch" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/galleryPencilSketch"
+        android:name="com.abdul.pencil_sketch.main.fragment.GalleryPencilSketch"
+        android:label="fragment_gallery_pencil_sketch"
+        tools:layout="@layout/fragment_gallery_pencil_sketch">
+
+        <argument
+            android:name="replace"
+            android:defaultValue="false"
+            app:argType="boolean" />
+        <argument
+            android:name="path"
+            android:defaultValue=""
+            app:argType="string" />
+        <action
+            android:id="@+id/action_galleryPencilSketch_to_pencilSketchRequest"
+            app:destination="@id/pencilSketchRequest"
+            app:enterAnim="@anim/enter_for_fragments"
+            app:exitAnim="@anim/exit_for_fragment"
+            app:popEnterAnim="@anim/enter_for_fragments"
+            app:popExitAnim="@anim/exit_for_fragment"
+            app:popUpTo="@id/pencilSketchRequest"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/pencilSketchRequest"
+        android:name="com.abdul.pencil_sketch.main.fragment.PencilSketchRequest"
+        android:label="fragment_pencil_sketch_request"
+        tools:layout="@layout/fragment_pencil_sketch_request">
+        <action
+            android:id="@+id/action_pencilSketchRequest_to_crop"
+            app:destination="@id/crop"
+            app:enterAnim="@anim/enter_for_fragments"
+            app:exitAnim="@anim/exit_for_fragment"
+            app:popEnterAnim="@anim/enter_for_fragments"
+            app:popExitAnim="@anim/exit_for_fragment" />
+        <action
+            android:id="@+id/action_pencilSketchRequest_to_pencilSketchResult"
+            app:destination="@id/pencilSketchResult"
+            app:enterAnim="@anim/enter_for_fragments"
+            app:exitAnim="@anim/exit_for_fragment"
+            app:popEnterAnim="@anim/enter_for_fragments"
+            app:popExitAnim="@anim/exit_for_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/crop"
+        android:name="com.project.crop.ui.main.fragment.Crop"
+        android:label="Crop">
+
+    </fragment>
+    <fragment
+        android:id="@+id/pencilSketchResult"
+        android:name="com.abdul.pencil_sketch.main.fragment.PencilSketchResult"
+        android:label="PencilSketchResult" />
+
+</navigation>

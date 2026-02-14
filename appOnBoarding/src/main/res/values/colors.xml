@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="language_item_txt_color">#FFFFFF</color>
+    <color name="bg_color">#0D0C0C</color>
+    <color name="text_top_language">#FFFFFF</color>
+</resources>

@@ -1,0 +1,161 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id("kotlin-parcelize")
+    id 'com.google.dagger.hilt.android'
+    id("androidx.navigation.safeargs.kotlin")
+    id 'com.google.firebase.crashlytics'
+    id("com.google.firebase.firebase-perf")
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+
+android {
+    namespace 'com.fahad.newtruelovebyfahad'
+    compileSdk 35
+    defaultConfig {
+        applicationId "com.pixin.drawing.art.editor"
+        multiDexEnabled =true
+        minSdk 24
+        targetSdk 35
+        versionCode 10
+        versionName "1.9"
+//        versionCode 10000
+//        versionName "10000"
+        resourceConfigurations += ["en","ar","bn", "de", "es","fr", "hi","in","ja", "pt", "ru", "ur", "zh"]
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        archivesBaseName = "CRSL VC_$versionCode"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    buildFeatures {
+        compose true
+        viewBinding true
+        buildConfig = true
+    }
+
+    //    composeOptions {
+//        kotlinCompilerExtensionVersion = "1.5.4"
+//    }
+
+    compileOptions {
+        sourceCompatibility =JavaVersion.VERSION_1_8
+        targetCompatibility =JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include "x86_64", "x86", "armeabi-v7a", "arm64-v8a"
+            universalApk true
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
+}
+
+dependencies {
+    implementation(fileTree(dir: "libs", includes: ["*.aar"]))
+    implementation ("com.android.support:multidex:1.0.3")
+    implementation(project(":appOnBoarding"))
+    implementation(project(":event_notifications"))
+    implementation(project(":pencil_sketch"))
+
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
+
+    // sdp and ssp
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.intuit.ssp:ssp-android:1.1.0'
+
+    implementation(libs.opencv)
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'androidx.lifecycle:lifecycle-process:2.8.7'
+    implementation 'com.google.firebase:firebase-messaging-ktx:24.0.1'
+    implementation 'androidx.activity:activity:1.9.2'
+    implementation project(':questions_intro')
+
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
+
+    // hilt DI
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "com.google.dagger:hilt-android:2.56.1"
+    kapt "com.google.dagger:hilt-compiler:2.56.1"
+    implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
+
+
+    // Kotlin Navigation Component
+    implementation "androidx.navigation:navigation-fragment-ktx:2.8.0"
+    implementation "androidx.navigation:navigation-ui-ktx:2.8.0"
+
+    // ViewModel and LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
+
+    // lottie animation
+    implementation "com.airbnb.android:lottie:6.3.0"
+
+    // coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3"
+
+    implementation 'androidx.lifecycle:lifecycle-process:2.8.7'
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.okhttp3:okhttp:4.12.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    // Room Database
+    implementation("androidx.room:room-runtime:2.7.0")
+    kapt("androidx.room:room-compiler:2.7.0")
+
+    // In App Review
+    implementation("com.google.android.play:review-ktx:2.0.2")
+
+    // Dot Indicator
+    implementation("com.tbuonomo:dotsindicator:5.0")
+    implementation("androidx.compose.ui:ui:1.7.8")
+    implementation("androidx.compose.material:material:1.7.8")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.7.8")
+    implementation "androidx.compose.ui:ui-tooling:1.7.8"
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
+    implementation "com.github.bumptech.glide:compose:1.0.0-alpha.5"
+
+    implementation 'androidx.core:core-splashscreen:1.1.0-alpha02'
+
+    // facebook sdk
+    implementation("com.facebook.android:facebook-android-sdk:latest.release")
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+
+}
+
+apply plugin: 'com.google.gms.google-services'

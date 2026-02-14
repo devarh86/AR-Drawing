@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="@dimen/_22sdp"
+    android:height="@dimen/_22sdp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M12.98,19.5H16.5C17.12,19.5 17.67,19.48 18.16,19.41C20.79,19.12 21.5,17.88 21.5,14.5V9.5C21.5,6.12 20.79,4.88 18.16,4.59C17.67,4.52 17.12,4.5 16.5,4.5"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M8.98,4.5H7.5C6.88,4.5 6.33,4.52 5.84,4.59C3.21,4.88 2.5,6.12 2.5,9.5V14.5C2.5,17.88 3.21,19.12 5.84,19.41C6.33,19.48 6.88,19.5 7.5,19.5H8.98"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M9,2V22"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M15.144,13.239H13.288L12.981,14H12L13.675,10H14.764L16.439,14H15.451L15.144,13.239ZM14.891,12.598L14.216,10.927L13.542,12.598H14.891Z"
+      android:fillColor="@color/btn_txt_clr"/>
+  <path
+      android:pathData="M18,10.006V14H17.065V10.006H18Z"
+      android:fillColor="@color/btn_txt_clr"/>
+  <path
+      android:pathData="M13.314,3.473L13.427,3.106C13.431,3.093 13.439,3.082 13.45,3.074C13.46,3.066 13.474,3.062 13.487,3.062C13.5,3.062 13.513,3.066 13.524,3.074C13.535,3.082 13.543,3.093 13.547,3.106L13.66,3.473C13.706,3.623 13.788,3.759 13.898,3.869C14.009,3.98 14.145,4.062 14.294,4.108L14.661,4.221C14.674,4.225 14.685,4.233 14.693,4.244C14.701,4.255 14.705,4.268 14.705,4.281C14.705,4.294 14.701,4.307 14.693,4.318C14.685,4.329 14.674,4.337 14.661,4.341L14.294,4.454C14.145,4.5 14.009,4.582 13.898,4.692C13.788,4.803 13.706,4.939 13.659,5.088L13.546,5.456C13.542,5.468 13.534,5.479 13.524,5.487C13.513,5.495 13.5,5.5 13.487,5.5C13.473,5.5 13.46,5.495 13.45,5.487C13.439,5.479 13.431,5.468 13.427,5.456L13.314,5.088C13.267,4.939 13.186,4.803 13.075,4.692C12.964,4.581 12.828,4.5 12.679,4.453L12.312,4.34C12.299,4.336 12.288,4.328 12.28,4.318C12.272,4.307 12.268,4.294 12.268,4.281C12.268,4.267 12.272,4.254 12.28,4.244C12.288,4.233 12.299,4.225 12.312,4.221L12.679,4.108C12.828,4.062 12.964,3.98 13.075,3.869C13.186,3.758 13.267,3.623 13.314,3.473Z"
+      android:fillColor="@color/btn_txt_clr"/>
+</vector>

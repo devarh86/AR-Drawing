@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image_slider"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintDimensionRatio="4:5"
+        android:scaleType="fitXY"
+        app:shapeAppearanceOverlay="@style/RoundedTopCorners"
+        android:src="@drawable/frame_placeholder_portrait"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <!--        app:roundPercent="0.2"-->
+    <!-- android:adjustViewBounds="true"-->
+<!--    android:scaleType="fitXY"-->
+    <!--centerCrop-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+

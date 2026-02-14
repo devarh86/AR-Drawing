@@ -1,0 +1,54 @@
+{
+  "data": {
+    "frame": {
+      "id": "5257",
+      "title": "Solo",
+      "editor": "Solo",
+      "assettype": "FRAME",
+      "rembg": false,
+      "category": {
+        "title": "Solo"
+      },
+      "files": [
+        {
+          "key": "COVER",
+          "file": "file:///android_asset/offline_data/solo_frame/cover.webp",
+          "width": "248.00",
+          "height": "415.00",
+          "xaxis": "156.00",
+          "yaxis": "259.00",
+          "rotation": "0.00",
+          "clipFile": "0",
+          "effect": "0",
+          "adjustment": false
+        },
+        {
+          "key": "FRAME",
+          "file": "file:///android_asset/offline_data/solo_frame/frame.webp",
+          "width": "560.00",
+          "height": "933.00",
+          "xaxis": "0.00",
+          "yaxis": "2.00",
+          "rotation": "0.00",
+          "clipFile": "0",
+          "effect": "0",
+          "adjustment": false
+        },
+        {
+          "key": "MASKS",
+          "file": "file:///android_asset/offline_data/solo_frame/cover.webp",
+          "width": "446.00",
+          "height": "570.00",
+          "xaxis": "63.00",
+          "yaxis": "66.00",
+          "rotation": "0.00",
+          "clipFile": "0",
+          "effect": "0",
+          "adjustment": false
+        }
+      ],
+      "masks": 1,
+      "tags": "Free"
+    }
+  }
+}

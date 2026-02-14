@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/container_clr_activity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/try_now_placeholder"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:src="@drawable/ic_no_internet"
+        android:visibility="visible"
+        app:layout_anchor="@id/home_parent_recycler_view"
+        app:layout_anchorGravity = "center_horizontal" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/no_result_found_tv"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/no_internet_connect_found_please_try_again"
+        android:visibility="visible"
+        app:layout_anchor="@id/try_now_placeholder"
+        app:layout_anchorGravity = "bottom|center" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/try_now_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/try_now"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        android:gravity="center"
+        app:layout_anchor="@id/no_result_found_tv"
+        app:layout_anchorGravity = "bottom|center"
+        app:backgroundTint="@color/selected_txt_clr"
+        app:fontFamily="@font/inter" />
+
+</LinearLayout>

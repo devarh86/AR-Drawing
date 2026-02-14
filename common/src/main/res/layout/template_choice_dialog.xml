@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner_top_radius_bg_10dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/cross_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:layout_margin="3dp"
+        android:elevation="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/cross_icon" />
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="@color/tab_txt_clr"
+        android:text="Start From"
+        android:textSize="@dimen/_15sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/blank_btn"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        app:srcCompat="@drawable/d_blank_ic"
+        app:layout_constraintBottom_toBottomOf="@+id/template_btn"
+        app:layout_constraintEnd_toStartOf="@+id/template_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="@+id/template_btn"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/blank_txt"
+        style="@style/subHeadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/tab_txt_clr"
+        android:text="@string/blank"
+        android:paddingTop="8dp"
+        android:textSize="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="@id/blank_btn"
+        app:layout_constraintTop_toBottomOf="@id/blank_btn"
+        app:layout_constraintEnd_toEndOf="@id/blank_btn"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/template_btn"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        app:srcCompat="@drawable/d_template_ic"
+        android:layout_marginStart="@dimen/_10sdp"
+      android:layout_marginTop="@dimen/_18sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/blank_btn"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/template_txt"
+        style="@style/subHeadingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/template"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="@dimen/_10sdp"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/_22sdp"
+        app:layout_constraintStart_toStartOf="@id/template_btn"
+        app:layout_constraintEnd_toEndOf="@id/template_btn"
+        app:layout_constraintTop_toBottomOf="@id/template_btn"/>
+
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

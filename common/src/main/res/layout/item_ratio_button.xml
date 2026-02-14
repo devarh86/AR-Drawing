@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/editor_bar_clr"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="8dp">
+
+    <ImageView
+        android:id="@+id/ratioImageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/square_icon" />
+
+    <TextView
+        android:id="@+id/ratioTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Ratio"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="12sp" />
+</LinearLayout>

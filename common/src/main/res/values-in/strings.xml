@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string name="next">Berikutnya</string>-->
+    <string name="downloading">Mengunduh...</string>
+    <string name="exit_title">Apakah Anda yakin ingin Keluar?</string>
+    <string name="discard">Membuang</string>
+    <string name="exit">KELUAR</string>
+    <string name="cancel">Membatalkan</string>
+    <string name="edit_photo">Sunting Foto</string>
+    <string name="are_you_want_to_discard">Apakah Anda ingin Membuang?</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">Jika Anda kembali, pekerjaan Anda akan dibuang!</string>
+    <string name="try_again">Coba Lagi</string>
+    <string name="select_language">Pilih bahasa</string>
+    <string name="term_of_use">Ketentuan Penggunaan</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="welcome_to_collagepic">Selamat datang di CollagePic</string>
+    <string name="what_do_you_want_to_do_in_this_app">Apa yang ingin Anda lakukan di aplikasi ini?</string>
+
+    <string name="unlock_all_features">Buka Semua Fitur</string>
+    <string name="start_free_trail">Mulai Uji Coba Gratis</string>
+    <string name="start_now">Mulai Sekarang</string>
+
+    <string name="ratio">Rasio</string>
+    <string name="add_image">Tambahkan gambar</string>
+    <string name="select_1_10_photos">Pilih 1–10 foto</string>
+    <string name="select_1_9_photos">Pilih 1–9 foto</string>
+    <string name="background">Latar belakang</string>
+    <string name="filter">Filter</string>
+    <string name="add">Tambah</string>
+    <string name="stitch">Jahit</string>
+    <string name="demandMessage">Anda hanya dapat memilih %d gambar</string>
+    <string name="requestMessage">Silakan pilih setidaknya %d gambar</string>
+    <string name="requestMessageCollage">Silakan pilih setidaknya %d gambar</string>
+    <string name="noImage">Tidak ada gambar ditemukan</string>
+    <string name="multi_fit">Penyesuaian ganda</string>
+    <string name="_continue">Lanjutkan</string>
+    <string name="square">Persegi</string>
+    <string name="options">Opsi\n</string>
+    <string name="stay">Tetap</string>
+
+    <string name="quick_tutorial">Tutorial Cepat</string>
+    <string name="shortcut_template">Template</string>
+    <string name="use_this_template">Gunakan Template Ini</string>
+    <string name="tap_to_apply">Ketuk untuk menerapkan</string>
+    <string name="great_work">Kerja Bagus</string>
+    <string name="done">Selesai</string>
+    <string name="getting_ready">Sedang mempersiapkan</string>
+    <string name="change_photos_with_just_one_touch">Ganti foto hanya dengan satu sentuhan</string>
+    <string name="show_me">Tunjukkan saya</string>
+    <string name="create_stunning_designs_in_a_single_tap">Buat desain menakjubkan hanya dengan satu ketukan</string>
+
+    <string name="cancel_subscription">Batalkan Berlangganan</string>
+    <string name="subscription_detail">Setelah selesai, uji coba akan secara otomatis diubah menjadi langganan. Langganan diperpanjang secara otomatis. Batalkan kapan saja di Google Play Store.</string>
+    <string name="continue_text">Melanjutkan</string>
+    <string name="no_watermark">Tidak ada tanda air</string>
+    <string name="no_obligatory_ads">Tidak ada iklan wajib</string>
+    <string name="smoother_experience">Pengalaman Lebih Halus</string>
+    <string name="access_to_all_features">Akses ke Semua fitur</string>
+    <string name="pro">PRO</string>
+    <string name="say_goodbye_to_watermark">Ucapkan selamat tinggal pada tanda air</string>
+    <string name="draft">Draf</string>
+    <string name="language_indo" translatable="false">Indonesia</string>
+    <string name="language_english" translatable="false">Bahasa inggris</string>
+    <string name="language_bengali" translatable="false">Benggala</string>
+    <string name="language_german" translatable="false">Jerman</string>
+    <string name="language_portuguese" translatable="false">Portugis</string>
+    <string name="language_arabic" translatable="false">Arab</string>
+    <string name="language_spanish" translatable="false">Spanyol</string>
+    <string name="language_mandarin" translatable="false">bahasa Mandarin</string>
+    <string name="language_russian" translatable="false">Rusia</string>
+    <string name="language_urdu" translatable="false">bahasa Urdu</string>
+    <string name="language_french" translatable="false">Perancis</string>
+    <string name="language_hindi" translatable="false">Hindi</string>
+    <string name="language_japanese" translatable="false">Jepang</string>
+    <string name="waring_out_of_memory">Memori tidak cukup. Silakan hapus gambar atau program Anda akan crash.!!!</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="border_size">Ukuran Perbatasan</string>
+    <string name="border_color">Warna Perbatasan</string>
+    <string name="border_padding">Lapisan</string>
+    <string name="border_radius">Radius</string>
+    <string name="frame_foreground">Bingkai Latar Depan</string>
+    <string name="save">Menyimpan</string>
+    <string name="message">pesan</string>
+    <string name="bg">BG</string>
+    <string name="text">Teks</string>
+    <string name="write_text">Tulis Teks</string>
+    <string name="close">Menutup</string>
+    <string name="replace">Mengganti</string>
+    <string name="crop">Tanaman</string>
+    <string name="remove_watermark">Hapus Tanda Air</string>
+    <string name="for_24_hours">Selama 24 Jam</string>
+    <string name="for_life_time">Untuk Seumur Hidup</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="processing_please_wait">Sedang diproses, harap tunggu...</string>
+    <string name="share">Membagikan</string>
+    <string name="home">Rumah</string>
+    <string name="frame_background">BingkaiLatar Belakang</string>
+    <string name="opacity">Kegelapan</string>
+    <string name="blend">Mencampur</string>
+    <string name="_ad">IKLAN</string>
+    <string name="watch_video_ad_to_remove_watermark_for_or_go_premium">Tonton Iklan video untuk menghapus tanda air atau Gunakan Premium.</string>
+    <string name="go_premium">PERGI PREMIUM</string>
+    <string name="trending_frames">Bingkai Tren</string>
+    <string name="blur">Mengaburkan</string>
+    <string name="next">Berikutnya</string>
+    <string name="watch_ad">Tonton iklan</string>
+    <string name="effect_opacity">Opasitas Efek</string>
+    <string name="photo_editor_1">Editor</string>
+    <string name="blending">Pencampuran</string>
+
+    <string name="menu_featured">Unggulan</string>
+    <string name="menu_home">Rumah</string>
+    <string name="menu_templates">Templat</string>
+    <string name="menu_styles">Gaya Seni</string>
+    <string name="menu_files">Pekerjaan saya</string>
+    <string name="ad">IKLAN</string>
+    <string name="single_frames">Bingkai Tunggal</string>
+    <string name="double_frames">Bingkai Pasangan</string>
+    <string name="greetings">Salam</string>
+    <string name="collages">Kolase</string>
+    <string name="collage">Kolase</string>
+    <string name="shapes">Bentuk</string>
+    <string name="pips">Bingkai Pips</string>
+    <string name="frames">Bingkai</string>
+    <string name="frame">Bingkai</string>
+    <string name="more">Lagi</string>
+    <string name="no_result_found">Tidak Ada Hasil yang Ditemukan</string>
+    <string name="try_now">Coba sekarang</string>
+    <string name="true_love_frames">Bingkai Saya</string>
+    <string name="true_love_frames_camelcase">Bingkai Saya</string>
+    <string name="tell_your_friend">KATAKAN TEMANMU</string>
+    <string name="rate_us">Nilai Kami</string>
+    <string name="send_mail">Kirim Surat</string>
+    <string name="cancel_subscription_description">Anda dapat mengelola atau membatalkan langganan kapan saja di pengaturan Google Play.</string>
+    <string name="recommended_apps">Aplikasi yang Direkomendasikan</string>
+    <string name="remove_ads">Hapus Iklan</string>
+    <string name="editor">Editor</string>
+    <string name="effect">Memengaruhi</string>
+    <string name="adjust">Menyesuaikan</string>
+    <string name="stickers">Stiker</string>
+    <string name="type">Jenis</string>
+    <string name="font">huruf</string>
+    <string name="font_color">Warna Huruf</string>
+    <string name="bg_color">Warna BG</string>
+    <string name="opacity_value">Opasitas: %1$s %</string>
+    <string name="menu_pro">Pro</string>
+    <string name="menu_favourite">Favorit</string>
+    <string name="for_you">Baru</string>
+    <string name="today_special">Atas</string>
+    <string name="most_used">Sedang tren</string>
+    <string name="more_features">Lebih Banyak Fitur</string>
+    <string name="recently_used">Terkini</string>
+    <string name="saved">Disimpan</string>
+    <string name="mark_as_favorite_then_your_photo_nwill_appear_in_favorite_list">Tandai bingkai sebagai favorit, maka bingkai Anda\nakan muncul di daftar favorit</string>
+    <string name="search_by_keyword">Cari Berdasarkan Kata Kunci</string>
+    <string name="more_apps">Aplikasi yang Direkomendasikan</string>
+    <string name="join_full_experience">Bergabunglah dengan Pengalaman Penuh</string>
+    <string name="ads_free">Iklan Gratis</string>
+    <string name="ads_free_experience">Pengalaman Bebas Iklan</string>
+    <string name="all_premium_assets">Semua Aset Premium</string>
+    <string name="each_plan_includes">Setiap Paket Termasuk:</string>
+    <string name="unlimited_frams_cards"><![CDATA[UNLIMITED FRAMES & CARDS]]></string>
+    <string name="get_100_stickers">DAPATKAN 100+ STIKER</string>
+    <string name="remove_ads_cap">HAPUS IKLAN</string>
+    <string name="continue_with_ads">Lanjutkan dengan Iklan</string>
+    <string name="weekly">Mingguan</string>
+    <string name="plan">Rencana</string>
+    <string name="yearly">Tahunan</string>
+    <string name="life_time">Seumur hidup</string>
+    <string name="premium_features">Fitur Premium</string>
+    <string name="get_access_to_premium_features">Dapatkan akses ke fitur premium</string>
+    <string name="text_effect">Efek Teks</string>
+
+    <string name="error_gif">ukuran terikat x atau y harus minimal %1$dpx dan ukuran file tidak boleh lebih dari %2$sM</string>
+    <string name="album_name_all">Semua Media</string>
+    <string name="error_type_conflict">Tidak dapat memilih gambar dan video secara bersamaan</string>
+    <string name="error_over_count_default">Anda telah mencapai batas maksimum yang dapat dipilih</string>
+    <string name="error_over_original_size">Tidak dapat memilih gambar yang lebih besar dari %1$d MB</string>
+    <string name="error_no_video_activity">Tidak ditemukan Aplikasi yang mendukung pratinjau video</string>
+    <string name="button_ok">OKE</string>
+    <string name="error_file_type">Jenis file tidak didukung</string>
+    <string name="error_over_original_count">%1$d gambar lebih dari %2$d MB. Yang asli tidak akan dicentang</string>
+    <string name="fonts_bg">Font BG</string>
+
+    <plurals name="error_over_count">
+        <item quantity="one">Anda hanya dapat memilih hingga %1$d file media</item>
+        <item quantity="few">Anda hanya dapat memilih hingga %1$d file media</item>
+        <item quantity="many">Anda hanya dapat memilih hingga %1$d file media</item>
+        <item quantity="other">Anda hanya dapat memilih hingga %1$d file media</item>
+    </plurals>
+    <string name="button_apply">Berikutnya</string>
+    <string name="button_apply_default">Berikutnya</string>
+    <string name="image_selection_limit_default">Pilih 2-9 Foto</string>
+    <string name="image_selection_limit">Pilih 2-9 Foto(%1$d)</string>
+    <string name="image_selection_limit_1">Pilih Foto</string>
+    <string name="brightness">Kecerahan</string>
+    <string name="contrast">Kontras</string>
+    <string name="hue">Warna</string>
+    <string name="exposure">Paparan</string>
+    <string name="saturation">Kejenuhan</string>
+    <string name="tint">Warna</string>
+    <string name="warmth">Kehangatan</string>
+    <string name="color">Warna</string>
+    <string name="sharpen">Mengasah</string>
+    <string name="vignette">Skema</string>
+    <string name="highlight">Menyorot</string>
+    <string name="shadow">Bayangan</string>
+
+    <string name="facebook_app_id" translatable="false">1116803502100807</string>
+    <string name="facebook_client_token" translatable="false">20e7e74441820ce829e94727c2e402b1</string>
+
+    <string name="layout_text">Tata Letak</string>
+    <string name="button_preview">Pratinjau</string>
+    <string name="button_original">Asli</string>
+    <string name="empty_text">Belum ada media</string>
+    <string name="button_back">Kembali</string>
+    <string name="what_we_offer_in_discount_plan">Apa yang kami tawarkan dalam paket Diskon</string>
+    <string name="original">Asli</string>
+    <string name="tick">Kutu</string>
+    <string name="reset">Mengatur ulang</string>
+    <string name="filter_opacity">Saring Opasitas</string>
+    <string name="share_text">Temukan cara baru yang menyenangkan untuk mempercantik foto Anda dengan aplikasi luar biasa ini.</string>
+    <string name="pro_icon">pro_icon</string>
+    <string name="all_inclusive">Semua termasuk</string>
+    <string name="do_you_have_any_thoughts_you_d_like_to_share">Apakah Anda mempunyai pemikiran yang ingin Anda sampaikan?</string>
+    <string name="submit">Kirim</string>
+    <string name="filters">Filter</string>
+    <string name="no_internet_connect_found_please_try_again">Ada yang salah dengan koneksi Anda \n Sambungkan ke internet.</string>
+    <string name="coming_soon">Segera hadir</string>
+    <string name="pro_caps">PRO</string>
+    <string name="apply_filter_on_all_images">Terapkan filter pada semua gambar</string>
+    <string name="connect_internet_and_explore_fantastic_art_style">Hubungkan internet dan jelajahi gaya seni yang fantastis.</string>
+    <string name="solo_frames">Bingkai Bernyanyi</string>
+    <string name="multiplex">Multipleks</string>
+    <string name="photo_editor">Penyunting Foto</string>
+    <string name="image_resolution">Resolusi Gambar</string>
+    <string name="good">Bagus</string>
+    <string name="enhanced">Ditingkatkan</string>
+    <string name="high">Tinggi</string>
+    <string name="unlock_this_amazing_frame">Buka kunci bingkai menakjubkan ini</string>
+    <string name="ad_start_in_3_second">Iklan Mulai dalam 3 Detik</string>
+    <string name="your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us">Pendapat Anda penting bagi kami. Kami akan sangat menghargai jika Anda dapat menilai kami.</string>
+    <string name="the_best_we_can_get">Yang terbaik yang bisa kita dapatkan</string>
+    <string name="rotate">Memutar</string>
+    <string name="image_quality">Kualitas Gambar</string>
+    <string name="edit_text">Sunting Teks</string>
+    <string name="edit">Sunting</string>
+
+    <string name="feedback">Masukan</string>
+    <string name="folder_name">Gambar Kolase</string>
+    <string name="name">Gambar Kolase</string>
+    <string name="app_name">Gambar Kolase</string>
+
+    <string name="logo_image">Gambar logo</string>
+    <string name="unlock_all_assets">Buka Kunci Semua Aset</string>
+    <string name="smoother_user_experience">Pengalaman Pengguna yang Lebih Lancar</string>
+    <string name="remove_obligatory_ads">Hapus Iklan Wajib</string>
+    <string name="monthly">Bulanan</string>
+
+    <string name="premium">PREMI</string>
+    <string name="basic">DASAR</string>
+
+    <string name="adjustment">Penyesuaian</string>
+    <string name="vertical">Vertikal</string>
+    <string name="horizontal">Horisontal</string>
+
+    <string name="camera_and_storage">Izin Kamera dan Penyimpanan</string>
+    <string name="collage_requires_camera_and_storage_access_for_optimal_performance">CollagePic memerlukan akses kamera dan penyimpanan untuk kinerja yang optimal.</string>
+    <string name="allow">Izinkan</string>
+
+
+
+
+
+    <string name="enhance_detail_text">gambar terlihat lebih tajam dan lebih hidup setelah peningkatan</string>
+
+
+    <string name="pro_enhance">Pro Tingkatkan</string>
+    <string name="better_effect_no_ads">Efek lebih baik &amp; tanpa iklan</string>
+
+    <string name="photo_ready_message">Foto Anda sudah siap! Simpan sekarang.</string>
+
+    <string name="processing_text_one">Memproses karya agung Anda... 🎨</string>
+    <string name="processing_text_two">Sentuhan akhir... ✨</string>
+    <string name="processing_text_three">Memulai... 🚀</string>
+
+    <string name="enhance">AI Enhancer</string>
+
+    <string name="edit_t_s">Edit Gambar</string>
+    <string name="edit_d_s">Sesuaikan foto Anda dengan mudah.</string>
+    <string name="enhance_t_s">Peningkatan AI</string>
+    <string name="enhance_d_s">Tingkatkan kualitas gambar dengan cerdas.</string>
+    <string name="blend_t_s">Campuran AI</string>
+    <string name="blend_d_s">Gabungkan gambar dengan AI secara mulus.</string>
+    <string name="collage_t_s">Kolase Foto</string>
+    <string name="collage_d_s">Gabungkan gambar ke dalam tata letak yang menakjubkan.</string>
+    <string name="bg_art_t_s">Seni Latar Belakang</string>
+    <string name="bg_art_d_s">Buat latar belakang yang menakjubkan dengan mudah.</string>
+    <string name="unleash">Bebaskan Kreativitas Anda!</string>
+    <string name="unlimited_access">Akses Tanpa Batas</string>
+    <string name="smooth_ux">Pengalaman Pengguna Lebih Lancar</string>
+
+
+
+    <string name="what_do_you_want_for_your_photo">Apa yang Anda inginkan untuk foto Anda?</string>
+    <string name="templates">Template</string>
+    <string name="choose_an_answer">Pilih jawaban</string>
+    <string name="select_2_9_photos">Pilih 2-9 foto</string>
+    <string name="select_1_1_photos">Pilih 1 foto</string>
+    <string name="maximum_images_selected">Maksimal foto yang dipilih</string>
+    <string name="photo_edit">Edit Foto</string>
+    <string name="ai_blend">AI Gabungan</string>
+    <string name="what_would_you_like_to_create">Apa yang ingin Anda buat?</string>
+    <string name="ai_enhance">AI Tingkatkan</string>
+    <string name="enhance_watch_ad">Peningkat \n Tonton iklan</string>
+
+    <string name="survery_detail">Tanggapan Anda akan membantu kami menghadirkan pengalaman yang sesuai untuk Anda. (Pilih semua jawaban yang sesuai)</string>
+
+
+
+
+
+    <string name="define_your_role">Tentukan Peran Anda, Temukan Alat Anda!</string>
+    <string name="pick_your_journey">Pilih Perjalanan Kreatif Anda!</string>
+    <string name="help_us_bring_experiences">Tanggapan Anda akan membantu kami menghadirkan pengalaman yang sesuai untuk Anda. (Pilih semua jawaban yang sesuai)</string>
+    <string name="where_publish_content">Di mana Anda menerbitkan konten Anda?</string>
+    <string name="how_did_you_find_us">Bagaimana Anda menemukan kami?</string>
+
+    <!-- User Information -->
+    <string name="personal_user">Pengguna pribadi</string>
+    <string name="student">Mahasiswa</string>
+    <string name="content_creator">Kreator Konten</string>
+    <string name="design_teacher">Guru Desain</string>
+    <string name="business_owner">Pemilik Bisnis</string>
+    <string name="employee">Karyawan</string>
+    <string name="event_planner">Perencana Acara</string>
+
+    <!-- Categories -->
+    <string name="frame_templates">Template Bingkai</string>
+    <string name="bg_art">Seni Latar Belakang</string>
+    <string name="profile_pic">Foto Profil</string>
+    <string name="pip_template">Template PIP</string>
+    <string name="other">Lainnya</string>
+
+    <!-- Content Types -->
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="reddit">Reddit</string>
+    <string name="dribbble">Dribbble</string>
+    <string name="behance">Behance</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">YouTube</string>
+    <string name="discord">Discord</string>
+
+    <string name="skip">Lewati</string>
+
+    <string name="button">Tombol</string>
+    <string name="make_another">Buat Lagi</string>
+    <string name="share_to">Bagikan ke</string>
+    <string name="failed_to_save_image">Gagal menyimpan gambar</string>
+    <string name="error_while_saving_image">Kesalahan saat menyimpan gambar</string>
+    <string name="close_background_apps_try_again">Harap tutup beberapa aplikasi latar belakang dan coba lagi</string>
+    <string name="failed_to_load_frame">Gagal memuat bingkai, silakan coba lagi</string>
+
+
+    <string name="error_while_applying_blend">Kesalahan saat menerapkan campuran</string>
+    <string name="image_loading_failed">Gagal memuat gambar, silakan coba lagi</string>
+    <string name="image_is_corrupt">Gambar rusak</string>
+    <string name="image_not_found">Gambar tidak ditemukan</string>
+    <string name="image_saving_failed">Gagal menyimpan gambar</string>
+
+
+
+
+    <string name="notification_title_2">🎨 Kolase Jadi Mudah!</string>
+    <string name="notification_description_2">Ubah foto favorit Anda menjadi kolase menakjubkan dengan mudah.</string>
+
+
+    <string name="don_t_allow">Jangan Izinkan</string>
+
+    <!-- res/values-in/strings.xml -->
+    <string name="full_screen_intent">Izin layar penuh ditolak</string>
+    <string name="full_screen_intent_message">Aktifkan <b>Layar Penuh</b> untuk pengalaman aplikasi terbaik dan pembaruan instan.</string>
+    <string name="open">Buka</string>
+    <string name="get_start">Mulai</string>
+    <string name="intro_one">Membantu mengedit otomatis menggunakan AI dengan mudah</string>
+    <string name="intro_two">Alat ini membantu Anda membuat foto dengan cepat dan sempurna.</string>
+    <string name="intro_two_first">The</string>
+    <string name="intro_three">Membantu Anda mengekspresikan gaya dan esensi unik dari foto Anda.</string>
+    <string name="background_art">Seni Latar Belakang</string>
+    <string name="use">Gunakan</string>
+    <string name="intro_one_heading">AI Peningkat Gambar</string>
+    <string name="intro_one_sub_heading">Meningkatkan kualitas foto Anda dengan mudah.</string>
+    <string name="intro_two_heading">Buat Kolase Menakjubkan</string>
+    <string name="intro_two_sub_heading">Gabungkan beberapa foto dengan mudah.</string>
+    <string name="intro_three_heading">Edit Ajaib Foto Anda</string>
+    <string name="intro_three_sub_heading">Sesuaikan foto Anda dengan mudah.</string>
+
+    <string name="_4k_templates_quality">Kualitas Template 4K</string>
+
+
+    <!-- Indonesian -->
+    <string name="then">kemudian</string>
+    <string name="per_week">/Minggu</string>
+    <string name="after_trial">setelah uji coba gratis 3 hari</string>
+    <string name="subscription_auto_renew">Langganan diperbarui secara otomatis. Batalkan kapan saja di</string>
+
+
+    <string name="shortcut_ai_blend">Campuran AI</string>
+    <string name="shortcut_ai_edit_photo">Edit Foto AI</string>
+    <string name="uninstall">Copot pemasangan</string>
+    <string name="hey_there">Halo!!</string>
+
+    <string name="dont_want_to_uninstall">Tidak ingin mencopot pemasangan</string>
+    <string name="still_want_to_uninstall">Tetap ingin mencopot pemasangan</string>
+    <string name="problem_when_using_app">Masalah saat menggunakan aplikasi</string>
+    <string name="you_are_a_great_partner">Anda adalah mitra yang hebat!</string>
+    <string name="your_feedback_is">Masukan Anda membantu kami meningkatkan fitur</string>
+    <string name="why_do_you_uninstall">Mengapa Anda mencopot pemasangan?</string>
+    <string name="image_creation_feature">Fitur pembuatan gambar buruk</string>
+    <string name="generating_process_time">Waktu proses pembuatan sangat lama</string>
+    <string name="not_enough_features">Fitur tidak cukup seperti yang diharapkan</string>
+    <string name="interface_is_difficult">Antarmuka sulit digunakan</string>
+    <string name="too_many_ads">Terlalu banyak iklan</string>
+    <string name="i_found_another_app">Saya menemukan aplikasi lain yang lebih cocok</string>
+    <string name="please_enter_the_reason_why">Silakan masukkan alasan Anda mencopot pemasangan</string>
+    <string name="type_your_feedback">Ketik masukan Anda di sini</string>
+
+
+
+
+    <string name="ai_blend_lacks">Fitur kolase terbatas</string>
+    <string name="gen_again">Coba tata letak yang berbeda</string>
+    <string name="ai_edit_photo">Edit AI tidak akurat</string>
+    <string name="enhance_again">Edit lagi</string>
+    <string name="cannot_find_your">Peningkatan AI kurang jelas</string>
+    <string name="zoom_again">Tingkatkan lagi</string>
+
+
+    <string name="please_share_information">Silakan bagikan masukan Anda untuk membantu kami meningkatkan pengalaman Anda</string>
+
+
+
+
+    <string name="do_you_want_to_discard">Apakah Anda ingin membatalkan</string>
+    <string name="let_s_go">Ayo pergi</string>
+    <string name="blank">Kosong</string>
+    <string name="template">Template</string>
+    <string name="app_name_new">Aplikasi AR Drawing</string>
+
+    <string name="boarding1_title">Carousel</string>
+    <string name="boarding1_text_body">Geser melalui beberapa postingan dengan mudah.</string>
+    <string name="boarding3_title">Cerita</string>
+    <string name="boarding3_text_body">Konten visual layar penuh yang berumur pendek.</string>
+
+    <string name="boarding4_title">Gabungkan</string>
+    <string name="boarding4_text_body">Satukan klip berbeda dengan mulus.</string>
+
+    <string name="boarding2_title">Kolase</string>
+    <string name="boarding2_text_body">Gabungkan foto dalam satu bingkai.</string>
+
+    <string name="upgrade_plan_now">Tingkatkan Paket Sekarang!</string>
+    <string name="enjoy_unlimited_benefits_amp_features">Nikmati Manfaat &amp; Fitur Tanpa Batas</string>
+    <string name="generals">Umum</string>
+    <string name="supports">Dukungan</string>
+    <string name="seamless">Mulus</string>
+    <string name="story">Cerita</string>
+    <string name="rewind">Mundur</string>
+    <string name="paper">Kertas</string>
+    <string name="tape">Pita</string>
+    <string name="plastic">Plastik</string>
+    <string name="film">Film</string>
+    <string name="try_for_free">Coba Gratis</string>
+
+
+    <string name="share_your_new_look_on_social_media_n_tap_below_to_post_it_on_instagram_n_or_tiktok">Bagikan tampilan baru Anda di media sosial\n—ketuk di bawah untuk memposting di Instagram atau TikTok.</string>
+    <string name="open_instagram">Buka Instagram</string>
+    <string name="open_tiktok">Buka TikTok</string>
+    <string name="open_more">Buka Lainnya</string>
+
+
+    <string name="title_general_notification_without_fo">Jangan hilangkan foto yang sedang dikerjakan!</string>
+    <string name="sub_heading_general_notification_without_fo">Selesaikan pengeditan sekarang</string>
+    <string name="title_general_notification_with_fo">Jangan lewatkan pengeditan foto!</string>
+    <string name="sub_heading_general_notification_with_fo">Buka aplikasi untuk melanjutkan mengedit foto Anda sekarang</string>
+    <string name="all_pro_materials">Semua Material Pro</string>
+    <string name="no_watermark_and_ads">Tanpa tanda air dan iklan</string>
+    <string name="cancel_anytime_form_the_app">Batalkan kapan saja dari aplikasi</string>
+    <string name="weekly_plan">Paket mingguan</string>
+    <string name="yearly_plan">Paket tahunan</string>
+    <string name="notification_title_1">✨ Bagikan Karusel Menakjubkanmu!</string>
+    <string name="notification_description_1">Foto Anda siap bersinar. Posting karusel Anda di Instagram sekarang dan biarkan gaya Anda menginspirasi! 🌿📸</string>
+
+    <string name="_7_day_free_trail">Uji coba gratis 7 hari</string>
+    <string name="_3_day_free_trail">Uji coba gratis 3 hari</string>
+
+    <string name="get_pro">Dapatkan Pro</string>
+    <string name="unlock_this_premium_frame">Buka Kunci Frame Premium Ini</string>
+    <string name="choose_how_you_want_to_unlock_this_frame">Pilih cara membuka kunci frame ini</string>
+    <string name="watch_ad_to_unlock">Tonton Iklan untuk Membuka</string>
+    <string name="get_pro_for_unlimited_access">Dapatkan Pro untuk Akses Tanpa Batas</string>
+    <string name="unlock_all_premium_frames_forever">Buka kunci semua frame premium selamanya</string>
+
+
+
+    <string name="upgrade_to_premium">Tingkatkan ke Premium</string>
+    <string name="unlock_the_full_experience">Buka pengalaman lengkap</string>
+    <string name="unlock_all_premium_templates">Buka Semua Template Premium</string>
+    <string name="priority_access_to_new_features">Akses Prioritas ke Fitur Baru</string>
+    <string name="access_all_style_categories">Akses Semua Kategori Gaya</string>
+    <string name="one_tap_carousel_creator">Pembuat Carousel Sekali Ketuk</string>
+    <string name="quality_export_without_watermark">Ekspor Berkualitas Tanpa Watermark</string>
+    <string name="ad_free_creative_experience">Pengalaman Kreatif Bebas Iklan</string>
+    <string name="_3_days_free_trial">Uji Coba Gratis 3 Hari</string>
+    <string name="trusted_by_2m_users_worldwide">Dipercaya oleh lebih dari 2 juta pengguna di seluruh dunia</string>
+
+    <string name="grab_now">Dapatkan Sekarang</string>
+    <string name="unlock_your_premium_experience_today">Buka pengalaman premium Anda hari ini!</string>
+    <string name="_7_days_free_trial">Uji Coba Gratis 7 Hari</string>
+    <string name="carousal">Carousel</string>
+
+    <string name="enjoy_50_off_on_weekly_premium">Genießen Sie 50% Rabatt auf Wöchentliches Premium!</string>
+
+
+
+
+
+
+
+
+
+
+</resources>

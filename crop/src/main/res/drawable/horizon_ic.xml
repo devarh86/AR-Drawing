@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="22dp"
+    android:height="22dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+  <path
+      android:pathData="M12.98,19.5H16.5C17.12,19.5 17.67,19.48 18.16,19.41C20.79,19.12 21.5,17.88 21.5,14.5V9.5C21.5,6.12 20.79,4.88 18.16,4.59C17.67,4.52 17.12,4.5 16.5,4.5H13.04"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_icon_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M8.98,4.5H7.5C6.88,4.5 6.33,4.52 5.84,4.59C3.21,4.88 2.5,6.12 2.5,9.5V14.5C2.5,17.88 3.21,19.12 5.84,19.41C6.33,19.48 6.88,19.5 7.5,19.5H8.98"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_icon_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M9,2V22"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_icon_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M12.905,12H12.896"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_icon_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M16.905,12H16.896"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.5"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/btn_icon_clr"
+      android:strokeLineCap="round"/>
+</vector>

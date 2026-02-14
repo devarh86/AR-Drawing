@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/only_top_rounded"
+    android:backgroundTint="@color/container_clr_activity">
+
+    <ImageView
+        android:id="@+id/cross_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/tick"
+        android:padding="4dp"
+        android:tag="free"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cross_icon" />
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loading_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/thumb_iv"
+        app:layout_constraintEnd_toEndOf="@+id/thumb_iv"
+        app:layout_constraintStart_toStartOf="@+id/thumb_iv"
+        app:layout_constraintTop_toTopOf="@+id/thumb_iv"
+        app:shimmer_auto_start="false"
+        app:shimmer_shape="linear">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/thumb_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_margin="@dimen/_25sdp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cross_img" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/unlock_this_premium_frame"
+        android:textColor="@color/btn_txt_clr"
+        android:textSize="@dimen/_16sdp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/des_tv"/>
+
+    <TextView
+        android:id="@+id/des_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/inter"
+        android:text="@string/choose_how_you_want_to_unlock_this_frame"
+        android:textColor="#B5BBC3"
+        android:textSize="@dimen/_9sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="21dp"
+        app:layout_constraintBottom_toTopOf="@id/watch_ad"/>
+
+
+    <ImageView
+        android:id="@+id/watch_ad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_12sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@+id/pro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.9"
+        app:srcCompat="@drawable/ic_bg_blue" />
+
+    <ImageView
+        android:id="@+id/watch_ad_1"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_26sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/watch_ad"
+        app:layout_constraintEnd_toEndOf="@id/watch_ad"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/watch_ad"
+        app:layout_constraintTop_toTopOf="@+id/watch_ad"
+        app:srcCompat="@drawable/reward_play_ic" />
+<!--        app:srcCompat="@drawable/ic_play" />-->
+
+    <TextView
+        android:id="@+id/watch_ad_timer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="@string/watch_ad_to_unlock"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/watch_ad"
+        app:layout_constraintEnd_toEndOf="@+id/watch_ad"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/watch_ad_1"
+        app:layout_constraintTop_toTopOf="@+id/watch_ad" />
+
+  <!--  <ImageView
+        android:id="@+id/pro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintWidth_percent="0.7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pro_view" />-->
+
+    <ImageView
+        android:id="@+id/pro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_20sdp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pro_gradient_bg" />
+
+    <ImageView
+        android:id="@+id/watch_ad_2"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/pro"
+        app:layout_constraintEnd_toEndOf="@id/pro"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/pro"
+        app:layout_constraintTop_toTopOf="@+id/pro"
+        app:srcCompat="@drawable/premium_crown_ic" />
+
+    <TextView
+        android:id="@+id/pro_unlimited_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:fontFamily="@font/inter"
+        android:singleLine="true"
+        android:text="@string/get_pro_for_unlimited_access"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/unlock_frames_tv"
+        app:layout_constraintEnd_toEndOf="@+id/pro"
+        app:layout_constraintHorizontal_bias="0.27"
+        app:layout_constraintStart_toEndOf="@+id/watch_ad_2"
+        app:layout_constraintTop_toTopOf="@+id/pro" />
+
+    <TextView
+        android:id="@+id/unlock_frames_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter"
+        android:text="@string/unlock_all_premium_frames_forever"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_9sdp"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        app:layout_constraintBottom_toBottomOf="@+id/pro"
+        app:layout_constraintEnd_toEndOf="@id/pro_unlimited_tv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/pro_unlimited_tv"
+        app:layout_constraintTop_toBottomOf="@id/pro_unlimited_tv" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

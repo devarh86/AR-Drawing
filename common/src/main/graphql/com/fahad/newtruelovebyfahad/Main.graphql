@@ -1,0 +1,25 @@
+query getMainScreen {
+    childCategories{
+        title
+        children{
+            title
+            frames{
+                id
+                title
+                thumb
+                editor
+                thumbtype
+                masks
+                tags
+                assettype
+                rembg
+                scrlCount
+                baseUrl
+                scrl {
+                    baseUrl
+                    file
+                }
+            }
+        }
+    }
+}

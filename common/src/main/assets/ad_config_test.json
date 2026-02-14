@@ -1,0 +1,189 @@
+{
+  "splash_screen": {
+    "native": {
+      "is_enabled": true,
+      "reload_limit": 2,
+      "ad_unit_ids": [
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110"
+      ]
+    },
+    "interstitial": {
+      "floor": 2,
+      "start_count": 0,
+      "after_start_count": 1,
+      "always_show": true,
+      "is_enabled": false,
+      "ad_unit_ids": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "app_open": {
+      "is_enabled": true,
+      "ad_unit_ids": [
+        "ca-app-pub-3940256099942544/9257395921",
+        "ca-app-pub-3940256099942544/9257395921",
+        "ca-app-pub-3940256099942544/9257395921"
+      ]
+    },
+    "timeout": 13000,
+    "time": 5000,
+    "splash_pro_home": true
+  },
+  "app_interstitial": {
+    "floor": 2,
+    "start_count":0,
+    "after_start_count": 1,
+    "always_show": false,
+    "is_enabled": false,
+    "ad_unit_ids": [
+      "",
+      "",
+      ""
+    ]
+  },
+  "rewarded": {
+    "is_enabled": true,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/5224354917",
+      "ca-app-pub-3940256099942544/5224354917",
+      "ca-app-pub-3940256099942544/5224354917"
+    ]
+  },
+  "rewarded_frames": {
+    "is_enabled": true,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/5224354917",
+      "ca-app-pub-3940256099942544/5224354917",
+      "ca-app-pub-3940256099942544/5224354917"
+    ]
+  },
+  "app_open_resume": {
+    "is_enabled": true,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/9257395921",
+      "ca-app-pub-3940256099942544/9257395921",
+      "ca-app-pub-3940256099942544/9257395921"
+    ]
+  },
+  "language_screen": {
+    "native_before_selection": {
+      "is_enabled": true,
+      "reload_limit": 2,
+      "ad_unit_ids": [
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110"
+      ]
+    },
+    "native_after_selection": {
+      "is_enabled": true,
+      "reload_limit": 2,
+      "ad_unit_ids": [
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110",
+        "ca-app-pub-3940256099942544/2247696110"
+      ]
+    },
+    "interstitial": {
+      "floor": 2,
+      "start_count": 0,
+      "after_start_count": 1,
+      "always_show": false,
+      "is_enabled": true,
+      "ad_unit_ids": [
+        "ca-app-pub-3940256099942544/1033173712",
+        "ca-app-pub-3940256099942544/1033173712",
+        "ca-app-pub-3940256099942544/1033173712"
+      ]
+    }
+  },
+  "onboarding_1_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "onboarding_2_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "onboarding_3_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "onboarding_4_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "processing_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "exit_save_native": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110",
+      "ca-app-pub-3940256099942544/2247696110"
+    ]
+  },
+  "app_banner": {
+    "is_enabled": true,
+    "reload_limit": 2,
+    "ad_unit_ids": [
+      "ca-app-pub-3940256099942544/6300978111",
+      "ca-app-pub-3940256099942544/6300978111",
+      "ca-app-pub-3940256099942544/6300978111"
+    ]
+  },
+
+
+
+  "global_settings": {
+    "reward_ads": {
+      "all_reward": false,
+      "reward_time": 3000
+    },
+    "button_new_flow": true,
+    "show_valentine_pop_up": false,
+    "tutorial_scr": false,
+    "auto_scroll_time": 6000,
+    "native_reload_limit": 2,
+    "native_on_resume": true,
+    "notification": {
+      "lockscreen": true,
+      "lockscreen_country": 1,
+      "status_bar_country": 1,
+      "time_push_1": 10,
+      "time_push_2": 9
+    }
+  }
+}

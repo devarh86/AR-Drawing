@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--selected color -->
+
+    <color name="selected_txt_clr">#FFFFFF</color>
+    <color name="container_clr_activity">#FAEDF5</color>
+    <!--activity  container color-->
+    <color name="pro_bg_new">#131313</color>
+    <color name="btn_txt_clr">#ffffff</color>
+    <color name="sub_heading_txt">#8B8B8B</color>
+
+    <color name="boarding_bg">#0F0F0F</color>
+    <color name="boarding_bg_two">#4D1821</color>
+
+    <color name="native_large_bg_color">#F0F4FD</color>
+    <color name="language_item_bg">#1F1C1D</color>
+    <color name="native_ad_title_color">#ffffff</color>
+    <color name="native_ad_body_text_color">#ffffff</color>
+<!--    <color name="native_call_action_btn_bg">#ADADAD</color>-->
+    <color name="native_call_action_btn_bg">#FFFFFF</color>
+
+    <color name="native_ad_question_bg_color">#302f2f</color>
+
+</resources>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent">
+
+    <!--    android:background="@drawable/surface_bg"-->
+    <!--    android:background="@color/editor_bar_clr">-->
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/toolbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/main_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="-12dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/bottom_layout_for_selection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/folder_view" />
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar" />-->
+
+    <androidx.compose.ui.platform.ComposeView
+        android:id="@+id/folder_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/main_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottom_layout_for_selection"-->
+    <!--   android:backgroundTint="@color/whiteBg"-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_layout_for_selection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/only_top_rounded"
+
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/delete_image_img_new_flow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="5dp"
+            android:src="@drawable/delete_image_icon"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/heading_txt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/heading_txt" />
+
+        <TextView
+            android:id="@+id/heading_txt"
+            style="@style/headingText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:maxLines="2"
+            android:text="@string/select_2_9_photos"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintEnd_toStartOf="@+id/delete_image_img"
+            app:layout_constraintStart_toEndOf="@id/delete_image_img_new_flow"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/delete_image_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:padding="5dp"
+            android:src="@drawable/delete_image_icon"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/heading_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/heading_txt" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="30dp"
+            android:minHeight="90.5dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heading_txt"
+            tools:listitem="@layout/selected_image_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/next_new_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:elevation="5dp"
+        android:src="@drawable/next_gallery"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_layout_for_selection"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_layout_for_selection"
+        app:layout_constraintTop_toTopOf="@+id/bottom_layout_for_selection" />
+</androidx.constraintlayout.widget.ConstraintLayout>

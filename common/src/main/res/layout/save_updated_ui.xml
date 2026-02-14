@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/container_clr_activity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:src="@drawable/back_logo"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:gravity="center"
+            android:text="@string/saved"
+            android:textColor="@color/tab_txt_clr"
+            android:textSize="@dimen/_14sdp"
+            app:fontFamily="@font/robotom" />
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            android:src="@drawable/s_home_ic"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+            tools:layout_editor_absoluteX="337dp" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:id="@+id/savedImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/blend_sample"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:shimmer_auto_start="true">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/image_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:visibility="gone"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/shareText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/removeAdsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/s_gradient_bg_round"
+            android:fontFamily="@font/robotom"
+            android:gravity="center"
+            android:text="@string/remove_ads"
+            android:textColor="@color/button_text_color"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/makeAnotherButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.42"
+            tools:ignore="TextSizeCheck" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/makeAnotherButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/s_gradient_outline_round"
+            android:fontFamily="@font/robotom"
+            android:gravity="center"
+            android:text="Make Another"
+            android:textColor="@color/btn_icon_clr"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/removeAdsButton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.42"
+            tools:ignore="TextSizeCheck" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/shareText"
+        style="@style/ShareTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="@string/share_to"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@id/insta_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+<!--    app:layout_constraintBottom_toTopOf="@id/insta_btn"-->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/share_intsa_new"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/rounded_filled_8dp"
+        android:backgroundTint="#1B2026"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="Open Instagram"
+        android:visibility="gone"
+        android:textAlignment="center"
+        android:drawablePadding="20dp"
+        app:drawableStartCompat="@drawable/s_ic_instaa"
+        app:layout_constraintBottom_toTopOf="@id/native_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+    <TextView
+        android:id="@+id/tiktok_tv"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="@string/tiktok"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/fb_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/insta_tv"
+        tools:ignore="TextSizeCheck" />
+
+
+    <TextView
+        android:id="@+id/fb_tv"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/facebook"
+        android:textSize="@dimen/_7sdp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/insta_tv"
+        app:layout_constraintStart_toEndOf="@id/tiktok_tv"
+        app:layout_constraintTop_toTopOf="@id/tiktok_tv"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/insta_tv"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:text="@string/instagram"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toStartOf="@id/wa_tv"
+        app:layout_constraintStart_toEndOf="@id/fb_tv"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/wa_tv"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="whatsapp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/more_tv"
+        app:layout_constraintStart_toEndOf="@id/insta_tv"
+        app:layout_constraintTop_toTopOf="@id/insta_tv"
+        tools:ignore="TextSizeCheck" />
+
+    <TextView
+        android:id="@+id/more_tv"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:text="@string/more"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wa_tv"
+        app:layout_constraintTop_toTopOf="@id/insta_tv"
+        tools:ignore="TextSizeCheck" />
+
+
+
+    <ImageView
+        android:id="@+id/tiktok_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_tiktok"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/fb_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/insta_btn" />
+
+
+    <ImageView
+        android:id="@+id/fb_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_facebook"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/insta_btn"
+        app:layout_constraintStart_toEndOf="@id/tiktok_btn"
+        app:layout_constraintTop_toTopOf="@id/tiktok_btn" />
+
+    <ImageView
+        android:id="@+id/insta_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:contentDescription="@string/button"
+        android:src="@drawable/s_ic_instaa"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/insta_tv"
+        app:layout_constraintEnd_toStartOf="@id/wa_btn"
+        app:layout_constraintStart_toEndOf="@id/fb_btn" />
+    <!-- app:layout_constraintTop_toBottomOf="@id/shareText"-->
+    <ImageView
+        android:id="@+id/wa_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_whatsapp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toStartOf="@id/more_btn"
+        app:layout_constraintStart_toEndOf="@id/insta_btn"
+        app:layout_constraintTop_toTopOf="@id/insta_btn" />
+
+    <ImageView
+        android:id="@+id/more_btn"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:contentDescription="@string/button"
+        android:src="@drawable/ic_other"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/wa_btn"
+        app:layout_constraintTop_toTopOf="@id/insta_btn" />
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/_11sdp"
+        android:layout_marginBottom="8dp"
+        android:background="#1A1B1D21"
+        app:layout_constraintBottom_toTopOf="@id/collageTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent" />
+    <!--  app:layout_constraintTop_toBottomOf="@id/insta_tv" -->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collageTextView"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:background="@drawable/rounded_filled_8dp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/collage"
+        android:visibility="gone"
+        app:drawableTopCompat="@drawable/s_collage_ic"
+        app:layout_constraintBottom_toTopOf="@id/native_container"
+        app:layout_constraintEnd_toStartOf="@id/templateTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck" />
+    <!--    app:layout_constraintTop_toBottomOf="@id/divider"-->
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/templateTextView"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:background="@drawable/rounded_filled_8dp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/templates"
+        app:drawableTopCompat="@drawable/s_template_ic"
+        app:layout_constraintBottom_toBottomOf="@id/collageTextView"
+        app:layout_constraintEnd_toStartOf="@id/editPhotoTextView"
+        app:layout_constraintStart_toEndOf="@id/collageTextView"
+        app:layout_constraintTop_toTopOf="@id/collageTextView"
+        tools:ignore="TextSizeCheck" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/editPhotoTextView"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:background="@drawable/rounded_filled_8dp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/edit_photo"
+        app:drawableTopCompat="@drawable/s_edit_photo_ic"
+        app:layout_constraintBottom_toBottomOf="@id/collageTextView"
+        app:layout_constraintEnd_toStartOf="@id/enhancerTextView"
+        app:layout_constraintStart_toEndOf="@id/templateTextView"
+        app:layout_constraintTop_toTopOf="@id/collageTextView"
+
+        tools:ignore="TextSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/enhancerTextView"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:background="@drawable/rounded_filled_8dp"
+
+        android:drawablePadding="@dimen/_9sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="@string/enhance"
+        app:drawableTopCompat="@drawable/s_enhancer_ic"
+        app:layout_constraintBottom_toBottomOf="@id/collageTextView"
+        app:layout_constraintEnd_toStartOf="@id/overlayTextView"
+        app:layout_constraintStart_toEndOf="@id/editPhotoTextView"
+        app:layout_constraintTop_toTopOf="@id/collageTextView"
+
+        tools:ignore="TextSizeCheck" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/overlayTextView"
+        style="@style/ShareTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:background="@drawable/rounded_filled_8dp"
+        android:drawablePadding="@dimen/_9sdp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:text="Overlay"
+        app:drawableTopCompat="@drawable/s_overlay_ic"
+        app:layout_constraintBottom_toBottomOf="@id/collageTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/enhancerTextView"
+        app:layout_constraintTop_toTopOf="@id/collageTextView"
+
+        tools:ignore="TextSizeCheck" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/native_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <!--        app:layout_constraintTop_toBottomOf="@id/collageTextView"-->
+        <include
+            android:id="@+id/medium_native_layout"
+            layout="@layout/large_native_layout_onboard_loading"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+

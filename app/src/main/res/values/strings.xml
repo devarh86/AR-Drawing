@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">AR Drawing</string>
+    <string name="all_your_drawings">All your drawings stored in one place.</string>
+
+
+    <!--    <string name="menu_featured">Featured</string>-->
+    <!--    <string name="menu_home">Home</string>-->
+    <!--    <string name="menu_templates">Templates</string>-->
+    <!--    <string name="menu_styles">Art Styles</string>-->
+    <!--    <string name="menu_files">My Work</string>-->
+    <!--    <string name="ad">AD</string>-->
+    <!--    <string name="single_frames">Single Frames</string>-->
+    <!--    <string name="double_frames">Couple Frames</string>-->
+    <!--    <string name="greetings">Greetings</string>-->
+    <!--    <string name="collages">Collages</string>-->
+    <!--    <string name="collage">Collage</string>-->
+    <!--    <string name="shapes">Shapes</string>-->
+    <!--    <string name="pips">Pips Frames</string>-->
+    <!--    <string name="frames">Frames</string>-->
+    <!--    <string name="more">More</string>-->
+    <!--    <string name="text">Text</string>-->
+    <!--    <string name="no_result_found">No Result Found</string>-->
+    <!--    <string name="try_now">Try now</string>-->
+    <!--    <string name="true_love_frames">FramMe</string>-->
+    <!--    <string name="true_love_frames_camelcase">FramMe</string>-->
+    <!--    <string name="tell_your_friend">TELL YOUR FRIEND</string>-->
+    <!--    <string name="rate_us">Rate Us</string>-->
+    <!--    <string name="send_mail">Send Mail</string>-->
+
+    <!--    <string name="cancel_subscription_description">You can manage or cancel the subscription at any time in the setting of google play.</string>-->
+    <!--    <string name="recommended_apps">Recommended Apps</string>-->
+    <!--    <string name="remove_ads">Remove Ads</string>-->
+    <!--    <string name="editor">Editor</string>-->
+    <!--    <string name="save">Save</string>-->
+    <!--    <string name="replace">Replace</string>-->
+    <!--    <string name="effect">Effect</string>-->
+    <!--    <string name="adjust">Adjust</string>-->
+    <!--    <string name="stickers">Stickers</string>-->
+    <!--    <string name="type">Type</string>-->
+    <!--    <string name="font">Font</string>-->
+    <!--    <string name="font_color">Font Color</string>-->
+    <!--    <string name="bg_color">BG Color</string>-->
+    <!--    <string name="opacity_value">Opacity: %1$s %</string>-->
+    <!--    <string name="menu_pro">Pro</string>-->
+    <!--    <string name="menu_favourite">Favourite</string>-->
+    <!--    <string name="for_you">New</string>-->
+    <!--    <string name="today_special">Top</string>-->
+    <!--    <string name="most_used">Trending</string>-->
+    <!--    <string name="more_features">More Features</string>-->
+    <!--    <string name="recently_used">Recent</string>-->
+    <!--    <string name="draft">Draft</string>-->
+    <!--    <string name="saved">Saved</string>-->
+    <!--    <string name="mark_as_favorite_then_your_photo_nwill_appear_in_favorite_list">Mark frame as favorite, then your frame\nwill appear in favorite list</string>-->
+    <!--    <string name="search_by_keyword">Search By Keyword</string>-->
+    <!--    <string name="_ad">AD</string>-->
+    <!--    <string name="more_apps">Recommended Apps</string>-->
+    <!--    <string name="join_full_experience">Join Full Experience</string>-->
+    <!--    <string name="no_watermark">No Watermark</string>-->
+    <!--    <string name="ads_free">Ads Free</string>-->
+    <!--    <string name="ads_free_experience">Ads Free Experience</string>-->
+    <!--    <string name="all_premium_assets">All Premium Assets</string>-->
+    <!--    <string name="each_plan_includes">Each Plan Includes:</string>-->
+    <!--    <string name="unlimited_frams_cards"><![CDATA[UNLIMITED FRAMES & CARDS]]></string>-->
+    <!--    <string name="get_100_stickers">GET 100+ STICKERS</string>-->
+    <!--    <string name="remove_ads_cap">REMOVE ADS</string>-->
+    <!--    <string name="continue_with_ads">Continue with Ads</string>-->
+
+    <!--    <string name="weekly">Weekly</string>-->
+    <!--    <string name="plan">Plan</string>-->
+    <!--    <string name="yearly">Yearly</string>-->
+    <!--    <string name="monthly">Monthly</string>-->
+    <!--    <string name="hello_blank_fragment">Hello blank fragment</string>-->
+    <!--    <string name="already_pro" translatable="false">Already Pro</string>-->
+    <!--    <string name="you_are_already_a_premium_user" translatable="false">You are already a Premium User</string>-->
+    <!--    <string name="your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us">Your Opinion matters to us. We\'d\ngreatly appreciate if you can rate us.</string>-->
+    <!--    <string name="the_best_we_can_get">The best we can get</string>-->
+    <!--    <string name="rate" translatable="false">Rate</string>-->
+    <!--    <string name="do_you_have_any_thoughts_you_d_like_to_share">Do you have any thoughts you\'d like to share ?</string>-->
+    <!--    <string name="folder_name">Collage Pic</string>-->
+    <!--    <string name="settings" translatable="false">Settings</string>-->
+    <!--    <string name="premium_features">Premium Features</string>-->
+    <!--    <string name="fast_processing" translatable="false">Fast Processing</string>-->
+    <!--    <string name="hd_image_proceees" translatable="false">HD Image Proceees</string>-->
+    <!--    <string name="per_month" translatable="false">Per Month</string>-->
+    <!--    <string name="per_year" translatable="false">Per Year</string>-->
+    <!--    <string name="per_week" translatable="false">Per Week</string>-->
+    <!--    <string name="coming_soon">Coming Soon</string>-->
+    <!--    <string name="ready_to_share" translatable="false">Ready To Share</string>-->
+    <!--    <string name="go_premium">Go Premium</string>-->
+    <!--    <string name="solo_frames">Singe Frames</string>-->
+    <!--    <string name="couple_frames" translatable="false">Couple Frames</string>-->
+    <!--    <string name="multiplex">Multiplex</string>-->
+    <!--    <string name="submit">Submit</string>-->
+    <!--    <string name="no_internet_connect_found_please_try_again">Something went wrong with your connection \n Connect to internet.</string>-->
+    <!--    <string name="pro_caps">PRO</string>-->
+
+    <!--    <string name="watch_ad">Watch ad</string>-->
+    <!--    <string name="photo_editor">Photo Editor</string>-->
+    <!--    <string name="blend_editor" translatable="false">Blend Editor</string>-->
+    <!--    <string name="share_text">Discover a fun new way to beautify your photos with this awesome app.</string>-->
+    <!--    <string name="share_on" translatable="false">Share on</string>-->
+
+
+    <!--    <string name="facebook_app_id" translatable="false">1116803502100807</string>-->
+    <!--    <string name="facebook_client_token" translatable="false">20e7e74441820ce829e94727c2e402b1</string>-->
+    <!--    <string name="all_frames" translatable="false">All Frames</string>-->
+    <!--    <string name="photo_styling" translatable="false">Photo Styling</string>-->
+    <!--    <string name="image_quality">Image Quality</string>-->
+    <!--    <string name="enjoy_full_experience" translatable="false">Enjoy Full Experience</string>-->
+    <!--    <string name="good">Good</string>-->
+    <!--    <string name="enhanced">Enhanced</string>-->
+    <!--    <string name="high">High</string>-->
+    <!--    <string name="connect_internet_and_explore_fantastic_art_style">Connect internet and explore fantastic art style.</string>-->
+    <!--    <string name="try_again">Try Again</string>-->
+    <!--    <string name="image_resolution">Image Resolution</string>-->
+    <!--    <string name="what_we_offer_in_discount_plan">What we offer in Discount plan</string>-->
+    <!--    <string name="feedback">Feedback</string>-->
+    <!--    <string name="category" translatable="false">Categories</string>-->
+    <!--    <string name="home">Home</string>-->
+    <!--    <string name="edit_photo">Edit Photo</string>-->
+    <!--    <string name="multi_fit" >Multi Fit</string>-->
+</resources>

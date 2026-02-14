@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:layout_marginTop="4dp">
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/gallerImg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:round="8dp" />
+
+    <ImageView
+        android:id="@+id/cancel_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/image_cancel"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/gallerImg"
+        app:layout_constraintTop_toTopOf="@+id/gallerImg" />
+
+    <TextView
+        android:id="@+id/image_counter"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_5dp"
+        android:backgroundTint="@color/selected_color"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_4sdp"
+        android:text="0"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gallerImg" />
+
+    <TextView
+        android:id="@+id/image_counter_new"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_5dp"
+        android:backgroundTint="@color/selected_color"
+        android:paddingHorizontal="@dimen/_6sdp"
+        android:paddingVertical="@dimen/_4sdp"
+        android:text="1"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/gallerImg" />
+
+
+    <ImageView
+        android:id="@+id/check_selected_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_1sdp"
+        android:src="@drawable/check_selected_n"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/gallerImg"
+        app:layout_constraintTop_toTopOf="@+id/gallerImg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

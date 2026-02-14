@@ -1,0 +1,183 @@
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+    <!-- Start ConstraintSet -->
+    <ConstraintSet android:id="@+id/start_before_after">
+        <Constraint
+            android:id="@id/divider"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintBottom_toBottomOf="@+id/afterImage"
+            motion:layout_constraintStart_toStartOf="@+id/afterImage"
+            motion:layout_constraintTop_toTopOf="@+id/afterImage" />
+
+        <Constraint
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/handler"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintVertical_bias="0.8"
+            motion:layout_constraintBottom_toBottomOf="@id/divider"
+            motion:layout_constraintEnd_toEndOf="@id/divider"
+            motion:layout_constraintStart_toStartOf="@id/divider"
+            motion:layout_constraintTop_toTopOf="@id/divider" />
+
+        <Constraint
+            android:id="@+id/afterImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            motion:layout_constrainedHeight="true"
+            motion:layout_constrainedWidth="true"
+            motion:layout_constraintTop_toBottomOf="@id/toolbar_view"
+            motion:layout_constraintBottom_toTopOf="@id/success_text"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@id/before_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Before"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:background="@drawable/rounded_30dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible"
+            android:alpha="0.3"
+            motion:layout_constraintTop_toTopOf="@+id/afterImage"
+            motion:layout_constraintStart_toStartOf="@+id/afterImage" />
+
+        <Constraint
+            android:id="@+id/after_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="After"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:background="@drawable/rounded_30dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="@id/afterImage"
+            motion:layout_constraintEnd_toEndOf="@id/afterImage" />
+
+        <Constraint
+            android:id="@+id/pro_txt"
+            style="@style/headingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/pro_home"
+            motion:layout_constraintBottom_toBottomOf="@id/toolbar_view"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="1"
+            motion:layout_constraintStart_toStartOf="@id/toolbar_view"
+            motion:layout_constraintTop_toTopOf="@id/toolbar_view" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end_before_after">
+        <Constraint
+            android:id="@id/divider"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintBottom_toBottomOf="@+id/afterImage"
+            motion:layout_constraintEnd_toEndOf="@+id/afterImage"
+            motion:layout_constraintTop_toTopOf="@+id/afterImage" />
+
+        <Constraint
+            android:id="@+id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/handler"
+            motion:visibilityMode="ignore"
+            motion:layout_constraintVertical_bias="0.8"
+            motion:layout_constraintBottom_toBottomOf="@id/divider"
+            motion:layout_constraintEnd_toEndOf="@id/divider"
+            motion:layout_constraintStart_toStartOf="@id/divider"
+            motion:layout_constraintTop_toTopOf="@id/divider" />
+
+        <Constraint
+            android:id="@+id/afterImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+
+            motion:layout_constrainedHeight="true"
+            motion:layout_constrainedWidth="true"
+            motion:layout_constraintTop_toBottomOf="@id/toolbar_view"
+            motion:layout_constraintBottom_toTopOf="@id/success_text"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+
+
+        <Constraint
+            android:id="@id/before_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Before"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:background="@drawable/rounded_30dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible"
+            android:alpha="1"
+            motion:layout_constraintTop_toTopOf="@+id/afterImage"
+            motion:layout_constraintStart_toStartOf="@+id/afterImage" />
+
+        <Constraint
+            android:id="@+id/after_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="After"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:background="@drawable/rounded_30dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="visible"
+            android:alpha="0.3"
+            motion:layout_constraintTop_toTopOf="@id/afterImage"
+            motion:layout_constraintEnd_toEndOf="@id/afterImage" />
+
+        <Constraint
+            android:id="@+id/pro_txt"
+            style="@style/headingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/pro_home"
+            motion:layout_constraintBottom_toBottomOf="@id/toolbar_view"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintHorizontal_bias="1"
+            motion:layout_constraintStart_toStartOf="@id/toolbar_view"
+            motion:layout_constraintTop_toTopOf="@id/toolbar_view" />
+    </ConstraintSet>
+    <Transition
+        motion:constraintSetEnd="@id/end_before_after"
+        motion:constraintSetStart="@id/start_before_after"
+        motion:duration="2000"
+        motion:autoTransition="none"
+        motion:motionInterpolator="linear">
+    </Transition>
+
+
+</MotionScene>

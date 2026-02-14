@@ -1,0 +1,9 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp"
+    android:height="18dp"
+    android:viewportWidth="18"
+    android:viewportHeight="18">
+    <path
+        android:fillColor="@color/btn_icon_clr"
+        android:pathData="M5.4,5.4C5.4,5.895 4.995,6.3 4.5,6.3H0.9C0.405,6.3 0,5.895 0,5.4V1.8C0,1.305 0.405,0.9 0.9,0.9C1.395,0.9 1.8,1.305 1.8,1.8V3.645C3.438,1.44 6.039,0 9,0C13.968,0 18,4.032 18,9C18,13.968 13.968,18 9,18C4.032,18 0,13.968 0,9C0,8.505 0.405,8.1 0.9,8.1C1.395,8.1 1.8,8.505 1.8,9C1.8,12.978 5.022,16.2 9,16.2C12.978,16.2 16.2,12.978 16.2,9C16.2,5.022 12.978,1.8 9,1.8C6.723,1.8 4.707,2.853 3.384,4.5H4.5C4.995,4.5 5.4,4.905 5.4,5.4Z" />
+</vector>

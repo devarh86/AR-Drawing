@@ -1,0 +1,694 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 5,
+    "identityHash": "3aff4300400ba1ae5b6b8251cfad9b72",
+    "entities": [
+      {
+        "tableName": "parent_frame_model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `framePath` TEXT NOT NULL, `type` TEXT NOT NULL, `mask` TEXT NOT NULL, `bgPath` TEXT NOT NULL, `thumbnailPath` TEXT NOT NULL, `blurRadius` REAL NOT NULL, `borderBgColor` INTEGER NOT NULL, `borderBgColorOpacity` REAL NOT NULL, `borderSize` REAL NOT NULL, `borderRadius` REAL NOT NULL, `pieces` INTEGER NOT NULL, `theme` INTEGER NOT NULL, `collageType` INTEGER NOT NULL, `templatePosition` INTEGER NOT NULL, `collageBg` TEXT NOT NULL, `editor` TEXT NOT NULL, `selectedId` INTEGER NOT NULL, `originalWidth` INTEGER NOT NULL, `originalHeight` INTEGER NOT NULL, `borderBgColorPosition` INTEGER NOT NULL, `padding` REAL NOT NULL, `collageStyle` TEXT NOT NULL, `effectMatix` TEXT NOT NULL, `ratio` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "framePath",
+            "columnName": "framePath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mask",
+            "columnName": "mask",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bgPath",
+            "columnName": "bgPath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "thumbnailPath",
+            "columnName": "thumbnailPath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "blurRadius",
+            "columnName": "blurRadius",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "borderBgColor",
+            "columnName": "borderBgColor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "borderBgColorOpacity",
+            "columnName": "borderBgColorOpacity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "borderSize",
+            "columnName": "borderSize",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "borderRadius",
+            "columnName": "borderRadius",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pieces",
+            "columnName": "pieces",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "theme",
+            "columnName": "theme",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "collageType",
+            "columnName": "collageType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "templatePosition",
+            "columnName": "templatePosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "collageBg",
+            "columnName": "collageBg",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "editor",
+            "columnName": "editor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "selectedId",
+            "columnName": "selectedId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalWidth",
+            "columnName": "originalWidth",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalHeight",
+            "columnName": "originalHeight",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "borderBgColorPosition",
+            "columnName": "borderBgColorPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "padding",
+            "columnName": "padding",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "collageStyle",
+            "columnName": "collageStyle",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "effectMatix",
+            "columnName": "effectMatix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ratio",
+            "columnName": "ratio",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "frame_child_images_model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `parentId` INTEGER NOT NULL, `originalPath` TEXT NOT NULL, `croppedPath` TEXT NOT NULL, `filterMatrix` TEXT NOT NULL, `dotPositionList` TEXT NOT NULL, `filterPosition` INTEGER NOT NULL, `filterOpacity` REAL NOT NULL, `adjustPosition` INTEGER NOT NULL, `adjustmentValue` REAL NOT NULL, `imagePosition` INTEGER NOT NULL, `brightnessValue` REAL NOT NULL, `contrastValue` REAL NOT NULL, `highlightValue` REAL NOT NULL, `shadowValue` REAL NOT NULL, `sharpenValue` REAL NOT NULL, `saturationValue` REAL NOT NULL, `warmthValue` REAL NOT NULL, `hueValue` REAL NOT NULL, `tintValue` REAL NOT NULL, `colorValue` REAL NOT NULL, `exposureValue` REAL NOT NULL, `vignetteValue` REAL NOT NULL, `previousVignetteValue` REAL NOT NULL, `imageMatrix` TEXT NOT NULL, `percentX` REAL NOT NULL, `percentY` REAL NOT NULL, `percentHeight` REAL NOT NULL, `percentWidth` REAL NOT NULL, `percentX1` REAL NOT NULL, `percentY1` REAL NOT NULL, `imgPerScaleX` REAL NOT NULL, `imgPerScaleY` REAL NOT NULL, `imgPerSkewX` REAL NOT NULL, `imgPerSkewY` REAL NOT NULL, `rotation` REAL NOT NULL, `collagePiece` INTEGER NOT NULL, `viewRotation` REAL NOT NULL, `effectMatrix` TEXT NOT NULL, `effectBitmap` BLOB, `effectMode` TEXT, `effectOpacity` REAL NOT NULL, `maskBitmap` BLOB, `maskMatrix` TEXT NOT NULL, `x` REAL NOT NULL, `y` REAL NOT NULL, `width` INTEGER NOT NULL, `height` INTEGER NOT NULL, `isLast` INTEGER NOT NULL, FOREIGN KEY(`parentId`) REFERENCES `parent_frame_model`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentId",
+            "columnName": "parentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalPath",
+            "columnName": "originalPath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "croppedPath",
+            "columnName": "croppedPath",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filterMatrix",
+            "columnName": "filterMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dotPositionList",
+            "columnName": "dotPositionList",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filterPosition",
+            "columnName": "filterPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filterOpacity",
+            "columnName": "filterOpacity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adjustPosition",
+            "columnName": "adjustPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "adjustmentValue",
+            "columnName": "adjustmentValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagePosition",
+            "columnName": "imagePosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "brightnessValue",
+            "columnName": "brightnessValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contrastValue",
+            "columnName": "contrastValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "highlightValue",
+            "columnName": "highlightValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shadowValue",
+            "columnName": "shadowValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sharpenValue",
+            "columnName": "sharpenValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saturationValue",
+            "columnName": "saturationValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "warmthValue",
+            "columnName": "warmthValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hueValue",
+            "columnName": "hueValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tintValue",
+            "columnName": "tintValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "colorValue",
+            "columnName": "colorValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "exposureValue",
+            "columnName": "exposureValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vignetteValue",
+            "columnName": "vignetteValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "previousVignetteValue",
+            "columnName": "previousVignetteValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageMatrix",
+            "columnName": "imageMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentX",
+            "columnName": "percentX",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentY",
+            "columnName": "percentY",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentHeight",
+            "columnName": "percentHeight",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentWidth",
+            "columnName": "percentWidth",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentX1",
+            "columnName": "percentX1",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "percentY1",
+            "columnName": "percentY1",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imgPerScaleX",
+            "columnName": "imgPerScaleX",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imgPerScaleY",
+            "columnName": "imgPerScaleY",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imgPerSkewX",
+            "columnName": "imgPerSkewX",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imgPerSkewY",
+            "columnName": "imgPerSkewY",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rotation",
+            "columnName": "rotation",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "collagePiece",
+            "columnName": "collagePiece",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "viewRotation",
+            "columnName": "viewRotation",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "effectMatrix",
+            "columnName": "effectMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "effectBitmap",
+            "columnName": "effectBitmap",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "effectMode",
+            "columnName": "effectMode",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "effectOpacity",
+            "columnName": "effectOpacity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "maskBitmap",
+            "columnName": "maskBitmap",
+            "affinity": "BLOB",
+            "notNull": false
+          },
+          {
+            "fieldPath": "maskMatrix",
+            "columnName": "maskMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "x",
+            "columnName": "x",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "y",
+            "columnName": "y",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "width",
+            "columnName": "width",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "height",
+            "columnName": "height",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isLast",
+            "columnName": "isLast",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "parent_frame_model",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "parentId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "frame_child_text_sticker_model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `parentId` INTEGER NOT NULL, `fontName` TEXT NOT NULL, `fontPosition` INTEGER NOT NULL, `text` TEXT NOT NULL, `fontColor` INTEGER NOT NULL, `fontColorPosition` INTEGER NOT NULL, `fontColorOpacity` REAL NOT NULL, `textBg` INTEGER NOT NULL, `textBgColor` INTEGER NOT NULL, `textBgColorPosition` INTEGER NOT NULL, `textBgColorOpacity` REAL NOT NULL, `textStickerPosTag` TEXT NOT NULL, `positionMatrix` TEXT NOT NULL, `fontResource` INTEGER NOT NULL, FOREIGN KEY(`parentId`) REFERENCES `parent_frame_model`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentId",
+            "columnName": "parentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontName",
+            "columnName": "fontName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontPosition",
+            "columnName": "fontPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text",
+            "columnName": "text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontColor",
+            "columnName": "fontColor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontColorPosition",
+            "columnName": "fontColorPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontColorOpacity",
+            "columnName": "fontColorOpacity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textBg",
+            "columnName": "textBg",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textBgColor",
+            "columnName": "textBgColor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textBgColorPosition",
+            "columnName": "textBgColorPosition",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textBgColorOpacity",
+            "columnName": "textBgColorOpacity",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "textStickerPosTag",
+            "columnName": "textStickerPosTag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "positionMatrix",
+            "columnName": "positionMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fontResource",
+            "columnName": "fontResource",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "parent_frame_model",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "parentId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "frame_child_image_sticker_model",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `parentId` INTEGER NOT NULL, `drawable` BLOB NOT NULL, `positionMatrix` TEXT NOT NULL, `tag` TEXT NOT NULL, `blurRadius` REAL NOT NULL, `alphaValue` REAL NOT NULL, `originalBitmap` BLOB, FOREIGN KEY(`parentId`) REFERENCES `parent_frame_model`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "parentId",
+            "columnName": "parentId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "drawable",
+            "columnName": "drawable",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "positionMatrix",
+            "columnName": "positionMatrix",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tag",
+            "columnName": "tag",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "blurRadius",
+            "columnName": "blurRadius",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "alphaValue",
+            "columnName": "alphaValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "originalBitmap",
+            "columnName": "originalBitmap",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "parent_frame_model",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "parentId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3aff4300400ba1ae5b6b8251cfad9b72')"
+    ]
+  }
+}

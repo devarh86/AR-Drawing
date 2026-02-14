@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string name="next">下一个</string>-->
+    <string name="downloading">正在下载...</string>
+    <string name="exit_title">您确定要退出吗？</string>
+    <string name="discard">丢弃</string>
+    <string name="exit">出口</string>
+    <string name="cancel">取消</string>
+    <string name="edit_photo">编辑照片</string>
+    <string name="try_again">再试一次</string>
+    <string name="select_language">选择语言</string>
+    <string name="term_of_use">使用条款</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="welcome_to_collagepic">欢迎使用 CollagePic</string>
+    <string name="what_do_you_want_to_do_in_this_app">您想在此应用中做什么？</string>
+
+    <string name="start_free_trail">开始免费试用</string>
+    <string name="start_now">立即开始</string>
+
+
+    <string name="quick_tutorial">快速教程</string>
+    <string name="shortcut_template">模板</string>
+    <string name="use_this_template">使用此模板</string>
+    <string name="tap_to_apply">点击应用</string>
+    <string name="great_work">干得好</string>
+    <string name="done">完成</string>
+    <string name="getting_ready">准备中</string>
+    <string name="change_photos_with_just_one_touch">只需轻触即可更换照片</string>
+    <string name="show_me">展示给我看</string>
+    <string name="create_stunning_designs_in_a_single_tap">只需轻触即可创建令人惊艳的设计</string>
+
+    <string name="cancel_subscription">取消订阅</string>
+    <string name="subscription_detail">完成后，试用将自动转换为订阅。订阅自动续订。随时在 Google Play 商店中取消。</string>
+    <string name="continue_text">继续</string>
+    <string name="no_watermark">无水印</string>
+    <string name="no_obligatory_ads">没有强制性广告</string>
+    <string name="smoother_experience">体验更流畅</string>
+    <string name="access_to_all_features">访问所有功能</string>
+    <string name="pro">专业版</string>
+    <string name="say_goodbye_to_watermark">与水印说再见</string>
+    <string name="unlock_all_features">解锁所有功能</string>
+    <string name="draft">草稿</string>
+    <string name="maximum_images_selected">已选择最大图片数量</string>
+
+    <string name="language_indo" translatable="false">印度尼西亚</string>
+    <string name="language_english" translatable="false">英语</string>
+    <string name="language_bengali" translatable="false">孟加拉</string>
+    <string name="language_german" translatable="false">德语</string>
+    <string name="language_portuguese" translatable="false">葡萄牙语</string>
+    <string name="language_arabic" translatable="false">阿拉伯</string>
+    <string name="language_spanish" translatable="false">西班牙语</string>
+    <string name="language_mandarin" translatable="false">普通话</string>
+    <string name="language_russian" translatable="false">俄语</string>
+    <string name="language_urdu" translatable="false">乌尔都语</string>
+    <string name="language_french" translatable="false">法语</string>
+    <string name="language_hindi" translatable="false">印地语</string>
+    <string name="language_japanese" translatable="false">日本人</string>
+    <string name="waring_out_of_memory">内存不够。请删除图像，否则您的程序将崩溃。！！！</string>
+    <string name="hello_blank_fragment">你好空白片段</string>
+    <string name="border_size">边框尺寸</string>
+    <string name="border_color">边框颜色</string>
+    <string name="border_padding">填充</string>
+    <string name="border_radius">半径</string>
+    <string name="frame_foreground">框架前景</string>
+    <string name="save">节省</string>
+    <string name="message">信息</string>
+    <string name="bg">BG</string>
+    <string name="text">文本</string>
+    <string name="write_text">写文字</string>
+    <string name="close">关闭</string>
+    <string name="replace">代替</string>
+    <string name="crop">庄稼</string>
+    <string name="remove_watermark">删除水印</string>
+    <string name="for_24_hours">24小时</string>
+    <string name="for_life_time">终身受益</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="processing_please_wait">处理中，请稍候...</string>
+    <string name="share">分享</string>
+    <string name="home">家</string>
+    <string name="frame_background">框架背景</string>
+    <string name="opacity">不透明度</string>
+    <string name="blend">混合</string>
+    <string name="_ad">广告</string>
+    <string name="watch_video_ad_to_remove_watermark_for_or_go_premium">观看视频广告以删除水印或转到高级版。</string>
+    <string name="go_premium">升级至高级版</string>
+    <string name="trending_frames">流行镜框</string>
+    <string name="blur">模糊</string>
+    <string name="next">下一个</string>
+    <string name="watch_ad">观看广告</string>
+    <string name="effect_opacity">效果不透明度</string>
+    <string name="photo_editor_1">编辑</string>
+    <string name="blending">混合</string>
+
+
+    <string name="menu_featured">精选</string>
+    <string name="menu_home">家</string>
+    <string name="menu_templates">模板</string>
+    <string name="menu_styles">艺术风格</string>
+    <string name="menu_files">我的工作</string>
+    <string name="ad">广告</string>
+    <string name="single_frames">单帧</string>
+    <string name="double_frames">情侣相框</string>
+    <string name="greetings">问候</string>
+    <string name="collages">拼贴画</string>
+    <string name="collage">拼贴画</string>
+    <string name="shapes">形状</string>
+    <string name="pips">点帧</string>
+    <string name="frames">镜框</string>
+    <string name="frame">框架</string>
+    <string name="more">更多的</string>
+    <string name="no_result_found">没有找到结果</string>
+    <string name="try_now">立即尝试</string>
+    <string name="true_love_frames">帧我</string>
+    <string name="true_love_frames_camelcase">帧我</string>
+    <string name="tell_your_friend">告诉你的朋友</string>
+    <string name="rate_us">评价我们</string>
+    <string name="send_mail">发送邮件</string>
+    <string name="cancel_subscription_description">您可以随时在 Google Play 设置中管理或取消订阅。</string>
+    <string name="recommended_apps">推荐应用程序</string>
+    <string name="remove_ads">删除广告</string>
+    <string name="editor">编辑</string>
+    <string name="effect">影响</string>
+    <string name="adjust">调整</string>
+    <string name="stickers">贴纸</string>
+    <string name="type">类型</string>
+    <string name="font">字体</string>
+    <string name="font_color">字体颜色</string>
+    <string name="bg_color">背景颜色</string>
+    <string name="opacity_value">不透明度：%1$s%</string>
+    <string name="menu_pro">专业版</string>
+    <string name="menu_favourite">最喜欢的</string>
+    <string name="for_you">新的</string>
+    <string name="today_special">顶部</string>
+    <string name="most_used">流行趋势</string>
+    <string name="more_features">更多功能</string>
+    <string name="recently_used">最近的</string>
+    <string name="saved">已保存</string>
+    <string name="mark_as_favorite_then_your_photo_nwill_appear_in_favorite_list">将相框标记为收藏夹，然后您的相框\n将出现在收藏夹列表中</string>
+    <string name="search_by_keyword">按关键字搜索</string>
+    <string name="more_apps">推荐应用程序</string>
+    <string name="join_full_experience">加入完整体验</string>
+    <string name="ads_free">无广告</string>
+    <string name="ads_free_experience">无广告体验</string>
+    <string name="all_premium_assets">所有优质资产</string>
+    <string name="each_plan_includes">每个计划包括：</string>
+    <string name="unlimited_frams_cards"><![CDATA[UNLIMITED FRAMES & CARDS]]></string>
+    <string name="get_100_stickers">获得 100 多个贴纸</string>
+    <string name="remove_ads_cap">删除广告</string>
+    <string name="continue_with_ads">继续广告</string>
+    <string name="weekly">每周</string>
+    <string name="plan">计划</string>
+    <string name="yearly">每年</string>
+    <string name="life_time">寿命</string>
+    <string name="premium_features">高级功能</string>
+    <string name="get_access_to_premium_features">获得高级功能</string>
+    <string name="text_effect">文字效果</string>
+
+    <string name="error_gif">x 或 y 边界大小应至少为 %1$dpx，文件大小不应超过 %2$sM</string>
+    <string name="album_name_all">所有媒体</string>
+    <string name="error_type_conflict">无法同时选择图像和视频</string>
+    <string name="error_over_count_default">您已达到可选择的最大数量</string>
+    <string name="error_over_original_size">无法选择大于 %1$d MB 的图像</string>
+    <string name="error_no_video_activity">没有找到支持视频预览的应用</string>
+    <string name="button_ok">好的</string>
+    <string name="error_file_type">不支持的文件类型</string>
+    <string name="error_over_original_count">%1$d 个图像超过 %2$d MB。原件将被取消选中</string>
+    <string name="fonts_bg">字体BG</string>
+
+    <plurals name="error_over_count">
+        <item quantity="one">您最多只能选择 %1$d 个媒体文件</item>
+        <item quantity="few">您最多只能选择 %1$d 个媒体文件</item>
+        <item quantity="many">您最多只能选择 %1$d 个媒体文件</item>
+        <item quantity="other">您最多只能选择 %1$d 个媒体文件</item>
+    </plurals>
+
+    <string name="button_apply">下一个</string>
+    <string name="button_apply_default">下一个</string>
+    <string name="image_selection_limit_default">选择2-9张照片</string>
+    <string name="image_selection_limit">选择 2-9 张照片(%1$d)</string>
+    <string name="image_selection_limit_1">选择照片</string>
+    <string name="brightness">亮度</string>
+    <string name="contrast">对比</string>
+    <string name="hue">色调</string>
+    <string name="exposure">接触</string>
+    <string name="saturation">饱和</string>
+    <string name="tint">着色</string>
+    <string name="warmth">温暖</string>
+    <string name="color">颜色</string>
+    <string name="sharpen">锐化</string>
+    <string name="vignette">小插图</string>
+    <string name="highlight">强调</string>
+    <string name="shadow">阴影</string>
+
+    <string name="facebook_app_id" translatable="false">1116803502100807</string>
+    <string name="facebook_client_token" translatable="false">20e7e74441820ce829e94727c2e402b1</string>
+
+    <string name="layout_text">布局</string>
+    <string name="button_preview">预览</string>
+    <string name="button_original">原来的</string>
+    <string name="empty_text">还没有媒体</string>
+    <string name="button_back">后退</string>
+    <string name="what_we_offer_in_discount_plan">我们在折扣计划中提供什么</string>
+    <string name="original">原来的</string>
+    <string name="tick">打钩</string>
+    <string name="reset">重置</string>
+    <string name="filter_opacity">滤镜不透明度</string>
+    <string name="share_text">使用这款出色的应用程序探索一种有趣的新方式来美化您的照片。</string>
+    <string name="pro_icon">专业图标</string>
+    <string name="all_inclusive">全包</string>
+    <string name="do_you_have_any_thoughts_you_d_like_to_share">您有什么想法想分享吗？</string>
+    <string name="submit">提交</string>
+    <string name="filters">过滤器</string>
+    <string name="no_internet_connect_found_please_try_again">您的连接出现问题\n 连接到互联网。</string>
+    <string name="coming_soon">即将推出</string>
+    <string name="pro_caps">专业版</string>
+    <string name="apply_filter_on_all_images">对所有图像应用滤镜</string>
+    <string name="connect_internet_and_explore_fantastic_art_style">连接互联网并探索奇妙的艺术风格。</string>
+    <string name="solo_frames">单框</string>
+    <string name="multiplex">多路复用</string>
+    <string name="photo_editor">照片编辑器</string>
+    <string name="image_resolution">图像分辨率</string>
+    <string name="good">好的</string>
+    <string name="enhanced">增强型</string>
+    <string name="high">高的</string>
+    <string name="unlock_this_amazing_frame">解锁这个神奇的框架</string>
+    <string name="ad_start_in_3_second">3 秒后开始广告</string>
+    <string name="your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us">您的意见对我们很重要。如果您能给我们评分，我们将不胜感激。</string>
+    <string name="the_best_we_can_get">我们能得到的最好的</string>
+    <string name="rotate">旋转</string>
+    <string name="image_quality">图像质量</string>
+    <string name="edit_text">编辑文本</string>
+    <string name="edit">编辑</string>
+
+    <string name="feedback">反馈</string>
+    <string name="folder_name">拼贴画</string>
+    <string name="name">拼贴画</string>
+    <string name="app_name">拼贴画</string>
+    <string name="square">正方形</string>
+
+    <string name="logo_image">标志图像</string>
+    <string name="unlock_all_assets">解锁所有资产</string>
+    <string name="smoother_user_experience">更流畅的用户体验</string>
+    <string name="remove_obligatory_ads">删除强制性广告</string>
+
+    <string name="monthly">每月</string>
+
+    <string name="premium">优质的</string>
+    <string name="basic">基本的</string>
+
+    <string name="horizontal">水平的</string>
+
+
+
+    <string name="camera_and_storage">相机和存储权限</string>
+    <string name="collage_requires_camera_and_storage_access_for_optimal_performance">CollagePic需要相机和存储访问权限以获得最佳性能。</string>
+    <string name="allow">允许</string>
+
+
+
+    <string name="enhance_detail_text">增强后图像看起来更清晰、更生动</string>
+
+    <string name="pro_enhance">专业增强</string>
+    <string name="better_effect_no_ads">更好的效果&amp;无广告</string>
+
+    <string name="photo_ready_message">您的照片已准备好！立即保存。</string>
+
+    <string name="processing_text_one">正在处理您的杰作... 🎨</string>
+    <string name="processing_text_two">最后的润色... ✨</string>
+    <string name="processing_text_three">启动中... 🚀</string>
+    <string name="enhance">AI 增强器</string>
+
+    <string name="edit_t_s">编辑图片</string>E
+    <string name="edit_d_s">轻松定制您的照片。</string>
+    <string name="enhance_t_s">AI增强</string>
+    <string name="enhance_d_s">智能提升图片质量。</string>
+    <string name="blend_t_s">AI混合</string>
+    <string name="blend_d_s">通过AI无缝合并图像。</string>
+    <string name="collage_t_s">照片拼贴</string>
+    <string name="collage_d_s">将图像组合成惊人的布局。</string>
+    <string name="bg_art_t_s">背景艺术</string>
+    <string name="bg_art_d_s">轻松创建令人惊叹的背景。</string>
+    <string name="unleash">释放您的创造力！</string>
+    <string name="unlimited_access">无限访问</string>
+    <string name="smooth_ux">更流畅的用户体验</string>
+
+    <string name="enhance_watch_ad">增强器 \n 观看广告</string>
+
+    <string name="what_do_you_want_for_your_photo">您想为您的照片做什么？</string>
+    <string name="templates">模板</string>
+    <string name="choose_an_answer">选择一个答案</string>
+    <string name="select_2_9_photos">选择2-9张照片</string>
+    <string name="select_1_1_photos">选择1张照片</string>
+    <string name="photo_edit">照片编辑</string>
+    <string name="ai_blend">AI混合</string>
+    <string name="what_would_you_like_to_create">您想创建什么？</string>
+    <string name="ai_enhance">AI增强</string>
+
+    <string name="survery_detail">您的反馈将帮助我们为您提供适合的体验。（请选择所有适合的答案）</string>
+
+    <string name="define_your_role">定义您的角色，发现您的工具！</string>
+    <string name="pick_your_journey">选择您的创意之旅！</string>
+    <string name="help_us_bring_experiences">您的反馈将帮助我们为您提供合适的体验。（请选择所有合适的答案）</string>
+    <string name="where_publish_content">您在哪里发布您的内容？</string>
+    <string name="how_did_you_find_us">您是如何找到我们的？</string>
+
+    <!-- User Information -->
+    <string name="personal_user">个人用户</string>
+    <string name="student">学生</string>
+    <string name="content_creator">内容创作者</string>
+    <string name="design_teacher">设计教师</string>
+    <string name="business_owner">企业主</string>
+    <string name="employee">员工</string>
+    <string name="event_planner">活动策划者</string>
+
+    <!-- Categories -->
+    <string name="frame_templates">框架模板</string>
+    <string name="bg_art">背景艺术</string>
+    <string name="profile_pic">头像</string>
+    <string name="pip_template">PIP 模板</string>
+    <string name="other">其他</string>
+
+    <!-- Content Types -->
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="reddit">Reddit</string>
+    <string name="dribbble">Dribbble</string>
+    <string name="behance">Behance</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">YouTube</string>
+    <string name="discord">Discord</string>
+
+    <string name="skip">跳过</string>
+
+    <string name="button">按钮</string>
+    <string name="make_another">再做一个</string>
+    <string name="share_to">分享到</string>
+    <string name="failed_to_save_image">保存图片失败</string>
+    <string name="error_while_saving_image">保存图片时出错</string>
+    <string name="close_background_apps_try_again">请关闭一些后台应用程序，然后重试</string>
+    <string name="failed_to_load_frame">加载框架失败，请重试</string>
+
+    <string name="error_while_applying_blend">应用混合时出错</string>
+    <string name="image_loading_failed">图片加载失败，请重试</string>
+    <string name="image_is_corrupt">图片已损坏</string>
+    <string name="image_not_found">未找到图片</string>
+    <string name="image_saving_failed">图片保存失败</string>
+
+
+    <string name="notification_title_2">🎨 轻松制作拼贴画！</string>
+    <string name="notification_description_2">轻松将您喜爱的照片变成惊艳的拼贴画。</string>
+
+    <string name="full_screen_intent">全屏意图权限被拒绝</string>
+    <string name="don_t_allow">不允许</string>
+    <string name="full_screen_intent_message">请启用<b>全屏意图</b>，以获得最佳应用体验和即时更新。</string>
+    <string name="open">打开</string>
+    <string name="get_start">开始</string>
+    <string name="intro_one">帮助您使用 AI 轻松自动编辑</string>
+    <string name="intro_two">此工具可帮助您快速完美地创建照片。</string>
+    <string name="intro_two_first">这个</string>
+    <string name="intro_three">帮助您展现照片的独特风格和精髓。</string>
+    <string name="background_art">背景艺术</string>
+    <string name="use">使用</string>
+    <string name="intro_one_heading">AI 图像增强器</string>
+    <string name="intro_one_sub_heading">轻松提升照片质量。</string>
+    <string name="intro_two_heading">创建精美拼贴</string>
+    <string name="intro_two_sub_heading">轻松组合多张照片。</string>
+    <string name="intro_three_heading">魔法照片编辑</string>
+    <string name="intro_three_sub_heading">轻松自定义您的照片。</string>
+
+    <string name="_4k_templates_quality">4K模板质量</string>
+
+    <!-- Chinese -->
+    <string name="then">然后</string>
+    <string name="per_week">/周</string>
+    <string name="after_trial">免费3天试用后</string>
+    <string name="subscription_auto_renew">订阅会自动续订。可随时取消</string>
+
+
+    <string name="shortcut_ai_blend">AI混合</string>
+    <string name="shortcut_ai_edit_photo">AI编辑照片</string>
+    <string name="uninstall">卸载</string>
+    <string name="hey_there">你好！！</string>
+
+    <string name="dont_want_to_uninstall">不想卸载</string>
+    <string name="still_want_to_uninstall">仍然想卸载</string>
+    <string name="problem_when_using_app">使用应用时遇到问题</string>
+    <string name="you_are_a_great_partner">您是一个伟大的合作伙伴！</string>
+    <string name="your_feedback_is">您的反馈是我们改进功能的动力</string>
+    <string name="why_do_you_uninstall">为什么卸载应用？</string>
+    <string name="image_creation_feature">图片创建功能差</string>
+    <string name="generating_process_time">生成过程时间很长</string>
+    <string name="not_enough_features">功能不如预期的多</string>
+    <string name="interface_is_difficult">界面难以使用</string>
+    <string name="too_many_ads">广告太多</string>
+    <string name="i_found_another_app">我找到了另一款更合适的应用</string>
+    <string name="please_enter_the_reason_why">请输入您卸载的原因</string>
+    <string name="type_your_feedback">在这里输入您的反馈</string>
+
+    <string name="ai_blend_lacks">拼贴功能受限</string>
+    <string name="gen_again">尝试不同的布局</string>
+    <string name="ai_edit_photo">AI编辑不准确</string>
+    <string name="enhance_again">再次编辑</string>
+    <string name="cannot_find_your">AI增强缺乏清晰度</string>
+    <string name="zoom_again">再次增强</string>
+
+    <string name="please_share_information">请分享您的反馈，以帮助我们改善您的体验</string>
+
+    <string name="add_image">添加图像</string>
+    <string name="ratio">比率</string>
+    <string name="filter">筛选</string>
+    <string name="add">添加</string>
+    <string name="stitch">缝</string>
+    <string name="demandMessage">“您只能选择 %d 张图片”</string>
+    <string name="requestMessage">“请至少选择 %d 张图片”</string>
+    <string name="requestMessageCollage">“请至少选择 %d 张图片”</string>
+    <string name="noImage">未找到图像</string>
+    <string name="_continue">继续</string>
+    <string name="multi_fit" >多重适合</string>
+    <string name="select_1_9_photos">选择 1–9 张照片 </string>
+    <string name="select_1_10_photos">选择 1–10 张照片</string>
+
+    <string name="adjustment">调整</string>
+    <string name="vertical">垂直的</string>
+    <string name="background">背景</string>
+    <string name="options">选项\n</string>
+    <string name="stay">停留</string>
+
+
+    <string name="do_you_want_to_discard">您要放弃吗</string>
+    <string name="let_s_go">开始吧</string>
+    <string name="blank">空白</string>
+    <string name="template">模板</string>
+    <string name="app_name_new">AR Drawing 应用</string>
+
+    <string name="boarding1_title">轮播</string>
+    <string name="boarding1_text_body">轻松浏览多个帖子。</string>
+    <string name="boarding3_title">故事</string>
+    <string name="boarding3_text_body">短暂的全屏视觉内容。</string>
+
+    <string name="boarding4_title">拼接</string>
+    <string name="boarding4_text_body">无缝连接不同的片段。</string>
+
+    <string name="boarding2_title">拼贴</string>
+    <string name="boarding2_text_body">将照片组合到一个画框中。</string>
+
+    <string name="upgrade_plan_now">立即升级套餐！</string>
+    <string name="enjoy_unlimited_benefits_amp_features">享受无限福利和功能</string>
+    <string name="generals">通用</string>
+    <string name="supports">支持</string>
+    <string name="seamless">无缝</string>
+    <string name="story">故事</string>
+    <string name="rewind">倒带</string>
+    <string name="paper">纸张</string>
+    <string name="tape">胶带</string>
+    <string name="plastic">塑料</string>
+    <string name="film">胶片</string>
+    <string name="try_for_free">免费试用</string>
+
+    <string name="share_your_new_look_on_social_media_n_tap_below_to_post_it_on_instagram_n_or_tiktok">在社交媒体上分享你的新造型\n—点击下方即可发布到Instagram或TikTok。</string>
+    <string name="open_instagram">打开 Instagram</string>
+    <string name="open_tiktok">打开 TikTok</string>
+    <string name="open_more">打开更多</string>
+
+
+    <string name="title_general_notification_without_fo">不要丢失你正在编辑的照片！</string>
+    <string name="sub_heading_general_notification_without_fo">立即完成编辑</string>
+    <string name="title_general_notification_with_fo">不要错过照片编辑！</string>
+    <string name="sub_heading_general_notification_with_fo">打开应用继续编辑你的照片</string>
+    <string name="all_pro_materials">所有专业素材</string>
+    <string name="no_watermark_and_ads">无水印和广告</string>
+    <string name="cancel_anytime_form_the_app">可随时在应用中取消</string>
+    <string name="weekly_plan">每周计划</string>
+    <string name="yearly_plan">年度计划</string>
+    <string name="notification_title_1">✨ 分享你精彩的轮播！</string>
+    <string name="notification_description_1">你的照片已准备好闪耀。立即在 Instagram 上发布你的轮播，让你的风格激励他人！ 🌿📸</string>
+
+
+    <string name="_7_day_free_trail">7天免费试用</string>
+    <string name="_3_day_free_trail">3天免费试用</string>
+
+
+    <string name="get_pro">获取专业版</string>
+    <string name="unlock_this_premium_frame">解锁此高级边框</string>
+    <string name="choose_how_you_want_to_unlock_this_frame">选择您想要如何解锁此边框</string>
+    <string name="watch_ad_to_unlock">观看广告以解锁</string>
+    <string name="get_pro_for_unlimited_access">获取专业版以获得无限访问</string>
+    <string name="unlock_all_premium_frames_forever">永久解锁所有高级边框</string>
+
+    <string name="upgrade_to_premium">升级到高级版</string>
+    <string name="unlock_the_full_experience">解锁完整体验</string>
+    <string name="unlock_all_premium_templates">解锁所有高级模板</string>
+    <string name="priority_access_to_new_features">优先访问新功能</string>
+    <string name="access_all_style_categories">访问所有风格类别</string>
+    <string name="one_tap_carousel_creator">一键轮播创建器</string>
+    <string name="quality_export_without_watermark">无水印高质量导出</string>
+    <string name="ad_free_creative_experience">无广告创意体验</string>
+    <string name="_3_days_free_trial">3天免费试用</string>
+    <string name="trusted_by_2m_users_worldwide">全球超过200万用户的信赖</string>
+
+    <string name="grab_now">立即获取</string>
+    <string name="unlock_your_premium_experience_today">今天解锁您的高级体验!</string>
+    <string name="_7_days_free_trial">7天免费试用</string>
+    <string name="carousal">轮播</string>
+
+
+    <string name="enjoy_50_off_on_weekly_premium">享受每周高级版50%折扣!</string>
+</resources>

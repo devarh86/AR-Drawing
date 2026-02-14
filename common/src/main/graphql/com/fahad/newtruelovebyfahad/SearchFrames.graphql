@@ -1,0 +1,10 @@
+query getSearchFrames($option: String!){
+    search(searchStr: $option){
+        id
+        title
+        thumb
+        baseUrl
+        thumbtype
+        tags
+    }
+}

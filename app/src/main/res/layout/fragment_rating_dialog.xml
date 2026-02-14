@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/container_clr_activity"
+    tools:context=".ui.fragments.dialogs.RatingDialog">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:padding="@dimen/_8sdp"
+        android:src="@drawable/pro_cross"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/top_image"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_margin="@dimen/_15sdp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/rating_5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:fontFamily="@font/inter"
+        android:gravity="center"
+        android:text="@string/your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us"
+        android:textColor="@color/tab_txt_clr"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/top_image" />
+
+    <RatingBar
+        android:id="@+id/rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:maxWidth="@dimen/_150sdp"
+        android:minHeight="@dimen/_25sdp"
+        android:numStars="5"
+        android:progressBackgroundTint="#CCCCCC"
+        android:progressTint="#FECB2F"
+        android:rating="3"
+        android:stepSize="1"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_desc" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/best_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_18sdp"
+        android:fontFamily="@font/inter"
+        android:text="@string/the_best_we_can_get"
+        android:textColor="@color/txt_clr_in_dialog"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        app:layout_constraintEnd_toEndOf="@+id/text_desc"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/text_desc"
+        app:layout_constraintTop_toBottomOf="@+id/rating" />
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.72" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/best_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rounded_arrow"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineArrow"
+        app:layout_constraintEnd_toEndOf="@+id/rating"
+        android:layout_marginEnd="@dimen/_10sdp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="@dimen/_100sdp"
+        android:layout_margin="@dimen/_15sdp"
+        android:text="@string/rate_us"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_10ssp"
+        style="@style/headingText"
+        android:textColor="@color/black"
+        app:backgroundTint="@color/selected_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/best_text" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

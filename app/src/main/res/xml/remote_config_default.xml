@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8"?><!-- START xml_defaults -->
+<defaultsMap>
+
+    <entry>
+        <key>enable_home_inter_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_plash_app_open</key>
+        <value>true</value>
+    </entry>
+
+
+    <entry>
+        <key>enable_ob_last_inter_ad</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>interstitial_ob_last_floor</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>interstitial_ob_last_start_count</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>interstitial_ob_last_after_start_count</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_ob_last_always_show</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>load_banner_survey</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>load_banner_on_board_one</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>load_banner_on_board_two</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>load_banner_on_board_three</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>load_banner_on_board_four</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>load_banner_on_board_medium</key>
+        <value>false</value>
+    </entry>
+
+
+    <entry>
+        <key>interstitial_home_floor</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_home_start_count</key>
+        <value>0</value>
+    </entry>
+    <entry>
+        <key>pro_counter</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_home_after_start_count</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_home_always_show</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>home_new_inter_strategy</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>native_un_install_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>native_reason_uninstall</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>native_un_install_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>enable_pop_up_save</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>gallery_button_new_flow</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_un_install_floor</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_un_install_start_count</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_un_install_after_start_count</key>
+        <value>3</value>
+    </entry>
+
+    <entry>
+        <key> interstitial_un_install_always_show</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>flow_uninstall</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_un_install</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>flow_uninstall</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>noti_lockcreen</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>pro_new_continue</key>
+        <value>Start Free Trial</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_my_work</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>interstitial_my_work_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_my_work_start_count</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_my_work_after_start_count</key>
+        <value>3</value>
+    </entry>
+    <entry>
+        <key>interstitial_save</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>interstitial_save_floor</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_save_start_count</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>interstitial_save_after_start_count</key>
+        <value>3</value>
+    </entry>
+    <entry>
+        <key>interstitial_back_after_start_count</key>
+        <value>3</value>
+    </entry>
+
+    <entry>
+        <key>immediate_interstitial</key>
+        <value>true</value>
+
+    </entry>
+    <entry>
+        <key>pro_new_enable</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_strategy_old</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>noti_status_bar_country</key>
+        <value>1</value>
+    </entry>
+
+    <entry>
+        <key>survey_floor</key>
+        <value>0</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_back</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>interstitial_back_floor</key>
+        <value>4</value>
+    </entry>
+    <entry>
+        <key>interstitial_back_always_show</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>interstitial_my_work_always_show</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>interstitial_save_always_show</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>interstitial_back_start_count</key>
+        <value>1</value>
+    </entry>
+
+    <entry>
+        <key>open_tutorial</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>tutorial_scr</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>banner_tutorial</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_blend_guide_screen</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>ad_gallery_native</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>ad_gallery_native_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>flow_select_photo_scr</key>
+        <value>new</value>
+    </entry>
+
+    <entry>
+        <key>ad_select_photo</key>
+        <value>native</value>
+    </entry>
+
+    <entry>
+        <key>time_push_noti_lockscreen_1</key>
+        <value>10</value>
+    </entry>
+    <entry>
+        <key>time_push_noti_lockscreen_2</key>
+        <value>9</value>
+    </entry>
+
+    <entry>
+        <key>open_screen_introduction</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>open_screen_native</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>intro_screen_ad_button_position</key>
+        <value>Above</value>
+    </entry>
+
+    <entry>
+        <key>introduction_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>question_floor</key>
+        <value>4</value>
+    </entry>
+
+    <entry>
+        <key>native_open_resist_meta</key>
+        <value>full_layout_admob</value>
+    </entry>
+
+    <entry>
+        <key>ui_button_introduction</key>
+        <value>light</value>
+    </entry>
+
+    <entry>
+        <key>noti_lockcreen_country</key>
+        <value>1</value>
+    </entry>
+
+
+    <entry>
+        <key>reward_time</key>
+        <value>3000</value>
+    </entry>
+
+    <entry>
+        <key>splash_time_out</key>
+        <value>20000</value>
+    </entry>
+
+    <entry>
+        <key>enhancer_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_valentine_pop_up</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>banner_reload</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_language_setting</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>question_enable</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>survey_enable</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>load_native_old</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>question_native</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>survey_native</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>on_boarding_one_native_id</key>
+        <value>ca-app-pub-4276074242154795/9322876771</value>
+    </entry>
+
+    <entry>
+        <key>on_boarding_two_native_id</key>
+        <value>ca-app-pub-4276074242154795/6689247649</value>
+    </entry>
+
+    <entry>
+        <key>on_boarding_three_native_id</key>
+        <value>ca-app-pub-4276074242154795/9518419520</value>
+    </entry>
+
+    <entry>
+        <key>full_one_native_id</key>
+        <value>ca-app-pub-4276074242154795/5811108808</value>
+    </entry>
+
+    <entry>
+        <key>full_two_native_id</key>
+        <value>ca-app-pub-4276074242154795/5811108808</value>
+    </entry>
+
+    <entry>
+        <key>lfo_one_native_id</key>
+        <value>ca-app-pub-4276074242154795/4446227688</value>
+    </entry>
+
+    <entry>
+        <key>lfo_two_native_id</key>
+        <value>ca-app-pub-4276074242154795/4689598825</value>
+    </entry>
+
+    <entry>
+        <key>all_reward_ad</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>splash_inter_ad_id</key>
+        <value>ca-app-pub-4276074242154795/2191599433</value>
+    </entry>
+
+    <!-- <value></value>-->
+    <entry>
+        <key>save_inter_ad_id</key>
+        <value>ca-app-pub-4276074242154795/3006951685</value>
+    </entry>
+
+    <entry>
+        <key>native_processing_id</key>
+        <value>ca-app-pub-4276074242154795/9500207846</value>
+    </entry>
+    <entry>
+        <key>native_dialog_id</key>
+        <value>ca-app-pub-4276074242154795/3500941555</value>
+    </entry>
+
+
+    <entry>
+        <key>load_full_native_one</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_full_native_meta</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_ob_native_meta</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_banner_on_failed_ob</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_lf_one</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_banner_splash</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_interstitial_splash</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_interstitial_save</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_for_dialog</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_for_processing</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>load_native_lf_two</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_ob_one</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_ob_two</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_native_ob_three</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>auto_scroll_time</key>
+        <value>6000</value>
+    </entry>
+
+
+
+    <entry>
+        <key>native_reload_limit</key>
+        <value>2</value>
+    </entry>
+
+    <entry>
+        <key>load_full_native_two</key>
+        <value>true</value>
+    </entry>
+
+
+
+    <entry>
+        <key>animation_auto_mode</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_robo_pro</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>load_native_on_resume</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>load_banner_on_resume</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>see_all_adaptive_banner</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>interstitial_on_click</key>
+        <value>3</value>
+    </entry>
+
+    <entry>
+        <key>bigo_pop_up_on_click</key>
+        <value>3</value>
+    </entry>
+
+    <entry>
+        <key>splash_time</key>
+        <value>500</value>
+    </entry>
+
+
+    <entry>
+        <key>collage_frame_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_categories_frame_home_click_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_categories_frame_template_click_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_collage_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_gift_icon_feature</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_gift_icon_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_offer_panel</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>offer_session</key>
+        <value>2</value>
+    </entry>
+
+    <entry>
+        <key>pro_screen_variant</key>
+        <value>0</value>
+    </entry>
+
+    <entry>
+        <key>show_home_screen</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>offer_type_yearly</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>offer_percentage</key>
+        <value>false</value>
+    </entry>
+
+    <!--    <entry>-->
+    <!--        <key>yearly_price</key>-->
+    <!--        <value>false</value>-->
+    <!--    </entry>-->
+
+    <!--    <entry>-->
+    <!--        <key>monthly_price</key>-->
+    <!--        <value>false</value>-->
+    <!--    </entry>-->
+
+    <entry>
+        <key>show_reward_ad_feature_for_you</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_feature_today_special</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_feature_most_used</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_favourite</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_solo_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_dual_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_multiplex_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_pip_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_profile_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_ai_blend_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_ai_effect_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_drip_art_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_spiral_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_neon_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_bg_art_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_overlay_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_double_exposure_frames_home</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_styles</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_templates</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_search</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_frame_editor_frames</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_pip_editor_frames</key>
+        <value>false</value>
+    </entry>
+
+    <entry>
+        <key>show_reward_ad_photo_editor_effects</key>
+        <value>false</value>
+    </entry>
+
+
+    <entry>
+        <key>show_collage_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_all_interstitial_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_editor_text_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_discard_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_template_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_search_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_recently_used_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_draft_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_styles_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_today_special_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_most_used_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_for_you_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_favourite_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_categories_frame_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_crop_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_crop_back_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_native_exit</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_replace_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_image_selection_next_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_image_selection_back_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>show_draft_click_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>profile_picture_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>home_menu_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>templates_menu_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>feature_menu_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>style_menu_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>my_work_menu_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>blend_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>effects_show_ad</key>
+        <value>true</value>
+    </entry>
+    <entry>
+        <key>drip_art_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>spiral_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>robo_offer_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>robo_pro_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>native_process_blend</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>native_discard_editor</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>neon_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>solo_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>dual_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>multi_plex_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>photo_editor_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>pip_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>overlay_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>intro_screen</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>double_exposure_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_ad_after_splash</key>
+        <value>2</value>
+    </entry>
+
+    <entry>
+        <key>bg_art_show_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_save_ad</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_pro_save</key>
+        <value>true</value>
+    </entry>
+
+    <entry>
+        <key>show_all_app_open_ad</key>
+        <value>true</value>
+    </entry>
+
+</defaultsMap>

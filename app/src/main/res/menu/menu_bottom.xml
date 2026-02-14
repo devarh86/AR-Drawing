@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/home"
+        android:contentDescription="@string/templates"
+        android:icon="@drawable/templates_icon_selector"/>
+
+    <item
+        android:id="@+id/nav_empty"
+        android:title=""
+        android:contentDescription="@string/menu_styles"
+        android:enabled="false" />
+
+
+    <item
+        android:id="@+id/nav_mywork"
+        android:title="@string/projects"
+        android:contentDescription="@string/saved"
+      android:icon="@drawable/save_icon_selector"/>
+
+</menu>

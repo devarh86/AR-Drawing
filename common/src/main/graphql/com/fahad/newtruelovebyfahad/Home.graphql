@@ -1,0 +1,28 @@
+query getHomeAndTemplateScreenData {
+    screens(key: LISTING) {
+        id
+        title
+        categories {
+            id
+            title
+            apioption
+            frames {
+                id
+                title
+                thumb
+                thumbtype
+                masks
+                scrlCount
+                tags
+                assettype
+                rembg
+                editor
+                baseUrl
+                scrl {
+                    file
+                    baseUrl
+                }
+            }
+        }
+    }
+}

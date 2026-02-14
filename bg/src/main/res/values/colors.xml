@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#F54748</color>
+    <color name="red">#FF5722</color>
+    <color name="white">#FFFFFF</color>
+    <color name="app_bg">#F7F8FA</color>
+    <color name="heading_txt">#343F56</color>
+    <color name="sub_heading_txt">#343F56</color>
+    <color name="divider">#D6D6D6</color>
+    <color name="sticker_bg">#E7E7E7</color>
+    <color name="background">#F6F6F6</color>
+    <color name="shimmer">#C6C6C6</color>
+</resources>

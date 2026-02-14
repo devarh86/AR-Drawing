@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner_top_radius_bg_10dp"
+    android:padding="@dimen/_25sdp">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/loading_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/thumb_iv"
+        app:layout_constraintEnd_toEndOf="@+id/thumb_iv"
+        app:layout_constraintStart_toStartOf="@+id/thumb_iv"
+        app:layout_constraintTop_toTopOf="@+id/thumb_iv"
+        app:shimmer_auto_start="false"
+        app:shimmer_shape="linear">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/shimmer" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <ImageView
+        android:id="@+id/thumb_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_100sdp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animView" />
+
+    <TextView
+        android:id="@+id/downloading_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_25sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:text="@string/downloading"
+        android:textColor="@color/normal_txt_clr"
+        android:textSize="@dimen/_11ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/downloading_tv"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/download_anim_new" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="28dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+  <path
+      android:pathData="M15.144,22.75H19.25C19.973,22.75 20.615,22.727 21.187,22.645C24.255,22.307 25.083,20.86 25.083,16.917V11.083C25.083,7.14 24.255,5.693 21.187,5.355C20.615,5.273 19.973,5.25 19.25,5.25"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.75"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/tab_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M10.477,5.25H8.75C8.027,5.25 7.385,5.273 6.813,5.355C3.745,5.693 2.917,7.14 2.917,11.083V16.917C2.917,20.86 3.745,22.307 6.813,22.645C7.385,22.727 8.027,22.75 8.75,22.75H10.477"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.75"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/tab_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M10.5,2.333V25.666"
+      android:strokeLineJoin="round"
+      android:strokeWidth="1.75"
+      android:fillColor="#00000000"
+      android:strokeColor="@color/tab_txt_clr"
+      android:strokeLineCap="round"/>
+  <path
+      android:pathData="M17.668,15.446H15.503L15.145,16.334H14L15.955,11.667H17.224L19.179,16.334H18.026L17.668,15.446ZM17.372,14.698L16.586,12.748L15.799,14.698H17.372Z"
+      android:fillColor="@color/tab_txt_clr"/>
+  <path
+      android:pathData="M21,11.674V16.334H19.91V11.674H21Z"
+      android:fillColor="@color/tab_txt_clr"/>
+  <path
+      android:pathData="M15.533,4.052L15.665,3.623C15.669,3.608 15.679,3.596 15.691,3.586C15.704,3.577 15.719,3.572 15.735,3.572C15.75,3.572 15.765,3.577 15.778,3.586C15.79,3.596 15.8,3.609 15.804,3.624L15.936,4.052C15.99,4.226 16.086,4.385 16.215,4.514C16.344,4.643 16.502,4.739 16.677,4.792L17.105,4.925C17.12,4.929 17.133,4.938 17.142,4.951C17.151,4.964 17.156,4.979 17.156,4.994C17.156,5.01 17.151,5.025 17.142,5.038C17.133,5.05 17.12,5.059 17.105,5.064L16.677,5.196C16.502,5.25 16.344,5.345 16.215,5.474C16.085,5.603 15.99,5.762 15.936,5.936L15.804,6.365C15.799,6.38 15.79,6.393 15.778,6.402C15.765,6.411 15.75,6.416 15.734,6.416C15.719,6.416 15.704,6.411 15.691,6.402C15.679,6.393 15.669,6.38 15.665,6.365L15.533,5.936C15.479,5.762 15.383,5.603 15.254,5.474C15.125,5.345 14.966,5.249 14.792,5.196L14.364,5.064C14.349,5.059 14.336,5.05 14.327,5.037C14.318,5.025 14.313,5.01 14.313,4.994C14.313,4.978 14.318,4.963 14.327,4.951C14.336,4.938 14.349,4.929 14.364,4.924L14.792,4.792C14.966,4.738 15.125,4.643 15.254,4.514C15.383,4.385 15.479,4.226 15.533,4.052Z"
+      android:fillColor="@color/tab_txt_clr"/>
+</vector>

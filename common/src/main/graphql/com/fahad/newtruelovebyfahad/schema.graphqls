@@ -1,0 +1,541 @@
+type Query {
+    apioptionValues: [String]
+    parentCategories(apioption: String): [CategoriesType]
+    childCategories(apioption: String): [CategoriesType]
+    allTags(key: TagType): [TagNode]
+    screens(key: TagType): [TagNode]
+    panel(key: TagType): [TagNode]
+    frame(id: Int): FramesType
+    homeScreen: [CategoriesType]
+    search(searchStr: String): [FramesType]
+}
+
+type CategoriesType {
+    id: ID!
+    title: String!
+    cover: String
+    tag: TagNode!
+    apioption: String
+    children: [CategoriesType]
+    child: [CategoriesType]
+    frames: [FramesTypeView]
+    stickers: [StickersType]
+    effects(key: EffectType): [EffectsNode]
+    templates: [FramesType]
+    baseUrl: String
+}
+
+type TagNode {
+    title: String!
+    index: Int!
+    id: ID!
+    icon: String
+    categories(apioption: String): [CategoriesType]
+    parent: [CategoriesType]
+    frames: [FramesTypeView]
+    tags(key: TagType): [TagNode]
+    baseUrl: String
+}
+
+type FramesTypeView {
+    id: Int!
+    title: String!
+    category: String!
+    editor: String!
+    availability: String!
+    index: Int!
+    tagsindex: Int!
+    thumb: String!
+    character: String!
+    thumbtype: String!
+    masks: Int!
+    rembg: Boolean!
+    isComplex: Boolean!
+    assettype: String!
+    files: [FilesType]
+    scrl: [FilesType]
+    scrlCount: Int
+    variant: [TagNode]
+    hashtag: [TagNode]
+    tags: String
+    baseUrl: String
+}
+
+type FilesType {
+    id: ID!
+    key: FramesFilesKeyChoices!
+    file: String!
+    ratio: String!
+    width: Decimal!
+    height: Decimal!
+    xaxis: Decimal!
+    yaxis: Decimal!
+    rotation: Decimal!
+    frame: FramesType!
+    content: String!
+    size: Decimal!
+    property: String!
+    color: String!
+    index: Int!
+    effect: String!
+    isClip: Boolean!
+    clipFile: String
+    adjustment: Boolean!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+    baseUrl: String
+}
+
+"""An enumeration."""
+enum FramesFilesKeyChoices {
+    """COVER"""
+    COVER
+
+    """FRAME"""
+    FRAME
+
+    """MASKS"""
+    MASKS
+
+    """TEXT"""
+    TEXT
+
+    """CH"""
+    CH
+
+    """STICKER"""
+    STICKER
+
+    """FG"""
+    FG
+
+    """BG"""
+    BG
+
+    """OVERLAY"""
+    OVERLAY
+
+    """CLIP"""
+    CLIP
+
+    """BLEND"""
+    BLEND
+
+    """USER"""
+    USER
+
+    """MASKBG"""
+    MASKBG
+
+    """DESIGN"""
+    DESIGN
+
+    """ICONS"""
+    ICONS
+
+    """IMAGE"""
+    IMAGE
+
+    """SCRL"""
+    SCRL
+}
+
+"""The `Decimal` scalar type represents a python Decimal."""
+scalar Decimal
+
+type FramesType {
+    id: ID!
+    title: String!
+    category: CategoriesType!
+    editor: String!
+    index: Int!
+    tagsindex: Int!
+    rembg: Boolean!
+    assettype: FramesFramesAssettypeChoices!
+    isComplex: Boolean!
+    files: [FilesType]
+    scrl: [FilesType]
+    thumb: String
+    thumbtype: String
+    variant: [TagNode]
+    hashtag: [TagNode]
+    masks: Int
+    tags: String
+    baseUrl: String
+    ratioVariant: String
+    ratios: [RatioType]
+    scrlCount: Int
+}
+
+"""An enumeration."""
+enum FramesFramesAssettypeChoices {
+    """FRAME"""
+    FRAME
+
+    """BLEND"""
+    BLEND
+
+    """EFFECT"""
+    EFFECT
+
+    """PIP"""
+    PIP
+}
+
+type RatioType {
+    ratio: String
+    files: [FilesType]
+}
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
+
+enum TagType {
+    SCREEN
+    LISTING
+    VARIANT
+    HASHTAG
+    LOCALE
+}
+
+type StickersType {
+    id: ID!
+    title: String!
+    category: CategoriesType!
+    file: String!
+    tags: [TagNode!]!
+    baseUrl: String
+}
+
+type EffectsNode {
+    id: ID!
+    title: String!
+    effect: String!
+    category: CategoriesType!
+    tags: [TagNode!]!
+    cover: String!
+    file: String!
+    effecttype: EffectsEffectsEffecttypeChoices!
+    baseUrl: String
+    hashtag: [TagNode]
+}
+
+"""An enumeration."""
+enum EffectsEffectsEffecttypeChoices {
+    """FILTER"""
+    FILTER
+
+    """MASK"""
+    MASK
+
+    """OVERLAY"""
+    OVERLAY
+
+    """PIXEL"""
+    PIXEL
+}
+
+enum EffectType {
+    FILTER
+    MASK
+    OVERLAY
+    PIXEL
+}
+
+type Mutation {
+    """Obtain JSON Web Token mutation"""
+    authenticateApp(username: String!, password: String!): ObtainJSONWebToken
+}
+
+"""Obtain JSON Web Token mutation"""
+type ObtainJSONWebToken {
+    payload: GenericScalar!
+    refreshExpiresIn: Int!
+    token: String!
+}
+
+"""
+The `GenericScalar` scalar type represents a generic
+GraphQL scalar value that could be:
+String, Boolean, Int, Float, List or Object.
+"""
+scalar GenericScalar
+
+
+
+
+#type Query {
+#    apioptionValues: [String]
+#    parentCategories(apioption: String): [CategoriesType]
+#    childCategories(apioption: String): [CategoriesType]
+#    allTags(key: TagType): [TagNode]
+#    screens(key: TagType): [TagNode]
+#    panel(key: TagType): [TagNode]
+#    frame(id: Int): FramesType
+#    homeScreen: [CategoriesType]
+#    search(searchStr: String): [FramesType]
+#}
+#
+#type CategoriesType {
+#    id: ID!
+#    title: String!
+#    cover: String
+#    tag: TagNode!
+#    apioption: String
+#    children: [CategoriesType]
+#    child: [CategoriesType]
+#    frames: [FramesTypeView]
+#    stickers: [StickersType]
+#    effects(key: EffectType): [EffectsNode]
+#    templates: [FramesType]
+#    baseUrl: String
+#}
+#
+#type TagNode {
+#    title: String!
+#    index: Int!
+#    id: ID!
+#    icon: String
+#    categories(apioption: String): [CategoriesType]
+#    parent: [CategoriesType]
+#    frames: [FramesTypeView]
+#    tags(key: TagType): [TagNode]
+#    baseUrl: String
+#}
+#
+#type FramesTypeView {
+#    id: Int!
+#    title: String!
+#    category: String!
+#    editor: String!
+#    availability: String!
+#    index: Int!
+#    tagsindex: Int!
+#    thumb: String!
+#    character: String!
+#    thumbtype: String!
+#    masks: Int!
+#    rembg: Boolean!
+#    isComplex: Boolean!
+#    assettype: String!
+#    files: [FilesType]
+#    scrl: [FilesType]
+#    variant: [TagNode]
+#    hashtag: [TagNode]
+#    tags: String
+#    baseUrl: String
+#}
+#
+#type FilesType {
+#    id: ID!
+#    key: FramesFilesKeyChoices!
+#    file: String!
+#    ratio: String!
+#    width: Decimal!
+#    height: Decimal!
+#    xaxis: Decimal!
+#    yaxis: Decimal!
+#    rotation: Decimal!
+#    frame: FramesType!
+#    content: String!
+#    size: Decimal!
+#    property: String!
+#    color: String!
+#    index: Int!
+#    effect: String!
+#    isClip: Boolean!
+#    clipFile: String
+#    adjustment: Boolean!
+#    createdAt: DateTime!
+#    updatedAt: DateTime!
+#    baseUrl: String
+#}
+#
+#"""An enumeration."""
+#enum FramesFilesKeyChoices {
+#    """COVER"""
+#    COVER
+#
+#    """FRAME"""
+#    FRAME
+#
+#    """MASKS"""
+#    MASKS
+#
+#    """TEXT"""
+#    TEXT
+#
+#    """CH"""
+#    CH
+#
+#    """STICKER"""
+#    STICKER
+#
+#    """FG"""
+#    FG
+#
+#    """BG"""
+#    BG
+#
+#    """OVERLAY"""
+#    OVERLAY
+#
+#    """CLIP"""
+#    CLIP
+#
+#    """BLEND"""
+#    BLEND
+#
+#    """USER"""
+#    USER
+#
+#    """MASKBG"""
+#    MASKBG
+#
+#    """DESIGN"""
+#    DESIGN
+#
+#    """ICONS"""
+#    ICONS
+#
+#    """IMAGE"""
+#    IMAGE
+#
+#    """SCRL"""
+#    SCRL
+#}
+#
+#"""The `Decimal` scalar type represents a python Decimal."""
+#scalar Decimal
+#
+#type FramesType {
+#    id: ID!
+#    title: String!
+#    category: CategoriesType!
+#    editor: String!
+#    index: Int!
+#    tagsindex: Int!
+#    rembg: Boolean!
+#    assettype: FramesFramesAssettypeChoices!
+#    isComplex: Boolean!
+#    files: [FilesType]
+#    scrl: [FilesType]
+#    thumb: String
+#    thumbtype: String
+#    variant: [TagNode]
+#    hashtag: [TagNode]
+#    masks: Int
+#    tags: String
+#    baseUrl: String
+#    ratioVariant: String
+#    ratios: [RatioType]
+#}
+#
+#"""An enumeration."""
+#enum FramesFramesAssettypeChoices {
+#    """FRAME"""
+#    FRAME
+#
+#    """BLEND"""
+#    BLEND
+#
+#    """EFFECT"""
+#    EFFECT
+#
+#    """PIP"""
+#    PIP
+#}
+#
+#type RatioType {
+#    ratio: String
+#    files: [FilesType]
+#}
+#
+#"""
+#The `DateTime` scalar type represents a DateTime
+#value as specified by
+#[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+#"""
+#scalar DateTime
+#
+#enum TagType {
+#    SCREEN
+#    LISTING
+#    VARIANT
+#    HASHTAG
+#    LOCALE
+#}
+#
+#type StickersType {
+#    id: ID!
+#    title: String!
+#    category: CategoriesType!
+#    file: String!
+#    tags: [TagNode!]!
+#    baseUrl: String
+#}
+#
+#type EffectsNode {
+#    id: ID!
+#    title: String!
+#    effect: String!
+#    category: CategoriesType!
+#    tags: [TagNode!]!
+#    cover: String!
+#    file: String!
+#    effecttype: EffectsEffectsEffecttypeChoices!
+#    baseUrl: String
+#    hashtag: [TagNode]
+#}
+#
+#"""An enumeration."""
+#enum EffectsEffectsEffecttypeChoices {
+#    """FILTER"""
+#    FILTER
+#
+#    """MASK"""
+#    MASK
+#
+#    """OVERLAY"""
+#    OVERLAY
+#
+#    """PIXEL"""
+#    PIXEL
+#}
+#
+#enum EffectType {
+#    FILTER
+#    MASK
+#    OVERLAY
+#    PIXEL
+#}
+#
+#type Mutation {
+#    """Obtain JSON Web Token mutation"""
+#    authenticateApp(username: String!, password: String!): ObtainJSONWebToken
+#}
+#
+#"""Obtain JSON Web Token mutation"""
+#type ObtainJSONWebToken {
+#    payload: GenericScalar!
+#    refreshExpiresIn: Int!
+#    token: String!
+#}
+#
+#"""
+#The `GenericScalar` scalar type represents a generic
+#GraphQL scalar value that could be:
+#String, Boolean, Int, Float, List or Object.
+#"""
+#scalar GenericScalar
+#
+
+
+
+
+
+

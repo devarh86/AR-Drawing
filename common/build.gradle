@@ -1,0 +1,165 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
+    id("com.apollographql.apollo3") version("3.8.2")
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'com.google.protobuf'
+    id("org.jetbrains.kotlin.plugin.compose")
+}
+apollo {
+    generateKotlinModels.set(false)
+    service("service") {
+        packageName.set("com.fahad.newtruelovebyfahad")
+    }
+}
+android {
+    namespace 'com.project.common'
+    compileSdk 35
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 35
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility =JavaVersion.VERSION_1_8
+        sourceCompatibility= JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        compose =true
+        viewBinding = true
+        buildConfig = true
+    }
+    //    composeOptions {
+//        kotlinCompilerExtensionVersion = "1.5.4"
+//    }
+
+    kapt {
+        arguments {
+            arg("room.schemaLocation", "$projectDir/schemas")
+        }
+        correctErrorTypes true
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.7"
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+
+    api("io.github.farimarwat:grizzly:2.1")
+    implementation 'androidx.core:core-ktx:1.15.0'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    implementation "com.google.dagger:hilt-android:2.56.1"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "com.google.dagger:hilt-compiler:2.56.1"
+    implementation("androidx.hilt:hilt-navigation-fragment:1.2.0")
+    // apollo
+    api("com.apollographql.apollo3:apollo-runtime:3.8.2")
+
+    api(platform("com.google.firebase:firebase-bom:32.7.1"))
+    api 'com.google.firebase:firebase-analytics'
+    api 'com.google.firebase:firebase-crashlytics'
+    api("com.google.firebase:firebase-perf")
+
+    // Room Database
+    api("androidx.room:room-runtime:2.7.0")
+    kapt("androidx.room:room-compiler:2.7.0")
+
+    //inapp
+    api(project(":inapp"))
+
+//    api(project(":appOnBoarding"))
+
+    // ViewModel and LiveData
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.7"
+
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+
+    // lottie animation
+    implementation "com.airbnb.android:lottie:6.3.0"
+    implementation "com.github.bumptech.glide:compose:1.0.0-alpha.5"
+
+    api(project(":analytics"))
+
+    // data store
+    implementation("androidx.datastore:datastore-preferences:1.1.0-beta01")
+    implementation "androidx.datastore:datastore:1.0.0"
+    implementation "com.google.protobuf:protobuf-javalite:3.21.12"
+
+    implementation "androidx.room:room-runtime:2.7.0"
+    implementation("androidx.room:room-ktx:2.6.1")
+
+    implementation 'androidx.core:core-splashscreen:1.1.0-alpha02'
+
+    api 'androidx.navigation:navigation-fragment-ktx:2.8.9'
+    api 'androidx.navigation:navigation-ui-ktx:2.8.9'
+    api 'androidx.navigation:navigation-fragment-ktx:2.8.9'
+
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+    implementation 'androidx.fragment:fragment-ktx:1.6.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation 'androidx.core:core-splashscreen:1.1.0-rc01'
+
+    api("com.facebook.shimmer:shimmer:0.5.0")
+
+    api("com.intuit.sdp:sdp-android:1.1.0")
+    api("com.intuit.ssp:ssp-android:1.1.0")
+
+    api("androidx.compose.material3:material3:1.2.0") // Use latest version
+
+    // implementation 'androidx.activity:activity-ktx:1.4.0'
+    //    //implementation 'androidx.fragment:fragment-ktx:1.4.1'
+    //    //implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+//    implementation "com.github.skydoves:viewmodel-lifecycle:1.1.0"
+
+    api "androidx.compose.material3:material3:1.2.0"
+    api "androidx.constraintlayout:constraintlayout-compose:1.1.0"
+
+    api libs.lifecycle.viewmodel.compose
+    api libs.lifecycle.runtime.ktx
+    api libs.ui
+    api libs.androidx.material
+    api libs.androidx.ui.tooling.preview
+    api libs.androidx.ui.tooling
+    api libs.androidx.lifecycle.runtime.compose
+    api libs.compose
+}

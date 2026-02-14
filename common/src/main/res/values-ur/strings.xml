@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string name="next">اگلا</string>-->
+    <string name="downloading">ڈاؤن لوڈ ہو رہا ہے...</string>
+    <string name="exit_title">کیا آپ واقعی باہر نکلنا چاہتے ہیں؟</string>
+    <string name="discard">رد کر دیں۔</string>
+    <string name="exit">باہر نکلیں۔</string>
+    <string name="cancel">منسوخ کریں۔</string>
+    <string name="edit_photo">تصویر میں ترمیم کریں۔</string>
+    <string name="are_you_want_to_discard">کیا آپ مسترد کرنا چاہتے ہیں؟</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">اگر آپ واپس جاتے ہیں تو آپ کا کام ضائع کر دیا جائے گا!</string>
+    <string name="try_again">دوبارہ کوشش کریں۔</string>
+    <string name="select_language">زبان منتخب کریں۔</string>
+    <string name="welcome_to_collagepic">CollagePic میں خوش آمدید</string>
+    <string name="what_do_you_want_to_do_in_this_app">آپ اس ایپ میں کیا کرنا چاہتے ہیں؟</string>
+
+    <string name="unlock_all_features">تمام خصوصیات کو ان لاک کریں</string>
+    <string name="start_free_trail">مفت آزمائش شروع کریں</string>
+    <string name="start_now">ابھی شروع کریں</string>
+
+    <string name="ratio">تناسب</string>
+    <string name="add_image">تصویر شامل کریں</string>
+    <string name="select_1_10_photos">1 سے 10 تصاویر منتخب کریں</string>
+    <string name="select_1_9_photos">1 سے 9 تصاویر منتخب کریں</string>
+    <string name="background">پس منظر</string>
+    <string name="filter">فلٹر</string>
+    <string name="add">شامل کریں</string>
+    <string name="stitch">سلائی</string>
+    <string name="demandMessage">آپ صرف %d تصویر منتخب کر سکتے ہیں</string>
+    <string name="requestMessage">براہ کرم کم از کم %d تصویر منتخب کریں</string>
+    <string name="requestMessageCollage">براہ کرم کم از کم %d تصویر منتخب کریں</string>
+    <string name="noImage">کوئی تصویر نہیں ملی</string>
+    <string name="multi_fit">کئی فٹ</string>
+    <string name="_continue">جاری رکھیں</string>
+    <string name="square">مربع</string>
+    <string name="options">اختیارات\n</string>
+    <string name="stay">رہیں</string>
+
+    <string name="quick_tutorial">جلد ٹیوٹوریل</string>
+    <string name="shortcut_template">ٹیمپلیٹ</string>
+    <string name="use_this_template">اس ٹیمپلیٹ کو استعمال کریں</string>
+    <string name="tap_to_apply">اطلاق کے لیے ٹیپ کریں</string>
+    <string name="great_work">زبردست کام</string>
+    <string name="done">مکمل</string>
+    <string name="getting_ready">تیاری ہو رہی ہے</string>
+    <string name="change_photos_with_just_one_touch">صرف ایک ٹچ سے تصاویر تبدیل کریں</string>
+    <string name="show_me">مجھے دکھائیں</string>
+    <string name="create_stunning_designs_in_a_single_tap">ایک ٹچ میں شاندار ڈیزائن بنائیں</string>
+
+    <string name="term_of_use">استعمال کی مدت</string>
+    <string name="privacy_policy">رازداری کی پالیسی</string>
+    <string name="cancel_subscription">رکنیت منسوخ کریں۔</string>
+    <string name="subscription_detail">مکمل ہونے پر، ٹرائل خود بخود سبسکرپشن میں تبدیل ہو جائے گا۔ سبسکرپشن خودکار تجدید۔ Google Play Store پر کسی بھی وقت منسوخ کریں۔</string>
+    <string name="continue_text">جاری رکھیں</string>
+    <string name="no_watermark">کوئی واٹر مارک نہیں۔</string>
+    <string name="no_obligatory_ads">کوئی لازمی اشتہارات نہیں۔</string>
+    <string name="smoother_experience">ہموار تجربہ</string>
+    <string name="access_to_all_features">تمام خصوصیات تک رسائی</string>
+    <string name="pro">پی آر او</string>
+    <string name="say_goodbye_to_watermark">واٹر مارک کو الوداع کہیں۔</string>
+    <string name="draft">مسودہ</string>
+    <string name="language_indo" translatable="false">انڈونیشین</string>
+    <string name="language_english" translatable="false">انگریزی</string>
+    <string name="language_bengali" translatable="false">بنگالی</string>
+    <string name="language_german" translatable="false">جرمن</string>
+    <string name="language_portuguese" translatable="false">پرتگالی</string>
+    <string name="language_arabic" translatable="false">عربی</string>
+    <string name="language_spanish" translatable="false">ہسپانوی</string>
+    <string name="language_mandarin" translatable="false">مینڈارن</string>
+    <string name="language_russian" translatable="false">روسی</string>
+    <string name="language_urdu" translatable="false">اردو</string>
+    <string name="language_french" translatable="false">فرانسیسی</string>
+    <string name="language_hindi" translatable="false">ہندی</string>
+    <string name="language_japanese" translatable="false">جاپانی</string>
+    <string name="waring_out_of_memory">کافی میموری نہیں ہے۔ براہ کرم تصاویر کو ہٹا دیں ورنہ آپ کا پروگرام کریش ہو جائے گا۔!!!</string>
+    <string name="hello_blank_fragment">ہیلو خالی ٹکڑا</string>
+    <string name="border_size">بارڈر کا سائز</string>
+    <string name="border_color">بارڈر کا رنگ</string>
+    <string name="border_padding">پیڈنگ</string>
+    <string name="border_radius">رداس</string>
+    <string name="frame_foreground">فریم کا پیش منظر</string>
+    <string name="save">محفوظ کریں۔</string>
+    <string name="message">پیغام</string>
+    <string name="bg">بی جی</string>
+    <string name="text">متن</string>
+    <string name="write_text">متن لکھیں۔</string>
+    <string name="close">بند</string>
+    <string name="replace">بدل دیں۔</string>
+    <string name="crop">تصویر کو تراشیں</string>
+    <string name="remove_watermark">واٹر مارک کو ہٹا دیں۔</string>
+    <string name="for_24_hours">24 گھنٹے کے لیے</string>
+    <string name="for_life_time">لائف ٹائم کے لیے</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="processing_please_wait">کارروائی ہو رہی ہے، براہ کرم انتظار کریں...</string>
+    <string name="share">شیئر کریں۔</string>
+    <string name="home">گھر</string>
+    <string name="frame_background">فریم بیک گراؤنڈ</string>
+    <string name="opacity">دھندلاپن</string>
+    <string name="blend">ملاوٹ</string>
+    <string name="_ad">AD</string>
+    <string name="watch_video_ad_to_remove_watermark_for_or_go_premium">یا Go Premium کے لیے واٹر مارک ہٹانے کے لیے ویڈیو اشتہار دیکھیں۔</string>
+    <string name="go_premium">پریمیم پر جائیں۔</string>
+    <string name="trending_frames">ٹرینڈنگ فریمز</string>
+    <string name="blur">دھندلا</string>
+    <string name="next">اگلا</string>
+    <string name="watch_ad">اشتہار دیکھیں</string>
+    <string name="effect_opacity">اثر کی دھندلاپن</string>
+    <string name="photo_editor_1">ایڈیٹر</string>
+    <string name="blending">ملاوٹ</string>
+
+    <string name="menu_featured">نمایاں</string>
+    <string name="menu_home">گھر</string>
+    <string name="menu_templates">ٹیمپلیٹس</string>
+    <string name="menu_styles">آرٹ اسٹائلز</string>
+    <string name="menu_files">میرا کام</string>
+    <string name="ad">AD</string>
+    <string name="single_frames">سنگل فریم</string>
+    <string name="double_frames">جوڑے کے فریم</string>
+    <string name="greetings">سلام</string>
+    <string name="collages">کولاجز</string>
+    <string name="collage">کولیج</string>
+    <string name="shapes">شکلیں</string>
+    <string name="pips">پپس فریم</string>
+    <string name="frames">فریم</string>
+    <string name="frame">فریم</string>
+    <string name="more">مزید</string>
+    <string name="no_result_found">کوئی نتیجہ نہیں ملا</string>
+    <string name="try_now">ابھی کوشش کریں۔</string>
+    <string name="true_love_frames">فریم می</string>
+    <string name="true_love_frames_camelcase">فریم می</string>
+    <string name="tell_your_friend">اپنے دوست کو بتائیں</string>
+    <string name="rate_us">ہمیں درجہ دیں۔</string>
+    <string name="send_mail">میل بھیجیں۔</string>
+    <string name="cancel_subscription_description">آپ Google Play کی ترتیب میں کسی بھی وقت سبسکرپشن کا نظم یا منسوخ کر سکتے ہیں۔</string>
+    <string name="recommended_apps">تجویز کردہ ایپس</string>
+    <string name="remove_ads">اشتہارات کو ہٹا دیں۔</string>
+    <string name="editor">ایڈیٹر</string>
+    <string name="effect">اثر</string>
+    <string name="adjust">ایڈجسٹ کریں۔</string>
+    <string name="stickers">اسٹیکرز</string>
+    <string name="type">قسم</string>
+    <string name="font">فونٹ</string>
+    <string name="font_color">فونٹ کا رنگ</string>
+    <string name="bg_color">بی جی کلر</string>
+    <string name="opacity_value">دھندلاپن: %1$s %</string>
+    <string name="menu_pro">پرو</string>
+    <string name="menu_favourite">پسندیدہ</string>
+    <string name="for_you">نیا</string>
+    <string name="today_special">اوپر</string>
+    <string name="most_used">ٹرینڈنگ</string>
+    <string name="more_features">مزید خصوصیات</string>
+    <string name="recently_used">حالیہ</string>
+    <string name="saved">محفوظ کیا گیا۔</string>
+    <string name="mark_as_favorite_then_your_photo_nwill_appear_in_favorite_list">فریم کو پسندیدہ کے بطور نشان زد کریں، پھر آپ کا فریم\nپسندیدہ فہرست میں ظاہر ہوگا۔</string>
+    <string name="search_by_keyword">مطلوبہ الفاظ کے ذریعہ تلاش کریں۔</string>
+    <string name="more_apps">تجویز کردہ ایپس</string>
+    <string name="join_full_experience">مکمل تجربہ میں شامل ہوں۔</string>
+    <string name="ads_free">اشتہارات مفت</string>
+    <string name="ads_free_experience">اشتہارات سے پاک تجربہ</string>
+    <string name="all_premium_assets">تمام پریمیم اثاثے۔</string>
+    <string name="each_plan_includes">ہر پلان میں شامل ہیں:</string>
+    <string name="unlimited_frams_cards"><![CDATA[UNLIMITED FRAMES & CARDS]]></string>
+    <string name="get_100_stickers">100+ اسٹیکرز حاصل کریں۔</string>
+    <string name="remove_ads_cap">اشتہارات کو ہٹا دیں۔</string>
+    <string name="continue_with_ads">اشتہارات کے ساتھ جاری رکھیں</string>
+    <string name="weekly">ہفتہ وار</string>
+    <string name="plan">منصوبہ</string>
+    <string name="yearly">سالانہ</string>
+    <string name="life_time">زندگی بھر</string>
+    <string name="premium_features">پریمیم خصوصیات</string>
+    <string name="get_access_to_premium_features">پریمیم خصوصیات تک رسائی حاصل کریں۔</string>
+    <string name="text_effect">متن کا اثر</string>
+
+    <string name="error_gif">x یا y باؤنڈ سائز کم از کم %1$dpx ہونا چاہیے اور فائل کا سائز %2$sM سے زیادہ نہیں ہونا چاہیے</string>
+    <string name="album_name_all">تمام میڈیا</string>
+    <string name="error_type_conflict">ایک ہی وقت میں تصاویر اور ویڈیوز کا انتخاب نہیں کر سکتے</string>
+    <string name="error_over_count_default">آپ زیادہ سے زیادہ قابل انتخاب تک پہنچ گئے ہیں۔</string>
+    <string name="error_over_original_size">%1$d MB سے بڑی تصاویر کو منتخب نہیں کر سکتے</string>
+    <string name="error_no_video_activity">ویڈیو پیش نظارہ کو سپورٹ کرنے والی کوئی ایپ نہیں ملی</string>
+    <string name="button_ok">ٹھیک ہے</string>
+    <string name="error_file_type">غیر تعاون یافتہ فائل کی قسم</string>
+    <string name="error_over_original_count">%1$d تصاویر %2$d MB سے زیادہ۔ اصل کو غیر نشان زد کر دیا جائے گا۔</string>
+    <string name="fonts_bg">فونٹس BG</string>
+
+    <plurals name="error_over_count">
+        <item quantity="one">آپ صرف %1$d تک میڈیا فائلیں منتخب کر سکتے ہیں۔</item>
+        <item quantity="few">آپ صرف %1$d تک میڈیا فائلیں منتخب کر سکتے ہیں۔</item>
+        <item quantity="many">آپ صرف %1$d تک میڈیا فائلیں منتخب کر سکتے ہیں۔</item>
+        <item quantity="other">آپ صرف %1$d تک میڈیا فائلیں منتخب کر سکتے ہیں۔</item>
+    </plurals>
+    <string name="button_apply">اگلا</string>
+    <string name="button_apply_default">اگلا</string>
+    <string name="image_selection_limit_default">2-9 تصاویر منتخب کریں۔</string>
+    <string name="image_selection_limit">2-9 تصاویر منتخب کریں (%1$d)</string>
+    <string name="image_selection_limit_1">تصویر منتخب کریں۔</string>
+    <string name="brightness">چمک</string>
+    <string name="contrast">کنٹراسٹ</string>
+    <string name="hue">رنگت</string>
+    <string name="exposure">ایکسپوژر</string>
+    <string name="saturation">سنترپتی</string>
+    <string name="tint">رنگت</string>
+    <string name="warmth">گرمی</string>
+    <string name="color">رنگ</string>
+    <string name="sharpen">تیز کرنا</string>
+    <string name="vignette">ویگنیٹ</string>
+    <string name="highlight">نمایاں کریں۔</string>
+    <string name="shadow">سایہ</string>
+
+    <string name="facebook_app_id" translatable="false">1116803502100807</string>
+    <string name="facebook_client_token" translatable="false">20e7e74441820ce829e94727c2e402b1</string>
+
+    <string name="layout_text">لے آؤٹ</string>
+    <string name="button_preview">پیش نظارہ</string>
+    <string name="button_original">اصل</string>
+    <string name="empty_text">ابھی تک کوئی میڈیا نہیں۔</string>
+    <string name="button_back">پیچھے</string>
+    <string name="what_we_offer_in_discount_plan">ہم ڈسکاؤنٹ پلان میں کیا پیش کرتے ہیں۔</string>
+    <string name="original">اصل</string>
+    <string name="tick">ٹک</string>
+    <string name="reset">دوبارہ ترتیب دیں۔</string>
+    <string name="filter_opacity">فلٹر اوپیسٹی</string>
+    <string name="share_text">اس زبردست ایپ کے ساتھ اپنی تصاویر کو خوبصورت بنانے کا ایک نیا تفریحی طریقہ دریافت کریں۔</string>
+    <string name="pro_icon">pro_icon</string>
+    <string name="all_inclusive">سبھی شامل ہیں۔</string>
+    <string name="do_you_have_any_thoughts_you_d_like_to_share">کیا آپ کے پاس کوئی خیالات ہیں جو آپ اشتراک کرنا چاہتے ہیں؟</string>
+    <string name="submit">جمع کروائیں۔</string>
+    <string name="filters">فلٹرز</string>
+    <string name="no_internet_connect_found_please_try_again">آپ کے کنکشن میں کچھ غلط ہو گیا \n انٹرنیٹ سے جڑیں۔</string>
+    <string name="coming_soon">جلد آرہا ہے۔</string>
+    <string name="pro_caps">پی آر او</string>
+    <string name="apply_filter_on_all_images">تمام تصاویر پر فلٹر لگائیں۔</string>
+    <string name="connect_internet_and_explore_fantastic_art_style">انٹرنیٹ سے جڑیں اور شاندار آرٹ اسٹائل دریافت کریں۔</string>
+    <string name="solo_frames">گانے کے فریم</string>
+    <string name="multiplex">ملٹی پلیکس</string>
+    <string name="photo_editor">فوٹو ایڈیٹر</string>
+    <string name="image_resolution">تصویری ریزولوشن</string>
+    <string name="good">اچھا</string>
+    <string name="enhanced">بڑھا ہوا</string>
+    <string name="high">اعلی</string>
+    <string name="unlock_this_amazing_frame">اس حیرت انگیز فریم کو غیر مقفل کریں۔</string>
+    <string name="ad_start_in_3_second">اشتہار 3 سیکنڈ میں شروع ہوتا ہے۔</string>
+    <string name="your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us">آپ کی رائے ہمارے لیے اہم ہے۔ اگر آپ ہماری درجہ بندی کر سکتے ہیں تو ہم اس کی بہت تعریف کریں گے۔</string>
+    <string name="the_best_we_can_get">بہترین جو ہم حاصل کر سکتے ہیں۔</string>
+    <string name="rotate">گھمائیں۔</string>
+    <string name="image_quality">تصویری معیار</string>
+    <string name="edit_text">متن میں ترمیم کریں۔</string>
+    <string name="edit">ترمیم کریں۔</string>
+
+    <string name="feedback">تاثرات</string>
+    <string name="folder_name">کولاج تصویر</string>
+    <string name="name">کولاج تصویر</string>
+    <string name="app_name">کولاج تصویر</string>
+
+    <string name="logo_image">لوگو کی تصویر</string>
+    <string name="unlock_all_assets">تمام اثاثوں کو غیر مقفل کریں۔</string>
+    <string name="smoother_user_experience">ہموار صارف کا تجربہ</string>
+    <string name="remove_obligatory_ads">لازمی اشتہارات کو ہٹا دیں۔</string>
+    <string name="monthly">ماہانہ</string>
+
+    <string name="premium">پریمیم</string>
+    <string name="basic">بنیادی</string>
+
+    <string name="adjustment">ایڈجسٹمنٹس</string>
+    <string name="vertical">عمودی</string>
+    <string name="horizontal">افقی</string>
+
+
+
+    <string name="camera_and_storage">کیمرا اور اسٹوریج کی اجازت</string>
+    <string name="collage_requires_camera_and_storage_access_for_optimal_performance">CollagePic کو بہترین کارکردگی کے لیے کیمرا اور اسٹوریج تک رسائی کی ضرورت ہے۔</string>
+    <string name="allow">اجازت دیں</string>
+
+
+
+
+
+    <string name="enhance">اے آئی انہینسر</string>
+
+    <string name="enhance_detail_text">تصاویر بہتری کے بعد زیادہ واضح اور متحرک دکھائی دیتی ہیں</string>
+    <string name="pro_enhance">پرو انحانس</string>
+    <string name="better_effect_no_ads">بہتر اثر &amp; بغیر اشتہارات</string>
+
+    <string name="photo_ready_message">آپ کی تصویر تیار ہے! ابھی محفوظ کریں۔</string>
+
+    <string name="processing_text_one">آپ کے شاہکار کو پروسیس کیا جا رہا ہے... 🎨</string>
+    <string name="processing_text_two">آخری لمسات... ✨</string>
+    <string name="processing_text_three">شروع ہو رہا ہے... 🚀</string>
+
+    <string name="edit_t_s">تصویر ترمیم کریں</string>
+    <string name="edit_d_s">آسانی سے اپنی تصاویر کو حسب ضرورت بنائیں۔</string>
+    <string name="enhance_t_s">اے آئی بہتری</string>
+    <string name="enhance_d_s">سمارٹ طریقے سے تصویر کا معیار بہتر بنائیں۔</string>
+    <string name="blend_t_s">اے آئی امتزاج</string>
+    <string name="blend_d_s">اے آئی کے ذریعے تصاویر کو باآسانی یکجا کریں۔</string>
+    <string name="collage_t_s">فوٹو کولاج</string>
+    <string name="collage_d_s">تصاویر کو خوبصورت ترتیب میں یکجا کریں۔</string>
+    <string name="bg_art_t_s">پس منظر کی آرٹ</string>
+    <string name="bg_art_d_s">آسانی سے شاندار پس منظر تیار کریں۔</string>
+    <string name="unleash">اپنی تخلیقی صلاحیتوں کو آزاد کریں!</string>
+    <string name="unlimited_access">لامحدود رسائی</string>
+    <string name="smooth_ux">ہموار تجربہ</string>
+    <string name="enhance_watch_ad">بہتر بنائیں \n ایک اشتہار دیکھیں</string>
+
+    <string name="what_do_you_want_for_your_photo">آپ اپنی تصویر کے لیے کیا چاہتے ہیں؟</string>
+    <string name="templates">سانچے</string>
+    <string name="choose_an_answer">جواب منتخب کریں</string>
+    <string name="select_2_9_photos">2-9 تصاویر منتخب کریں</string>
+    <string name="select_1_1_photos">1 تصویر منتخب کریں</string>
+    <string name="maximum_images_selected">زیادہ سے زیادہ تصاویر منتخب ہو چکی ہیں</string>
+    <string name="photo_edit">تصویر ایڈٹ کریں</string>
+    <string name="ai_blend">اے آئی بلینڈ</string>
+    <string name="what_would_you_like_to_create">آپ کیا بنانا چاہیں گے؟</string>
+    <string name="ai_enhance">اے آئی بڑھائیں</string>
+
+    <string name="survery_detail">آپ کا جواب ہمیں آپ کے لیے مناسب تجربات لانے میں مدد کرے گا۔ (تمام موزوں جوابات کا انتخاب کریں)</string>
+
+
+
+    <string name="define_your_role">اپنا کردار متعین کریں، اپنے اوزار دریافت کریں!</string>
+    <string name="pick_your_journey">اپنی تخلیقی سفر کا انتخاب کریں!</string>
+    <string name="help_us_bring_experiences">آپ کے جوابات ہمیں آپ کے لئے موزوں تجربات لانے میں مدد دیں گے۔ (تمام موزوں جوابات منتخب کریں)</string>
+    <string name="where_publish_content">آپ اپنا مواد کہاں شائع کرتے ہیں؟</string>
+    <string name="how_did_you_find_us">آپ نے ہمیں کیسے پایا؟</string>
+
+    <!-- User Information -->
+    <string name="personal_user">ذاتی صارف</string>
+    <string name="student">طالب علم</string>
+    <string name="content_creator">مواد بنانے والا</string>
+    <string name="design_teacher">ڈیزائن استاد</string>
+    <string name="business_owner">کاروباری مالک</string>
+    <string name="employee">ملازم</string>
+    <string name="event_planner">ایونٹ پلانر</string>
+
+    <!-- Categories -->
+    <string name="frame_templates">فریم ٹیمپلیٹس</string>
+    <string name="bg_art">پس منظر کی آرٹ</string>
+    <string name="profile_pic">پروفائل تصویر</string>
+    <string name="pip_template">PIP ٹیمپلیٹ</string>
+    <string name="other">دیگر</string>
+
+    <!-- Content Types -->
+    <string name="facebook">فیس بک</string>
+    <string name="instagram">انسٹاگرام</string>
+    <string name="tiktok">ٹک ٹاک</string>
+    <string name="pinterest">پنٹرسٹ</string>
+    <string name="linkedin">لنکڈ ان</string>
+    <string name="reddit">ریڈٹ</string>
+    <string name="dribbble">ڈریببل</string>
+    <string name="behance">بیہانس</string>
+    <string name="twitter">ٹوئٹر</string>
+    <string name="youtube">یوٹیوب</string>
+    <string name="discord">ڈسکارڈ</string>
+
+    <string name="skip">چھوڑ دیں</string>
+
+    <string name="button">بٹن</string>
+    <string name="make_another">دوبارہ بنائیں</string>
+    <string name="share_to">شیئر کریں</string>
+    <string name="failed_to_save_image">تصویر محفوظ کرنے میں ناکام</string>
+    <string name="error_while_saving_image">تصویر محفوظ کرتے وقت خرابی</string>
+    <string name="close_background_apps_try_again">براہ کرم کچھ پس منظر ایپس بند کریں اور دوبارہ کوشش کریں</string>
+    <string name="failed_to_load_frame">فریم لوڈ کرنے میں ناکام، براہ کرم دوبارہ کوشش کریں</string>
+
+    <string name="error_while_applying_blend">بلینڈ لگاتے وقت خرابی</string>
+    <string name="image_loading_failed">تصویر لوڈ کرنے میں ناکام، براہ کرم دوبارہ کوشش کریں</string>
+    <string name="image_is_corrupt">تصویر خراب ہو گئی ہے</string>
+    <string name="image_not_found">تصویر نہیں ملی</string>
+    <string name="image_saving_failed">تصویر محفوظ کرنے میں ناکام</string>
+
+
+
+    <string name="notification_title_2">🎨 آسان کولیج بنائیں!</string>
+    <string name="notification_description_2">اپنی پسندیدہ تصاویر کو آسانی سے شاندار کولیج میں بدلیں۔</string>
+
+
+    <string name="full_screen_intent">پوری اسکرین کے ارادے کی اجازت سے انکار کر دیا گیا۔</string>
+    <string name="don_t_allow">اجازت نہ دیں۔</string>
+
+    <string name="full_screen_intent_message">بہترین ایپ کے تجربے اور فوری اپ ڈیٹس کے لیے <b>فل اسکرین انٹینٹ</b> کو فعال کریں۔</string>
+    <string name="open">کھولیں</string>
+    <string name="get_start">شروع کریں</string>
+    <string name="intro_one">AI کی مدد سے خودکار طریقے سے ایڈیٹنگ کرنے میں مدد ملتی ہے</string>
+    <string name="intro_two">یہ ٹول آپ کو جلدی اور بہترین تصاویر بنانے میں مدد دیتا ہے۔</string>
+    <string name="intro_two_first">یہ</string>
+    <string name="intro_three">یہ آپ کی تصویر کے منفرد انداز اور جوہر کو ظاہر کرنے میں مدد کرتا ہے۔</string>
+    <string name="background_art">بیک گراؤنڈ آرٹ</string>
+    <string name="use">استعمال کریں</string>
+    <string name="intro_one_heading">AI امیج انہانسر</string>
+    <string name="intro_one_sub_heading">اپنی تصاویر کے معیار کو آسانی سے بہتر بنائیں۔</string>
+    <string name="intro_two_heading">شاندار کولیجز بنائیں</string>
+    <string name="intro_two_sub_heading">متعدد تصاویر کو آسانی سے یکجا کریں۔</string>
+    <string name="intro_three_heading">جادوئی انداز میں تصویر کی تدوین</string>
+    <string name="intro_three_sub_heading">اپنی تصاویر کو آسانی سے حسب منشاء بنائیں۔</string>
+
+    <string name="_4k_templates_quality">فور کے ٹیمپلیٹس کا معیار</string>
+
+
+    <!-- Urdu -->
+    <string name="then">پھر</string>
+    <string name="per_week">/ہفتہ</string>
+    <string name="after_trial">مفت 3 دن کی آزمائشی مدت کے بعد</string>
+    <string name="subscription_auto_renew">سبسکرپشن خود بخود تجدید ہوجاتی ہے۔ کسی بھی وقت منسوخ کریں</string>
+
+
+    <string name="shortcut_ai_blend">AI مکس</string>
+    <string name="shortcut_ai_edit_photo">AI تصویر ایڈٹ کریں</string>
+    <string name="uninstall">ان انسٹال کریں</string>
+    <string name="hey_there">ہیلو!!</string>
+
+    <string name="dont_want_to_uninstall">ان انسٹال نہیں کرنا چاہتے</string>
+    <string name="still_want_to_uninstall">اب بھی ان انسٹال کرنا چاہتے ہیں</string>
+    <string name="problem_when_using_app">ایپ استعمال کرتے وقت مسئلہ</string>
+    <string name="you_are_a_great_partner">آپ ایک عظیم ساتھی ہیں!</string>
+    <string name="your_feedback_is">آپ کی رائے ہمیں خصوصیت کو بہتر بنانے میں مدد دیتی ہے</string>
+    <string name="why_do_you_uninstall">آپ کیوں ان انسٹال کرتے ہیں؟</string>
+    <string name="image_creation_feature">تصویر تخلیق کرنے کی خصوصیت خراب ہے</string>
+    <string name="generating_process_time">جنریشن کا عمل بہت وقت لے رہا ہے</string>
+    <string name="not_enough_features">جیسا کہ متوقع تھا، خصوصیات کافی نہیں ہیں</string>
+    <string name="interface_is_difficult">انٹرفیس استعمال کرنے میں مشکل ہے</string>
+    <string name="too_many_ads">بہت زیادہ اشتہارات</string>
+    <string name="i_found_another_app">میں نے ایک اور ایپ دریافت کی ہے جو زیادہ مناسب ہے</string>
+    <string name="please_enter_the_reason_why">براہ کرم وہ وجہ درج کریں جس کی وجہ سے آپ ان انسٹال کر رہے ہیں</string>
+    <string name="type_your_feedback">یہاں اپنا فیڈ بیک ٹائپ کریں</string>
+
+
+    <string name="ai_blend_lacks">کولیج کی خصوصیت محدود ہے</string>
+    <string name="gen_again">مختلف لے آؤٹ آزمائیں</string>
+    <string name="ai_edit_photo">اے آئی ایڈیٹ درست نہیں ہے</string>
+    <string name="enhance_again">دوبارہ ترمیم کریں</string>
+    <string name="cannot_find_your">اے آئی بہتری میں وضاحت کی کمی ہے</string>
+    <string name="zoom_again">دوبارہ بہتر بنائیں</string>
+
+
+    <string name="please_share_information">براہ کرم اپنی رائے کا اشتراک کریں تاکہ ہم آپ کے تجربے کو بہتر بنا سکیں</string>
+
+
+    <string name="do_you_want_to_discard">کیا آپ منسوخ کرنا چاہتے ہیں</string>
+    <string name="let_s_go">چلیں</string>
+    <string name="blank">خالی</string>
+    <string name="template">سانچہ</string>
+    <string name="app_name_new">AR Drawing ایپ</string>
+
+    <string name="boarding1_title">کیراؤسل</string>
+    <string name="boarding1_text_body">آسانی سے متعدد پوسٹس سوائپ کریں۔</string>
+    <string name="boarding3_title">کہانیاں</string>
+    <string name="boarding3_text_body">مختصر مدت کی، فل اسکرین بصری مواد۔</string>
+
+    <string name="boarding4_title">جوڑنا</string>
+    <string name="boarding4_text_body">مختلف کلپس کو باآسانی جوڑیں۔</string>
+
+    <string name="boarding2_title">کولاج</string>
+    <string name="boarding2_text_body">تصویروں کو ایک ہی فریم میں جوڑیں۔</string>
+
+    <string name="upgrade_plan_now">ابھی پلان اپ گریڈ کریں!</string>
+    <string name="enjoy_unlimited_benefits_amp_features">لامحدود فوائد اور خصوصیات سے لطف اندوز ہوں</string>
+    <string name="generals">عمومی</string>
+    <string name="supports">مدد</string>
+    <string name="seamless">بلا رکاوٹ</string>
+    <string name="story">کہانی</string>
+    <string name="rewind">ریوائنڈ</string>
+    <string name="paper">کاغذ</string>
+    <string name="tape">ٹیپ</string>
+    <string name="plastic">پلاسٹک</string>
+    <string name="film">فلم</string>
+    <string name="try_for_free">مفت آزمائیں</string>
+    <string name="share_your_new_look_on_social_media_n_tap_below_to_post_it_on_instagram_n_or_tiktok">اپنی نئی لک سوشل میڈیا پر شیئر کریں\n—انسٹاگرام یا ٹک ٹاک پر پوسٹ کرنے کے لیے نیچے ٹیپ کریں۔</string>
+    <string name="open_instagram">انسٹاگرام کھولیں</string>
+    <string name="open_tiktok">ٹک ٹاک کھولیں</string>
+    <string name="open_more">مزید کھولیں</string>
+
+
+    <string name="title_general_notification_without_fo">اپنی جاری تصویر مت کھوئیں!</string>
+    <string name="sub_heading_general_notification_without_fo">ابھی ایڈیٹنگ مکمل کریں</string>
+    <string name="title_general_notification_with_fo">فوٹو ایڈیٹنگ کو مت چھوڑیں!</string>
+    <string name="sub_heading_general_notification_with_fo">اپنی تصاویر کی ایڈیٹنگ جاری رکھنے کے لیے ایپ کھولیں</string>
+    <string name="all_pro_materials">تمام پرو مواد</string>
+    <string name="no_watermark_and_ads">بغیر واٹر مارک اور اشتہارات</string>
+    <string name="cancel_anytime_form_the_app">ایپ سے کسی بھی وقت منسوخ کریں</string>
+    <string name="weekly_plan">ہفتہ وار پلان</string>
+
+    <string name="yearly_plan">سالانہ پلان</string>
+
+    <string name="notification_title_1">✨ اپنا شاندار کیروسل شیئر کریں!</string>
+    <string name="notification_description_1">آپ کی تصاویر چمکنے کے لیے تیار ہیں۔ ابھی انسٹاگرام پر اپنا کیروسل پوسٹ کریں اور اپنے انداز سے دوسروں کو متاثر کریں! 🌿📸</string>
+
+    <string name="_7_day_free_trail">7 دن کا مفت ٹرائل</string>
+    <string name="_3_day_free_trail">3 دن کا مفت ٹرائل</string>
+
+    <string name="get_pro">پرو حاصل کریں</string>
+    <string name="unlock_this_premium_frame">اس پریمیم فریم کو کھولیں</string>
+    <string name="choose_how_you_want_to_unlock_this_frame">منتخب کریں کہ آپ اس فریم کو کیسے کھولنا چاہتے ہیں</string>
+    <string name="watch_ad_to_unlock">کھولنے کے لیے اشتہار دیکھیں</string>
+    <string name="get_pro_for_unlimited_access">لامحدود رسائی کے لیے پرو حاصل کریں</string>
+    <string name="unlock_all_premium_frames_forever">تمام پریمیم فریمز ہمیشہ کے لیے کھولیں</string>
+
+
+    <string name="upgrade_to_premium">پریمیم میں اپ گریڈ کریں</string>
+    <string name="unlock_the_full_experience">مکمل تجربہ کھولیں</string>
+    <string name="unlock_all_premium_templates">تمام پریمیم ٹیمپلیٹس کھولیں</string>
+    <string name="priority_access_to_new_features">نئی خصوصیات تک ترجیحی رسائی</string>
+    <string name="access_all_style_categories">تمام اسٹائل کیٹیگریز تک رسائی</string>
+    <string name="one_tap_carousel_creator">ون ٹیپ کیروسل کریٹر</string>
+    <string name="quality_export_without_watermark">واٹر مارک کے بغیر معیاری ایکسپورٹ</string>
+    <string name="ad_free_creative_experience">اشتہار سے پاک تخلیقی تجربہ</string>
+    <string name="_3_days_free_trial">3 دن کا مفت ٹرائل</string>
+    <string name="trusted_by_2m_users_worldwide">دنیا بھر میں 20 لاکھ سے زیادہ صارفین کا اعتماد</string>
+
+    <string name="grab_now">ابھی حاصل کریں</string>
+    <string name="unlock_your_premium_experience_today">آج اپنا پریمیم تجربہ کھولیں!</string>
+    <string name="_7_days_free_trial">7 دن کا مفت ٹرائل</string>
+    <string name="carousal">کیروسل</string>
+
+
+    <string name="enjoy_50_off_on_weekly_premium">ہفتہ وار پریمیم پر 50% رعایت سے لطف اندوز ہوں!</string>
+
+
+
+</resources>

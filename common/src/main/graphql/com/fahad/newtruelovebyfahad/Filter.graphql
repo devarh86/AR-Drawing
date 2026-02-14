@@ -1,0 +1,17 @@
+query getFilters($apiOption: String!) {
+    parentCategories(apioption: $apiOption){
+        id
+        title
+        tag{title}
+        effects(key:FILTER){
+            id
+            title
+            effect
+            cover
+            baseUrl
+            tags{
+                title
+            }
+        }
+    }
+}

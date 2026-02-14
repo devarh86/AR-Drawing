@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color_600">#266EF5</color>
+    <color name="question_next_txt_clr">#6E7A89</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="light_window_bg">#F6F6F6</color>
+    <color name="bottom_nav_light">#FFFFFF</color>
+    <color name="bottom_nav_dark">#262626</color>
+    <color name="black_color_100">#EDEEF1</color>
+
+    <color name="div_line_clr">#424242</color>
+    <color name="outline_clr">#181A1C</color>
+
+    <color name="buttons_clr">#1B2026</color>
+    <color name="text_color">#4B5563</color>
+
+    <color name="surface_clr">#FAEDF5</color>
+    <color name="bottom_bar">#181A1C</color>
+    <color name="dark_window_bg">#FAEDF5</color>
+    <color name="survey_item_bg">#1F1C1D</color>
+    <color name="survey_item_bg_border">#2F3339</color>
+    <!--activity  container color-->
+    <color name="container_clr_activity">#FAEDF5</color>
+
+    <color name="search_bg">#E6131313</color>
+    <color name="cancel_btn_clr">#373737</color>
+    <color name="pro_bg">#131313</color>
+    <color name="same_color">#343F56</color>
+    <color name="whiteBg">#34343C</color>
+    <color name="same_bg">#D4D4D4</color>
+    <color name="slider">#B5BBC4</color>
+    <color name="native_large_bg_color">#F0F4FD</color>
+    <color name="language_item_bg">#1F1C1D</color>
+    <color name="native_ad_title_color">#ffffff</color>
+    <color name="native_ad_body_text_color">#ffffff</color>
+    <color name="native_call_action_btn_bg">#FFFFFF</color>
+    <!--svg icons color-->
+    <color name="btn_bg_clr">#0C0E10</color>
+    <color name="btn_stroke_clr">#2B2727</color>
+    <color name="btn_txt_clr">#ffffff</color>
+    <color name="pro_ic_n">#ffffff</color>
+    <color name="ad_shimmer">#8CB7B7B4</color>
+    <color name="blend_ob_light">#3b3a3a</color>
+    <color name="unselected_color_new">#66696EFE</color>
+    <color name="container_clr_activity_questions">#131313</color>
+    <color name="light_txt_clr">#F6F6F6</color>
+    <color name="btn_icon_clr">#ffffff</color>
+    <color name="search_edit_back">#CC313030</color>
+    <color name="cross_color">#F6F6F6</color>
+    <!--bottom nav icon and text color -->
+    <color name="selected_color">#FF1BA6</color>
+    <color name="sub_heading_txt">#8B8B8B</color>
+    <!--bottom nav un selected-->
+    <color name="un_selected_icon_clr">#BAB8B8</color>
+    <color name="question_next_btn_clr">#222222</color>
+    <color name="divider_line_clr">#4DD4D4D4</color>
+
+    <color name="unselected_pro_bg">#4DD4D4D4</color>
+    <color name="pro_new_unselected">#3E3A42</color>
+
+    <!--tab un selected text -->
+    <color name="tab_txt_clr">#F7F7F7</color>
+    <color name="share_txt_clr">#F7F7F7</color>
+    <color name="un_selected_new">#CCCCCC</color>
+
+    <!--pager heading text color-->
+    <!--    <color name="selected_txt_clr">#3A55FF</color>-->
+    <color name="selected_txt_clr">#FFFFFF</color>
+
+    <!--filter selected color -->
+    <color name="filter_selection_color">#4D696EFE</color>
+    <color name="normal_txt_clr">#F6F6F6</color>
+    <!--search tags selected un selected color-->
+    <color name="search_tags_clr">#F7F7F7</color>
+    <color name="search_tags_clr_selected">#3A55FF</color>
+
+    <!--gallery disable next btn-->
+
+    <color name="next_base_clr">#32334D</color>
+    <color name="next_base_text_ic_clr">#3A55FF</color>
+
+
+    <!--empty folder icon color-->
+    <color name="work_empty_icon_clr">#868686</color>
+    <color name="work_empty_container_clr">#4F4F4F</color>
+
+    <!--search container color-->
+
+    <color name="search_container_clr">#454545</color>
+    <color name="search_hint_clr">#888888</color>
+    <color name="search_cancel_clr">#888888</color>
+
+    <!--drawer  color-->
+    <color name="drawer_surface_clr">#131313</color>
+
+    <color name="drawer_card_clr">#1A1A1A</color>
+
+    <!--ripple color bottom nav -->
+    <color name="primary_50">#EBF5FF</color>
+
+    <!--gallery color-->
+    <color name="camera_back_color">#0C0E10</color>
+    <color name="gallery_text_color">#F7F7F7</color>
+
+    <!--editor bottom bar clr-->
+    <color name="editor_bar_clr">#262626</color>
+    <color name="bottom_bar_clr">#030404</color>
+
+    <!--feedback activity icon colors-->
+
+    <color name="icon_sub_color">#B9BBFF</color>
+    <color name="icon_red_shade">#5428ea</color>
+    <color name="icon_red_light">#5f3def</color>
+    <color name="icon_red_shadow">#FFAAAA</color>
+
+    <!--dialog feedback sub text color-->
+    <color name="txt_clr_in_dialog">#FFFFFF</color>
+    <!--permission cam icon color-->
+    <color name="base_cam_ic_clr">#32334D</color>
+    <color name="cam_ic_sub_clr">#4C73FF</color>
+
+    <!-- window bg color-->
+    <color name="greyish">#000000</color>
+    <color name="greyish_dark">#262626</color>
+    <color name="black_view">#B0000000</color>
+
+    <!--base theme -->
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#000000</color>
+
+    <!--pro activity txt color-->
+    <color name="pro_txt_clr">#343F56</color>
+    <color name="premium_card_selected">#24223d</color>
+
+    <color name="see_all_bg_color">#212121</color>
+
+    <!--search bar  edit txt container color -->
+    <color name="medium_grey_500">#454545</color>
+
+    <!--framer place holder clr-->
+    <color name="placer_text_clr">#9B9B9B</color>
+    <color name="placer_shade_clr">#FF303030</color>
+    <color name="placer_base_clr">#FF000000</color>
+
+    <color name="gradient_base_clr_eighty">#00141414</color>
+    <color name="gradient_base_clr_hundred">#FF141414</color>
+
+    <!--home btn color-->
+    <color name="home_btn_base_clr">#212121</color>
+    <color name="home_btn_txt_clr">#ffffff</color>
+    <color name="home_frame_btn_bg">#FF0D0D0D</color>
+    <color name="home_frame_btn_shade">#FF3A3A3A</color>
+    <color name="home_frame_btn_other_shade">#262626</color>
+    <color name="home_ai_row_btn">#1A1A1E</color>
+    <!--home btn icon color-->
+
+
+
+    <!--folder clr -->
+    <color name="folder_base_clr">#454545 </color>
+    <color name="folder_shade_clr">#4F4F4F</color>
+    <color name="folder_other_clr">#D1D1D1</color>
+
+    <!--fav icon clr-->
+    <color name="fav_ic_base_clr">#454545</color>
+    <color name="fav_shade_clr">#616161</color>
+
+
+    <color name="tab_txt_clr_question">#F7F7F7</color>
+    <color name="tab_txt_clr_icon">#F7F7F7</color>
+
+    <color name="on_boarding_title_txt_color">#222222</color>
+    <color name="second_txt">#D4D4D4</color>
+    <color name="uninstall_item_icon">#3A55FF</color>
+    <color name="card_border_color">#D7DBE0</color>
+    <color name="add_bg_color">#24242B</color>
+    <color name="uninstall_item_stroke_2">#21E1AB</color>
+
+
+</resources>
+
+<!--
+<resources>
+    <color name="shimmer">#C6C6C6</color>
+    <color name="grey">#E7E7E7</color>
+&lt;!&ndash;    <color name="transparent">#CC000000</color>&ndash;&gt;
+    <color name="transparent">#00000000</color>
+    <color name="dark_window_bg">#f7f8fa</color>
+    <color name="survey_item_bg">#ffffff</color>
+    <color name="survey_item_bg_border">#D7DBE0</color>
+    <color name="cancel_btn_clr">#E7E7E7</color>
+    <color name="same_bg">#D4D4D4</color>
+    <color name="same_color">#343F56</color>
+    <color name="surface_clr">#F6F6F6</color>
+    <color name="bottom_bar">#181A1C</color>
+    <color name="whiteBg">#FFFFFF</color>
+    <color name="search_edit_back">#EEEEEE</color>
+    <color name="cross_color">#CC313030</color>
+    <color name="light_window_bg">#F6F6F6</color>
+    &lt;!&ndash;activity  container color&ndash;&gt;
+    <color name="container_clr_activity">#000000</color>
+
+    <color name="search_bg">#E6F7F8FA</color>
+    <color name="pro_bg">#EEEEEE</color>
+    <color name="blend_ob_light">#DCDCDC</color>
+    <color name="container_clr_activity_questions">#FAFAFA</color>
+
+    <color name="native_large_bg_color">#E2E2E2</color>
+    <color name="language_item_bg">#ECEFF3</color>
+    <color name="native_ad_title_color">#222222</color>
+    <color name="native_ad_body_text_color">#666666</color>
+    <color name="native_call_action_btn_bg">#3A55FF</color>
+
+    &lt;!&ndash;svg icons color&ndash;&gt;
+    <color name="btn_bg_clr">#D4D4D4</color>
+
+    <color name="gradient_base_clr_eighty">#00FFFFFF</color>
+    <color name="gradient_base_clr_hundred">#FFEDEFF2</color>
+
+
+    <color name="btn_stroke_clr">#E4E4E4</color>
+    <color name="btn_txt_clr">#343F56</color>
+    <color name="light_txt_clr">#6D6D6D</color>
+    <color name="btn_icon_clr">#343F56</color>
+    <color name="pro_ic_n">#48505C</color>
+    <color name="primary_color_600">#266EF5</color>
+    &lt;!&ndash;bottom nav icon and text color also used for tick icon color in editors selected clr &ndash;&gt;
+
+    <color name="selected_color">#3A55FF</color>
+    <color name="question_next_btn_clr">#DADADA</color>
+    <color name="question_next_txt_clr">#6E7A89</color>
+    <color name="white">#FFFFFF</color>
+    <color name="unselected_color_new">#66696EFE</color>
+    <color name="slider">#B5BBC4</color>
+
+    &lt;!&ndash;filter selected color &ndash;&gt;
+    <color name="filter_selection_color">#4D696EFE</color>
+    <color name="sub_heading_txt">#8B8B8B</color>
+    &lt;!&ndash;bottom nav un selected&ndash;&gt;
+    <color name="un_selected_icon_clr">#BAB8B8</color>
+    <color name="divider_line_clr">#4DD4D4D4</color>
+
+    <color name="unselected_pro_bg">#ffffff</color>
+    <color name="ad_shimmer">#33040404</color>
+
+
+    &lt;!&ndash;tab un selected text &ndash;&gt;
+    <color name="tab_txt_clr">#343F56</color>
+    <color name="share_txt_clr">#1B1D21</color>
+
+    <color name="bottom_nav_light">#FFFFFF</color>
+    <color name="bottom_nav_dark">#262626</color>
+    <color name="home_ai_row_btn">#F6F6F6</color>
+
+    <color name="black_color_100">#EDEEF1</color>
+    <color name="selected_txt_clr">#FFFFFF</color>
+    <color name="normal_txt_clr">#343F56</color>
+    <color name="pro_new_unselected">#D3D3D3</color>
+
+    &lt;!&ndash;search tags selected un selected color&ndash;&gt;
+    <color name="search_tags_clr">#343F56</color>
+    <color name="search_tags_clr_selected">#3A55FF</color>
+    &lt;!&ndash;empty folder icon color&ndash;&gt;
+    <color name="work_empty_icon_clr">#F34135</color>
+    <color name="work_empty_container_clr">#AEAEAE</color>
+
+    <color name="next_base_clr">#DBEBFF</color>
+    <color name="next_base_text_ic_clr">#6E98FF</color>
+
+    &lt;!&ndash;search container color&ndash;&gt;
+    <color name="search_container_clr">#EEEEEE</color>
+    <color name="search_hint_clr">#8A8A8A</color>
+    <color name="search_cancel_clr">#343F56</color>
+
+    &lt;!&ndash;drawer  color  drawer surface clr is also using in dialog bg clr and used for filter background color&ndash;&gt;
+    <color name="drawer_surface_clr">#F6F6F6</color>
+
+    <color name="drawer_card_clr">#FFFFFF</color>
+    <color name="drawer_text_clr">#343F56</color>
+
+
+    &lt;!&ndash;ripple color bottom nav &ndash;&gt;
+    <color name="primary_50">#EBF5FF</color>
+
+
+
+
+    &lt;!&ndash;gallery &ndash;&gt;
+    <color name="camera_back_color">#EBF5FF</color>
+    <color name="gallery_text_color">#343F56</color>
+
+
+
+    &lt;!&ndash;editor bottom bar clr&ndash;&gt;
+    <color name="editor_bar_clr">#FFFFFF</color>
+
+    &lt;!&ndash;dialog feedback sub text color&ndash;&gt;
+    <color name="txt_clr_in_dialog">#3A55FF</color>
+
+
+
+    &lt;!&ndash; window bg color&ndash;&gt;
+    <color name="greyish">#F6F6F6</color>
+    <color name="greyish_dark">#262626</color>
+
+    &lt;!&ndash;feedback activity icon colors&ndash;&gt;
+    <color name="icon_sub_color">#FFCACA</color>
+    <color name="icon_red_shade">#DA2728</color>
+    <color name="icon_red_light">#FF6162</color>
+    <color name="icon_red_shadow">#FFAAAA</color>
+
+    &lt;!&ndash;permission cam icon color&ndash;&gt;
+    <color name="base_cam_ic_clr">#DBEBFF</color>
+    <color name="cam_ic_sub_clr">#3A55FF</color>
+
+
+    &lt;!&ndash;base theme &ndash;&gt;
+
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+
+    <color name="black">#343F56</color>
+    <color name="see_all_bg_color">#E7E7EB</color>
+
+    &lt;!&ndash;pro activity txt color&ndash;&gt;
+    <color name="pro_txt_clr">#343F56</color>
+    <color name="premium_card_selected">#eeebf5</color>
+
+    &lt;!&ndash;search bar  edit txt container color &ndash;&gt;
+    <color name="medium_grey_500">#EEEEEE</color>
+
+   &lt;!&ndash;framer place holder clr&ndash;&gt;
+    <color name="placer_text_clr">#343F56</color>
+    <color name="placer_shade_clr">#FFD9D9D9</color>
+    <color name="placer_base_clr">#FFFFFFFF</color>
+
+
+    &lt;!&ndash;home btn color&ndash;&gt;
+    <color name="home_btn_base_clr">#ffffff</color>
+    <color name="home_btn_txt_clr">#262626</color>
+    <color name="home_frame_btn_bg">#ffffff</color>
+    <color name="home_frame_btn_shade">#FFE0E0E0</color>
+    <color name="home_frame_btn_other_shade">#ffffff</color>
+
+
+    &lt;!&ndash;folder colors&ndash;&gt;
+    <color name="folder_base_clr">#969696 </color>
+    <color name="folder_shade_clr">#AEAEAE</color>
+    <color name="folder_other_clr">#F9F9F9</color>
+
+    &lt;!&ndash;fav icon clr&ndash;&gt;
+    <color name="fav_ic_base_clr">#AEAEAE</color>
+    <color name="fav_shade_clr">#D1D1D1</color>
+
+    <color name="tab_txt_clr_question">#000000</color>
+    <color name="tab_txt_clr_icon">#374957</color>
+
+    <color name="on_boarding_title_txt_color">#222222</color>
+    <color name="second_txt">#3E444E</color>
+
+    <color name="uninstall_item_icon">#3A55FF</color>
+    <color name="uninstall_item_stroke_2">#21E1AB</color>
+    <color name="card_border_color">#D7DBE0</color>
+    <color name="add_bg_color">#D7DBE0</color>
+
+</resources>-->

@@ -1,0 +1,78 @@
+{
+  "data": {
+    "frame": {
+      "id": "9",
+      "title": "Drip Art",
+      "editor": "Blend",
+      "assettype": "BLEND",
+      "rembg": true,
+      "category": {
+        "title": "Drip Art"
+      },
+      "files": [
+        {
+          "key": "COVER",
+          "file": "file:///android_asset/offline_data/drip_art/cover.webp",
+          "width": "381.00",
+          "height": "381.00",
+          "xaxis": "350.00",
+          "yaxis": "350.00",
+          "rotation": "0.00",
+          "clipFile": "",
+          "effect": "BlendMode.NORMAL",
+          "adjustment": false
+        },
+        {
+          "key": "BG",
+          "file": "file:///android_asset/offline_data/drip_art/bg.webp",
+          "width": "1080.00",
+          "height": "1080.00",
+          "xaxis": "0.00",
+          "yaxis": "0.00",
+          "rotation": "0.00",
+          "clipFile": "",
+          "effect": "BlendMode.NORMAL",
+          "adjustment": false
+        },
+        {
+          "key": "CLIP",
+          "file": "file:///android_asset/offline_data/drip_art/blend.webp",
+          "width": "1080.00",
+          "height": "1080.00",
+          "xaxis": "0.00",
+          "yaxis": "0.00",
+          "rotation": "0.00",
+          "clipFile": "masks",
+          "effect": "BlendMode.OVERLAY",
+          "adjustment": false
+        },
+        {
+          "key": "MASKS",
+          "file": "file:///android_asset/offline_data/drip_art/cover.webp",
+          "width": "630.00",
+          "height": "879.00",
+          "xaxis": "213.00",
+          "yaxis": "94.00",
+          "rotation": "0.00",
+          "clipFile": "",
+          "effect": "BlendMode.NORMAL",
+          "adjustment": true
+        },
+        {
+          "key": "FG",
+          "file": "file:///android_asset/offline_data/drip_art/fg.webp",
+          "width": "1080.00",
+          "height": "1080.00",
+          "xaxis": "0.00",
+          "yaxis": "0.00",
+          "rotation": "0.00",
+          "clipFile": "",
+          "effect": "BlendMode.NORMAL",
+          "adjustment": false
+        }
+      ],
+      "masks": 1,
+      "tags": "Free"
+    }
+  }
+}

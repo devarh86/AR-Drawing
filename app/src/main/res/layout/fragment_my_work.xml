@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:backgroundTint="@color/container_clr_activity"
+    tools:context=".ui.fragments.mywork.MyWorkFragment">
+
+    <View
+        android:id="@+id/toolbar_view"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/menu_container"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_menu" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/frame_me_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/_2sdp"
+        android:visibility="visible"
+        style="@style/headingText"
+        android:textSize="@dimen/_16sdp"
+        android:textColor="@color/tab_txt_clr"
+        android:text="@string/app_name"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:drawablePadding="@dimen/_8sdp"
+        android:drawableStart="@drawable/title_icon"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar_view"
+        app:layout_constraintStart_toStartOf="@id/toolbar_view"
+        app:layout_constraintEnd_toEndOf="@id/toolbar_view"
+        app:layout_constraintTop_toTopOf="@id/toolbar_view"/>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/container_clr_activity"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_view">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mywork_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/container_clr_activity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/selected_color"
+            app:tabMode="fixed"
+            app:tabRippleColor="@color/primary_50"
+            app:tabSelectedTextColor="@color/selected_color"
+            app:tabTextAppearance="@style/Theme.NewTrueLoveByFahad.TabLayout.TextAppearance.CamelCase"
+            app:tabTextColor="@color/tab_txt_clr" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_line_clr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mywork_tab_layout"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <!--   app:tabMode="auto"-->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/mywork_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:nestedScrollingEnabled="true"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+        tools:context=".ui.fragments.mywork.pager.MyWorkPagerAdapter" />
+
+    <RelativeLayout
+        android:id="@+id/pro_trail_lay"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginBottom="@dimen/_60sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/pro_lay_bg">
+
+        <ImageView
+            android:id="@+id/cross_trail_btn"
+            android:src="@drawable/cross_icon"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_7sdp"
+            app:tint="@color/native_large_bg_color"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_alignParentStart="true"/>
+
+        <TextView
+            android:id="@+id/trail_days_txt"
+            android:text="@string/_3_day_free_trial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/native_large_bg_color"
+            style="@style/headingTextOnBoarding"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_toEndOf="@id/cross_trail_btn"/>
+
+        <TextView
+            android:id="@+id/premium_txt"
+            android:text="@string/join_crsl_premium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/native_large_bg_color"
+            style="@style/subHeadingTextOnBoarding"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_alignEnd="@id/trail_days_txt"
+            android:layout_alignStart="@id/trail_days_txt"
+            android:layout_below="@id/trail_days_txt"/>
+
+
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

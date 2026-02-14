@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_clr">
+
+    <com.project.crop.ui.main.custom_views.imagecrop.view.ImageCropView
+        android:id="@+id/crop_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:gridInnerColor="#B3FFFFFF"
+        app:gridOuterColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:outsideLayerColor="#99000000"
+        app:setInnerGridMode="on"
+        app:setOuterGridMode="on" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/editor_bar_clr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@color/editor_bar_clr"
+            app:layout_constraintBottom_toTopOf="@id/scroll_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/cross_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:src="@drawable/cross_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view3" />
+
+        <ImageView
+            android:id="@+id/tick_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:layout_marginTop="1.2dp"
+            android:src="@drawable/next_button_selected"
+            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view3" />
+
+        <HorizontalScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+         app:layout_constraintBottom_toTopOf="@id/linear_layout_flip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+<!--   app:layout_constraintBottom_toBottomOf="parent"-->
+            <LinearLayout
+                android:id="@+id/linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="@dimen/_8sdp">
+
+                <ImageView
+                    android:id="@+id/one_ratio_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:src="@drawable/one_ratio_one_icon"
+                    app:tint="@color/selected_color" />
+
+                <ImageView
+                    android:id="@+id/two_ratio_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/two_ratio_three_icon" />
+
+                <ImageView
+                    android:id="@+id/three_ratio_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/three_ratio_two_icon" />
+
+                <ImageView
+                    android:id="@+id/three_ratio_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/three_ratio_four_icon" />
+
+                <ImageView
+                    android:id="@+id/four_ratio_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/four_ratio_three_icon" />
+
+                <ImageView
+                    android:id="@+id/nine_ratio_sixteen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/nine_ratio_sixteen_icon" />
+
+                <ImageView
+                    android:id="@+id/sixteen_ratio_nine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    app:tint="@color/btn_icon_clr"
+                    android:src="@drawable/sixteen_ratio_nine_icon" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <LinearLayout
+            android:id="@+id/linear_layout_flip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@id/scroll_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/flip_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vertical"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="@dimen/_10sdp"
+            android:fontFamily="@font/robotom"
+            android:textColor="@color/btn_icon_clr"
+            android:drawablePadding="@dimen/_2sdp"
+            android:drawableTop="@drawable/vertical_ic"
+           />
+<!-- app:tint="@color/selected_color" -->
+        <TextView
+            android:id="@+id/flip_horizon"
+            android:text="@string/horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:fontFamily="@font/robotom"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textColor="@color/btn_icon_clr"
+            android:drawablePadding="@dimen/_2sdp"
+            android:drawableTop="@drawable/horizon_ic" />
+            <!--  app:tint="@color/btn_icon_clr"-->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/headingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crop"
+            android:textColor="@color/tab_txt_clr"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/view3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/shimmer_parent_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/shimmer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/shimmer" />
+        </com.facebook.shimmer.ShimmerFrameLayout>
+    </FrameLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerInside"
+        android:background="#D9000000"
+        android:visibility="gone"
+        app:lottie_loop="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

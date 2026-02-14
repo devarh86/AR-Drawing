@@ -1,0 +1,15 @@
+query getStickers($apiOption: String!) {
+    parentCategories(apioption: $apiOption){
+        id
+        title
+        tag {
+            title
+        }
+        stickers{
+            id
+            title
+            file
+            baseUrl
+        }
+    }
+}

@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option java_package = "com.project.sticker.datastore";
+
+message StickerPreferences {
+  repeated int32 unlocked = 1;
+}

@@ -1,0 +1,28 @@
+query getFeatureScreen {
+    allTags(key:SCREEN){
+        title
+        tags(key:LISTING){
+            title
+            tags{
+                title
+            }
+            frames{
+                id
+                title
+                thumb
+                thumbtype
+                assettype #FRAME, BLEND, EFFECT
+                rembg
+                masks
+                tags
+                scrlCount
+                scrl {
+                    baseUrl
+                    file
+                }
+                hashtag{title}
+                baseUrl
+            }
+        }
+    }
+}

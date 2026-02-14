@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_sticker_found">No Sticker Found</string>
+    <string name="message">message</string>
+    <string name="filters">Filters</string>
+    <string name="filter_opacity">Filter Opacity</string>
+    <string name="original">Original</string>
+    <string name="tick">tick</string>
+    <string name="all_inclusive">All inclusive</string>
+    <string name="pro">Pro</string>
+    <string name="free">Free</string>
+    <string name="pro_icon">pro_icon</string>
+    <string name="watch_ad">Watch ad</string>
+</resources>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="font_families">
+        <item>Slab</item>
+        <item>Transitional</item>
+        <item>Decorative</item>
+        <item>Novelty</item>
+        <item>Dingbat</item>
+        <item>Fantasy</item>
+        <item>Monospace</item>
+        <item>Curly</item>
+        <item>Boldy</item>
+        <item>Fancy</item>
+        <item>Stylish</item>
+        <item>Modren</item>
+        <item>Cappy</item>
+        <item>Serif</item>
+    </string-array>
+
+    <string-array name="Slab">
+        <item>Zeyada</item>
+        <item>Bebas Neue</item>
+        <item>EB Garamond</item>
+        <item>Dancing Script</item>
+        <item>Shadows Into Light</item>
+        <item>Satisfy</item>
+        <item>Caveat</item>
+        <item>Babylonica</item>
+    </string-array>
+
+    <string-array name="Transitional">
+        <item>Indie Flower</item>
+        <item>Nanum Myeongjo</item>
+        <item>Permanent Marker</item>
+        <item>Fredoka One</item>
+        <item>Amatic SC</item>
+        <item>Cinzel</item>
+        <item>Space Mono</item>
+        <item>Courgette</item>
+    </string-array>
+
+    <string-array name="Decorative">
+        <item>Sacramento</item>
+        <item>Gloria Hallelujah</item>
+        <item>Julee</item>
+        <item>Advent Pro</item>
+        <item>Bodoni Moda</item>
+        <item>Creepster</item>
+        <item>Marck Script</item>
+        <item>Special Elite</item>
+    </string-array>
+
+    <string-array name="Novelty">
+        <item>Lobster Two</item>
+        <item>Great Vibes</item>
+        <item>Cormorant</item>
+        <item>Montserrat Alternates</item>
+        <item>Yellowtail</item>
+        <item>Kaushan Script</item>
+        <item>Cookie</item>
+        <item>Press Start 2P</item>
+    </string-array>
+
+    <string-array name="Dingbat">
+        <item>Mr Dafoe</item>
+        <item>Handlee</item>
+        <item>Poiret One</item>
+        <item>Volkhov</item>
+        <item>Bangers</item>
+        <item>Tangerine</item>
+        <item>Allura</item>
+        <item>Parisienne</item>
+    </string-array>
+
+    <string-array name="Fantasy">
+        <item>Merienda</item>
+        <item>Playball</item>
+        <item>Architects Daughter</item>
+        <item>Homemade Apple</item>
+        <item>Nanum Pen Script</item>
+        <item>Rubik Iso</item>
+        <item>Monoton</item>
+        <item>Rock Salt</item>
+    </string-array>
+
+    <string-array name="Monospace">
+        <item>Sigmar One</item>
+        <item>Six Caps</item>
+        <item>Nothing You Could Do</item>
+        <item>Electrolize</item>
+        <item>Amita</item>
+        <item>Cabin Sketch</item>
+        <item>VT323</item>
+        <item>Leckerli One</item>
+        <item>Rubik Vinyl</item>
+        <item>Syncopate</item>
+    </string-array>
+
+    <string-array name="Curly">
+        <item>charm</item>
+        <item>Great Vibes</item>
+        <item>Abhaya Libre</item>
+        <item>Abril Fatface</item>
+        <item>Aclonica</item>
+        <item>Festive</item>
+        <item>Dr Sugiyama</item>
+        <item>Miss Fajardose</item>
+        <item>Gin Nightshade</item>
+        <item>Monte Carlo</item>
+        <item>Symthe</item>
+        <item>Kirang Haerang</item>
+        <item>Princess Sofia</item>
+        <item>Oldenburg</item>
+        <item>Glass Antiqua</item>
+        <item>Almendra SC</item>
+        <item>Srisakdi</item>
+        <item>Yugi Hentaigana Akari</item>
+        <item>Yugi Hentaigana Akebono</item>
+        <item>devonshire</item>
+    </string-array>
+
+    <string-array name="Boldy">
+        <item>Pacifico</item>
+        <item>Permanent Marker</item>
+        <item>Patric Hand</item>
+        <item>Satisfy</item>
+        <item>Courgette</item>
+        <item>Cookie</item>
+        <item>Caushan Script</item>
+        <item>Yellowtail</item>
+        <item>Gloria Hallelujah</item>
+        <item>Merienda</item>
+        <item>Neucha</item>
+        <item>Gochi Hand</item>
+        <item>Pengolin</item>
+        <item>Sriracha</item>
+        <item>Rosk Salt</item>
+        <item>Chilanka</item>
+        <item>Damion</item>
+        <item>Itim</item>
+        <item>Oi</item>
+    </string-array>
+
+    <string-array name="Fancy">
+        <item>Geostar</item>
+        <item>Kenia</item>
+        <item>Big Shoulder Inline Text</item>
+        <item>Trispace</item>
+        <item>Sevillana</item>
+        <item>Langar</item>
+        <item>Miltonian</item>
+        <item>Purple Purse</item>
+        <item>Miltonian Tattoo</item>
+        <item>Hanalei</item>
+        <item>Fruktur</item>
+        <item>Biorhym Expanded</item>
+        <item>Black &amp; White Picture</item>
+        <item>Geostar Fill</item>
+        <item>Passero One</item>
+        <item>Stalinist One</item>
+        <item>Karantina</item>
+        <item>Gidugu</item>
+    </string-array>
+
+    <string-array name="Stylish">
+        <item>Ballet</item>
+        <item>Fasthand</item>
+        <item>Nova Cut</item>
+        <item>Sofadi One</item>
+        <item>Nova Script</item>
+        <item>Butcherman</item>
+        <item>Ruge Boogie</item>
+        <item>Taprom</item>
+        <item>Qahiri</item>
+        <item>Astloch</item>
+        <item>Fascinate</item>
+        <item>New Tegomin</item>
+        <item>Long Cang</item>
+        <item>Shippori Antique B1</item>
+        <item>Bungee Outline 1</item>
+        <item>Mr Bedfort</item>
+        <item>Lacquer</item>
+        <item>Almendra Display</item>
+    </string-array>
+
+    <string-array name="Modren">
+        <item>Bonon</item>
+        <item>Vibes</item>
+        <item>Sunshiney</item>
+        <item>Snowbrust One</item>
+        <item>Macondo</item>
+        <item>Liu Jian Mao Cao</item>
+        <item>Zen Tokyo Zoo</item>
+        <item>Chela One</item>
+        <item>Zhi Mang Xing</item>
+        <item>Nerko One</item>
+        <item>Hina Mincho</item>
+        <item>sedgwick Awe Display</item>
+        <item>Fuggles</item>
+        <item>Butterfly Kids</item>
+        <item>Hanalei Fill</item>
+        <item>Syne Tactile</item>
+        <item>Kumar One Outline</item>
+        <item>Atomic Age</item>
+    </string-array>
+
+    <string-array name="Cappy">
+        <item>Big Shoulder Stencil Text</item>
+        <item>Bokor</item>
+        <item>Flavors</item>
+        <item>Trochut</item>
+        <item>Shizuru</item>
+        <item>Londrina Sketch</item>
+        <item>Zen Loop</item>
+        <item>Ewert</item>
+        <item>Londrena Shadow</item>
+        <item>Caesar Dressing</item>
+        <item>Ribeye Marrow</item>
+        <item>Beth Ellen</item>
+        <item>Rampart One</item>
+        <item>Metal Mania</item>
+        <item>Siprax</item>
+        <item>Plaster</item>
+        <item>Monefett</item>
+        <item>Stick</item>
+    </string-array>
+
+    <string-array name="Serif">
+        <item>Lobster</item>
+        <item>Tilt Prism</item>
+        <item>Open Sans</item>
+        <item>Shantell Sans</item>
+        <item>Gloock</item>
+        <item>Raleway</item>
+        <item>Playfair Display</item>
+        <item>Anton</item>
+    </string-array>
+</resources>

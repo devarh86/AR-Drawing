@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/ad_app_icon_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:adjustViewBounds="true"
+        android:background="#FFD0D3D5"
+        android:paddingEnd="2dp"
+        android:paddingRight="2dp"
+        android:paddingBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ad_headline_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:background="#FFD0D3D5"
+        android:maxLines="1"
+        android:textColor="#0000FF"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ad_app_icon_shimmer"
+        app:layout_constraintTop_toBottomOf="@+id/ad_app_icon_shimmer" />
+
+    <TextView
+        android:id="@+id/ad_body_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="5dp"
+        android:background="#FFD0D3D5"
+        android:maxLines="2"
+        android:visibility="gone"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_call_to_action_shimmer"
+        app:layout_constraintEnd_toStartOf="@+id/ad_call_to_action_shimmer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ad_call_to_action_shimmer" />
+
+    <View
+        android:id="@+id/ad_call_to_action_shimmer"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="4dp"
+        android:background="@drawable/corner_shape"
+        android:backgroundTint="#FFD0D3D5"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_app_icon_shimmer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_headline_shimmer" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/corner_radius_bg_20dp"
+        android:backgroundTint="@color/container_clr_activity"
+        android:paddingHorizontal="@dimen/_5sdp"
+        android:text="Ad"
+        android:textStyle="bold"
+        android:textColor="@color/btn_txt_clr"
+        android:textSize="@dimen/_9sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

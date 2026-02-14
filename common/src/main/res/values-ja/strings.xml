@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--    <string name="next">次</string>-->
+    <string name="downloading">ダウンロード中...</string>
+    <string name="exit_title">本当に終了してもよろしいですか?</string>
+    <string name="discard">破棄</string>
+    <string name="exit">出口</string>
+    <string name="cancel">キャンセル</string>
+    <string name="edit_photo">写真を編集する</string>
+    <string name="are_you_want_to_discard">破棄しますか?</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">戻ればあなたの作品は破棄されます！</string>
+    <string name="try_again">もう一度やり直してください</string>
+    <string name="select_language">言語を選択してください</string>
+    <string name="term_of_use">利用規約</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="welcome_to_collagepic">CollagePicへようこそ</string>
+    <string name="what_do_you_want_to_do_in_this_app">このアプリで何をしたいですか？</string>
+
+    <string name="ratio">比率</string>
+    <string name="add_image">画像を追加</string>
+    <string name="select_1_10_photos">1～10枚の写真を選択</string>
+    <string name="select_1_9_photos">1～9枚の写真を選択</string>
+    <string name="background">背景</string>
+    <string name="filter">フィルター</string>
+    <string name="add">追加</string>
+    <string name="stitch">ステッチ</string>
+    <string name="demandMessage">%d枚の画像のみ選択できます</string>
+    <string name="requestMessage">少なくとも%d枚の画像を選択してください</string>
+    <string name="requestMessageCollage">少なくとも%d枚の画像を選択してください</string>
+    <string name="noImage">画像が見つかりませんでした</string>
+    <string name="multi_fit">マルチフィット</string>
+    <string name="_continue">続行</string>
+    <string name="square">正方形</string>
+    <string name="options">オプション\n</string>
+    <string name="stay">滞在</string>
+
+    <string name="unlock_all_features">すべての機能を解除</string>
+    <string name="start_free_trail">無料トライアルを開始</string>
+    <string name="start_now">今すぐ始める</string>
+
+    <string name="quick_tutorial">クイックチュートリアル</string>
+    <string name="shortcut_template">テンプレート</string>
+    <string name="use_this_template">このテンプレートを使う</string>
+    <string name="tap_to_apply">タップして適用</string>
+    <string name="great_work">素晴らしい出来</string>
+    <string name="done">完了</string>
+    <string name="getting_ready">準備中</string>
+    <string name="change_photos_with_just_one_touch">ワンタップで写真を変更</string>
+    <string name="show_me">見せて</string>
+    <string name="create_stunning_designs_in_a_single_tap">ワンタップで素晴らしいデザインを作成</string>
+
+    <string name="cancel_subscription">サブスクリプションをキャンセルする</string>
+    <string name="subscription_detail">完了すると、トライアルは自動的にサブスクリプションに変換されます。サブスクリプションは自動更新されます。 Google Play ストアでいつでもキャンセルできます。</string>
+    <string name="continue_text">続く</string>
+    <string name="no_watermark">透かしなし</string>
+    <string name="no_obligatory_ads">義務的な広告はありません</string>
+    <string name="smoother_experience">よりスムーズな体験</string>
+    <string name="access_to_all_features">すべての機能へのアクセス</string>
+    <string name="pro">プロ</string>
+    <string name="say_goodbye_to_watermark">透かしに別れを告げる</string>
+    <string name="draft">下書き</string>
+    <string name="language_indo" translatable="false">インドネシア語</string>
+    <string name="language_english" translatable="false">英語</string>
+    <string name="language_bengali" translatable="false">ベンガル語</string>
+    <string name="language_german" translatable="false">ドイツ語</string>
+    <string name="language_portuguese" translatable="false">ポルトガル語</string>
+    <string name="language_arabic" translatable="false">アラビア語</string>
+    <string name="language_spanish" translatable="false">スペイン語</string>
+    <string name="language_mandarin" translatable="false">北京語</string>
+    <string name="language_russian" translatable="false">ロシア</string>
+    <string name="language_urdu" translatable="false">ウルドゥー語</string>
+    <string name="language_french" translatable="false">フランス語</string>
+    <string name="language_hindi" translatable="false">ヒンディー語</string>
+    <string name="language_japanese" translatable="false">日本語</string>
+    <string name="waring_out_of_memory">メモリが足りません。画像を削除してください。削除しないとプログラムがクラッシュします。</string>
+    <string name="hello_blank_fragment">こんにちは、空白のフラグメント</string>
+    <string name="border_size">枠線のサイズ</string>
+    <string name="border_color">枠線の色</string>
+    <string name="border_padding">パディング</string>
+    <string name="border_radius">半径</string>
+    <string name="frame_foreground">フレーム前景</string>
+    <string name="save">保存</string>
+    <string name="message">メッセージ</string>
+    <string name="bg">BG</string>
+    <string name="text">文章</string>
+    <string name="write_text">テキストを書く</string>
+    <string name="close">近い</string>
+    <string name="replace">交換する</string>
+    <string name="crop">作物</string>
+    <string name="remove_watermark">透かしを削除</string>
+    <string name="for_24_hours">24時間</string>
+    <string name="for_life_time">生涯にわたって</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="processing_please_wait">処理中です。お待​​ちください...</string>
+    <string name="share">共有</string>
+    <string name="home">家</string>
+    <string name="frame_background">フレーム背景</string>
+    <string name="opacity">不透明度</string>
+    <string name="blend">ブレンド</string>
+    <string name="_ad">広告</string>
+    <string name="watch_video_ad_to_remove_watermark_for_or_go_premium">動画広告を視聴してウォーターマークを削除するか、プレミアムに移行してください。</string>
+    <string name="go_premium">プレミアムに行く</string>
+    <string name="trending_frames">トレンドのフレーム</string>
+    <string name="blur">ぼかし</string>
+    <string name="next">次</string>
+    <string name="watch_ad">広告を見る</string>
+    <string name="effect_opacity">効果の不透明度</string>
+    <string name="photo_editor_1">エディタ</string>
+    <string name="blending">ブレンド</string>
+
+
+
+
+
+
+
+
+
+    <string name="menu_featured">注目の</string>
+    <string name="menu_home">家</string>
+    <string name="menu_templates">テンプレート</string>
+    <string name="menu_styles">アートスタイル</string>
+    <string name="menu_files">私の仕事</string>
+    <string name="ad">広告</string>
+    <string name="single_frames">単一フレーム</string>
+    <string name="double_frames">カップルフレーム</string>
+    <string name="greetings">ご挨拶</string>
+    <string name="collages">コラージュ</string>
+    <string name="collage">コラージュ</string>
+    <string name="shapes">形状</string>
+    <string name="pips">ピップスフレーム</string>
+    <string name="frames">フレーム</string>
+    <string name="frame">フレーム</string>
+    <string name="more">もっと</string>
+    <string name="no_result_found">結果が見つかりませんでした</string>
+    <string name="try_now">今すぐ試してください</string>
+    <string name="true_love_frames">フラムミー</string>
+    <string name="true_love_frames_camelcase">フラムミー</string>
+    <string name="tell_your_friend">友達に伝えてください</string>
+    <string name="rate_us">評価してください</string>
+    <string name="send_mail">メールを送信する</string>
+    <string name="cancel_subscription_description">Google Play の設定でいつでもサブスクリプションを管理またはキャンセルできます。</string>
+    <string name="recommended_apps">おすすめのアプリ</string>
+    <string name="remove_ads">広告を削除する</string>
+    <string name="editor">エディタ</string>
+    <string name="effect">効果</string>
+    <string name="adjust">調整する</string>
+    <string name="stickers">ステッカー</string>
+    <string name="type">タイプ</string>
+    <string name="font">フォント</string>
+    <string name="font_color">フォントの色</string>
+    <string name="bg_color">BGカラー</string>
+    <string name="opacity_value">不透明度: %1$s %</string>
+    <string name="menu_pro">プロ</string>
+    <string name="menu_favourite">お気に入り</string>
+    <string name="for_you">新しい</string>
+    <string name="today_special">トップ</string>
+    <string name="most_used">トレンド</string>
+    <string name="more_features">その他の機能</string>
+    <string name="recently_used">最近の</string>
+    <string name="saved">保存されました</string>
+    <string name="mark_as_favorite_then_your_photo_nwill_appear_in_favorite_list">フレームをお気に入りとしてマークすると、フレームが\nお気に入りリストに表示されます</string>
+    <string name="search_by_keyword">キーワードで検索</string>
+    <string name="more_apps">おすすめのアプリ</string>
+    <string name="join_full_experience">フルエクスペリエンスに参加する</string>
+    <string name="ads_free">広告なし</string>
+    <string name="ads_free_experience">広告なしの体験</string>
+    <string name="all_premium_assets">すべてのプレミアムアセット</string>
+    <string name="each_plan_includes">各プランには以下が含まれます:</string>
+    <string name="unlimited_frams_cards"><![CDATA[UNLIMITED FRAMES & CARDS]]></string>
+    <string name="get_100_stickers">100 枚以上のステッカーを入手</string>
+    <string name="remove_ads_cap">広告を削除する</string>
+    <string name="continue_with_ads">広告を続ける</string>
+    <string name="weekly">毎週</string>
+    <string name="plan">プラン</string>
+    <string name="yearly">毎年</string>
+    <string name="life_time">一生</string>
+    <string name="premium_features">プレミアム機能</string>
+    <string name="get_access_to_premium_features">プレミアム機能にアクセスする</string>
+    <string name="text_effect">テキスト効果</string>
+
+    <string name="error_gif">x または y の境界サイズは少なくとも %1$dpx である必要があり、ファイル サイズは %2$sM 以下である必要があります</string>
+    <string name="album_name_all">すべてのメディア</string>
+    <string name="error_type_conflict">画像とビデオを同時に選択できません</string>
+    <string name="error_over_count_default">選択可能な最大値に達しました</string>
+    <string name="error_over_original_size">%1$d MB を超える画像は選択できません</string>
+    <string name="error_no_video_activity">ビデオプレビューをサポートするアプリが見つかりませんでした</string>
+    <string name="button_ok">わかりました</string>
+    <string name="error_file_type">サポートされていないファイル形式です</string>
+    <string name="error_over_original_count">%1$d 個の画像が %2$d MB を超えています。オリジナルはチェックが外されます</string>
+    <string name="fonts_bg">フォントBG</string>
+
+    <plurals name="error_over_count">
+        <item quantity="one">最大 %1$d 個のメディア ファイルのみ選択できます</item>
+        <item quantity="few">最大 %1$d 個のメディア ファイルのみ選択できます</item>
+        <item quantity="many">最大 %1$d 個のメディア ファイルのみ選択できます</item>
+        <item quantity="other">最大 %1$d 個のメディア ファイルのみ選択できます</item>
+    </plurals>
+    <string name="button_apply">次</string>
+    <string name="button_apply_default">次</string>
+    <string name="image_selection_limit_default">2 ～ 9 枚の写真を選択してください</string>
+    <string name="image_selection_limit">2 ～ 9 枚の写真を選択してください(%1$d)</string>
+    <string name="image_selection_limit_1">写真を選択</string>
+    <string name="brightness">輝度</string>
+    <string name="contrast">対比</string>
+    <string name="hue">色相</string>
+    <string name="exposure">暴露</string>
+    <string name="saturation">飽和</string>
+    <string name="tint">色合い</string>
+    <string name="warmth">温もり</string>
+    <string name="color">色</string>
+    <string name="sharpen">研ぐ</string>
+    <string name="vignette">ビネット</string>
+    <string name="highlight">ハイライト</string>
+    <string name="shadow">影</string>
+
+    <string name="facebook_app_id" translatable="false">1116803502100807</string>
+    <string name="facebook_client_token" translatable="false">20e7e74441820ce829e94727c2e402b1</string>
+
+    <string name="layout_text">レイアウト</string>
+    <string name="button_preview">プレビュー</string>
+    <string name="button_original">オリジナル</string>
+    <string name="empty_text">まだメディアがありません</string>
+    <string name="button_back">戻る</string>
+    <string name="what_we_offer_in_discount_plan">割引プランでご提供するもの</string>
+    <string name="original">オリジナル</string>
+    <string name="tick">カチカチ</string>
+    <string name="reset">リセット</string>
+    <string name="filter_opacity">フィルターの不透明度</string>
+    <string name="share_text">この素晴らしいアプリで写真を美しくする楽しい新しい方法を発見してください。</string>
+    <string name="pro_icon">プロアイコン</string>
+    <string name="all_inclusive">オールインクルーシブ</string>
+    <string name="do_you_have_any_thoughts_you_d_like_to_share">共有したい考えはありますか?</string>
+    <string name="submit">提出する</string>
+    <string name="filters">フィルター</string>
+    <string name="no_internet_connect_found_please_try_again">接続で問題が発生しました \n インターネットに接続します。</string>
+    <string name="coming_soon">近日公開</string>
+    <string name="pro_caps">プロ</string>
+    <string name="apply_filter_on_all_images">すべての画像にフィルターを適用する</string>
+    <string name="connect_internet_and_explore_fantastic_art_style">インターネットに接続して、素晴らしいアート スタイルを探索してください。</string>
+    <string name="solo_frames">フレームを焦がす</string>
+    <string name="multiplex">マルチプレックス</string>
+    <string name="photo_editor">写真編集者</string>
+    <string name="image_resolution">画像解像度</string>
+    <string name="good">良い</string>
+    <string name="enhanced">強化された</string>
+    <string name="high">高い</string>
+    <string name="unlock_this_amazing_frame">この素晴らしいフレームのロックを解除します</string>
+    <string name="ad_start_in_3_second">3 秒後に広告が開始されます</string>
+    <string name="your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us">あなたの意見は私たちにとって重要です。評価していただければ幸いです。</string>
+    <string name="the_best_we_can_get">私たちが得ることができる最高のもの</string>
+    <string name="rotate">回転</string>
+    <string name="image_quality">画質</string>
+    <string name="edit_text">テキストの編集</string>
+    <string name="edit">編集</string>
+
+    <string name="feedback">フィードバック</string>
+    <string name="folder_name">コラージュ写真</string>
+    <string name="name">コラージュ写真</string>
+    <string name="app_name">コラージュ写真</string>
+
+    <string name="logo_image">ロゴ画像</string>
+
+
+    <string name="unlock_all_assets">すべてのアセットをアンロック</string>
+    <string name="smoother_user_experience">よりスムーズなユーザー体験</string>
+    <string name="remove_obligatory_ads">強制広告を削除</string>
+    <string name="monthly">毎月</string>
+
+    <string name="premium">プレミアム</string>
+    <string name="basic">ベーシック</string>
+
+    <string name="adjustment">調整</string>
+    <string name="vertical">垂直</string>
+    <string name="horizontal">水平</string>
+
+
+
+    <string name="camera_and_storage">カメラとストレージの許可</string>
+    <string name="collage_requires_camera_and_storage_access_for_optimal_performance">CollagePicは最適なパフォーマンスのためにカメラとストレージへのアクセスが必要です。</string>
+    <string name="allow">許可する</string>
+
+
+    <string name="enhance_detail_text">画像は強化後、より鮮明で鮮やかに見えます</string>
+
+    <string name="pro_enhance">プロ強化</string>
+    <string name="better_effect_no_ads">より良い効果&amp;広告なし</string>
+
+    <string name="photo_ready_message">写真の準備ができました！今すぐ保存してください。</string>
+
+    <string name="processing_text_one">傑作を処理中... 🎨</string>
+    <string name="processing_text_two">最終仕上げ... ✨</string>
+    <string name="processing_text_three">起動中... 🚀</string>
+
+    <string name="enhance">AI エンハンサー</string>
+
+    <string name="edit_t_s">画像編集</string>
+    <string name="edit_d_s">写真を簡単にカスタマイズします。</string>
+    <string name="enhance_t_s">AI強化</string>
+    <string name="enhance_d_s">画像品質をインテリジェントに向上させます。</string>
+    <string name="blend_t_s">AIブレンド</string>
+    <string name="blend_d_s">AIを使用して画像をシームレスに結合します。</string>
+    <string name="collage_t_s">フォトコラージュ</string>
+    <string name="collage_d_s">画像を見事なレイアウトに組み合わせます。</string>
+    <string name="bg_art_t_s">背景アート</string>
+    <string name="bg_art_d_s">簡単に素晴らしい背景を作成します。</string>
+    <string name="unleash">あなたの創造力を解き放とう！</string>
+    <string name="unlimited_access">無制限アクセス</string>
+    <string name="smooth_ux">よりスムーズなUX</string>
+
+    <string name="enhance_watch_ad">エンハンサー \n 広告を見る</string>
+
+    <string name="what_do_you_want_for_your_photo">写真に何を望みますか？</string>
+    <string name="templates">テンプレート</string>
+    <string name="choose_an_answer">回答を選択</string>
+    <string name="select_2_9_photos">2～9枚の写真を選択</string>
+    <string name="select_1_1_photos">1枚の写真を選択</string>
+    <string name="maximum_images_selected">最大画像が選択されました</string>
+    <string name="photo_edit">写真編集</string>
+    <string name="ai_blend">AIブレンド</string>
+    <string name="what_would_you_like_to_create">何を作りたいですか？</string>
+    <string name="ai_enhance">AI強化</string>
+
+    <string name="survery_detail">あなたの回答は、適切な体験をお届けするのに役立ちます。（すべての適切な回答を選択してください）</string>
+
+
+
+
+    <string name="define_your_role">あなたの役割を定義し、ツールを発見しましょう！</string>
+    <string name="pick_your_journey">あなたのクリエイティブな旅を選びましょう！</string>
+    <string name="help_us_bring_experiences">あなたの回答により、最適な体験を提供できます。（すべての適切な回答を選択してください）</string>
+    <string name="where_publish_content">どこでコンテンツを公開していますか？</string>
+    <string name="how_did_you_find_us">どのようにして私たちを見つけましたか？</string>
+
+    <!-- User Information -->
+    <string name="personal_user">個人ユーザー</string>
+    <string name="student">学生</string>
+    <string name="content_creator">コンテンツクリエイター</string>
+    <string name="design_teacher">デザイン教師</string>
+    <string name="business_owner">ビジネスオーナー</string>
+    <string name="employee">従業員</string>
+    <string name="event_planner">イベントプランナー</string>
+
+    <!-- Categories -->
+    <string name="frame_templates">フレームテンプレート</string>
+    <string name="bg_art">背景アート</string>
+    <string name="profile_pic">プロフィール写真</string>
+    <string name="pip_template">PIPテンプレート</string>
+    <string name="other">その他</string>
+
+    <!-- Content Types -->
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="tiktok">TikTok</string>
+    <string name="pinterest">Pinterest</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="reddit">Reddit</string>
+    <string name="dribbble">Dribbble</string>
+    <string name="behance">Behance</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">YouTube</string>
+    <string name="discord">Discord</string>
+
+    <string name="skip">スキップ</string>
+
+    <string name="button">ボタン</string>
+    <string name="make_another">もう一つ作る</string>
+    <string name="share_to">共有先</string>
+    <string name="failed_to_save_image">画像の保存に失敗しました</string>
+    <string name="error_while_saving_image">画像を保存中にエラーが発生しました</string>
+    <string name="close_background_apps_try_again">いくつかのバックグラウンドアプリを閉じて、もう一度試してください</string>
+    <string name="failed_to_load_frame">フレームの読み込みに失敗しました、もう一度試してください</string>
+
+
+    <string name="error_while_applying_blend">ブレンド適用中にエラーが発生しました</string>
+    <string name="image_loading_failed">画像の読み込みに失敗しました。もう一度お試しください</string>
+    <string name="image_is_corrupt">画像が破損しています</string>
+    <string name="image_not_found">画像が見つかりません</string>
+    <string name="image_saving_failed">画像の保存に失敗しました</string>
+
+
+    <string name="notification_title_2">🎨 簡単コラージュ作成！</string>
+    <string name="notification_description_2">お気に入りの写真を簡単に美しいコラージュに変換。</string>
+
+
+    <string name="full_screen_intent">全画面インテントの許可が拒否されました</string>
+    <string name="don_t_allow">許可しないでください</string>
+
+    <string name="full_screen_intent_message">最高のアプリ体験と即時更新のために<b>フルスクリーンインテント</b>を有効にしてください。</string>
+    <string name="open">開く</string>
+    <string name="get_start">開始</string>
+    <string name="intro_one">AI を使用して自動的に編集するのに役立ちます</string>
+    <string name="intro_two">このツールを使えば、写真を素早く完璧に作成できます。</string>
+    <string name="intro_two_first">この</string>
+    <string name="intro_three">写真のユニークなスタイルと本質を表現するのに役立ちます。</string>
+    <string name="background_art">背景アート</string>
+    <string name="use">使用</string>
+    <string name="intro_one_heading">AI 画像エンハンサー</string>
+    <string name="intro_one_sub_heading">写真の画質を簡単に向上させます。</string>
+    <string name="intro_two_heading">素晴らしいコラージュを作成</string>
+    <string name="intro_two_sub_heading">複数の写真を簡単に組み合わせます。</string>
+    <string name="intro_three_heading">魔法のように写真を編集</string>
+    <string name="intro_three_sub_heading">写真を簡単にカスタマイズできます。</string>
+
+    <string name="_4k_templates_quality">4Kテンプレートの品質</string>
+
+    <!-- Japanese -->
+    <string name="then">その後</string>
+    <string name="per_week">/週</string>
+    <string name="after_trial">無料の3日間トライアル後</string>
+    <string name="subscription_auto_renew">サブスクリプションは自動的に更新されます。いつでもキャンセルできます</string>
+
+    <string name="shortcut_ai_blend">AIブレンド</string>
+    <string name="shortcut_ai_edit_photo">AI写真編集</string>
+    <string name="uninstall">アンインストール</string>
+    <string name="hey_there">こんにちは!!</string>
+
+
+    <string name="dont_want_to_uninstall">アンインストールしたくない</string>
+    <string name="still_want_to_uninstall">それでもアンインストールしたい</string>
+    <string name="problem_when_using_app">アプリ使用中の問題</string>
+    <string name="you_are_a_great_partner">あなたは素晴らしいパートナーです！</string>
+    <string name="your_feedback_is">あなたのフィードバックは、機能をさらに良くするための原動力です</string>
+    <string name="why_do_you_uninstall">なぜアンインストールしますか？</string>
+    <string name="image_creation_feature">画像作成機能が悪い</string>
+    <string name="generating_process_time">生成プロセスの時間が非常に長い</string>
+    <string name="not_enough_features">期待通りの機能が不足しています</string>
+    <string name="interface_is_difficult">インターフェースが使いにくい</string>
+    <string name="too_many_ads">広告が多すぎる</string>
+    <string name="i_found_another_app">より適した他のアプリを見つけました</string>
+    <string name="please_enter_the_reason_why">アンインストールする理由を入力してください</string>
+    <string name="type_your_feedback">ここにフィードバックを入力してください</string>
+
+
+    <string name="ai_blend_lacks">コラージュ機能は制限されています</string>
+    <string name="gen_again">別のレイアウトを試してください</string>
+    <string name="ai_edit_photo">AI編集が正確ではありません</string>
+    <string name="enhance_again">再編集する</string>
+    <string name="cannot_find_your">AI強化には明確さが欠けています</string>
+    <string name="zoom_again">再度強化する</string>
+
+    <string name="please_share_information">ご意見を共有していただき、より良い体験を提供できるようご協力ください</string>
+
+
+    <string name="do_you_want_to_discard">破棄しますか</string>
+    <string name="let_s_go">行こう</string>
+    <string name="blank">空白</string>
+    <string name="template">テンプレート</string>
+    <string name="app_name_new">AR Drawing アプリ</string>
+
+    <string name="boarding1_title">カルーセル</string>
+    <string name="boarding1_text_body">複数の投稿を簡単にスワイプ。</string>
+    <string name="boarding3_title">ストーリーズ</string>
+    <string name="boarding3_text_body">短命の全画面ビジュアルコンテンツ。</string>
+
+    <string name="boarding4_title">スティッチ</string>
+    <string name="boarding4_text_body">異なるクリップをシームレスに結合。</string>
+
+    <string name="boarding2_title">コラージュ</string>
+    <string name="boarding2_text_body">写真を1つのフレームに組み合わせる。</string>
+
+    <string name="upgrade_plan_now">今すぐプランをアップグレード！</string>
+    <string name="enjoy_unlimited_benefits_amp_features">無制限の特典と機能を楽しむ</string>
+    <string name="generals">一般</string>
+    <string name="supports">サポート</string>
+    <string name="seamless">シームレス</string>
+    <string name="story">ストーリー</string>
+    <string name="rewind">巻き戻し</string>
+    <string name="paper">紙</string>
+    <string name="tape">テープ</string>
+    <string name="plastic">プラスチック</string>
+    <string name="film">フィルム</string>
+    <string name="try_for_free">無料で試す</string>
+
+    <string name="share_your_new_look_on_social_media_n_tap_below_to_post_it_on_instagram_n_or_tiktok">新しいルックをソーシャルメディアで共有しましょう\n—下をタップしてInstagramまたはTikTokに投稿。</string>
+    <string name="open_instagram">Instagramを開く</string>
+    <string name="open_tiktok">TikTokを開く</string>
+    <string name="open_more">その他を開く</string>
+
+
+
+
+
+    <string name="title_general_notification_without_fo">進行中の写真を失わないでください！</string>
+    <string name="sub_heading_general_notification_without_fo">今すぐ編集を完了しましょう</string>
+    <string name="title_general_notification_with_fo">写真編集をお見逃しなく！</string>
+    <string name="sub_heading_general_notification_with_fo">アプリを開いて写真編集を続けましょう</string>
+    <string name="all_pro_materials">すべてのプロ素材</string>
+    <string name="no_watermark_and_ads">透かしや広告なし</string>
+    <string name="cancel_anytime_form_the_app">アプリからいつでもキャンセル可能</string>
+    <string name="weekly_plan">週間プラン</string>
+
+    <string name="yearly_plan">年間プラン</string>
+    <string name="notification_title_1">✨ 素敵なカルーセルをシェアしよう！</string>
+    <string name="notification_description_1">あなたの写真は輝く準備ができています。今すぐInstagramにカルーセルを投稿して、あなたのスタイルでインスピレーションを与えましょう！ 🌿📸</string>
+
+
+
+    <string name="_7_day_free_trail">7日間無料トライアル</string>
+    <string name="_3_day_free_trail">3日間無料トライアル</string>
+
+    <string name="get_pro">プロを取得</string>
+    <string name="unlock_this_premium_frame">このプレミアムフレームをアンロック</string>
+    <string name="choose_how_you_want_to_unlock_this_frame">このフレームのアンロック方法を選択してください</string>
+    <string name="watch_ad_to_unlock">広告を見てアンロック</string>
+    <string name="get_pro_for_unlimited_access">無制限アクセスのためにプロを取得</string>
+    <string name="unlock_all_premium_frames_forever">すべてのプレミアムフレームを永久にアンロック</string>
+
+    <string name="upgrade_to_premium">プレミアムにアップグレード</string>
+    <string name="unlock_the_full_experience">完全な体験をアンロック</string>
+    <string name="unlock_all_premium_templates">すべてのプレミアムテンプレートをアンロック</string>
+    <string name="priority_access_to_new_features">新機能への優先アクセス</string>
+    <string name="access_all_style_categories">すべてのスタイルカテゴリにアクセス</string>
+    <string name="one_tap_carousel_creator">ワンタップカルーセル作成ツール</string>
+    <string name="quality_export_without_watermark">透かしなしの高品質エクスポート</string>
+    <string name="ad_free_creative_experience">広告なしのクリエイティブ体験</string>
+    <string name="_3_days_free_trial">3日間の無料トライアル</string>
+    <string name="trusted_by_2m_users_worldwide">世界中で200万人以上のユーザーに信頼されています</string>
+
+
+    <string name="grab_now">今すぐ入手</string>
+    <string name="unlock_your_premium_experience_today">今日プレミアム体験をアンロック!</string>
+    <string name="_7_days_free_trial">7日間の無料トライアル</string>
+    <string name="carousal">カルーセル</string>
+
+    <string name="enjoy_50_off_on_weekly_premium">週間プレミアムが50%オフ!</string>
+
+
+
+
+
+
+</resources>

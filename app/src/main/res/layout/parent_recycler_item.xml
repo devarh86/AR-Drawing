@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:nestedScrollingEnabled="false"
+    android:layout_marginBottom="24dp">
+
+    <TextView
+        android:id="@+id/category_name"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="Ai Blend"
+        android:letterSpacing="0.05"
+        android:textStyle="bold"
+        android:textColor="@color/normal_txt_clr"
+        android:textSize="@dimen/_18ssp"
+       app:layout_constraintBottom_toBottomOf="@id/see_all"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--   app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/child_recycler_view"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:nestedScrollingEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/see_all"
+        tools:itemCount="4"
+        app:spanCount="2"
+        android:paddingStart="@dimen/_10sdp"
+        tools:listitem="@layout/child_recycler_item" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/see_all"
+        style="@style/subHeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_20_dp"
+        android:backgroundTint="@color/see_all_bg_color"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingVertical="@dimen/_6sdp"
+        android:text="@string/see_all"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:drawablePadding="3dp"
+        android:drawableEnd="@drawable/arrow_all"
+        android:textColor="@color/selected_color"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

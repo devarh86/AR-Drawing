@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sticker_root_v"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_200sdp"
+    android:background="@color/editor_bar_clr">
+
+    <ImageView
+        android:id="@+id/cross_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/tick"
+        android:padding="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="@+id/tab_layout"
+        app:srcCompat="@drawable/cross_icon_sticker" />
+
+    <ImageView
+        android:id="@+id/tick_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@string/tick"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="@+id/tab_layout"
+        app:srcCompat="@drawable/tick_icon" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        style="@style/MyTabTextAppearance"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        android:overScrollMode="never"
+        android:text="@string/filters"
+        android:backgroundTint="@color/editor_bar_clr"
+        app:layout_constraintEnd_toStartOf="@+id/tick_img"
+        app:layout_constraintStart_toEndOf="@id/cross_img"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="@color/selected_color"
+        app:tabMinWidth="@dimen/_50sdp"
+        app:tabMode="scrollable"
+        app:layout_constraintBottom_toTopOf="@id/view_pager"
+        app:tabRippleColor="@color/primary_50"
+        app:tabSelectedTextColor="@color/selected_color"
+        app:tabTextAppearance="@style/MyTabTextAppearance"
+        app:tabTextColor="@color/tab_txt_clr"
+        app:tabUnboundedRipple="true" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/drawer_surface_clr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pro_layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#80000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout">
+
+        <TextView
+            android:id="@+id/reward_txt"
+            style="@style/headingText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/free_bg"
+            android:gravity="center"
+            android:paddingHorizontal="16dp"
+            android:text="@string/watch_ad"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            app:drawableStartCompat="@drawable/free_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/pro_click_layout"
+            app:layout_constraintEnd_toStartOf="@+id/pro_click_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pro_click_layout"
+            app:layout_constraintWidth_percent="0.4" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ad_icon"
+            app:layout_constraintEnd_toEndOf="@+id/reward_txt"
+            app:layout_constraintTop_toTopOf="@+id/reward_txt" />
+
+        <LinearLayout
+            android:id="@+id/pro_click_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/pro_bg"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_4sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/reward_txt"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.4">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/pro_icon"
+                android:src="@drawable/pro_icon_new" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/subHeadingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/all_inclusive"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp" />
+
+                <TextView
+                    style="@style/headingText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/pro"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shimmer_auto_start="true"
+        app:shimmer_shape="linear">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="4">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_40sdp"
+                android:layout_weight="0.9"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <include layout="@layout/view_for_shimmer_sticker_category" />
+
+                <include layout="@layout/view_for_shimmer_sticker_category" />
+
+                <include layout="@layout/view_for_shimmer_sticker_category" />
+
+                <include layout="@layout/view_for_shimmer_sticker_category" />
+
+                <include layout="@layout/view_for_shimmer_sticker_category" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="5">
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+
+                <include layout="@layout/view_for_shimmer_sticker_pack" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

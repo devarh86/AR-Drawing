@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="pop_up_overlay" type="id" />
+    <item name="pop_up_overlay_loading_ad" type="id" />
+</resources>

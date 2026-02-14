@@ -1,0 +1,31 @@
+query getFrame($id: Int!) {
+    frame(id: $id){
+        id
+        title
+        editor
+        assettype
+        rembg
+        isComplex
+        category{
+            title
+        }
+        files{
+            key
+            file
+            width
+            height
+            xaxis
+            yaxis
+            rotation
+            clipFile
+            effect
+            adjustment
+            baseUrl
+        }
+        scrlCount
+        masks
+        tags
+        baseUrl
+    }
+}
+

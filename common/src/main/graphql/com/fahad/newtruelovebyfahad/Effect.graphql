@@ -1,0 +1,20 @@
+query getEffects($apiOption: String!) {
+    parentCategories(apioption: $apiOption){
+        id
+        title
+        tag{
+            title
+        }
+        frames{
+            title
+            files{
+                id
+                file
+                effect
+                baseUrl
+            }
+            tags
+            baseUrl
+        }
+    }
+}

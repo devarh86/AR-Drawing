@@ -1,0 +1,198 @@
+{
+  "data": {
+    "allTags": [
+      {
+        "title": "Featured",
+        "tags": [
+          {
+            "title": "For You",
+            "tags": [
+              {
+                "title": "#Bg_Art"
+              },
+              {
+                "title": "#Blending"
+              },
+              {
+                "title": "#Overlay"
+              },
+              {
+                "title": "#Solo"
+              },
+              {
+                "title": "#Dual"
+              },
+              {
+                "title": "#Pip"
+              },
+              {
+                "title": "#Profile_Pic"
+              },
+              {
+                "title": "#Effects"
+              },
+              {
+                "title": "#Drip_Art"
+              },
+              {
+                "title": "#Double_Exposure"
+              }
+            ],
+            "frames": [
+              {
+                "id": 1,
+                "title": "Blending",
+                "thumb": "file:///android_asset/offline_data/blending/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Blending"
+                  }
+                ]
+              },
+              {
+                "id": 2,
+                "title": "BG Art",
+                "thumb": "file:///android_asset/offline_data/bg_art/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Bg_Art"
+                  }
+                ]
+              },
+              {
+                "id": 3,
+                "title": "Overlay",
+                "thumb": "file:///android_asset/offline_data/overlay/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Overlay"
+                  }
+                ]
+              },
+              {
+                "id": 4,
+                "title": "Dual",
+                "thumb": "file:///android_asset/offline_data/dual/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "frame",
+                "rembg": false,
+                "masks": 2,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Dual"
+                  }
+                ]
+              },
+              {
+                "id": 5,
+                "title": "Solo",
+                "thumb": "file:///android_asset/offline_data/solo_frame/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "frame",
+                "rembg": false,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Solo"
+                  }
+                ]
+              },
+              {
+                "id": 6,
+                "title": "PIP",
+                "thumb": "file:///android_asset/offline_data/pip/cover.webp",
+                "thumbtype": "Portrait",
+                "assettype": "pip",
+                "rembg": false,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Pip"
+                  }
+                ]
+              },
+              {
+                "id": 7,
+                "title": "Profile Pic",
+                "thumb": "file:///android_asset/offline_data/profile_pic/cover.webp",
+                "thumbtype": "Square",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Profile_Pic"
+                  }
+                ]
+              },
+              {
+                "id": 8,
+                "title": "Double Exposure",
+                "thumb": "file:///android_asset/offline_data/double_exposure/cover.webp",
+                "thumbtype": "Square",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Double_Exposure"
+                  }
+                ]
+              },
+              {
+                "id": 9,
+                "title": "Drip Art",
+                "thumb": "file:///android_asset/offline_data/drip_art/cover.webp",
+                "thumbtype": "Square",
+                "assettype": "blend",
+                "rembg": true,
+                "masks": 1,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "#Drip_Art"
+                  }
+                ]
+              },
+              {
+                "id": 10,
+                "title": "Effects",
+                "thumb": "file:///android_asset/offline_data/effects/cover.webp",
+                "thumbtype": "Square",
+                "assettype": "effect",
+                "rembg": false,
+                "masks": 0,
+                "tags": "Free",
+                "hashtag": [
+                  {
+                    "title": "Effects"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

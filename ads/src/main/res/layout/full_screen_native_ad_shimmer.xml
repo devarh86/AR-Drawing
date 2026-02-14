@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"> <!-- Changed to match_parent to make it full screen -->
+
+    <!-- Shimmer TextView for "AD" text -->
+    <View
+        android:id="@+id/ad_text_shimmer"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="#FFD0D3D5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Shimmer View for Ad Icon -->
+    <View
+        android:id="@+id/ad_app_icon_shimmer"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#FFD0D3D5"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@id/ad_text_shimmer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Shimmer TextView for Headline -->
+    <TextView
+        android:id="@+id/ad_headline_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFD0D3D5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ad_app_icon_shimmer"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Shimmer TextView for Ad Body -->
+    <TextView
+        android:id="@+id/ad_body_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFD0D3D5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ad_app_icon_shimmer"
+        app:layout_constraintTop_toBottomOf="@id/ad_headline_shimmer" />
+
+    <!-- Shimmer View for Media content to occupy most of the screen -->
+    <View
+        android:id="@+id/ad_media_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFD0D3D5"
+        app:layout_constraintTop_toBottomOf="@id/ad_body_shimmer"
+        app:layout_constraintBottom_toTopOf="@id/ad_call_to_action_shimmer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Shimmer TextView for Call to Action Button -->
+    <View
+        android:id="@+id/ad_call_to_action_shimmer"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:background="#FFD0D3D5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

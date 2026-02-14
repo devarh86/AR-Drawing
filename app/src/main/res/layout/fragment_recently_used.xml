@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/container_clr_activity"
+    tools:context=".ui.fragments.mywork.pager.childs.RecentlyUsedFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recently_rv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:layout_marginTop="10dp"
+        android:paddingStart="@dimen/_10sdp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spanCount="2"
+        tools:listitem="@layout/staggered_screen_row_item" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/try_now_placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/try_now_placeholder_1"
+            android:layout_width="@dimen/_115sdp"
+            android:layout_height="@dimen/_115sdp"
+            android:src="@drawable/my_work_placeholder"
+            app:layout_constraintBottom_toTopOf="@+id/no_result_found_tv"
+            app:layout_constraintEnd_toEndOf="@+id/try_now_btn"
+            app:layout_constraintStart_toStartOf="@+id/try_now_btn" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/no_result_found_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="@string/no_result_found"
+            style="@style/headingText"
+            android:textColor="@color/btn_txt_clr"
+            app:layout_constraintBottom_toTopOf="@+id/try_now_btn"
+            app:layout_constraintEnd_toEndOf="@+id/try_now_btn"
+            app:layout_constraintStart_toStartOf="@+id/try_now_btn" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/try_now_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/try_now"
+            android:minWidth="@dimen/_70sdp"
+            android:textAllCaps="false"
+            app:fontFamily="@font/inter"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintWidth_percent="0.3"
+            style="@style/headingText"
+            android:textColor="@color/black"
+            app:backgroundTint="@color/selected_txt_clr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.7" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

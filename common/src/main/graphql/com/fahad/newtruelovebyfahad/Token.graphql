@@ -1,0 +1,5 @@
+mutation getToken($username: String!, $password: String!) {
+    authenticateApp(username: $username,password: $password) {
+        token
+    }
+}

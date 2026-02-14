@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RoundedTopCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerSizeTopRight">15dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+    <style name="BottomSheetDialogNew" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyleNew</item>
+    </style>
+
+    <style name="BottomSheetStyleNew" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/corner_top_radius_bg_10dp</item>
+    </style>
+
+    <!-- Editing Tool Text Style -->
+    <style name="ShareTextStyle">
+        <item name="android:textSize">@dimen/_7sdp</item>
+        <item name="android:textColor">@color/share_txt_clr</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+    <style name="headingTextOnBoarding">
+        <item name="fontFamily">@font/robotom</item>
+        <item name="android:textColor">@color/btn_txt_clr</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_13sdp</item>
+    </style>
+
+    <style name="PopUp" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="BottomSheetDialog_full_screen" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle_full_screen</item>
+    </style>
+
+    <style name="BottomSheetStyle_full_screen" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/rounded_10dp_for_elevation</item>
+        <item name="android:layout_marginStart">10dp</item>
+        <item name="android:layout_marginEnd">10dp</item>
+        <item name="android:layout_marginTop">-10dp</item>
+    </style>
+    <style name="BottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/corner_top_radius_bg_10dp</item>
+    </style>
+
+</resources>

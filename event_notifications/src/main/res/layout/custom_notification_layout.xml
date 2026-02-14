@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:background="@drawable/rounded_image"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+
+    <!-- App Icon -->
+    <ImageView
+        android:id="@+id/notification_icon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="8dp"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="gone" />
+
+    <!-- Notification Title -->
+    <TextView
+        android:id="@+id/notification_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Notification Body -->
+    <TextView
+        android:id="@+id/notification_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Message Body"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="14sp" />
+
+    <!-- Large Image (optional) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_image">
+
+        <ImageView
+            android:id="@+id/notification_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+</LinearLayout>

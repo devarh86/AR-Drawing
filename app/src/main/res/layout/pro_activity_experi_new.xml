@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:drawablePadding="8dp"
+        android:text="@string/name"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="visible"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toBottomOf="@id/close_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/close_btn"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/pro_btn"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:adjustViewBounds="true"
+        android:visibility="visible"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        android:layout_marginStart="@dimen/_3sdp"
+        app:lottie_rawRes="@raw/collage_pro_anim"
+       app:layout_constraintTop_toTopOf="@id/title"
+        app:layout_constraintBottom_toBottomOf="@id/title"
+        app:layout_constraintStart_toEndOf="@id/title"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
+        android:padding="@dimen/_3sdp"
+        android:visibility="invisible"
+       app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_pro_cross" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/text_tv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Unleash Your Creativity!"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:fontFamily="@font/robotom"-->
+<!--        android:textSize="@dimen/_12ssp"-->
+<!--        android:textColor="@color/normal_txt_clr"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/title"-->
+<!--        app:layout_constraintStart_toStartOf="@id/title"/>-->
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/slider_pro"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/remove_ad_tv"
+        app:layout_constraintDimensionRatio="1.57:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintVertical_bias="0.493" />
+
+    <LinearLayout
+        android:id="@+id/dot_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:visibility="visible"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/slider_pro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/dot_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/s_selected" />
+
+        <ImageView
+            android:id="@+id/dot_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/s_unselected" />
+
+        <ImageView
+            android:id="@+id/dot_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/s_unselected" />
+
+        <ImageView
+            android:id="@+id/dot_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/s_unselected" />
+
+        <ImageView
+            android:id="@+id/dot_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/s_unselected" />
+
+        <ImageView
+            android:id="@+id/dot_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:visibility="gone"
+            android:src="@drawable/s_unselected" />
+    </LinearLayout>
+<!--    <ImageView-->
+<!--        android:id="@+id/slider_proo"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/_10sdp"-->
+<!--        android:layout_marginHorizontal="@dimen/_9sdp"-->
+<!--        android:layout_marginBottom="2dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:src="@drawable/s_ai_enhance"-->
+<!--        android:adjustViewBounds="true"-->
+<!--        app:layout_constraintBottom_toTopOf="@id/remove_ad_tv"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/text_tv" />-->
+
+    <TextView
+        android:id="@+id/remove_ad_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/robotom"
+        android:textSize="@dimen/_12ssp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+
+        android:textColor="@color/normal_txt_clr"
+        android:text="@string/remove_ads"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toStartOf="@id/unlimited_access_tv"
+        app:drawableStartCompat="@drawable/a_ic_remove_ad"
+       app:layout_constraintBottom_toBottomOf="@id/unlimited_access_tv"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toTopOf="@id/unlimited_access_tv"/>
+
+    <TextView
+        android:id="@+id/unlimited_access_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/robotom"
+        android:textSize="@dimen/_12ssp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:textColor="@color/normal_txt_clr"
+        android:text="@string/unlimited_access"
+        android:textStyle="bold"
+        app:drawableStartCompat="@drawable/a_ic_unlimited_access"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintStart_toEndOf="@id/remove_ad_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+       app:layout_constraintBottom_toTopOf="@id/no_watermark_tv"
+        app:layout_constraintTop_toBottomOf="@+id/slider_pro" />
+
+    <TextView
+        android:id="@+id/no_watermark_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/robotom"
+        android:textColor="@color/normal_txt_clr"
+        android:text="@string/no_watermark"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12ssp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        android:drawablePadding="@dimen/_10sdp"
+        app:layout_constraintEnd_toStartOf="@id/smooth_ux_tv"
+        app:drawableStartCompat="@drawable/a_ic_no_watermark"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@+id/remove_ad_tv" />
+<!-- app:layout_constraintBottom_toTopOf="@id/constraint"-->
+    <TextView
+        android:id="@+id/smooth_ux_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/robotom"
+        android:textColor="@color/normal_txt_clr"
+        android:text="@string/smooth_ux"
+        android:drawablePadding="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textSize="@dimen/_12ssp"
+        android:gravity="center_vertical"
+        android:singleLine="true"
+        app:drawableStartCompat="@drawable/a_ic_smooth_ex"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toEndOf="@id/remove_ad_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/unlimited_access_tv" />
+<!--        app:layout_constraintBottom_toTopOf="@id/constraint"-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toTopOf="@id/continue_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/no_watermark_tv">
+        <!--  android:layout_marginBottom="14dp"-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/weekly_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/border_selected_pro"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="@dimen/_14sdp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!--  app:layout_constraintEnd_toStartOf="@id/weekly_plan_heading"-->
+            <ImageView
+                android:id="@+id/check_one"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/s_fill_check"
+                app:layout_constraintBottom_toBottomOf="@id/weekly_plan_heading"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/weekly_plan_heading"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/weekly_plan_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/robotom"
+                android:gravity="start"
+                android:text="@string/weekly"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/check_one"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/weekly_plan_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/robotom"
+                android:gravity="end"
+                android:maxLines="2"
+                android:text="$1.07"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/monthly_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/border_unselected_pro"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="@dimen/_14sdp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/weekly_container">
+            <ImageView
+                android:id="@+id/check_two"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/s_check"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@id/monthly_plan_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/monthly_plan_name" />
+<!---->
+            <TextView
+                android:id="@+id/monthly_plan_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/robotom"
+                android:gravity="center"
+                android:text="@string/monthly"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/check_two"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/monthly_plan_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/robotom"
+                android:gravity="center"
+                android:text="$3.04"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/yearly_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/border_unselected_pro"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/monthly_container">
+            <ImageView
+                android:id="@+id/check_three"
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/s_check"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintBottom_toBottomOf="@id/yearly_plan_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/yearly_plan_name" />
+
+            <TextView
+                android:id="@+id/yearly_plan_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:fontFamily="@font/robotom"
+                android:gravity="center"
+                android:text="@string/yearly"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/check_three"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/yearly_plan_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:fontFamily="@font/robotom"
+                android:gravity="center"
+                android:text="$5.90"
+                android:textColor="@color/normal_txt_clr"
+                android:textSize="@dimen/_12ssp"
+                android:textStyle="bold"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/yearly_plan_heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bottom_round_home"
+            android:backgroundTint="@color/tab_txt_clr"
+            android:fontFamily="@font/robotom"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:text="Save 60.04%"
+            android:textColor="@color/drawer_surface_clr"
+            android:textSize="@dimen/_9ssp"
+            android:textStyle="bold"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@id/yearly_container"
+            app:layout_constraintEnd_toEndOf="@id/yearly_container"
+            app:layout_constraintTop_toTopOf="@id/yearly_container" />
+<!--     app:layout_constraintBottom_toTopOf="@id/yearly_container"-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/monthly_plan_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="-12dp"
+        android:background="@drawable/border_top_right_bottom_left_pro"
+        android:backgroundTint="@color/selected_color"
+        android:fontFamily="@font/robotom"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="4dp"
+        android:text="Best Value"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_9ssp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/constraint"
+        app:layout_constraintEnd_toEndOf="@id/constraint"
+       />
+    <!-- app:layout_constraintTop_toBottomOf="@+id/textView20" -->
+
+    <!--    </ScrollView>-->
+
+    <TextView
+        android:id="@+id/cancel_txt"
+        style="@style/headingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:text="@string/subscription_detail"
+        android:textColor="@color/tab_txt_clr"
+        android:textColorLink="@color/selected_color"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/privacy_policy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trial_txt" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/continue_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_9dp"
+        android:paddingVertical="@dimen/_10sdp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/trial_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraint">
+
+        <!--android:background="@drawable/pro_save_and_share_bg"-->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animView"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_2sdp"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/pro_tag_anim" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/continue_text"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/text"
+            app:layout_constraintStart_toEndOf="@+id/text"
+            app:layout_constraintTop_toTopOf="@+id/text"
+            app:srcCompat="@drawable/arrow" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/trial_txt"
+        style="@style/headingText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@color/tab_txt_clr"
+        android:textColorLink="@color/selected_color"
+        android:textSize="11sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/cancel_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/continue_btn" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/term_of_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:text="@string/term_of_use"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="@dimen/_9sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/banner_container"
+        app:layout_constraintEnd_toStartOf="@+id/line_1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/line_1"
+        android:layout_width="@dimen/_2sdp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_4sdp"
+        android:background="@color/tab_txt_clr"
+        app:layout_constraintBottom_toBottomOf="@+id/term_of_use"
+        app:layout_constraintEnd_toStartOf="@+id/privacy_policy"
+        app:layout_constraintStart_toEndOf="@+id/term_of_use"
+        app:layout_constraintTop_toTopOf="@+id/term_of_use"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/privacy_policy"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="@dimen/_9sdp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/term_of_use"
+        app:layout_constraintEnd_toStartOf="@+id/line_2"
+        app:layout_constraintStart_toEndOf="@+id/line_1"
+        app:layout_constraintTop_toTopOf="@+id/term_of_use" />
+
+    <View
+        android:id="@+id/line_2"
+        android:layout_width="@dimen/_2sdp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/_3sdp"
+        android:background="@color/tab_txt_clr"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/privacy_policy"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_pro"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/privacy_policy"
+        app:layout_constraintTop_toTopOf="@+id/privacy_policy" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/cancel_pro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:clickable="false"
+        android:drawablePadding="@dimen/_15sdp"
+        android:text="@string/cancel_subscription"
+        android:textColor="@color/tab_txt_clr"
+        android:textSize="@dimen/_9sdp"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/privacy_policy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/line_2"
+        app:layout_constraintTop_toTopOf="@+id/privacy_policy" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/cross_banner_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_2sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/cross_banner"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ad_banner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_2sdp"
+            android:visibility="visible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/banner_layout"
+                layout="@layout/banner_layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/container_clr_activity"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/close_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

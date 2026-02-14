@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_questions"
+    app:startDestination="@id/questionOne">
+
+    <fragment
+        android:id="@+id/questionOne"
+        android:name="com.example.questions_intro.ui.fragment.QuestionOne"
+        android:label="fragment_question_one"
+        tools:layout="@layout/fragment_question_one">
+        <action
+            android:id="@+id/action_questionOne_to_questionTwo"
+            app:destination="@id/questionTwo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/questionTwo"
+        android:name="com.example.questions_intro.ui.fragment.QuestionTwo"
+        android:label="QuestionTwo" >
+        <action
+            android:id="@+id/action_questionTwo_to_questionThree"
+            app:destination="@id/questionThree" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionThree"
+        android:name="com.example.questions_intro.ui.fragment.QuestionThree"
+        android:label="QuestionThree" >
+        <action
+            android:id="@+id/action_questionThree_to_questionFour"
+            app:destination="@id/questionFour" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFour"
+        android:name="com.example.questions_intro.ui.fragment.QuestionFour"
+        android:label="QuestionFour" />
+</navigation>
