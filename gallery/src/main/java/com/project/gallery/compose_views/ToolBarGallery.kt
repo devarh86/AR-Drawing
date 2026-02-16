@@ -155,46 +155,6 @@ class ToolBarGallery {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = if (!alignStart) Arrangement.Center else Arrangement.Start
             ) {
-//                Text(
-//                    text = nameState,
-//                    Modifier
-//                        .padding(4.dp, 0.dp, 4.dp, 0.dp)
-//                        .wrapContentWidth(unbounded = false)
-//                        .clickable(
-//                            interactionSource = remember { MutableInteractionSource() },
-//                            indication = ripple(
-//                                color = colorResource(id = com.project.common.R.color.primary_50)
-//                            ),
-//                            enabled = true
-//                        ) {
-//                            myCallback("folder")
-//                        },
-//                    maxLines = 1,
-//                    fontSize = 18.sp,
-//                    fontWeight = FontWeight.Medium,
-//                    overflow = TextOverflow.Ellipsis,
-//                    color = colorResource(id = com.project.common.R.color.tab_txt_clr)
-//                )
-//
-//                Image(
-//                    painter = painterResource(id = R.drawable.arrow_down_logo),
-//                    contentDescription = "dropDownIcon",
-//                    modifier = Modifier
-//                        .wrapContentHeight()
-//                        .wrapContentWidth(unbounded = true)
-//                        .rotate(if (showFoldersState) 180f else 0f)
-//                        .padding(4.dp, 0.dp, 4.dp, 0.dp)
-//                        .clickable(
-//                            interactionSource = remember { MutableInteractionSource() },
-//                            indication = ripple(
-//                                color = colorResource(id = com.project.common.R.color.primary_50)
-//                            ),
-//                            enabled = true
-//                        ) {
-//                            myCallback("folder")
-//                        },
-//                    contentScale = ContentScale.Inside
-//                )
 
                 if (loadingState) {
                     CircularProgressIndicator(
@@ -208,12 +168,13 @@ class ToolBarGallery {
             Icon(
                 painter = painterResource(
                     id =
-                        if (showPrimaryTickState) com.project.common.R.drawable.next_button_selected else com.project.common.R.drawable.next_button_unselected
+                        if (showPrimaryTickState) com.project.common.R.drawable.next_button_selected
+                        else com.project.common.R.drawable.next_button_unselected
                 ),
                 tint = Color.Unspecified,
                 contentDescription = "tick_logo",
                 modifier = Modifier
-                    .weight(1f)
+                    .size(width = 80.dp, height = 45.dp)
                     .alpha(if(galleryButtonNewFlow && fromCollage) 0f else 1f)
                     .clickable(enabled = !(galleryButtonNewFlow && fromCollage),
                         interactionSource = remember { MutableInteractionSource() },
@@ -223,7 +184,7 @@ class ToolBarGallery {
                             myCallback("tick")
                         }
                     }
-            ) 
+            )
 
            /* if (!alignStart) {
                 Icon(

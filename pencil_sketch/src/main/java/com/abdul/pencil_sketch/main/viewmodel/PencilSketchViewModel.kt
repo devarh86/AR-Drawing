@@ -70,6 +70,7 @@ class PencilSketchViewModel @Inject constructor(
     var saveIntent: Channel<SaveIntentSketch>? = null
 
     var imageEnhancedPath: MutableList<ImagesModel> = mutableListOf()
+    var sketchMode = ""
 
     private val _state =
         MutableStateFlow<SketchImageActionViewState>(SketchImageActionViewState.Idle)

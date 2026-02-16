@@ -5,18 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
-    android:background="@color/container_clr_activity"
+    android:background="@color/white"
     tools:context=".ui.fragments.dialogs.RatingDialog">
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/close_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_5sdp"
-        android:padding="@dimen/_8sdp"
-        android:src="@drawable/pro_cross"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/top_image"
@@ -32,83 +22,138 @@
         app:lottie_rawRes="@raw/rating_5" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_desc"
+        android:id="@+id/text_title"
+        style="@style/TextOnHomeMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_15sdp"
+        android:layout_margin="@dimen/_6sdp"
         android:fontFamily="@font/inter"
         android:gravity="center"
-        android:text="@string/your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us"
-        android:textColor="@color/tab_txt_clr"
+        android:text="@string/do_you_like_our_app"
+        android:textColor="@color/selected_color"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_image" />
 
-    <RatingBar
-        android:id="@+id/rating"
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_margin="@dimen/_8sdp"
+        android:fontFamily="@font/inter"
         android:gravity="center"
-        android:maxWidth="@dimen/_150sdp"
-        android:minHeight="@dimen/_25sdp"
-        android:numStars="5"
-        android:progressBackgroundTint="#CCCCCC"
-        android:progressTint="#FECB2F"
-        android:rating="3"
-        android:stepSize="1"
-        android:visibility="visible"
+        android:text="@string/your_opinion_matters_to_us_we_d_ngreatly_appreciate_if_you_can_rate_us"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_desc" />
+        app:layout_constraintTop_toBottomOf="@+id/text_title" />
+
+    <LinearLayout
+        android:id="@+id/ratingLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_desc">
+
+        <ImageView
+            android:id="@+id/rate1"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:src="@drawable/rate1_s" />
+
+        <ImageView
+            android:id="@+id/rate2"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:src="@drawable/rate2_s" />
+
+        <ImageView
+            android:id="@+id/rate3"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:src="@drawable/rate3_s" />
+
+        <ImageView
+            android:id="@+id/rate4"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:src="@drawable/rate4_s" />
+
+        <ImageView
+            android:id="@+id/rate5"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:src="@drawable/rate5_s" />
+
+    </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/best_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_18sdp"
-        android:fontFamily="@font/inter"
-        android:text="@string/the_best_we_can_get"
-        android:textColor="@color/txt_clr_in_dialog"
-        android:textStyle="bold"
-        android:singleLine="true"
         android:ellipsize="marquee"
+        android:fontFamily="@font/inter"
+        android:singleLine="true"
+        android:text="@string/the_best_we_can_get"
+        android:textColor="@color/text_color"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/text_desc"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/text_desc"
-        app:layout_constraintTop_toBottomOf="@+id/rating" />
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guidelineArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.72" />
+        app:layout_constraintTop_toBottomOf="@+id/best_iv" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/best_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_12sdp"
         android:src="@drawable/rounded_arrow"
-        app:layout_constraintBottom_toTopOf="@+id/guidelineArrow"
-        app:layout_constraintEnd_toEndOf="@+id/rating"
-        android:layout_marginEnd="@dimen/_10sdp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toEndOf="@+id/best_text"
+        app:layout_constraintTop_toBottomOf="@+id/ratingLayout" />
 
-    <com.google.android.material.button.MaterialButton
+    <TextView
         android:id="@+id/rate_btn"
-        android:layout_width="wrap_content"
+        style="@style/headingText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:minWidth="@dimen/_100sdp"
         android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/rounded_red_btn_bg"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_12sdp"
         android:text="@string/rate_us"
         android:textAllCaps="false"
-        android:textSize="@dimen/_10ssp"
-        style="@style/headingText"
-        android:textColor="@color/black"
-        app:backgroundTint="@color/selected_color"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_14ssp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/best_text" />
+
+    <TextView
+        android:id="@+id/close_btn"
+        style="@style/headingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:gravity="center"
+        android:text="@string/cancel_underline"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rate_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

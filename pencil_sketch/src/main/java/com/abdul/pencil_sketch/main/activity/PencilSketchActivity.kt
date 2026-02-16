@@ -51,6 +51,11 @@ class PencilSketchActivity : AppCompatActivity() {
     private var isEnhanceRequest = false
     var showAppOpen = false
 
+    var isOpenFromMain = false
+    var imgPath = ""
+    var sketchMode = ""
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         runCatching {
@@ -63,6 +68,12 @@ class PencilSketchActivity : AppCompatActivity() {
             runCatching {
                 finish() // Close the current activity to avoid overlap
             }
+        }
+
+        kotlin.runCatching {
+            isOpenFromMain = intent.getBooleanExtra("fromMain", false)
+            sketchMode = intent.getStringExtra("sketchMode")?:""
+            imgPath = intent.getStringExtra("imagePath")?:""
         }
 
         restoreViewModel.initViewModel()

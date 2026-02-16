@@ -14,7 +14,7 @@
     <color name="boarding_bg">#0F0F0F</color>
     <color name="boarding_bg_two">#4D1821</color>
 
-    <color name="native_large_bg_color">#F0F4FD</color>
+    <color name="native_large_bg_color">#ffffff</color>
     <color name="language_item_bg">#1F1C1D</color>
     <color name="native_ad_title_color">#ffffff</color>
     <color name="native_ad_body_text_color">#ffffff</color>

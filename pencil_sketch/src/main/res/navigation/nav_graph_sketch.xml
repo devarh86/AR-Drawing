@@ -6,12 +6,16 @@
     app:startDestination="@id/basePencilSketch">
 
     <fragment
+        tools:layout="@layout/fragment_base_pencil_sketch"
         android:id="@+id/basePencilSketch"
         android:name="com.abdul.pencil_sketch.main.fragment.BasePencilSketch"
         android:label="BasePencilSketch">
         <action
             android:id="@+id/action_basePencilSketch_to_galleryPencilSketch"
             app:destination="@id/galleryPencilSketch" />
+        <action
+            android:id="@+id/action_basePencilSketch_to_drawingFragment"
+            app:destination="@id/drawingFragment" />
     </fragment>
 
     <fragment
@@ -61,14 +65,25 @@
     </fragment>
 
     <fragment
+        tools:layout="@layout/fragment_crop"
         android:id="@+id/crop"
         android:name="com.project.crop.ui.main.fragment.Crop"
         android:label="Crop">
 
     </fragment>
     <fragment
+        tools:layout="@layout/fragment_pencil_sketch_result"
         android:id="@+id/pencilSketchResult"
         android:name="com.abdul.pencil_sketch.main.fragment.PencilSketchResult"
-        android:label="PencilSketchResult" />
+        android:label="PencilSketchResult" >
+        <action
+            android:id="@+id/action_pencilSketchResult_to_drawingFragment"
+            app:destination="@id/drawingFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_drawing"
+        android:id="@+id/drawingFragment"
+        android:name="com.abdul.pencil_sketch.main.fragment.DrawingFragment"
+        android:label="DrawingFragment" />
 
 </navigation>

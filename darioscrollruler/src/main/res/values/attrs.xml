@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DarioScrollRuler">
+        <attr name="minValue" format="float"/>
+        <attr name="maxValue" format="float"/>
+        <attr name="initialValue" format="float"/>
+        <attr name="tickColor" format="color"/>
+        <attr name="indicatorColor" format="color"/>
+        <attr name="rulerBackgroundColor" format="color"/>
+        <attr name="tickSpacing" format="dimension"/>
+        <attr name="majorTickHeight" format="dimension"/>
+        <attr name="mediumTickHeight" format="dimension"/>
+        <attr name="minorTickHeight" format="dimension"/>
+        <attr name="indicatorWidth" format="dimension"/>
+        <attr name="indicatorHeight" format="dimension"/>
+        <attr name="valueStep" format="float"/>
+    </declare-styleable>
+</resources>

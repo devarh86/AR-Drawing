@@ -55,34 +55,33 @@ object SliderList {
     fun getImageListHome(context: Context): ArrayList<SliderItem> {
         return arrayListOf(
             SliderItem(
-                R.drawable.s_image_1,
-                MainMenuOptions.DRAWING.title,
-                context.setString(com.project.common.R.string.s_home_h1_sub),
-                context.setString(com.project.common.R.string.s_home_h1),
-                context.setString(com.project.common.R.string.s_home_h1_detail)
-            ),
-            SliderItem(
                 R.drawable.s_image_2,
-                MainMenuOptions.LEARNING.title,
+                MainMenuOptions.DRAWING.title,
                 context.setString(com.project.common.R.string.s_home_h2_sub),
                 context.setString(com.project.common.R.string.s_home_h2),
                 context.setString(com.project.common.R.string.s_home_h1_detail)
             ),
             SliderItem(
-                R.drawable.s_image_3,
-                MainMenuOptions.SKETCH.title,
-                context.setString(com.project.common.R.string.s_home_h3_sub),
-                context.setString(com.project.common.R.string.s_home_h3),
-                context.setString(com.project.common.R.string.s_home_h3_detail)
-
-            ),
-            SliderItem(
                 R.drawable.s_image_4,
-                MainMenuOptions.IMPORT_GALLERY.title,
+                MainMenuOptions.SKETCH.title,
                 context.setString(com.project.common.R.string.s_home_h4_sub),
                 context.setString(com.project.common.R.string.s_home_h4),
                 context.setString(com.project.common.R.string.s_home_h4_detail)
 
+            ),
+            SliderItem(
+                R.drawable.s_image_3,
+                MainMenuOptions.IMPORT_GALLERY.title,
+                context.setString(com.project.common.R.string.s_home_h3_sub),
+                context.setString(com.project.common.R.string.s_home_h3),
+                context.setString(com.project.common.R.string.s_home_h3_detail)
+            ),
+            SliderItem(
+                R.drawable.s_image_1,
+                MainMenuOptions.LEARNING.title,
+                context.setString(com.project.common.R.string.s_home_h1_sub),
+                context.setString(com.project.common.R.string.s_home_h1),
+                context.setString(com.project.common.R.string.s_home_h1_detail)
             )
         )
     }

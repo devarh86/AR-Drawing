@@ -19,8 +19,9 @@
     <color name="slider">#B5BBC4</color>
     <color name="text_color">#4B5563</color>
     <color name="black_view">#B0000000</color>
+    <color name="text_color_drawing_screen">#AFAFAF</color>
 
-    <color name="native_large_bg_color">#F0F4FD</color>
+    <color name="native_large_bg_color">#ffffff</color>
     <color name="language_item_bg">#1F1C1D</color>
     <color name="native_ad_title_color">#ffffff</color>
     <color name="native_ad_body_text_color">#ffffff</color>

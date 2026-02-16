@@ -162,6 +162,18 @@
         <argument
             android:name="sub_screen_menu"
             app:argType="string" />
+        <action
+            android:id="@+id/action_drawingFramesFragment_to_howToDrawFragment"
+            app:destination="@id/howToDrawFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howToDrawFragment"
+        android:name="com.fahad.newtruelovebyfahad.ui.fragments.drawing.HowToDrawFragment"
+        android:label="HowToDrawFragment"
+        tools:layout="@layout/fragment_how_draw">
+        <argument
+            android:name="path"
+            app:argType="string" />
     </fragment>
 
 </navigation>

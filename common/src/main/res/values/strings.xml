@@ -589,6 +589,14 @@
     <string name="sketch_scratches_fading">Rough edges smoothing out…</string>
     <string name="sketch_time_travel_mode">Sketch mode: ON ✏️</string>
     <string name="sketch_magic_at_work">Sketch magic at work — stay tuned!</string>
-    <string name="save_colored_text"><![CDATA[ All done! <font color="#65E558"><b>Save</b></font> your photo now.]]></string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Do You Like Our App?</string>
+    <string name="sketch">Sketch</string>
+    <string name="trace">Trace</string>
+    <string name="drawing_now">Drawing Now</string>
+    <string name="how_to_draw">How to draw</string>
+    <string name="picture">Picture</string>
+    <string name="camera">Camera</string>
 
 </resources>

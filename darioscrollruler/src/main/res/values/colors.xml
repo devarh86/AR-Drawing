@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ruler_marker_small_medium">#B7BCC4</color>
+    <color name="ruler_marker_large">#B7BCC4</color>
+    <color name="ruler_bottom_divider">#E5E7EB</color>
+    <color name="ruler_background_panel">#F3F4F8</color>
+    <color name="ruler_indicator_bar">#E16AA8</color>
+    <color name="ruler_edge_blue">#3D69FF</color>
+</resources>

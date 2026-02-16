@@ -50,6 +50,7 @@ class RatingDialog : BottomSheetDialogFragment() {
         _binding?.initViews()
         return binding.root
     }
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return try {
             BottomSheetDialog(requireContext(), com.project.common.R.style.BottomSheetDialogNew)
@@ -69,24 +70,61 @@ class RatingDialog : BottomSheetDialogFragment() {
         }
 
 
-        var ratings = 5f
-        rating.rating = ratings
-        rating.setOnRatingBarChangeListener { _, rating, fromUser ->
-            if (fromUser) {
-                ratings = rating
-                topImage.setAnimation(
-                    when (rating) {
-                        2f -> R.raw.rating_2
-                        3f -> R.raw.rating_3
-                        4f -> R.raw.rating_4
-                        5f -> R.raw.rating_5
-                        else -> {
-                            R.raw.rating_1
-                        }
-                    }
-                )
-                topImage.playAnimation()
-            }
+        var ratings = 0
+
+        rate1.setSingleClickListener {
+            ratings = 1
+            rate1.setImageResource(com.project.common.R.drawable.rate1_us)
+            rate2.setImageResource(com.project.common.R.drawable.rate2_s)
+            rate3.setImageResource(com.project.common.R.drawable.rate3_s)
+            rate4.setImageResource(com.project.common.R.drawable.rate4_s)
+            rate5.setImageResource(com.project.common.R.drawable.rate5_s)
+            topImage.setAnimation(R.raw.rating_1)
+            topImage.playAnimation()
+        }
+
+        rate2.setSingleClickListener {
+            ratings = 2
+            rate2.setImageResource(com.project.common.R.drawable.rate2_us)
+            rate1.setImageResource(com.project.common.R.drawable.rate1_s)
+            rate3.setImageResource(com.project.common.R.drawable.rate3_s)
+            rate4.setImageResource(com.project.common.R.drawable.rate4_s)
+            rate5.setImageResource(com.project.common.R.drawable.rate5_s)
+            topImage.setAnimation(R.raw.rating_2)
+            topImage.playAnimation()
+        }
+
+        rate3.setSingleClickListener {
+            ratings = 2
+            rate3.setImageResource(com.project.common.R.drawable.rate3_us)
+            rate1.setImageResource(com.project.common.R.drawable.rate1_s)
+            rate2.setImageResource(com.project.common.R.drawable.rate2_s)
+            rate4.setImageResource(com.project.common.R.drawable.rate4_s)
+            rate5.setImageResource(com.project.common.R.drawable.rate5_s)
+            topImage.setAnimation(R.raw.rating_3)
+            topImage.playAnimation()
+        }
+
+        rate4.setSingleClickListener {
+            ratings = 4
+            rate4.setImageResource(com.project.common.R.drawable.rate4_us)
+            rate1.setImageResource(com.project.common.R.drawable.rate1_s)
+            rate2.setImageResource(com.project.common.R.drawable.rate2_s)
+            rate3.setImageResource(com.project.common.R.drawable.rate3_s)
+            rate5.setImageResource(com.project.common.R.drawable.rate5_s)
+            topImage.setAnimation(R.raw.rating_4)
+            topImage.playAnimation()
+        }
+
+        rate5.setSingleClickListener {
+            ratings = 5
+            rate5.setImageResource(com.project.common.R.drawable.rate5_us)
+            rate1.setImageResource(com.project.common.R.drawable.rate1_s)
+            rate2.setImageResource(com.project.common.R.drawable.rate2_s)
+            rate3.setImageResource(com.project.common.R.drawable.rate3_s)
+            rate4.setImageResource(com.project.common.R.drawable.rate4_s)
+            topImage.setAnimation(R.raw.rating_5)
+            topImage.playAnimation()
         }
 
         rateBtn.setSingleClickListener {
@@ -110,9 +148,9 @@ class RatingDialog : BottomSheetDialogFragment() {
                 val flow = manager.launchReviewFlow(this, reviewInfo)
                 flow.addOnCompleteListener {
                     kotlin.runCatching {
-                    navController?.navigateUp()
-                }
+                        navController?.navigateUp()
                     }
+                }
             } else {
                 navController?.navigateUp()
                 @ReviewErrorCode val reviewErrorCode = (task.exception as ReviewException).errorCode

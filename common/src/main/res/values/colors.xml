@@ -14,6 +14,7 @@
 
     <color name="buttons_clr">#1B2026</color>
     <color name="text_color">#4B5563</color>
+    <color name="text_color_drawing_screen">#AFAFAF</color>
 
     <color name="surface_clr">#FAEDF5</color>
     <color name="bottom_bar">#181A1C</color>
@@ -30,7 +31,7 @@
     <color name="whiteBg">#34343C</color>
     <color name="same_bg">#D4D4D4</color>
     <color name="slider">#B5BBC4</color>
-    <color name="native_large_bg_color">#F0F4FD</color>
+    <color name="native_large_bg_color">#ffffff</color>
     <color name="language_item_bg">#1F1C1D</color>
     <color name="native_ad_title_color">#ffffff</color>
     <color name="native_ad_body_text_color">#ffffff</color>

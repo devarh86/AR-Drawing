@@ -52,6 +52,7 @@ dependencies {
     api (project(":ads"))
     implementation(project(":gallery"))
     implementation(project(":crop"))
+    implementation(project(":darioscrollruler"))
 
     implementation("com.google.dagger:hilt-android:2.56.1")
     kapt("com.google.dagger:hilt-android-compiler:2.56.1")

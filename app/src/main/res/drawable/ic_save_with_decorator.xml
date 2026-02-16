@@ -25,5 +25,5 @@
             </shape>
         </rotate>
     </item>
-    <item android:drawable="@drawable/ic_save" />
+    <item android:drawable="@drawable/ic_saved" />
 </layer-list>

@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Matrix
 import android.graphics.drawable.Drawable
 import android.media.MediaScannerConnection
 import android.os.Build
@@ -25,6 +26,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 import java.util.Objects
+import kotlin.math.max
 
 fun Activity?.navigateFragment(direction: NavDirections, currentId: Int) {
     try {
@@ -179,4 +181,53 @@ suspend fun Bitmap.saveMediaToStorage(context: Context, onUriCreated: (String?) 
     }
 }
 
+fun calculateFitScaleMatrix(
+    viewWidth: Int,
+    viewHeight: Int,
+    imageWidth: Int,
+    imageHeight: Int,
+): Matrix {
+    val matrix = Matrix()
 
+    val scaleX = viewWidth.toFloat() / imageWidth.toFloat()
+    val scaleY = viewHeight.toFloat() / imageHeight.toFloat()
+    val scaleFactor = max(scaleX, scaleY)
+
+    // Calculate the translation factors to center the image in the view
+    val scaledWidth = imageWidth * scaleFactor
+    val scaledHeight = imageHeight * scaleFactor
+    val dx = (viewWidth - scaledWidth) / 2f
+    val dy = (viewHeight - scaledHeight) / 2f
+
+    // Apply scaling and translation to the matrix
+    matrix.setScale(scaleFactor, scaleFactor)
+    matrix.postTranslate(dx, dy)
+
+    return matrix
+}
+
+
+fun calculateFitScaleMatrixImg(
+    viewWidth: Int,
+    viewHeight: Int,
+    imageWidth: Int,
+    imageHeight: Int,
+): Matrix {
+    val matrix = Matrix()
+
+    val scaleX = viewWidth.toFloat() / imageWidth.toFloat()
+    val scaleY = viewHeight.toFloat() / imageHeight.toFloat()
+    val scaleFactor = max(scaleX, scaleY)
+
+    // Calculate the translation factors to center the image in the view
+    val scaledWidth = imageWidth * scaleFactor
+    val scaledHeight = imageHeight * scaleFactor
+    val dx = (viewWidth - scaledWidth) / 2f
+    val dy = (viewHeight - scaledHeight) / 2f
+
+    // Apply scaling and translation to the matrix
+    matrix.setScale(scaleFactor, scaleFactor)
+    matrix.postTranslate(dx, dy)
+
+    return matrix
+}

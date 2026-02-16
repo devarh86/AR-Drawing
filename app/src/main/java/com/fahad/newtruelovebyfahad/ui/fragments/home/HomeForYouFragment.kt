@@ -733,18 +733,35 @@ class HomeForYouFragment : Fragment() {
             when (from) {
                 MainMenuOptions.DRAWING.title -> {
 
-                    runCatching {
-                        activity?.showNewInterstitial(activity?.homeInterstitial()) {
-                            activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
-                            kotlin.runCatching {
-                                navController?.navigate(
-                                    HomeForYouFragmentDirections.actionHomeForYouFragmentToDrawingFramesFragment(
-                                        from,
-                                        from
-                                    )
-                                )
-                            }
-                        }
+                    try {
+                        val permissions =
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                                Manifest.permission.READ_MEDIA_IMAGES
+                            )
+                            else arrayOf(
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                            )
+                        (mActivity as Permissions).checkAndRequestPermissions(
+                            *permissions,
+                            action = {
+                                runCatching {
+                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                        kotlin.runCatching {
+                                            navController?.navigate(
+                                                HomeForYouFragmentDirections.actionHomeForYouFragmentToDrawingFramesFragment(
+                                                    from,
+                                                    from
+                                                )
+                                            )
+                                        }
+                                    }
+                                }
+                            },
+                            declineAction = {})
+                    } catch (ex: Exception) {
+                        printLog(ex.message.toString())
                     }
 
                 }
