@@ -88,11 +88,13 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var frameDataStore: FrameDataStore
     val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-        Manifest.permission.READ_MEDIA_IMAGES
+        Manifest.permission.READ_MEDIA_IMAGES,
+        Manifest.permission.CAMERA
     )
     else arrayOf(
         Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.WRITE_EXTERNAL_STORAGE
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.CAMERA
     )
 
     override fun onAttach(context: Context) {

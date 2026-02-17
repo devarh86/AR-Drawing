@@ -26,7 +26,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 import java.util.Objects
-import kotlin.math.max
+import kotlin.math.min
 
 fun Activity?.navigateFragment(direction: NavDirections, currentId: Int) {
     try {
@@ -188,10 +188,13 @@ fun calculateFitScaleMatrix(
     imageHeight: Int,
 ): Matrix {
     val matrix = Matrix()
+    if (viewWidth <= 0 || viewHeight <= 0 || imageWidth <= 0 || imageHeight <= 0) {
+        return matrix
+    }
 
     val scaleX = viewWidth.toFloat() / imageWidth.toFloat()
     val scaleY = viewHeight.toFloat() / imageHeight.toFloat()
-    val scaleFactor = max(scaleX, scaleY)
+    val scaleFactor = min(scaleX, scaleY)
 
     // Calculate the translation factors to center the image in the view
     val scaledWidth = imageWidth * scaleFactor
@@ -214,10 +217,13 @@ fun calculateFitScaleMatrixImg(
     imageHeight: Int,
 ): Matrix {
     val matrix = Matrix()
+    if (viewWidth <= 0 || viewHeight <= 0 || imageWidth <= 0 || imageHeight <= 0) {
+        return matrix
+    }
 
     val scaleX = viewWidth.toFloat() / imageWidth.toFloat()
     val scaleY = viewHeight.toFloat() / imageHeight.toFloat()
-    val scaleFactor = max(scaleX, scaleY)
+    val scaleFactor = min(scaleX, scaleY)
 
     // Calculate the translation factors to center the image in the view
     val scaledWidth = imageWidth * scaleFactor

@@ -68,6 +68,7 @@ class PencilSketchViewModel @Inject constructor(
 
     var restoreIntent: Channel<SketchIntent>? = null
     var saveIntent: Channel<SaveIntentSketch>? = null
+    var currentRotation = 0f
 
     var imageEnhancedPath: MutableList<ImagesModel> = mutableListOf()
     var sketchMode = ""

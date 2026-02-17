@@ -7,86 +7,125 @@
     android:background="@drawable/background"
     tools:context=".main.fragment.BasePencilSketch">
 
-    <View
+    <androidx.camera.view.PreviewView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.abdul.pencil_sketch.utils.AdjustableFrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.abdul.pencil_sketch.utils.ZoomableImageView
+            android:id="@+id/fg_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/frame_foreground"
+            android:tag="fg_image"
+            android:visibility="visible" />
+
+    </com.abdul.pencil_sketch.utils.AdjustableFrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/toolBar"
         android:layout_width="0dp"
         android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/container_clr_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/backPress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_8sdp"
-        android:src="@drawable/ic_back_arrow"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        <ImageView
+            android:id="@+id/backPress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
-    <TextView
-        android:id="@+id/checkIcon"
-        style="@style/headingTextOnBoarding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_8sdp"
-        android:background="@drawable/rounded_red_btn_bg"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="4dp"
-        android:text="@string/done"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_10sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/checkIcon"
+            style="@style/headingTextOnBoarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/rounded_red_btn_bg"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="@string/done"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/fullMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:src="@drawable/ic_full_mode_off"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toStartOf="@+id/checkIcon"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        <ImageView
+            android:id="@+id/fullMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:src="@drawable/ic_full_mode_off"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toStartOf="@+id/checkIcon"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
-    <ImageView
-        android:id="@+id/lockMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:src="@drawable/ic_zoom_unlock"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toStartOf="@+id/fullMode"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        <ImageView
+            android:id="@+id/lockMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:src="@drawable/ic_zoom_unlock"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toStartOf="@+id/fullMode"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
-    <ImageView
-        android:id="@+id/music"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/_18sdp"
-        android:src="@drawable/ic_music_off"
-        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
-        app:layout_constraintEnd_toStartOf="@+id/lockMode"
-        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+        <ImageView
+            android:id="@+id/music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:src="@drawable/ic_music_off"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toStartOf="@+id/lockMode"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
-    <com.abdul.pencil_sketch.utils.ZoomableImageView
-        android:id="@+id/fg_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:adjustViewBounds="true"
-        android:contentDescription="@string/frame_foreground"
-        android:tag="fg_image"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar" />
+        <TextView
+            android:id="@+id/reset"
+            style="@style/headingTextOnBoarding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_18sdp"
+            android:background="@drawable/rounded_red_btn_bg"
+            android:backgroundTint="#4B5563"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="4dp"
+            android:text="@string/reset"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toStartOf="@+id/music"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -98,15 +137,15 @@
             android:id="@+id/darioScrollRuler"
             android:layout_width="match_parent"
             android:layout_height="74dp"
-            app:initialValue="0"
-            app:maxValue="360"
-            app:minValue="-360"
             android:visibility="gone"
             app:indicatorColor="#E83CB0"
             app:indicatorHeight="46dp"
             app:indicatorWidth="2dp"
+            app:initialValue="0"
             app:majorTickHeight="46dp"
+            app:maxValue="360"
             app:mediumTickHeight="30dp"
+            app:minValue="-360"
             app:minorTickHeight="18dp"
             app:rulerBackgroundColor="@color/transparent"
             app:tickColor="#7A808D"
@@ -114,12 +153,12 @@
             app:valueStep="1" />
 
         <LinearLayout
-            android:visibility="gone"
             android:id="@+id/rotationLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingVertical="@dimen/_8sdp">
+            android:paddingVertical="@dimen/_8sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/rotateLeft"
@@ -164,6 +203,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/bottomLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -209,5 +249,15 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fullModeOn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_12sdp"
+        android:src="@drawable/ic_full_mode"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/surfaceView"
+        app:layout_constraintEnd_toEndOf="@+id/surfaceView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

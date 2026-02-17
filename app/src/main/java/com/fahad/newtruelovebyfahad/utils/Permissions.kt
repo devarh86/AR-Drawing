@@ -232,25 +232,18 @@ open class Permissions : AppCompatActivity() {
                                         acceptAction = {
                                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                                                 checkAndRequestPermissions(
-
                                                     Manifest.permission.READ_MEDIA_IMAGES,
+                                                    Manifest.permission.CAMERA,
                                                     action = initApp,
                                                     declineAction = declineApp
                                                 )
-//                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-//                                                    checkAndRequestPermissions(
-//                                                        Manifest.permission.CAMERA,
-//                                                        Manifest.permission.READ_MEDIA_IMAGES,
-//                                                        Manifest.permission.READ_MEDIA_VISUAL_USER_SELECTED,
-//                                                        action = initApp,
-//                                                        declineAction = declineApp
-//                                                    )
-//                                                }
+//
                                             } else {
                                                 checkAndRequestPermissions(
 
                                                     Manifest.permission.READ_EXTERNAL_STORAGE,
                                                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                                    Manifest.permission.CAMERA,
                                                     action = initApp,
                                                     declineAction = declineApp
                                                 )

@@ -5,8 +5,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.ColorMatrix
-import android.graphics.ColorMatrixColorFilter
 import android.graphics.Matrix
 import android.graphics.Paint
 import android.graphics.PointF
@@ -38,14 +36,6 @@ import kotlin.math.roundToInt
 import kotlin.math.sqrt
 
 class ZoomableImageView : AppCompatImageView {
-
-    companion object {
-        var isLongPressEnable: Boolean = true
-        var clickable = true
-
-        //        var touchDisable = false
-        const val scaleFactor = 1.06f
-    }
 
     var opacity: Float = 255f
     var opacityFilter: Float = 255f
@@ -89,10 +79,6 @@ class ZoomableImageView : AppCompatImageView {
     var percentHeight = 0f
     var percentWidth = 0f
     private var context: Context? = null
-    var effectBitmap: Bitmap? = null
-    var filterBitmap: Bitmap? = null
-    var isImgFilterBlack: Boolean = false
-    var isImgEffectBlack: Boolean = false
     var effectMatrix = Matrix()
     var userImageMatrix = Matrix()
     var imagePopulated = false
@@ -114,7 +100,6 @@ class ZoomableImageView : AppCompatImageView {
     var sizeChanges: Boolean = false
 
     private var isSyncing = false
-
 
     constructor(context: Context) : super(context) {
         sharedConstructing(context)
@@ -159,22 +144,6 @@ class ZoomableImageView : AppCompatImageView {
     fun setListener(listener: ZoomImgEvents?) {
         if (myListener == null)
             myListener = listener
-    }
-
-    fun getCroppedMatrixValues(values: FloatArray, width: Int, height: Int): FloatArray {
-        val x = percentageXImg * width
-        val y = percentageYImg * height
-        val scaleX = imgPerScaleXImg * width + 0.02f
-        val scaleY = imgPerScaleYImg * height
-        val skewX = (imgPerSkewXImg * width)
-        val skewY = imgPerSkewYImg * height
-        values[1] = skewX
-        values[3] = skewY
-        values[2] = x
-        values[5] = y
-        values[0] = scaleX
-        values[4] = scaleY
-        return values
     }
 
     interface ZoomImgEvents {
@@ -224,10 +193,6 @@ class ZoomableImageView : AppCompatImageView {
                     val intrinsicHeight = drawable.intrinsicHeight
                     val matrix = calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
 
-                    effectBitmap?.let {
-                        calculateMatrixForEffect()
-                    }
-
                     val matrixImg = calculateFitScaleMatrixImg(width, height, intrinsicWidth, intrinsicHeight)
                     imgPerSkewXImg =
                         (matrixImg.values()[Matrix.MSKEW_X] * 100).div(viewWidth).div(100)
@@ -276,43 +241,8 @@ class ZoomableImageView : AppCompatImageView {
         maskPaintFilter?.alpha = opacityFilter.roundToInt()
         maskPaint?.alpha = opacity.roundToInt()
 
-        // Apply color filter to the main drawable if effect is black this is applied for image grayscale
-//        if (isImgEffectBlack && effectBitmap != null) {
-//            val cm = ColorMatrix()
-//            cm.setSaturation(0f)
-//            colorFilter = ColorMatrixColorFilter(cm)
-//        } else {
-//            colorFilter = null
-//        }
-
-
         super.onDraw(canvas)
-        filterBitmap?.let {
-            val matrix = calculateFitScaleMatrix(width, height, it.width, it.height)
-            val paint = Paint()
-            if (isImgFilterBlack) {
-                val cm = ColorMatrix()
-                cm.setSaturation(0f)
-                //paint.colorFilter = ColorMatrixColorFilter(cm)
-                maskPaintFilter?.colorFilter = ColorMatrixColorFilter(cm)
-                canvas.drawBitmap(it, matrix, maskPaintFilter)
-            } else {
-                canvas.drawBitmap(it, matrix, maskPaintFilter)
-            }
-            //canvas.drawBitmap(it, matrix, maskPaintFilter)
-        }
-        effectBitmap?.let {
-            val matrix = effectMatrix
-            // canvas.drawBitmap(it, matrix, maskPaint)
-            if (isImgEffectBlack) {
-                val cm = ColorMatrix()
-                cm.setSaturation(0f)
-                maskPaint?.colorFilter = ColorMatrixColorFilter(cm)
-                canvas.drawBitmap(it, matrix, maskPaint)
-            } else {
-                canvas.drawBitmap(it, matrix, maskPaint)
-            }
-        }
+
         if (setStroke) {
             paint?.let { paint ->
                 canvas.drawRect(0f, 0f, strokeWidth, height.toFloat(), paint)
@@ -333,173 +263,6 @@ class ZoomableImageView : AppCompatImageView {
                 )
             }
         }
-    }
-
-    fun setEffectBitmapAndCalculateMatrix(
-        bitmap: Bitmap,
-        modeCompat: BlendModeCompat,
-        opacity: Float,
-        isUserImgBlack: Boolean
-    ) {
-        this.effectBitmap = bitmap
-
-        val intrinsicWidth = bitmap.width
-        val intrinsicHeight = bitmap.height
-        val matrix =
-            calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
-        imgPerSkewX =
-            (matrix.values()[Matrix.MSKEW_X] * 100).div(viewWidth).div(100)
-        imgPerSkewY =
-            (matrix.values()[Matrix.MSKEW_Y] * 100).div(viewHeight).div(100)
-
-        imgPerScaleX =
-            (matrix.values()[Matrix.MSCALE_X] * 100).div(viewWidth).div(100)
-        imgPerScaleY =
-            (matrix.values()[Matrix.MSCALE_Y] * 100).div(viewHeight).div(100)
-
-        val transX = matrix.values()[Matrix.MTRANS_X]
-        val transY = matrix.values()[Matrix.MTRANS_Y]
-        percentageX = (transX * 100).div(viewWidth).div(100)
-        percentageY = (transY * 100).div(viewHeight).div(100)
-        effectMatrix.reset()
-        effectMatrix.set(matrix)
-        effectMode = modeCompat
-        this.opacity = opacity
-        this.isImgEffectBlack = isUserImgBlack
-        invalidate()
-    }
-
-    fun setFilterBitmapAndCalculateMatrix(
-        bitmap: Bitmap,
-        modeCompat: BlendModeCompat,
-        opacity: Float,
-        userImgFilterBlack: Boolean,
-    ) {
-        this.filterBitmap = bitmap
-        this.isImgFilterBlack = userImgFilterBlack
-        /*        val intrinsicWidth = bitmap.width
-                val intrinsicHeight = bitmap.height
-                val matrix =
-                    calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
-                imgPerSkewX =
-                    (matrix.values()[Matrix.MSKEW_X] * 100).div(viewWidth).div(100)
-                imgPerSkewY =
-                    (matrix.values()[Matrix.MSKEW_Y] * 100).div(viewHeight).div(100)
-
-                imgPerScaleX =
-                    (matrix.values()[Matrix.MSCALE_X] * 100).div(viewWidth).div(100)
-                imgPerScaleY =
-                    (matrix.values()[Matrix.MSCALE_Y] * 100).div(viewHeight).div(100)
-
-                val transX = matrix.values()[Matrix.MTRANS_X]
-                val transY = matrix.values()[Matrix.MTRANS_Y]
-                percentageX =
-                    (transX * 100).div(viewWidth).div(100)
-                percentageY =
-                    (transY * 100).div(viewHeight).div(100)
-                effectMatrix.reset()
-                effectMatrix.set(matrix)*/
-        filterMode = modeCompat
-        this.opacityFilter = opacity
-        invalidate()
-    }
-
-    fun setImageMatrixFromDraft(rotation: Float) {
-        if (drawable != null) {
-            val intrinsicWidth = drawable.intrinsicWidth
-            val intrinsicHeight = drawable.intrinsicHeight
-            val matrix =
-                calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
-            this.rotation = rotation
-            userImageMatrix.reset()
-            userImageMatrix.set(matrix)
-            imageMatrix = userImageMatrix
-        }
-    }
-
-    fun setEffectBitmapAndCalculateMatrix(
-        bitmap: Bitmap,
-        modeCompat: BlendModeCompat,
-        opacity: Float,
-        matrix: Matrix,
-    ) {
-        this.effectBitmap = bitmap
-        imgPerSkewX =
-            (matrix.values()[Matrix.MSKEW_X] * 100).div(viewWidth).div(100)
-        imgPerSkewY =
-            (matrix.values()[Matrix.MSKEW_Y] * 100).div(viewHeight).div(100)
-
-        imgPerScaleX =
-            (matrix.values()[Matrix.MSCALE_X] * 100).div(viewWidth).div(100)
-        imgPerScaleY =
-            (matrix.values()[Matrix.MSCALE_Y] * 100).div(viewHeight).div(100)
-
-        val transX = matrix.values()[Matrix.MTRANS_X]
-        val transY = matrix.values()[Matrix.MTRANS_Y]
-        percentageX =
-            (transX * 100).div(viewWidth).div(100)
-        percentageY =
-            (transY * 100).div(viewHeight).div(100)
-        effectMatrix.reset()
-        effectMatrix.set(matrix)
-        effectMode = modeCompat
-        this.opacity = opacity
-        invalidate()
-    }
-
-    fun calculateMatrixForEffect() {
-        val bitmap = this.effectBitmap
-        bitmap?.let {
-            val intrinsicWidth = bitmap.width
-            val intrinsicHeight = bitmap.height
-            val matrix =
-                calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
-            imgPerSkewX =
-                (matrix.values()[Matrix.MSKEW_X] * 100).div(width).div(100)
-            imgPerSkewY =
-                (matrix.values()[Matrix.MSKEW_Y] * 100).div(height).div(100)
-
-            imgPerScaleX =
-                (matrix.values()[Matrix.MSCALE_X] * 100).div(width).div(100)
-            imgPerScaleY =
-                (matrix.values()[Matrix.MSCALE_Y] * 100).div(height).div(100)
-
-            val transX = matrix.values()[Matrix.MTRANS_X]
-            val transY = matrix.values()[Matrix.MTRANS_Y]
-            percentageX =
-                (transX * 100).div(width).div(100)
-            percentageY =
-                (transY * 100).div(height).div(100)
-            effectMatrix.reset()
-            effectMatrix.set(matrix)
-        }
-    }
-
-    fun setEffectBitmapAndCalculateMatrix(bitmap: Bitmap) {
-        this.effectBitmap = bitmap
-        val intrinsicWidth = bitmap.width
-        val intrinsicHeight = bitmap.height
-        val matrix =
-            calculateFitScaleMatrix(width, height, intrinsicWidth, intrinsicHeight)
-        imgPerSkewX =
-            (matrix.values()[Matrix.MSKEW_X] * 100).div(width).div(100)
-        imgPerSkewY =
-            (matrix.values()[Matrix.MSKEW_Y] * 100).div(height).div(100)
-
-        imgPerScaleX =
-            (matrix.values()[Matrix.MSCALE_X] * 100).div(width).div(100)
-        imgPerScaleY =
-            (matrix.values()[Matrix.MSCALE_Y] * 100).div(height).div(100)
-
-        val transX = matrix.values()[Matrix.MTRANS_X]
-        val transY = matrix.values()[Matrix.MTRANS_Y]
-        percentageX =
-            (transX * 100).div(width).div(100)
-        percentageY =
-            (transY * 100).div(height).div(100)
-        effectMatrix.reset()
-        effectMatrix.set(matrix)
-        invalidate()
     }
 
     private var setStroke = false
@@ -527,11 +290,6 @@ class ZoomableImageView : AppCompatImageView {
         }
 
         resizingJob = CoroutineScope(IO).launch {
-            if (effectBitmap != null) {
-                val result = reCalculateMatrixValues(effectMatrix.values())
-                effectMatrix.reset()
-                effectMatrix.setValues(result)
-            }
 
             if (isActive) {
 
@@ -540,9 +298,6 @@ class ZoomableImageView : AppCompatImageView {
                 userImageMatrix.setValues(result)
                 withContext(Main) {
                     sizeChanges = true
-                    if (effectBitmap != null) {
-                        imageMatrix = userImageMatrix
-                    }
                 }
             }
         }
@@ -552,22 +307,6 @@ class ZoomableImageView : AppCompatImageView {
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         resizingJob?.cancel()
-    }
-
-    private fun reCalculateMatrixValues(values: FloatArray): FloatArray {
-        val x = percentageX * viewWidth
-        val y = percentageY * viewHeight
-        val scaleX = imgPerScaleX * viewWidth
-        val scaleY = imgPerScaleY * viewHeight
-        val skewX = imgPerSkewX * viewWidth
-        val skewY = imgPerSkewY * viewHeight
-        values[1] = skewX
-        values[3] = skewY
-        values[2] = x
-        values[5] = y
-        values[0] = scaleX
-        values[4] = scaleY
-        return values
     }
 
     private fun reCalculateMatrixValuesImg(values: FloatArray): FloatArray {
@@ -1128,17 +867,21 @@ class ZoomableImageView : AppCompatImageView {
         }
     }
 
+    fun setImageOpacity(opacityValue: Float) {
+        // Accept 0..1, 0..100, or 0..255 input and normalize to alpha 0..255.
+        val alphaValue = when {
+            opacityValue <= 1f -> (opacityValue.coerceIn(0f, 1f) * 255f).roundToInt()
+            opacityValue <= 100f -> ((opacityValue.coerceIn(0f, 100f) / 100f) * 255f).roundToInt()
+            else -> opacityValue.roundToInt().coerceIn(0, 255)
+        }
+        imageAlpha = alphaValue
+        invalidate()
+    }
 
-    fun effectOpacity(opacity: Float) {
+    fun opacity(opacity: Float) {
         this.opacity = opacity
-        if (effectBitmap != null)
-            invalidate()
+        invalidate()
     }
 
-    fun filterOpacity(opacity: Float) {
-        this.opacityFilter = opacity
-        if (filterBitmap != null)
-            invalidate()
-    }
 }
 

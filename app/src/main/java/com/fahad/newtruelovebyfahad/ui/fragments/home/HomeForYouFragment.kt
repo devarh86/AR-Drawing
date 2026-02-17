@@ -138,12 +138,14 @@ class HomeForYouFragment : Fragment() {
 
             val permissions =
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                    Manifest.permission.READ_MEDIA_IMAGES
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.CAMERA
                 )
                 else arrayOf(
 
                     Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.CAMERA
                 )
 
             (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
@@ -736,11 +738,13 @@ class HomeForYouFragment : Fragment() {
                     try {
                         val permissions =
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                                Manifest.permission.READ_MEDIA_IMAGES
+                                Manifest.permission.READ_MEDIA_IMAGES,
+                                Manifest.permission.CAMERA
                             )
                             else arrayOf(
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.CAMERA
                             )
                         (mActivity as Permissions).checkAndRequestPermissions(
                             *permissions,
@@ -771,11 +775,13 @@ class HomeForYouFragment : Fragment() {
                     try {
                         val permissions =
                             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                                Manifest.permission.READ_MEDIA_IMAGES
+                                Manifest.permission.READ_MEDIA_IMAGES,
+                                Manifest.permission.CAMERA
                             )
                             else arrayOf(
                                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.CAMERA
                             )
                         (mActivity as Permissions).checkAndRequestPermissions(
                             *permissions,
