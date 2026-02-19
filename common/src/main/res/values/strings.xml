@@ -598,5 +598,13 @@
     <string name="how_to_draw">How to draw</string>
     <string name="picture">Picture</string>
     <string name="camera">Camera</string>
+    <string name="stop_drawing">Stop Drawing?</string>
+    <string name="you_want_to_stop_drawing">You want to stop drawing</string>
+    <string name="yes_discard">No, Don\'t</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Continue With Camera</string>
+    <string name="with_cam">With Camera</string>
+    <string name="without_camera">Continue Without Camera</string>
+    <string name="without_cam">Without Camera</string>
 
 </resources>

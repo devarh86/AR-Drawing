@@ -5,19 +5,54 @@
     android:layout_height="wrap_content"
     android:background="@drawable/only_top_rounded">
 
+    <ImageView
+        android:id="@+id/cross_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cross_icons" />
+
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cross_img"
+        app:srcCompat="@drawable/cross_img" />
+
     <TextView
         android:id="@+id/textView8"
         style="@style/headingText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="@string/do_you_want_to_discard"
-        android:textSize="@dimen/_15sdp"
+        android:text="@string/stop_drawing"
+        android:textColor="@color/selected_color"
+        android:textSize="@dimen/_12sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/img" />
+
+    <TextView
+        android:id="@+id/textView11"
+        style="@style/subHeadingText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/you_want_to_stop_drawing"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/native_container"
@@ -43,67 +78,36 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/discard_txt"
+        android:id="@+id/stayBtn"
         style="@style/headingText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/rounded_5dp"
-        android:backgroundTint="@color/surface_clr"
-        android:drawablePadding="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_red_btn_bg"
         android:gravity="center"
         android:paddingVertical="@dimen/_8sdp"
-        android:text="@string/discard"
+        android:text="@string/yes_discard"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/_12sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/draft_txt"
-        app:layout_constraintEnd_toStartOf="@+id/draft_txt"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/draft_txt" />
+        app:layout_constraintTop_toBottomOf="@+id/native_container"
+        app:layout_constraintWidth_percent="0.9" />
 
     <TextView
-        android:id="@+id/draft_txt"
+        android:id="@+id/discardBtn"
         style="@style/headingText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginVertical="16dp"
         android:background="@drawable/rounded_5dp"
-        android:backgroundTint="@color/selected_color"
-        android:drawablePadding="8dp"
         android:gravity="center"
-        android:paddingVertical="@dimen/_8sdp"
-        android:text="@string/draft"
-        android:textColor="@android:color/black"
+        android:text="@string/yes_stop_it"
         android:textSize="@dimen/_12sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/discard_txt"
-        app:layout_constraintTop_toBottomOf="@+id/native_container" />
-
-    <ImageView
-        android:id="@+id/cross_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/cross_icon" />
-
-    <TextView
-        android:id="@+id/textView11"
-        style="@style/subHeadingText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/if_you_go_back_your_work_will_be_discarded"
-        android:textSize="@dimen/_9sdp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/stayBtn"
+        app:layout_constraintWidth_percent="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

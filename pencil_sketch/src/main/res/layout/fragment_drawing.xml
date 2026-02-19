@@ -202,6 +202,65 @@
 
         </LinearLayout>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/seekBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            app:layout_constraintBottom_toTopOf="@+id/div_l"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cross_img">
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="245"
+                android:paddingVertical="8dp"
+                android:progress="245"
+                android:progressBackgroundTint="@color/slider"
+                android:progressDrawable="@drawable/seekbar"
+                android:progressTint="@color/selected_color"
+                android:thumb="@drawable/thumb_icon"
+                android:valueFrom="0"
+                android:valueTo="255"
+                app:haloColor="@color/selected_color"
+                app:labelBehavior="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/category_name"
+                app:layout_constraintEnd_toStartOf="@+id/percentage_txt"
+                app:layout_constraintStart_toEndOf="@+id/category_name"
+                app:layout_constraintTop_toTopOf="@+id/category_name" />
+
+            <TextView
+                android:id="@+id/category_name"
+                style="@style/headingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/opacity"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/percentage_txt"
+                style="@style/headingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="255%"
+                android:gravity="center"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/category_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/category_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <LinearLayout
             android:id="@+id/bottomLayout"
             android:layout_width="match_parent"

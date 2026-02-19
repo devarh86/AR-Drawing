@@ -2,6 +2,7 @@ package com.abdul.pencil_sketch.main.fragment
 
 import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -18,6 +21,7 @@ import androidx.camera.core.Preview
 import androidx.camera.core.UseCaseGroup
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -27,6 +31,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.abdul.pencil_sketch.R
 import com.abdul.pencil_sketch.databinding.FragmentDrawingBinding
+import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.utils.AdjustableFrameLayout
 import com.abdul.pencil_sketch.utils.ZoomableImageView
@@ -35,7 +40,16 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
+import com.example.ads.Constants.rewardedShown
+import com.example.ads.Constants.showDiscardClickAd
+import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
+import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.crosspromo.helper.hide
+import com.example.ads.crosspromo.helper.show
+import com.example.ads.utils.nativeDialogsConfig
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.labstyle.darioscrollruler.ScrollRulerListener
+import com.project.common.databinding.BottomSheetDiscardPhotoEditorBinding
 import com.project.common.utils.setOnSingleClickListener
 import com.project.gallery.utils.createOrShowSnackBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -62,7 +76,9 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
     private var mediaPlayer: MediaPlayer? = null
     private var isPlaying = false
     private var isSketch = false
-
+    private var callback: OnBackPressedCallback? = null
+    private var bottomSheetDiscardDialogBinding: BottomSheetDiscardPhotoEditorBinding? = null
+    private var bottomSheetDiscardDialog: BottomSheetDialog? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -91,23 +107,25 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
         startCamera()
         setUserImage()
         listener()
+        onBackPress()
     }
 
     private fun updateUIBottom() {
         binding.apply {
             isSketch = sketchImageViewModel.sketchMode == "sketch"
-            binding.surfaceView.isInvisible = isSketch
+            binding.surfaceView.isInvisible = !isSketch
+            binding.seekBarLayout.isVisible = !isSketch
 
             binding.apply {
 
                 pictureMode.updateMode(
-                    isSelected = isSketch,
+                    isSelected = !isSketch,
                     selectedIcon = R.drawable.ic_picture_on,
                     unSelectedIcon = R.drawable.ic_picture_off
                 )
 
                 cameraMode.updateMode(
-                    isSelected = !isSketch,
+                    isSelected = isSketch,
                     selectedIcon = R.drawable.ic_camera_select,
                     unSelectedIcon = R.drawable.ic_camera_unselect
                 )
@@ -267,6 +285,20 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 }
             }
 
+            seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    if (fromUser) {
+                        val value = seekBar?.progress ?: 10
+                        percentageTxt.text = "${value + 10}"
+                        fgImage.setImageOpacity(value + 10)
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+
             lockMode.setOnSingleClickListener {
 
                 isLocked = !isLocked
@@ -285,13 +317,13 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
             fullMode.setOnSingleClickListener {
                 toolBar.isVisible = false
                 bottom.isVisible = false
-                fullModeOn.isVisible=true
+                fullModeOn.isVisible = true
             }
 
             fullModeOn.setOnSingleClickListener {
                 toolBar.isVisible = true
                 bottom.isVisible = true
-                fullModeOn.isVisible=false
+                fullModeOn.isVisible = false
             }
 
             music.setOnSingleClickListener {
@@ -335,6 +367,7 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 )
 
                 isSketch = true
+                seekBarLayout.isVisible = true
                 rotationLL.isVisible = false
                 darioScrollRuler.isVisible = false
                 cameraShow(true)
@@ -362,8 +395,8 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 rotationLL.isVisible = true
                 darioScrollRuler.isVisible = true
                 reset.isVisible = true
+                seekBarLayout.isVisible = false
 
-                cameraShow(isSketch)
 
                 darioScrollRuler.reload(-360f, 360f, 0f)
                 val initialRotation = darioScrollRuler.currentPositionValue.roundToInt()
@@ -391,16 +424,17 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                     unSelectedIcon = R.drawable.ic_rotate_unselect
                 )
 
-                /*isSketch = false
+                isSketch = false
+                seekBarLayout.isVisible = false
                 rotationLL.isVisible = false
                 darioScrollRuler.isVisible = false
                 cameraShow(false)
-                startCamera()*/
+                startCamera()
             }
 
             reset.setOnSingleClickListener {
                 fgImage.resetRotation()
-                rotateTV.text="0"
+                rotateTV.text = "0"
             }
 
             flipVertical.setOnSingleClickListener {
@@ -419,11 +453,15 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 fgImage.setImageRotationUsingMatrix(fgImage.rotation - 90f)
             }
 
+            backPress.setOnSingleClickListener {
+                backPress()
+            }
+
         }
     }
 
     private fun cameraShow(mode: Boolean) {
-        binding.surfaceView.isInvisible=mode
+        binding.surfaceView.isInvisible = mode
     }
 
     private fun updateLockUI(isLocked: Boolean) {
@@ -485,6 +523,180 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
         val drawableRes = if (isSelected) selectedIcon else unSelectedIcon
 
         setCompoundDrawablesWithIntrinsicBounds(0, drawableRes, 0, 0)
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        if (bottomSheetDiscardDialog != null && bottomSheetDiscardDialog?.isShowing == true && !isDetached) {
+            runCatching {
+                bottomSheetDiscardDialog?.dismiss()
+            }
+        }
+
+    }
+
+    private fun onBackPress() {
+
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                backPress()
+            }
+        }
+        callback?.let {
+            activity?.onBackPressedDispatcher?.addCallback(this.viewLifecycleOwner, it)
+        }
+
+    }
+
+    private fun backPress() {
+        try {
+            initDiscardDialog()
+        } catch (ex: Exception) {
+            Log.e("error", "backPress: ", ex)
+        }
+    }
+
+    private fun initDiscardDialog() {
+
+        if (bottomSheetDiscardDialogBinding == null) {
+            bottomSheetDiscardDialogBinding = BottomSheetDiscardPhotoEditorBinding.inflate(layoutInflater)
+            bottomSheetDiscardDialog = context?.let {
+                BottomSheetDialog(it, com.project.common.R.style.BottomSheetDialogNew).apply {
+                    window?.setBackgroundDrawable(Color.TRANSPARENT.toDrawable())
+                }
+            }
+            bottomSheetDiscardDialogBinding?.root?.let {
+                bottomSheetDiscardDialog?.setContentView(it)
+            }
+            bottomSheetDiscardDialog?.setCancelable(true)
+        }
+
+        bottomSheetDiscardDialogBinding?.let { binding ->
+            runCatching {
+                activity?.let { mActivity ->
+                    mActivity.loadAndShowNativeOnBoarding(
+                        loadedAction = {
+                            if (isVisible && !isDetached) {
+                                binding.nativeContainer.show()
+                                binding.mediumNativeLayout.adContainer.show()
+                                binding.mediumNativeLayout.shimmerViewContainer.hide()
+                                binding.mediumNativeLayout.adContainer.removeAllViews()
+                                if (it?.parent != null) {
+                                    (it.parent as ViewGroup).removeView(it)
+                                }
+                                binding.mediumNativeLayout.adContainer.addView(it)
+                            }
+                        },
+                        failedAction = {
+                            if (isVisible && !isDetached) {
+                                binding.apply {
+                                    nativeContainer.hide()
+                                    mediumNativeLayout.adContainer.hide()
+                                    mediumNativeLayout.shimmerViewContainer.show()
+                                }
+                            }
+                        },
+                        mActivity.nativeDialogsConfig(),
+                        mActivity.nativeDialogsConfig(),
+                        showContainer = {
+                            if (isVisible && !isDetached) {
+                                binding.apply {
+                                    nativeContainer.show()
+                                    if (mediumNativeLayout.shimmerViewContainer.isVisible) {
+                                        mediumNativeLayout.shimmerViewContainer.startShimmer()
+                                    }
+                                }
+                            }
+                        })
+                }
+            }
+        }
+
+        initDiscardBottomSheetClicks()
+
+        runCatching {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == false) {
+                bottomSheetDiscardDialog?.show()
+            }
+        }
+    }
+
+    private fun initDiscardBottomSheetClicks() {
+
+        bottomSheetDiscardDialogBinding?.crossImg?.setOnSingleClickListener {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
+                bottomSheetDiscardDialog?.dismiss()
+            }
+        }
+        bottomSheetDiscardDialogBinding?.discardBtn?.setOnSingleClickListener {
+
+            if (rewardedShown) rewardedShown = false
+
+            activity?.let {
+
+                if (!it.isFinishing && !it.isDestroyed && bottomSheetDiscardDialog?.isShowing == true) {
+                    bottomSheetDiscardDialog?.dismiss()
+                }
+
+                it.showInterstitial(loadedAction = {
+
+                    runCatching {
+                        if (it is PencilSketchActivity) {
+
+                            if (it.isOpenFromMain) {
+                                it.finish()
+                            } else {
+
+                                navController.navigateUp()
+
+                                // Notify the previous fragment if needed
+                                /*eventForGalleryAndEditor("drawing_screen", "back")
+                                setFragmentResult(
+                                    "requestKeyGallery", bundleOf("refresh" to true)
+                                )
+                                val direction = FaceSwapResultDirections.actionFaceSwapResultToGalleryFaceSwap(false)
+
+                                val navOptions = NavOptions.Builder().setPopUpTo(R.id.faceSwapResult, true).build()
+
+                                findNavController().navigate(direction, navOptions)*/
+                            }
+
+                        }
+                    }
+                }, failedAction = {
+                    runCatching {
+                        if (it is PencilSketchActivity) {
+
+                            if (it.isOpenFromMain) {
+                                it.finish()
+                            } else {
+
+                                navController.navigateUp()
+                                // Notify the previous fragment if needed
+                                /*eventForGalleryAndEditor("drawing_screen", "back")
+                                setFragmentResult(
+                                    "requestKeyGallery", bundleOf("refresh" to true)
+                                )
+                                val direction = FaceSwapResultDirections.actionFaceSwapResultToGalleryFaceSwap(false)
+
+                                val navOptions = NavOptions.Builder().setPopUpTo(R.id.faceSwapResult, true).build()
+
+                                findNavController().navigate(direction, navOptions)*/
+                            }
+                        }
+                    }
+                }, showAd = showDiscardClickAd, onCheck = true)
+
+            }
+        }
+
+        bottomSheetDiscardDialogBinding?.stayBtn?.setOnSingleClickListener {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
+                bottomSheetDiscardDialog?.dismiss()
+            }
+        }
+
     }
 
     override fun onDestroyView() {

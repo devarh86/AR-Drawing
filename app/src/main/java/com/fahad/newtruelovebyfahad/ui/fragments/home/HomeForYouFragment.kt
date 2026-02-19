@@ -308,34 +308,40 @@ class HomeForYouFragment : Fragment() {
 
         topPager.adapter = adapter
 
-        // ✅ Build dots dynamically
-        dotContainer.removeAllViews()
-        val dots = Array(adapter.itemCount) { ImageView(context) }
-        dots.forEachIndexed { index, imageView ->
-            val params = LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            params.marginStart = 2
-            params.marginEnd = 2
-            imageView.layoutParams = params
-            imageView.setImageDrawable(context.setDrawable(R.drawable.un_selected))
-            dotContainer.addView(imageView)
-        }
-
-        if (dots.isNotEmpty()) {
-            dots[0].setImageDrawable(context.setDrawable(R.drawable.selected))
-        }
+        var lastSelected: ImageView = binding.dot1
 
         // ✅ Handle page change
         topPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                dots.forEach {
-                    it.setImageDrawable(context.setDrawable(R.drawable.un_selected))
+                lastSelected.setImageDrawable(context.setDrawable(com.project.common.R.drawable.round_un_selected))
+                when (position) {
+                    0 -> {
+                        binding.dot1.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot1
+                    }
+
+                    1 -> {
+                        binding.dot2.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot2
+                    }
+
+                    2 -> {
+                        binding.dot3.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot3
+                    }
+
+                    3 -> {
+                        binding.dot4.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot4
+                    }
+
+                    else -> {
+                        binding.dot1.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot1
+                    }
                 }
-                dots[position].setImageDrawable(context.setDrawable(R.drawable.selected))
 
                 slideRunnable?.let {
                     slideHandler.removeCallbacks(it)

@@ -42,6 +42,7 @@ import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.main.viewstate.SketchImageActionViewState
 import com.abdul.pencil_sketch.main.viewstate.SketchSaveViewState
 import com.abdul.pencil_sketch.utils.loadBitmap
+import com.abdul.pencil_sketch.utils.navigateFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -68,6 +69,7 @@ import com.project.common.databinding.BottomSheetDiscardPhotoEditorBinding
 import com.project.common.databinding.BottomSheetProcessDialogBinding
 import com.project.common.enum_classes.EditorBottomTypes
 import com.project.common.enum_classes.SaveQuality
+import com.project.common.model.ImagesModel
 import com.project.common.model.SavingModel
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.isNetworkAvailable
@@ -336,8 +338,6 @@ class PencilSketchResult : Fragment() {
 
         backImg.setOnSingleClickListener {
             backPress()
-
-
         }
         homeIV.setOnSingleClickListener {
             runCatching {
@@ -349,6 +349,36 @@ class PencilSketchResult : Fragment() {
                 }
             }
         }
+
+        draw.setOnSingleClickListener {
+            activity?.let { mActivity ->
+                if (mActivity is PencilSketchActivity) {
+                    val drawingPath = beforeAfterModel.after.ifBlank {
+                        restoreImageViewModel.resultImgPath ?: beforeAfterModel.before
+                    }
+
+
+                    if (drawingPath.isNotBlank()) {
+
+                        restoreImageViewModel.imageEnhancedPath.add(ImagesModel())
+                        restoreImageViewModel.imageEnhancedPath[0].croppedPath = drawingPath
+                        restoreImageViewModel.imageEnhancedPath[0].originalPath = drawingPath
+
+                        restoreImageViewModel.imageEnhancedPath.clear()
+                        restoreImageViewModel.imageEnhancedPath.add(ImagesModel(originalPath = drawingPath, croppedPath = drawingPath))
+
+                        mActivity.imgPath = drawingPath
+                    }
+
+                    mActivity.isOpenFromMain = false
+                    mActivity.navigateFragment(
+                        PencilSketchResultDirections.actionPencilSketchResultToHowToDrawFragment(),
+                        R.id.pencilSketchResult
+                    )
+                }
+            }
+        }
+
 
         root.removeTransitionListener(motionListener)
         motionListener = object : MotionLayout.TransitionListener {
@@ -777,7 +807,7 @@ class PencilSketchResult : Fragment() {
                 bottomSheetDiscardDialog?.dismiss()
             }
         }
-        bottomSheetDiscardDialogBinding?.discardTxt?.setOnSingleClickListener {
+        bottomSheetDiscardDialogBinding?.discardBtn?.setOnSingleClickListener {
 
             if (rewardedShown)
                 rewardedShown = false
@@ -840,11 +870,11 @@ class PencilSketchResult : Fragment() {
         }
 
         runCatching {
-            bottomSheetDiscardDialogBinding?.draftTxt?.text =
+            bottomSheetDiscardDialogBinding?.stayBtn?.text =
                 activity?.setString(com.project.common.R.string.stay)
         }
 
-        bottomSheetDiscardDialogBinding?.draftTxt?.setOnSingleClickListener {
+        bottomSheetDiscardDialogBinding?.stayBtn?.setOnSingleClickListener {
             if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
                 bottomSheetDiscardDialog?.dismiss()
             }
@@ -903,7 +933,6 @@ class PencilSketchResult : Fragment() {
                 is SketchSaveViewState.Success -> {
                     finalPath = it.path
                     navigateSaveAndShare()
-
                 }
 
                 is SketchSaveViewState.Error -> {

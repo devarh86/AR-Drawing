@@ -416,7 +416,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_16sdp"
             android:padding="@dimen/_7sdp"
-            android:src="@drawable/cross_icon"
+            android:src="@drawable/cross_icons"
             app:tint="@color/native_large_bg_color" />
 
         <TextView

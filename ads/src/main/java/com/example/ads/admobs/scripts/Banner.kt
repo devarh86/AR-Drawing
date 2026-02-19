@@ -104,8 +104,8 @@ class Banner {
                             )
                         } else {
                             container?.get()?.visibility = View.GONE
-                            /*frameLayout?.get()?.visibility = View.GONE
-                            shimmerFrameLayout?.get()?.visibility = View.GONE*/
+                            frameLayout?.get()?.visibility = View.GONE
+                            shimmerFrameLayout?.get()?.visibility = View.GONE
                             bannerFailed = 0
                         }
                     }

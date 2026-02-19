@@ -63,8 +63,8 @@ class RemoteConfigRepo(@ApplicationContext private val context: Context) {
     }
 
     fun getDefaultRemoteAdSettings(): AdConfigModel {
-       val fileName = if (BuildConfig.DEBUG) "ad_config_release.json" else "ad_config_release.json"
-        //val fileName = if (BuildConfig.DEBUG) "ad_config_test.json" else "ad_config_release.json"
+//       val fileName = if (BuildConfig.DEBUG) "ad_config_release.json" else "ad_config_release.json"
+        val fileName = if (BuildConfig.DEBUG) "ad_config_test.json" else "ad_config_release.json"
 
         val inputStream = context.assets.open(fileName)
 

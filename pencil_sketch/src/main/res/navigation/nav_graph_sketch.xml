@@ -77,13 +77,22 @@
         android:name="com.abdul.pencil_sketch.main.fragment.PencilSketchResult"
         android:label="PencilSketchResult" >
         <action
-            android:id="@+id/action_pencilSketchResult_to_drawingFragment"
-            app:destination="@id/drawingFragment" />
+            android:id="@+id/action_pencilSketchResult_to_howToDrawFragment"
+            app:destination="@id/howToDrawFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_drawing"
         android:id="@+id/drawingFragment"
         android:name="com.abdul.pencil_sketch.main.fragment.DrawingFragment"
         android:label="DrawingFragment" />
+    <fragment
+        tools:layout="@layout/fragment_how_to_draw"
+        android:id="@+id/howToDrawFragment"
+        android:name="com.abdul.pencil_sketch.main.fragment.HowToDrawFragment"
+        android:label="HowToDrawFragment" >
+        <action
+            android:id="@+id/action_howToDrawFragment_to_drawingFragment"
+            app:destination="@id/drawingFragment" />
+    </fragment>
 
 </navigation>

@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:paddingHorizontal="@dimen/_8sdp"
-            android:src="@drawable/cross_icon"
+            android:src="@drawable/cross_icons"
             app:layout_constraintBottom_toBottomOf="@+id/view3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/view3" />

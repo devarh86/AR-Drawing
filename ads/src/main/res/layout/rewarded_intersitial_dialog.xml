@@ -17,7 +17,7 @@
         android:tag="free"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cross_icon" />
+        app:srcCompat="@drawable/cross_icons" />
 
 
     <com.facebook.shimmer.ShimmerFrameLayout

@@ -65,14 +65,14 @@
             android:id="@+id/dot_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/selected" />
+            android:src="@drawable/round_select" />
 
         <ImageView
             android:id="@+id/dot_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:src="@drawable/un_selected" />
+            android:src="@drawable/round_un_selected" />
 
     </LinearLayout>
 
@@ -87,10 +87,10 @@
         android:backgroundTint="@color/selected_color"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="@string/sketch"
+        android:text="@string/with_cam"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         app:cornerRadius="@dimen/_24sdp"
         app:layout_constraintEnd_toStartOf="@+id/traceBtn"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,10 +106,10 @@
         android:backgroundTint="@color/white"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:text="@string/trace"
+        android:text="@string/without_cam"
         android:textAllCaps="false"
         android:textColor="@color/text_color"
-        android:textSize="@dimen/_12sdp"
+        android:textSize="@dimen/_10sdp"
         app:cornerRadius="@dimen/_24sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/sketchBtn"

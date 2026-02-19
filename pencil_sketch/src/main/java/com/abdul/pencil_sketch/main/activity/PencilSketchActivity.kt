@@ -252,7 +252,7 @@ class PencilSketchActivity : AppCompatActivity() {
                 _binding?.bannerContainer?.visibility = View.VISIBLE
                 _binding?.let { binding ->
                     onResumeBanner(
-                        binding.adBannerContainer,
+                        binding.bannerContainer,
                         binding.crossBannerIv,
                         binding.bannerLayout.adContainer,
                         binding.bannerLayout.shimmerViewContainer,

@@ -105,7 +105,36 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/top_pager" />
+                app:layout_constraintTop_toBottomOf="@+id/top_pager" >
+
+                <ImageView
+                    android:id="@+id/dot_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/selected" />
+
+                <ImageView
+                    android:id="@+id/dot_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/round_un_selected" />
+
+                <ImageView
+                    android:id="@+id/dot_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/round_un_selected" />
+
+                <ImageView
+                    android:id="@+id/dot_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/round_un_selected" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/arDrawing"

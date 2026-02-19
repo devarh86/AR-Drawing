@@ -170,7 +170,7 @@
         android:id="@+id/howToDrawFragment"
         android:name="com.fahad.newtruelovebyfahad.ui.fragments.drawing.HowToDrawFragment"
         android:label="HowToDrawFragment"
-        tools:layout="@layout/fragment_how_draw">
+        tools:layout="@layout/fragment_how_to_draw">
         <argument
             android:name="path"
             app:argType="string" />

@@ -92,7 +92,7 @@
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/cross_icon" />
+        app:srcCompat="@drawable/cross_icons" />
 
     <TextView
         android:id="@+id/textView11"

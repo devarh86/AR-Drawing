@@ -867,14 +867,14 @@ class ZoomableImageView : AppCompatImageView {
         }
     }
 
-    fun setImageOpacity(opacityValue: Float) {
+    fun setImageOpacity(opacityValue: Int) {
         // Accept 0..1, 0..100, or 0..255 input and normalize to alpha 0..255.
-        val alphaValue = when {
-            opacityValue <= 1f -> (opacityValue.coerceIn(0f, 1f) * 255f).roundToInt()
-            opacityValue <= 100f -> ((opacityValue.coerceIn(0f, 100f) / 100f) * 255f).roundToInt()
-            else -> opacityValue.roundToInt().coerceIn(0, 255)
-        }
-        imageAlpha = alphaValue
+//        val alphaValue = when {
+//            opacityValue <= 1f -> (opacityValue.coerceIn(0f, 1f) * 255f).roundToInt()
+//            opacityValue <= 100f -> ((opacityValue.coerceIn(0f, 100f) / 100f) * 255f).roundToInt()
+//            else -> opacityValue.roundToInt().coerceIn(0, 255)
+//        }
+        imageAlpha = opacityValue
         invalidate()
     }
 

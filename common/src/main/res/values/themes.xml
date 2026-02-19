@@ -167,7 +167,7 @@
         <item name="rippleColor">@color/selected_color</item>
         <item name="fontFamily">@font/parkinsans_medium</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/heading_txt</item>
+        <item name="android:textColor">@color/text_color</item>
     </style>
     <style name="Style.App.circleImageView" parent="">
         <item name="shapeAppearance">@style/ShapeAppearanceOverlay.App.circleImageView</item>

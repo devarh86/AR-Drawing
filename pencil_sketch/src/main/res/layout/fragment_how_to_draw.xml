@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".main.fragment.BasePencilSketch">
+
+    <View
+        android:id="@+id/toolBar"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backPress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
+    <TextView
+        style="@style/headingTextHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:text="@string/how_to_draw"
+        android:textColor="@color/text_color"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+        app:layout_constraintStart_toEndOf="@+id/backPress"
+        app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
+    <LinearLayout
+        android:id="@+id/withCameraLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toStartOf="@+id/withOutCameraLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/camIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera"
+            app:tint="@color/selected_color" />
+
+        <TextView
+            android:id="@+id/camTV"
+            style="@style/headingTextHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text="@string/with_cam"
+            android:textColor="@color/selected_color"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/cameraLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@color/selected_color"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/withCameraLayout"
+        app:layout_constraintStart_toStartOf="@+id/withCameraLayout"
+        app:layout_constraintTop_toBottomOf="@+id/withCameraLayout" />
+
+    <LinearLayout
+        android:id="@+id/withOutCameraLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/withCameraLayout"
+        app:layout_constraintTop_toBottomOf="@+id/toolBar">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/brushIV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/brush" />
+
+        <TextView
+            android:id="@+id/brushTV"
+            style="@style/headingTextHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:text="@string/without_cam"
+            android:textColor="@color/text_color_drawing_screen"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/brushLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginHorizontal="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:background="@color/selected_color"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/withOutCameraLayout"
+        app:layout_constraintStart_toStartOf="@+id/withOutCameraLayout"
+        app:layout_constraintTop_toBottomOf="@+id/withOutCameraLayout" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingHorizontal="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/dot_container"
+        app:layout_constraintDimensionRatio="1:1.2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/brushLine" />
+
+    <LinearLayout
+        android:id="@+id/dot_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/drawBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager">
+
+        <ImageView
+            android:id="@+id/dot_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/round_select" />
+
+        <ImageView
+            android:id="@+id/dot_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:src="@drawable/round_un_selected" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/drawBtn"
+        style="@style/headingTextHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/rounded_red_btn_bg"
+        android:gravity="center"
+        android:paddingVertical="@dimen/_12sdp"
+        android:text="@string/drawing_now"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dot_container" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,7 @@
-package com.fahad.newtruelovebyfahad.ui.fragments.drawing
+package com.abdul.pencil_sketch.main.fragment
 
 import android.content.Context
-import android.content.Intent
+import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,41 +11,44 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.abdul.pencil_sketch.R
+import com.abdul.pencil_sketch.databinding.FragmentHowToDrawBinding
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
-import com.fahad.newtruelovebyfahad.R
-import com.fahad.newtruelovebyfahad.databinding.FragmentHowDrawBinding
-import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderAdapterHD
-import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderItemHD
-import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
-import com.google.android.material.tabs.TabLayoutMediator
+import com.abdul.pencil_sketch.main.fragment.adapter.SliderAdapterSketch
+import com.abdul.pencil_sketch.main.fragment.adapter.SliderItemSketch
+import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
+import com.abdul.pencil_sketch.utils.navigateFragment
 import com.project.common.utils.setDrawable
+import com.project.common.utils.setOnSingleClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs
 
 @AndroidEntryPoint
 class HowToDrawFragment : Fragment() {
-    private var _binding: FragmentHowDrawBinding? = null
+
+    private var _binding: FragmentHowToDrawBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var mContext: Context
     private lateinit var mActivity: AppCompatActivity
     private lateinit var navController: NavController
 
-    private lateinit var adapter: SliderAdapterHD
-    private var currentMode = "sketch"
-
-    private val args by navArgs<HowToDrawFragmentArgs>()
+    private lateinit var adapter: SliderAdapterSketch
+    private val sketchImageViewModel: PencilSketchViewModel by activityViewModels()
 
     val list = listOf(
-        SliderItemHD(com.project.common.R.drawable.img_sketch_draw),
-        SliderItemHD(com.project.common.R.drawable.img_trace)
+        SliderItemSketch(com.project.common.R.drawable.img_sketch_draw),
+        SliderItemSketch(com.project.common.R.drawable.img_trace)
     )
+
+    private var currentMode = "sketch"
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -59,9 +62,12 @@ class HowToDrawFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHowDrawBinding.inflate(inflater, container, false)
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        if (_binding == null) {
+            _binding = FragmentHowToDrawBinding.inflate(inflater, container, false)
+        }
         return binding.root
     }
 
@@ -72,9 +78,10 @@ class HowToDrawFragment : Fragment() {
     }
 
     private fun sliderView() {
-        adapter = SliderAdapterHD(list)
+        adapter = SliderAdapterSketch(list)
         binding.viewPager.addCarouselEffect()
         binding.viewPager.adapter = adapter
+        updateButtonUI(binding.viewPager.currentItem)
 
         var lastSelected: ImageView = binding.dot1
 
@@ -106,7 +113,6 @@ class HowToDrawFragment : Fragment() {
 
             }
         })
-
     }
 
     private fun updateButtonUI(position: Int) {
@@ -114,21 +120,31 @@ class HowToDrawFragment : Fragment() {
             when (position) {
                 0 -> {
                     currentMode = "sketch"
-                    sketchBtn.backgroundTintList = mContext.getColorStateList(com.project.common.R.color.selected_color)
-                    sketchBtn.setTextColor(mContext.getColor(com.project.common.R.color.white))
-                    traceBtn.backgroundTintList = mContext.getColorStateList(com.project.common.R.color.white)
-                    traceBtn.setTextColor(mContext.getColor(com.project.common.R.color.text_color))
+                    drawBtn.text = getString(com.project.common.R.string.with_camera)
+                    updateModeSelectionUI(isCameraSelected = true)
                 }
 
                 1 -> {
                     currentMode = "trace"
-                    traceBtn.backgroundTintList = mContext.getColorStateList(com.project.common.R.color.selected_color)
-                    traceBtn.setTextColor(mContext.getColor(com.project.common.R.color.white))
-                    sketchBtn.backgroundTintList = mContext.getColorStateList(com.project.common.R.color.white)
-                    sketchBtn.setTextColor(mContext.getColor(com.project.common.R.color.text_color))
+                    drawBtn.text = getString(com.project.common.R.string.without_camera)
+                    updateModeSelectionUI(isCameraSelected = false)
                 }
             }
         }
+    }
+
+    private fun updateModeSelectionUI(isCameraSelected: Boolean) {
+        val selectedColor = ContextCompat.getColor(mContext, com.project.common.R.color.selected_color)
+        val unSelectedColor = ContextCompat.getColor(mContext, com.project.common.R.color.text_color_drawing_screen)
+
+        binding.camTV.setTextColor(if (isCameraSelected) selectedColor else unSelectedColor)
+        binding.brushTV.setTextColor(if (isCameraSelected) unSelectedColor else selectedColor)
+
+        binding.camIV.imageTintList = ColorStateList.valueOf(if (isCameraSelected) selectedColor else unSelectedColor)
+        binding.brushIV.imageTintList = ColorStateList.valueOf(if (isCameraSelected) unSelectedColor else selectedColor)
+
+        binding.cameraLine.visibility = if (isCameraSelected) View.VISIBLE else View.INVISIBLE
+        binding.brushLine.visibility = if (isCameraSelected) View.INVISIBLE else View.VISIBLE
     }
 
     fun ViewPager2.addCarouselEffect(enableZoom: Boolean = true) {
@@ -150,40 +166,35 @@ class HowToDrawFragment : Fragment() {
 
     private fun listener() {
 
-        binding.sketchBtn.setSingleClickListener {
+        binding.withCameraLayout.setOnSingleClickListener {
             currentMode = "sketch"
             binding.viewPager.setCurrentItem(0, true)
         }
 
-        binding.traceBtn.setSingleClickListener {
+        binding.withOutCameraLayout.setOnSingleClickListener {
             currentMode = "trace"
             binding.viewPager.setCurrentItem(1, true)
         }
 
-        binding.drawBtn.setSingleClickListener {
-            openPencilSketch(path = args.path, mode = currentMode)
+        binding.drawBtn.setOnSingleClickListener {
+            activity?.let { mActivity ->
+                if (mActivity is PencilSketchActivity) {
+                    mActivity.sketchMode = currentMode
+                    sketchImageViewModel.sketchMode = currentMode
+                    mActivity.navigateFragment(
+                        HowToDrawFragmentDirections.actionHowToDrawFragmentToDrawingFragment(),
+                        R.id.howToDrawFragment
+                    )
+                }
+            }
         }
 
-        binding.backPress.setSingleClickListener {
+        binding.backPress.setOnSingleClickListener {
             kotlin.runCatching {
                 navController.navigateUp()
             }
         }
 
     }
-
-    private fun openPencilSketch(path: String, mode: String) {
-        try {
-            activity?.let { mActivity ->
-                val intent = Intent(mActivity, PencilSketchActivity::class.java)
-                intent.putExtra("fromMain", true)
-                intent.putExtra("sketchMode", mode)
-                intent.putExtra("imagePath", path)
-                mActivity.startActivity(intent)
-            }
-        } catch (ex: Exception) {
-        }
-    }
-
 
 }
