@@ -697,7 +697,7 @@ class HomeForYouFragment : Fragment() {
             eventForCategoryClick(
                 FrameObject(
                     screenName = "home",
-                    categoryName = Events.ParamsValues.HomeScreen.SEAMLESS,
+                    categoryName = Events.ParamsValues.HomeScreen.DRAWING,
                     from = "ardrawing_btn",
                     frameBody = ""
                 )
@@ -712,13 +712,39 @@ class HomeForYouFragment : Fragment() {
                 eventForCategoryClick(
                     FrameObject(
                         screenName = "home",
-                        categoryName = Events.ParamsValues.HomeScreen.SEAMLESS,
+                        categoryName = Events.ParamsValues.HomeScreen.SKETCH,
                         from = "photo_sketch_btn",
                         frameBody = ""
                     )
                 )
 
                 selectCategory(MainMenuOptions.SKETCH.title)
+
+            } else {
+                context?.let { cntx ->
+                    Toast.makeText(
+                        cntx,
+                        com.project.common.R.string.no_internet_connect_found_please_try_again,
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+            }
+        }
+
+        importGallery.setSingleClickListener {
+            if (isNetworkAvailable) {
+
+                eventForCategoryClick(
+                    FrameObject(
+                        screenName = "home",
+                        categoryName = Events.ParamsValues.HomeScreen.IMPORT_GALLERY,
+                        from = "import_gallery_btn",
+                        frameBody = ""
+                    )
+                )
+
+                selectCategory(MainMenuOptions.IMPORT_GALLERY.title)
 
             } else {
                 context?.let { cntx ->
@@ -797,6 +823,40 @@ class HomeForYouFragment : Fragment() {
                                         activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
                                         kotlin.runCatching {
                                             val intent = Intent(mActivity, PencilSketchActivity::class.java)
+                                            getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
+                                        }
+                                    }
+                                }
+                            },
+                            declineAction = {})
+                    } catch (ex: Exception) {
+                        printLog(ex.message.toString())
+                    }
+
+                }
+
+                MainMenuOptions.IMPORT_GALLERY.title -> {
+
+                    try {
+                        val permissions =
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                                Manifest.permission.READ_MEDIA_IMAGES,
+                                Manifest.permission.CAMERA
+                            )
+                            else arrayOf(
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.CAMERA
+                            )
+                        (mActivity as Permissions).checkAndRequestPermissions(
+                            *permissions,
+                            action = {
+                                runCatching {
+                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                        kotlin.runCatching {
+                                            val intent = Intent(mActivity, PencilSketchActivity::class.java)
+                                            intent.putExtra("fromImport", true)
                                             getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
                                         }
                                     }

@@ -52,6 +52,7 @@ class PencilSketchActivity : AppCompatActivity() {
     var showAppOpen = false
 
     var isOpenFromMain = false
+    var isOpenFromImportGallery = false
     var imgPath = ""
     var sketchMode = ""
 
@@ -72,6 +73,7 @@ class PencilSketchActivity : AppCompatActivity() {
 
         kotlin.runCatching {
             isOpenFromMain = intent.getBooleanExtra("fromMain", false)
+            isOpenFromImportGallery = intent.getBooleanExtra("fromImport", false)
             sketchMode = intent.getStringExtra("sketchMode")?:""
             imgPath = intent.getStringExtra("imagePath")?:""
         }

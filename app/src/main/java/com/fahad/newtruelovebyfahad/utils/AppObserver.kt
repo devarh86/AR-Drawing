@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
+import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.example.ads.Constants.appIsActive
 import com.example.ads.Constants.appIsForeground
 import com.example.ads.Constants.showAllAppOpenAd
@@ -99,6 +100,10 @@ class AppObserver(
                         }
 
                         is SaveAndShareActivity -> {
+                            it.showAppOpen = true
+                            it.showAppOpenAd()
+                        }
+                        is PencilSketchActivity -> {
                             it.showAppOpen = true
                             it.showAppOpenAd()
                         }

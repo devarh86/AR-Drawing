@@ -3,8 +3,6 @@ package com.example.ads.utils
 import android.app.Activity
 import androidx.core.content.ContextCompat
 import com.example.ads.Constants.InterstitialUnInstall
-import com.example.ads.Constants.adGalleryNative
-import com.example.ads.Constants.adGalleryNativeFloor
 import com.example.ads.Constants.adUnInstallNativeFloor
 import com.example.ads.Constants.enableHomeInterAd
 import com.example.ads.Constants.enableObLastInterAd
@@ -41,7 +39,6 @@ import com.example.ads.Constants.introductionFloor
 import com.example.ads.Constants.lfoOneNativeId
 import com.example.ads.Constants.lfoTwoNativeId
 import com.example.ads.Constants.loadInterstitialSave
-import com.example.ads.Constants.loadNativeForGalleryProcessing
 import com.example.ads.Constants.loadNativeFullOne
 import com.example.ads.Constants.loadNativeFullTwo
 import com.example.ads.Constants.loadNativeLanguageSetting
@@ -167,19 +164,23 @@ fun Activity.nativeProcessingConfigEnhancer(): AdConfigModel? {
 
 fun Activity.nativeProcessingConfig(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.processing_native_high),
-            idMedium = ContextCompat.getString(this, R.string.processing_native_medium),
-            idBackUp = ContextCompat.getString(this, R.string.processing_native_backup),
-            reloadLimit = 2,
-            whichAd = AdsClassification.NATIVE,
-            isAboveCtr = false,
-            isMetaLayout = false,
-            enable = loadNativeForGalleryProcessing,
-            adMobLayoutId = R.layout.layout_native_large_process,
-            metaLayoutId = R.layout.layout_native_large_process,
-            currentActivityOrFragment = "GALLERY_PROCESS"
-        )
+        newAdsConfig?.processingNative?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.processing_native_high),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.processing_native_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.processing_native_backup),
+                reloadLimit = it.reloadLimit ?: 2,
+                whichAd = AdsClassification.NATIVE,
+                isAboveCtr = false,
+                isMetaLayout = false,
+                enable = it.isEnabled ?: false,
+                adMobLayoutId = R.layout.layout_native_large_process,
+                metaLayoutId = R.layout.layout_native_large_process,
+                currentActivityOrFragment = "GALLERY_PROCESS"
+            )
+        } ?: run {
+            null
+        }
     } catch (ex: Exception) {
         null
     }
@@ -356,19 +357,23 @@ fun Activity.unInstallNative2nd(): AdConfigModel? {
 
 fun Activity.galleryBottom(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.native_gallery_high),
-            idMedium = ContextCompat.getString(this, R.string.native_gallery_medium),
-            idBackUp = ContextCompat.getString(this, R.string.native_gallery_back_up),
-            reloadLimit = adGalleryNativeFloor,
-            whichAd = AdsClassification.NATIVE,
-            isAboveCtr = false,
-            isMetaLayout = false,
-            enable = adGalleryNative,
-            adMobLayoutId = R.layout.layout_native_small_questions,
-            metaLayoutId = R.layout.layout_native_small_questions,
-            currentActivityOrFragment = "GALLERY"
-        )
+        newAdsConfig?.processingNative?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.processing_native_high),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.processing_native_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.processing_native_backup),
+                reloadLimit = it.reloadLimit ?: 2,
+                whichAd = AdsClassification.NATIVE,
+                isAboveCtr = false,
+                isMetaLayout = false,
+                enable = it.isEnabled ?: false,
+                adMobLayoutId = R.layout.layout_native_small_questions,
+                metaLayoutId = R.layout.layout_native_small_questions,
+                currentActivityOrFragment = "GALLERY"
+            )
+        } ?: run {
+            null
+        }
     } catch (ex: Exception) {
         null
     }

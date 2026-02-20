@@ -66,7 +66,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
     private var bottomSheetProcessDialogBinding: BottomSheetProcessDialogBinding? = null
 
     private val galleryViewModel: GalleryViewModel by activityViewModels()
-    private val restoreImageViewModel: PencilSketchViewModel by activityViewModels()
+    private val sketchImageViewModel: PencilSketchViewModel by activityViewModels()
 
     private var callback: OnBackPressedCallback? = null
     private var currentFragment: GalleryListDialogFragment? = null
@@ -127,7 +127,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
             val refresh = bundle.getBoolean("refresh", false)
             if (refresh) {
                 if (flowSelectPhotoScr != "new")
-                    restoreImageViewModel.imageEnhancedPath.clear()
+                    sketchImageViewModel.imageEnhancedPath.clear()
                 observeData()
             }
 
@@ -169,7 +169,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
 
     private fun observeData() {
 
-        restoreImageViewModel.state.asLiveData().observe(viewLifecycleOwner) {
+        sketchImageViewModel.state.asLiveData().observe(viewLifecycleOwner) {
             when (it) {
                 SketchImageActionViewState.Idle -> {
                     Log.d("COLORIZE", " Gallery---observeData:-- Idle")
@@ -191,15 +191,15 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                         context?.createOrShowSnackBar(binding.root, 0, it.message, true)
                         clickable = true
                         if (flowSelectPhotoScr != "new")
-                            restoreImageViewModel.imageEnhancedPath.clear()
-                        restoreImageViewModel.resetFrameState()
+                            sketchImageViewModel.imageEnhancedPath.clear()
+                        sketchImageViewModel.resetFrameState()
                     }
                 }
 
                 SketchImageActionViewState.Success -> {
                     Log.d("COLORIZE", " Gallery---observeData:-- Success")
                     lifecycleScope.launch(Main) {
-                        restoreImageViewModel.resetFrameState()
+                        sketchImageViewModel.resetFrameState()
                     }
 
                 }
@@ -208,7 +208,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                     if (flowSelectPhotoScr != "new") {
                         lifecycleScope.launch(IO) {
                             context?.let {
-                                restoreImageViewModel.restoreIntent?.send(
+                                sketchImageViewModel.restoreIntent?.send(
                                     SketchIntent.SaveImages(it)
                                 )
                             }
@@ -263,7 +263,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                     lifecycleScope.launch(Main) {
                         gallerySaveTracker = false
                         gallerySaveTracker = true
-                        restoreImageViewModel.resetFrameState()
+                        sketchImageViewModel.resetFrameState()
                         lifecycleScope.launch(Main) {
                             eventForGalleryAndEditor("gallery_sketch", "next")
                             delay(2000)
@@ -274,21 +274,47 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                                 //  navigateAfterReplace()
                             } else {
                                 clickable = true
-                                activity?.showInterstitial(
-                                    loadedAction = {
-                                        activity?.navigateFragment(
-                                            GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
-                                            R.id.galleryPencilSketch
-                                        )
-                                    },
-                                    failedAction = {
+                                activity?.let { mActivity ->
+                                    if (mActivity is PencilSketchActivity) {
+                                        if (mActivity.isOpenFromImportGallery) {
 
-                                        activity?.navigateFragment(
-                                            GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
-                                            R.id.galleryPencilSketch
-                                        )
-                                    }, showAd = true, onCheck = true
-                                )
+                                            mActivity.imgPath = sketchImageViewModel.imageEnhancedPath[0].croppedPath
+                                            activity?.showInterstitial(
+                                                loadedAction = {
+                                                    activity?.navigateFragment(
+                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToHowToDrawFragment(),
+                                                        R.id.galleryPencilSketch
+                                                    )
+                                                },
+                                                failedAction = {
+
+                                                    activity?.navigateFragment(
+                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToHowToDrawFragment(),
+                                                        R.id.galleryPencilSketch
+                                                    )
+                                                }, showAd = true, onCheck = true
+                                            )
+
+                                        } else {
+                                            activity?.showInterstitial(
+                                                loadedAction = {
+                                                    activity?.navigateFragment(
+                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
+                                                        R.id.galleryPencilSketch
+                                                    )
+                                                },
+                                                failedAction = {
+
+                                                    activity?.navigateFragment(
+                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
+                                                        R.id.galleryPencilSketch
+                                                    )
+                                                }, showAd = true, onCheck = true
+                                            )
+                                        }
+                                    }
+                                }
+
                             }
                         }
                     }
@@ -324,7 +350,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
         bottomSheetProcessDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
         if (args.replace) {
-            tempPathList.addAll(restoreImageViewModel.imageEnhancedPath)
+            tempPathList.addAll(sketchImageViewModel.imageEnhancedPath)
         }
     }
 
@@ -398,12 +424,12 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                 lifecycleScope.launch(IO) {
                     try {
                         clickable = false
-                        restoreImageViewModel.imageEnhancedPath.clear()
-                        restoreImageViewModel.imageEnhancedPath.add(ImagesModel())
-                        restoreImageViewModel.restoreIntent?.send(
+                        sketchImageViewModel.imageEnhancedPath.clear()
+                        sketchImageViewModel.imageEnhancedPath.add(ImagesModel())
+                        sketchImageViewModel.restoreIntent?.send(
                             SketchIntent.SingleImageEnhancementAndPlacing(
                                 path,
-                                restoreImageViewModel.imageEnhancedPath.size - 1
+                                sketchImageViewModel.imageEnhancedPath.size - 1
                             )
                         )
 
@@ -423,7 +449,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
         if (flowSelectPhotoScr == "new") {
             lifecycleScope.launch(IO) {
                 context?.let {
-                    restoreImageViewModel.restoreIntent?.send(SketchIntent.SaveImages(it))
+                    sketchImageViewModel.restoreIntent?.send(SketchIntent.SaveImages(it))
                 }
             }
             firebaseAnalytics?.logEvent("select_photo_click_next", null)

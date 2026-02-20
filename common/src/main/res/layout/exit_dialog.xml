@@ -30,6 +30,7 @@
 
     <TextView
         android:id="@+id/exit_title_tv"
+        style="@style/headingTextHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,7 +38,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/inter"
         android:text="@string/exit_title"
-        android:textColor="@color/btn_txt_clr"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/_13ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

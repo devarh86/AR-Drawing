@@ -41,6 +41,9 @@
             app:popExitAnim="@anim/exit_for_fragment"
             app:popUpTo="@id/pencilSketchRequest"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_galleryPencilSketch_to_howToDrawFragment"
+            app:destination="@id/howToDrawFragment" />
 
     </fragment>
     <fragment
