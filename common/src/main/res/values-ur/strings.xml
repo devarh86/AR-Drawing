@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">اگلا</string>-->
+    <!--    <string name="next">اگلا</string>-->
     <string name="downloading">ڈاؤن لوڈ ہو رہا ہے...</string>
     <string name="exit_title">کیا آپ واقعی باہر نکلنا چاہتے ہیں؟</string>
     <string name="discard">رد کر دیں۔</string>
@@ -615,5 +615,17 @@
     <string name="without_camera">کیمرے کے بغیر جاری رکھیں</string>
     <string name="without_cam">کیمرہ کے بغیر</string>
 
+    <string name="unlock_the_magic">Pro تخلیقی صلاحیت کو انلاک کریں 🌟</string>
+    <string name="unlimited_drawing">اشتہارات ہٹائیں اور لامحدود تخلیقی ٹولز سے لطف اٹھائیں</string>
+    <string name="standard">معیاری</string>
+    <string name="unlock_all_sketch">تمام اسکیچ انلاک کریں</string>
+    <string name="draw_from_gallery">گیلری سے ڈرا کریں</string>
+    <string name="offline_drawing_mode">آف لائن ڈرائنگ موڈ</string>
+    <string name="photo_to_sketch_convertor">فوٹو ٹو اسکیچ کنورٹر</string>
+    <string name="draw_learning_lessons">ڈرائنگ سیکھنے کے اسباق</string>
+    <string name="share_with_friends">دوستوں کے ساتھ شیئر کریں</string>
+    <string name="my_drawing">میری ڈرائنگ</string>
+    <string name="there_s_no_any_saved_data">کوئی محفوظ شدہ ڈیٹا موجود نہیں!</string>
+    <string name="go_to_drawings">ڈرائنگز پر جائیں</string>
 
 </resources>

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">下一个</string>-->
+    <!--    <string name="next">下一个</string>-->
     <string name="downloading">正在下载...</string>
     <string name="exit_title">您确定要退出吗？</string>
     <string name="discard">丢弃</string>
@@ -611,5 +611,18 @@
     <string name="with_cam">用相机</string>
     <string name="without_camera">继续，无需摄像头</string>
     <string name="without_cam">没有摄像头</string>
+
+    <string name="unlock_the_magic">解锁 Pro 创意 🌟</string>
+    <string name="unlimited_drawing">移除广告并享受无限创意工具</string>
+    <string name="standard">标准</string>
+    <string name="unlock_all_sketch">解锁全部素描</string>
+    <string name="draw_from_gallery">从图库绘制</string>
+    <string name="offline_drawing_mode">离线绘画模式</string>
+    <string name="photo_to_sketch_convertor">照片转素描转换器</string>
+    <string name="draw_learning_lessons">绘画学习课程</string>
+    <string name="share_with_friends">与朋友分享</string>
+    <string name="my_drawing">我的绘画</string>
+    <string name="there_s_no_any_saved_data">没有任何已保存的数据！</string>
+    <string name="go_to_drawings">前往绘画</string>
 
 </resources>

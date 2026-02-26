@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">Próximo</string>-->
+    <!--    <string name="next">Próximo</string>-->
     <string name="downloading">Baixando...</string>
     <string name="exit_title">Tem certeza de que deseja sair?</string>
     <string name="discard">Descartar</string>
@@ -618,5 +618,18 @@
     <string name="with_cam">Com câmera</string>
     <string name="without_camera">Continuar sem câmera</string>
     <string name="without_cam">Sem câmera</string>
+
+    <string name="unlock_the_magic">Desbloqueie a criatividade Pro 🌟</string>
+    <string name="unlimited_drawing">Remova anúncios e aproveite ferramentas criativas ilimitadas</string>
+    <string name="standard">Padrão</string>
+    <string name="unlock_all_sketch">Desbloquear todos os esboços</string>
+    <string name="draw_from_gallery">Desenhar da galeria</string>
+    <string name="offline_drawing_mode">Modo de desenho offline</string>
+    <string name="photo_to_sketch_convertor">Conversor de foto para esboço</string>
+    <string name="draw_learning_lessons">Lições para aprender a desenhar</string>
+    <string name="share_with_friends">Compartilhar com amigos</string>
+    <string name="my_drawing">Meus desenhos</string>
+    <string name="there_s_no_any_saved_data">Não há dados salvos!</string>
+    <string name="go_to_drawings">Ir para Desenhos</string>
 
 </resources>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="downloading">ডাউনলোড হচ্ছে...</string>
@@ -614,5 +614,18 @@
     <string name="with_cam">ক্যামেরা সহ</string>
     <string name="without_camera">ক্যামেরা ছাড়াই চালিয়ে যান</string>
     <string name="without_cam">ক্যামেরা ছাড়া</string>
+
+    <string name="unlock_the_magic">প্রো সৃজনশীলতা আনলক করুন 🌟</string>
+    <string name="unlimited_drawing">বিজ্ঞাপন সরান এবং সীমাহীন সৃজনশীল টুল উপভোগ করুন</string>
+    <string name="standard">স্ট্যান্ডার্ড</string>
+    <string name="unlock_all_sketch">সব স্কেচ আনলক করুন</string>
+    <string name="draw_from_gallery">গ্যালারি থেকে আঁকুন</string>
+    <string name="offline_drawing_mode">অফলাইন ড্রয়িং মোড</string>
+    <string name="photo_to_sketch_convertor">ফটো থেকে স্কেচ কনভার্টার</string>
+    <string name="draw_learning_lessons">ড্রয়িং শেখার পাঠ</string>
+    <string name="share_with_friends">বন্ধুদের সাথে শেয়ার করুন</string>
+    <string name="my_drawing">আমার ড্রয়িং</string>
+    <string name="there_s_no_any_saved_data">কোনো সেভ করা ডেটা নেই!</string>
+    <string name="go_to_drawings">ড্রয়িংসে যান</string>
 
 </resources>

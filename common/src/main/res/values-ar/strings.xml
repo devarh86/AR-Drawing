@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="downloading">جارٍ التنزيل...</string>
@@ -611,6 +611,17 @@
     <string name="without_camera">استمر بدون كاميرا</string>
     <string name="without_cam">بدون كاميرا</string>
 
-
+    <string name="unlock_the_magic">أطلق إبداع Pro 🌟</string>
+    <string name="unlimited_drawing">أزل الإعلانات واستمتع بأدوات إبداعية غير محدودة</string>
+    <string name="standard">قياسي</string>
+    <string name="unlock_all_sketch">افتح كل الرسومات</string>
+    <string name="draw_from_gallery">ارسم من المعرض</string>
+    <string name="offline_drawing_mode">وضع الرسم دون اتصال</string>
+    <string name="photo_to_sketch_convertor">محول الصور إلى رسم</string>
+    <string name="draw_learning_lessons">دروس تعلم الرسم</string>
+    <string name="share_with_friends">شارك مع الأصدقاء</string>
+    <string name="my_drawing">رسوماتي</string>
+    <string name="there_s_no_any_saved_data">لا توجد أي بيانات محفوظة!</string>
+    <string name="go_to_drawings">اذهب إلى الرسومات</string>
 
 </resources>

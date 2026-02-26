@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">अगला</string>-->
+    <!--    <string name="next">अगला</string>-->
     <string name="downloading">डाउनलोड हो रहा है...</string>
     <string name="exit_title">क्या आप निश्चित हैं आपकी बाहर निकलने की इच्छा है?</string>
     <string name="discard">खारिज करना</string>
@@ -96,7 +96,7 @@
     <string name="options">विकल्प\n</string>
     <string name="stay">रहें</string>
 
-<string name="menu_featured">प्रदर्शित</string>
+    <string name="menu_featured">प्रदर्शित</string>
     <string name="menu_home">घर</string>
     <string name="menu_templates">टेम्पलेट्स</string>
     <string name="menu_styles">कला शैलियाँ</string>
@@ -611,7 +611,18 @@
     <string name="without_camera">कैमरा के बिना जारी रखें</string>
     <string name="without_cam">कैमरे के बिना</string>
 
-
+    <string name="unlock_the_magic">Pro रचनात्मकता अनलॉक करें 🌟</string>
+    <string name="unlimited_drawing">विज्ञापन हटाएं और असीमित रचनात्मक टूल्स का आनंद लें</string>
+    <string name="standard">मानक</string>
+    <string name="unlock_all_sketch">सभी स्केच अनलॉक करें</string>
+    <string name="draw_from_gallery">गैलरी से ड्रॉ करें</string>
+    <string name="offline_drawing_mode">ऑफलाइन ड्रॉइंग मोड</string>
+    <string name="photo_to_sketch_convertor">फोटो से स्केच कन्वर्टर</string>
+    <string name="draw_learning_lessons">ड्रॉइंग सीखने के पाठ</string>
+    <string name="share_with_friends">दोस्तों के साथ साझा करें</string>
+    <string name="my_drawing">मेरी ड्रॉइंग</string>
+    <string name="there_s_no_any_saved_data">कोई सेव किया हुआ डेटा नहीं है!</string>
+    <string name="go_to_drawings">ड्रॉइंग्स पर जाएं</string>
 
 
 </resources>

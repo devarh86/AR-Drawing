@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="downloading">Herunterladen...</string>
@@ -91,8 +91,8 @@
     <string name="blending">Mischen</string>
 
 
-<!--    <string name="boarding3_title">Bearbeiten wie nie zuvor</string>-->
-<!--    <string name="boarding3_text_body">Schnelle und einfache Fotobearbeitung mit Effekten</string>-->
+    <!--    <string name="boarding3_title">Bearbeiten wie nie zuvor</string>-->
+    <!--    <string name="boarding3_text_body">Schnelle und einfache Fotobearbeitung mit Effekten</string>-->
 
 
 
@@ -240,7 +240,7 @@
     <string name="folder_name">Collagenbild</string>
     <string name="name">Collagenbild</string>
     <string name="app_name">Collagenbild</string>
-<!--    <string name="next">Nächste</string>-->
+    <!--    <string name="next">Nächste</string>-->
 
 
 
@@ -620,5 +620,18 @@
     <string name="with_cam">Mit Kamera</string>
     <string name="without_camera">Ohne Kamera fortfahren</string>
     <string name="without_cam">Ohne Kamera</string>
+
+    <string name="unlock_the_magic">Pro-Kreativität freischalten 🌟</string>
+    <string name="unlimited_drawing">Entferne Werbung und genieße unbegrenzte Kreativ-Tools</string>
+    <string name="standard">Standard</string>
+    <string name="unlock_all_sketch">Alle Skizzen freischalten</string>
+    <string name="draw_from_gallery">Aus der Galerie zeichnen</string>
+    <string name="offline_drawing_mode">Offline-Zeichenmodus</string>
+    <string name="photo_to_sketch_convertor">Foto-zu-Skizze-Konverter</string>
+    <string name="draw_learning_lessons">Lernlektionen zum Zeichnen</string>
+    <string name="share_with_friends">Mit Freunden teilen</string>
+    <string name="my_drawing">Meine Zeichnung</string>
+    <string name="there_s_no_any_saved_data">Keine gespeicherten Daten vorhanden!</string>
+    <string name="go_to_drawings">Zu Zeichnungen</string>
 
 </resources>

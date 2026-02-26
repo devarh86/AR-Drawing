@@ -18,10 +18,13 @@ android {
         multiDexEnabled =true
         minSdk 24
         targetSdk 35
-        versionCode 1
-        versionName "0.1"
+
+        versionCode 2
+        versionName "0.2"
+
 //        versionCode 10000
 //        versionName "10000"
+        
         resourceConfigurations += ["en","ar","bn", "de", "es","fr", "hi","in","ja", "pt", "ru", "ur", "zh"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "AR Drawing VC_$versionCode"

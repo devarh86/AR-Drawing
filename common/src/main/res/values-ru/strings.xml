@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">Следующий</string>-->
+    <!--    <string name="next">Следующий</string>-->
     <string name="downloading">Загрузка...</string>
     <string name="exit_title">Вы уверены, что хотите выйти?</string>
     <string name="discard">Отказаться</string>
@@ -618,5 +618,18 @@
     <string name="with_cam">С камерой</string>
     <string name="without_camera">Продолжайте без камеры.</string>
     <string name="without_cam">Без камеры</string>
+
+    <string name="unlock_the_magic">Откройте Pro-креативность 🌟</string>
+    <string name="unlimited_drawing">Уберите рекламу и наслаждайтесь безлимитными творческими инструментами</string>
+    <string name="standard">Стандарт</string>
+    <string name="unlock_all_sketch">Разблокировать все эскизы</string>
+    <string name="draw_from_gallery">Рисовать из галереи</string>
+    <string name="offline_drawing_mode">Офлайн-режим рисования</string>
+    <string name="photo_to_sketch_convertor">Конвертер фото в эскиз</string>
+    <string name="draw_learning_lessons">Уроки обучения рисованию</string>
+    <string name="share_with_friends">Поделиться с друзьями</string>
+    <string name="my_drawing">Мои рисунки</string>
+    <string name="there_s_no_any_saved_data">Нет сохранённых данных!</string>
+    <string name="go_to_drawings">Перейти к рисункам</string>
 
 </resources>

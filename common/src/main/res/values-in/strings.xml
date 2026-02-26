@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="next">Berikutnya</string>-->
+    <!--    <string name="next">Berikutnya</string>-->
     <string name="downloading">Mengunduh...</string>
     <string name="exit_title">Apakah Anda yakin ingin Keluar?</string>
     <string name="discard">Membuang</string>
@@ -624,5 +624,17 @@
     <string name="without_camera">Lanjutkan Tanpa Kamera</string>
     <string name="without_cam">Tanpa Kamera</string>
 
+    <string name="unlock_the_magic">Buka kreativitas Pro 🌟</string>
+    <string name="unlimited_drawing">Hapus iklan dan nikmati alat kreatif tanpa batas</string>
+    <string name="standard">Standar</string>
+    <string name="unlock_all_sketch">Buka semua sketsa</string>
+    <string name="draw_from_gallery">Gambar dari galeri</string>
+    <string name="offline_drawing_mode">Mode menggambar offline</string>
+    <string name="photo_to_sketch_convertor">Konverter foto ke sketsa</string>
+    <string name="draw_learning_lessons">Pelajaran belajar menggambar</string>
+    <string name="share_with_friends">Bagikan dengan teman</string>
+    <string name="my_drawing">Gambar Saya</string>
+    <string name="there_s_no_any_saved_data">Tidak ada data tersimpan!</string>
+    <string name="go_to_drawings">Pergi ke Gambar</string>
 
 </resources>

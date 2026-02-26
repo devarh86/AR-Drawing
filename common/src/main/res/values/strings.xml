@@ -609,4 +609,17 @@
     <string name="without_camera">Continue Without Camera</string>
     <string name="without_cam">Without Camera</string>
 
+    <string name="unlock_the_magic">Unlock Pro Creativity 🌟</string>
+    <string name="unlimited_drawing">Remove ads and enjoy unlimited creative tools</string>
+    <string name="standard">Standard</string>
+    <string name="unlock_all_sketch">Unlock all sketch</string>
+    <string name="draw_from_gallery">Draw from gallery</string>
+    <string name="offline_drawing_mode">Offline drawing mode</string>
+    <string name="photo_to_sketch_convertor">Photo to sketch convertor</string>
+    <string name="draw_learning_lessons">Draw learning lessons</string>
+    <string name="share_with_friends">Share With Friends</string>
+    <string name="my_drawing">My Drawing</string>
+    <string name="there_s_no_any_saved_data">There’s no any saved data!</string>
+    <string name="go_to_drawings">Go to Drawings</string>
+
 </resources>

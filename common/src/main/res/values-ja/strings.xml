@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    <string name="next">次</string>-->
+    <!--    <string name="next">次</string>-->
     <string name="downloading">ダウンロード中...</string>
     <string name="exit_title">本当に終了してもよろしいですか?</string>
     <string name="discard">破棄</string>
@@ -628,6 +628,18 @@
     <string name="without_camera">カメラなしで続行</string>
     <string name="without_cam">カメラなし</string>
 
+    <string name="unlock_the_magic">Proクリエイティビティを解放 🌟</string>
+    <string name="unlimited_drawing">広告を削除して、無制限のクリエイティブツールを楽しもう</string>
+    <string name="standard">標準</string>
+    <string name="unlock_all_sketch">すべてのスケッチを解除</string>
+    <string name="draw_from_gallery">ギャラリーから描く</string>
+    <string name="offline_drawing_mode">オフライン描画モード</string>
+    <string name="photo_to_sketch_convertor">写真をスケッチに変換</string>
+    <string name="draw_learning_lessons">お絵描き学習レッスン</string>
+    <string name="share_with_friends">友だちと共有</string>
+    <string name="my_drawing">マイドローイング</string>
+    <string name="there_s_no_any_saved_data">保存されたデータがありません！</string>
+    <string name="go_to_drawings">ドローイングへ移動</string>
 
 
 </resources>
