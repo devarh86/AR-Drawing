@@ -1,20 +1,16 @@
 package com.fahad.newtruelovebyfahad.ui.activities.feedback
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
 import android.provider.OpenableColumns
-import android.util.DisplayMetrics
 import android.util.Log
-import android.view.View
-import android.widget.FrameLayout
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.updateMargins
 import com.bumptech.glide.Glide
 import com.example.ads.Constants.languageCode
 import com.example.ads.crosspromo.helper.show
@@ -22,25 +18,14 @@ import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.ActivityFeedbackBinding
 import com.fahad.newtruelovebyfahad.utils.invisible
 import com.fahad.newtruelovebyfahad.utils.showToast
-import com.project.common.utils.getNotchHeight
 import com.project.common.utils.setLocale
-import com.project.common.utils.setStatusBarNavBarColor
 import com.project.common.utils.setOnSingleClickListener
-import kotlin.math.roundToInt
+import com.project.common.utils.setStatusBarNavBarColor
 
 class FeedbackActivity : AppCompatActivity() {
 
     private val binding by lazy { ActivityFeedbackBinding.inflate(layoutInflater) }
     private val feedbackList = arrayListOf(
-//        Suggestions("User Interface"),
-//        Suggestions("Speed"),
-//        Suggestions("Content"),
-//        Suggestions("Performance"),
-//        Suggestions("App Crashes"),
-//        Suggestions("User Experience"),
-//        Suggestions("Feature Requests"),
-//        Suggestions("Suggestions"),
-//        Suggestions("Other Issues")
         Suggestions("UI"),
         Suggestions("Speed"),
         Suggestions("Content"),
@@ -190,6 +175,7 @@ class FeedbackActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("StringFormatInvalid")
     fun Context.sendEmailFeedback(
         tags: List<String>? = null,
         feedbackText: String? = "",

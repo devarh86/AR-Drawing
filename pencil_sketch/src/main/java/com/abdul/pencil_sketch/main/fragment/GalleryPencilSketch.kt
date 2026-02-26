@@ -28,15 +28,14 @@ import com.abdul.pencil_sketch.main.intents.SketchIntent
 import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.main.viewstate.SketchImageActionViewState
 import com.abdul.pencil_sketch.utils.navigateFragment
-import com.example.ads.Constants
 import com.example.ads.Constants.flowSelectPhotoScr
-import com.example.ads.Constants.interstitialStrategyOld
 import com.example.ads.Constants.native
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
-import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
+import com.example.ads.utils.homeInterstitial
 import com.example.ads.utils.interstitialBack
 import com.example.ads.utils.nativeProcessingConfig
 import com.example.analytics.Constants.firebaseAnalytics
@@ -279,38 +278,26 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                                         if (mActivity.isOpenFromImportGallery) {
 
                                             mActivity.imgPath = sketchImageViewModel.imageEnhancedPath[0].croppedPath
-                                            activity?.showInterstitial(
-                                                loadedAction = {
-                                                    activity?.navigateFragment(
-                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToHowToDrawFragment(),
-                                                        R.id.galleryPencilSketch
-                                                    )
-                                                },
-                                                failedAction = {
+                                            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
 
-                                                    activity?.navigateFragment(
-                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToHowToDrawFragment(),
-                                                        R.id.galleryPencilSketch
-                                                    )
-                                                }, showAd = true, onCheck = true
-                                            )
+                                                activity?.navigateFragment(
+                                                    GalleryPencilSketchDirections.actionGalleryPencilSketchToHowToDrawFragment(),
+                                                    R.id.galleryPencilSketch
+                                                )
+
+                                            }
 
                                         } else {
-                                            activity?.showInterstitial(
-                                                loadedAction = {
-                                                    activity?.navigateFragment(
-                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
-                                                        R.id.galleryPencilSketch
-                                                    )
-                                                },
-                                                failedAction = {
 
-                                                    activity?.navigateFragment(
-                                                        GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
-                                                        R.id.galleryPencilSketch
-                                                    )
-                                                }, showAd = true, onCheck = true
-                                            )
+                                            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                                activity?.navigateFragment(
+                                                    GalleryPencilSketchDirections.actionGalleryPencilSketchToPencilSketchRequest(),
+                                                    R.id.galleryPencilSketch
+                                                )
+                                            }
+
                                         }
                                     }
                                 }
@@ -375,40 +362,16 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
             }
 
             if (gallerySaveTracker) {
-                if (!interstitialStrategyOld) {
-                    runCatching {
-                        activity?.showNewInterstitial(activity?.interstitialBack()) {
-                            activity?.let {
-                                if (it is PencilSketchActivity) {
-                                    if (!it.isFinishing && !it.isDestroyed) {
-                                        it.finish()
-                                    }
+                runCatching {
+                    activity?.showNewInterstitial(activity?.interstitialBack()) {
+                        activity?.let {
+                            if (it is PencilSketchActivity) {
+                                if (!it.isFinishing && !it.isDestroyed) {
+                                    it.finish()
                                 }
                             }
                         }
                     }
-                } else {
-                    activity?.showInterstitial(loadedAction = {
-                        runCatching {
-                            activity?.let {
-                                if (it is PencilSketchActivity) {
-                                    if (!it.isFinishing && !it.isDestroyed) {
-                                        it.finish()
-                                    }
-                                }
-                            }
-                        }
-                    }, failedAction = {
-                        runCatching {
-                            activity?.let {
-                                if (it is PencilSketchActivity) {
-                                    if (!it.isFinishing && !it.isDestroyed) {
-                                        it.finish()
-                                    }
-                                }
-                            }
-                        }
-                    }, showAd = Constants.showImageSelectionBackAd, onCheck = true)
                 }
             }
 

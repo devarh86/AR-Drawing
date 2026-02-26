@@ -1060,20 +1060,20 @@ fun Activity?.loadNewInterstitialWithoutStrategyCheck(
 ) {
     this?.let {
         callBack.invoke()
-        /*   adConfigModel?.let { config ->
-               if (showAllInterstitialAd && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && config.enable) {
-                   if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
-                       mNewInterstitial.loadInterstitial(it, config, callBack)
-                   } else MobileAds().initialize(this.applicationContext) {
-                       ADS_SDK_INITIALIZE.set(true)
-                       mNewInterstitial.loadInterstitial(it, config, callBack)
-                   }
-               } else {
-                   callBack.invoke()
-               }
-           } ?: run {
-               callBack.invoke()
-           }*/
+        adConfigModel?.let { config ->
+            if (showAllInterstitialAd && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && config.enable) {
+                if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
+                    mNewInterstitial?.loadInterstitial(it, config, callBack)
+                } else MobileAds().initialize(this.applicationContext) {
+                    ADS_SDK_INITIALIZE.set(true)
+                    mNewInterstitial?.loadInterstitial(it, config, callBack)
+                }
+            } else {
+                callBack.invoke()
+            }
+        } ?: run {
+            callBack.invoke()
+        }
     } ?: run {
         callBack.invoke()
     }
@@ -1084,21 +1084,20 @@ fun Activity?.loadNewInterstitial(
     callBack: () -> Unit,
 ) {
     this?.let {
-        callBack.invoke()
-        /*   adConfigModel?.let { config ->
-               if (showAllInterstitialAd && !interstitialStrategyOld && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && config.enable) {
-                   if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
-                       mNewInterstitial.loadInterstitial(it, config, callBack)
-                   } else MobileAds().initialize(this.applicationContext) {
-                       ADS_SDK_INITIALIZE.set(true)
-                       mNewInterstitial.loadInterstitial(it, config, callBack)
-                   }
-               } else {
-                   callBack.invoke()
-               }
-           } ?: run {
-               callBack.invoke()
-           }*/
+        adConfigModel?.let { config ->
+            if (showAllInterstitialAd && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && config.enable) {
+                if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
+                    mNewInterstitial?.loadInterstitial(it, config, callBack)
+                } else MobileAds().initialize(this.applicationContext) {
+                    ADS_SDK_INITIALIZE.set(true)
+                    mNewInterstitial?.loadInterstitial(it, config, callBack)
+                }
+            } else {
+                callBack.invoke()
+            }
+        } ?: run {
+            callBack.invoke()
+        }
     } ?: run {
         callBack.invoke()
     }
@@ -1141,30 +1140,29 @@ fun Activity?.showNewInterstitial(
     callBack: () -> Unit,
 ) {
     this?.let {
-        callBack.invoke()
-        /*        adConfigModel?.let { config ->
-                    Log.i("TAG", "showNewInterstitial: $showInterstitialAd")
-                    if (showAllInterstitialAd && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && showInterstitialAd && config.enable && !OTHER_AD_ON_DISPLAY) {
-                        if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
-                            mNewInterstitial.showInterstitial(it, config, callBack)
-                        } else {
-                            runCatching {
-                                MobileAds().initialize(this.applicationContext) {
-                                    ADS_SDK_INITIALIZE.set(true)
-                                }
-                                callBack.invoke()
-                            }
+        adConfigModel?.let { config ->
+            Log.i("TAG", "showNewInterstitial: $showInterstitialAd")
+            if (showAllInterstitialAd && isNetworkAvailable() && !isProVersion() && Constants.appIsForeground && showInterstitialAd && config.enable && !OTHER_AD_ON_DISPLAY) {
+                if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
+                    mNewInterstitial?.showInterstitial(it, config, callBack)
+                } else {
+                    runCatching {
+                        MobileAds().initialize(this.applicationContext) {
+                            ADS_SDK_INITIALIZE.set(true)
                         }
-                    } else {
-                        showInterstitialAd = true
                         callBack.invoke()
                     }
-                } ?: run {
-                    showInterstitialAd = true
-                    callBack.invoke()
-                }*/
+                }
+            } else {
+                showInterstitialAd = true
+                callBack.invoke()
+            }
+        } ?: run {
+            showInterstitialAd = true
+            callBack.invoke()
+        }
     } ?: run {
-        // showInterstitialAd = true
+        showInterstitialAd = true
         callBack.invoke()
     }
 }
@@ -1371,7 +1369,7 @@ fun Activity?.loadRewarded(
     failedAction: () -> Unit,
 ) {
 
-    val appRewardAd = newAdsConfig?.rewardedFrames
+    val appRewardAd = newAdsConfig?.rewarded
     appRewardAd?.let {
         loadRewardAdSequentially(
             onAdLoaded = { loadedAction() },
@@ -1419,7 +1417,7 @@ fun Activity?.loadRewardAdSequentially(
             return
         }
 
-        if (newAdsConfig?.rewardedFrames?.isEnabled == false) {
+        if (newAdsConfig?.rewarded?.isEnabled == false) {
             onAdFailed.invoke()
             return
         }

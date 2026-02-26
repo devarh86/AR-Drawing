@@ -440,16 +440,8 @@
     <string name="template">قالب</string>
     <string name="app_name_new">تطبيق CRSL</string>
 
-    <string name="boarding1_title">كاروسال</string>
-    <string name="boarding1_text_body">اسحب عبر عدة منشورات بسهولة.</string>
-    <string name="boarding3_title">قصص</string>
-    <string name="boarding3_text_body">محتوى مرئي قصير العمر بملء الشاشة.</string>
-
     <string name="boarding4_title">دمج</string>
     <string name="boarding4_text_body">اجمع مقاطع مختلفة بسلاسة.</string>
-
-    <string name="boarding2_title">كولاج</string>
-    <string name="boarding2_text_body">ادمج الصور في إطار واحد.</string>
 
     <string name="upgrade_plan_now">قم بترقية الخطة الآن!</string>
     <string name="enjoy_unlimited_benefits_amp_features">استمتع بمزايا وميزات غير محدودة</string>
@@ -510,6 +502,114 @@
     <string name="carousal">الدوار</string>
     <string name="enjoy_50_off_on_weekly_premium">استمتع بخصم 50٪ على الاشتراك الأسبوعي المميز!</string>
 
+    <string name="apply">يتقدم</string>
+    <string name="preview">معاينة</string>
+    <string name="projects">المشاريع</string>
+    <string name="see_all">عرض الكل</string>
+    <string name="with_ad">مع إعلان</string>
+
+    <string name="_3_day_free_trial">تجربة مجانية لمدة 3 أيام</string>
+    <string name="join_crsl_premium">انضم إلى CRSL Premium</string>
+
+
+    <string name="boarding1_title">سهل الرسم</string>
+    <string name="boarding1_text_body">ضع ورقة زبدة على الهاتف وارسمه.</string>
+    <string name="boarding2_title">ارسم بالكاميرا</string>
+    <string name="boarding2_text_body">أمسك هاتفك أو ضعه في وضعية ثابتة ليسهل عليك رسمه.</string>
+    <string name="boarding3_title">ارسم صورتك الخاصة</string>
+    <string name="boarding3_text_body">ارسم، وتتبع، ولون أي صورة تحبها!</string>
+    <string name="let_s_draw">هيا نرسم</string>
+    <string name="create_draw_and_have_fun">ابتكر، ارسم، واستمتع!</string>
+    <string name="ar_drawing">رسم الواقع المعزز</string>
+    <string name="import_gallery">معرض الاستيراد</string>
+    <string name="photo_to_sketch">تحويل الصورة إلى رسم تخطيطي</string>
+    <string name="learn_to_draw">تعلم الرسم</string>
+    <string name="my_art">فني</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">يمارس</string>
+    <string name="s_home_h1_detail">دروس سهلة لتحسين مهارات الرسم</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">إِبداع</string>
+    <string name="s_home_h2_detail">دروس رسم ممتعة خطوة بخطوة</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">المواضيع</string>
+    <string name="s_home_h3_detail">استكشف الرسومات حسب المواضيع والأساليب</string>
+
+    <string name="s_home_h4">صورة إلى</string>
+    <string name="s_home_h4_sub">رسم</string>
+    <string name="s_home_h4_detail">حوّل الصور إلى رسومات فنية بالقلم الرصاص.</string>
+
+    <string name="start">يبدأ</string>
+    <string name="settings">إعدادات</string>
+    <string name="unlock_premium_features">افتح الميزات المميزة</string>
+    <string name="terms_and_conditions">الشروط والأحكام</string>
+
+    <string name="watch_an_ad">شاهد إعلانًا</string>
+    <string name="pro_face_swap">تبديل الوجوه الاحترافي</string>
+    <string name="swap">تبديل</string>
+    <string name="upload_image_template">تحميل قالب الصورة</string>
+    <string name="upload_or_take_your_image_please_clear_face">قم بتحميل صورتك أو التقاطها. يرجى إخفاء الوجه.</string>
+    <string name="upload_your_face">حمّل صورتك</string>
+    <string name="create">يخلق</string>
+    <string name="saving_your_image">حفظ صورتك</string>
+    <string name="processing_your_masterpiece">جارٍ تجهيز تحفتك الفنية... 🎨</string>
+    <string name="face_swap">تبديل الوجوه</string>
+    <string name="edit_more">عدّل المزيد</string>
+    <string name="please_crop">يرجى قص الصورة بنفس النسبة للحصول على نتائج أفضل</string>
+    <string name="stay_with_us">ابقوا معنا، تجربتكم على وشك أن تبدأ!</string>
+    <string name="got_it">فهمتها</string>
+
+    <string name="pencil_sketch">رسم تخطيطي بالقلم الرصاص</string>
+    <string name="sketch_now">ارسم الآن</string>
+    <string name="upgrade_to_pro">قم بالترقية إلى الإصدار الاحترافي</string>
+    <string name="enjoy_all_drawings">استمتع بجميع الرسومات والأدوات والمرح</string>
+    <string name="sketch_loading">رسم صورتك - الخطوط تنبض بالحياة...</string>
+    <string name="sketch_ready">رسمك التخطيطي بدأ يتشكل!</string>
+    <string name="memory_sketching">تحويل ذكرياتك إلى فن الرسم بالقلم الرصاص...</string>
+    <string name="sketch_details_fit">الخطوط والظلال تتناغم مع بعضها البعض!</string>
+    <string name="sketch_progress">رسم سحري قيد الإنجاز...</string>
+    <string name="sketch_placing_details">رسم كل التفاصيل الصغيرة...</string>
+    <string name="sketch_looking_timeless">مظهر كلاسيكي - الآن كرسومات تخطيطية!</string>
+    <string name="sketch_you_brought_it_back">يا إلهي! تبدو تلك الرسمة وكأنها حقيقية!</string>
+    <string name="sketch_healing_memories">رسم الذكريات بعناية...</string>
+    <string name="sketch_almost">أوشكنا على الانتهاء - لم يتبق سوى اللمسات الأخيرة!</string>
+    <string name="sketch_damage_detected">تعديل الحواف - تحسين الخطوط!</string>
+    <string name="sketch_transforming">تحويل الصور إلى فن مرسوم باليد...</string>
+    <string name="sketch_uploading">إرسال صورتك إلى رسام الرسم التخطيطي...</string>
+    <string name="sketch_final_touch">التظليل النهائي - هذا يتطلب مهارة!</string>
+    <string name="sketch_blast">هذا الرسم التخطيطي له وقع مختلف!</string>
+    <string name="sketch_new_life">أجواء رسم جديدة ومنعشة!</string>
+    <string name="sketch_details_locked">تم حفظ التفاصيل — الرسم كالمحترفين!</string>
+    <string name="sketch_wait">انتظروا قليلاً... سحر القلم الرصاص قيد التحميل!</string>
+    <string name="sketch_alignment">محاذاة الضربات بشكل مثالي...</string>
+    <string name="sketch_memory_repairing">يجري تحسين رسمك التخطيطي...</string>
+    <string name="sketch_about_to_shine">استعدوا - رسمكم سيتألق!</string>
+    <string name="sketch_epic">رسم تخطيطي رائع قيد التنفيذ!</string>
+    <string name="sketch_ready_to_reveal">جاهز تقريبًا - سنكشف عن الرسم التخطيطي قريبًا!</string>
+    <string name="sketch_restoring_clarity">تحسين الخطوط والتباين...</string>
+    <string name="sketch_scratches_fading">حواف خشنة تتلاشى...</string>
+    <string name="sketch_time_travel_mode">وضع الرسم: مُفعّل ✏️</string>
+    <string name="sketch_magic_at_work">سحر الرسم في العمل - ترقبوا المزيد!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">هل أعجبك تطبيقنا؟</string>
+    <string name="sketch">رسم</string>
+    <string name="trace">يتعقب</string>
+    <string name="drawing_now">الرسم الآن</string>
+    <string name="how_to_draw">كيفية الرسم</string>
+    <string name="picture">صورة</string>
+    <string name="camera">آلة تصوير</string>
+    <string name="stop_drawing">توقف عن الرسم؟</string>
+    <string name="you_want_to_stop_drawing">تريد التوقف عن الرسم</string>
+    <string name="yes_discard">لا، لا تفعل</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">استمر بالكاميرا</string>
+    <string name="with_cam">مع الكاميرا</string>
+    <string name="without_camera">استمر بدون كاميرا</string>
+    <string name="without_cam">بدون كاميرا</string>
 
 
 

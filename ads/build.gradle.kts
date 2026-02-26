@@ -1,5 +1,3 @@
-import com.android.tools.r8.internal.ca
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -21,7 +19,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             isMinifyEnabled = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -40,25 +38,26 @@ android {
             resValue("string", "lang_inter_backup", "ca-app-pub-4276074242154795/4643474436")
 
 
-            resValue("string", "all_inter_high", "ca-app-pub-4276074242154795/8856652811")
-            resValue("string", "all_inter_medium", "ca-app-pub-4276074242154795/8688846445")
-            resValue("string", "all_inter_backup", "ca-app-pub-4276074242154795/4643474436")
+            resValue("string", "all_inter_high", "ca-app-pub-4276074242154795/9519088369")
+            resValue("string", "all_inter_medium", "ca-app-pub-4276074242154795/4302969446")
+            resValue("string", "all_inter_backup", "ca-app-pub-4276074242154795/5329110653")
 
+            resValue("string", "started_inter_high", "ca-app-pub-4276074242154795/4376897731")
+            resValue("string", "started_inter_medium", "ca-app-pub-4276074242154795/9862934809")
+            resValue("string", "started_inter_backup", "ca-app-pub-4276074242154795/3311228076")
 
             resValue("string", "splash_native_high", "ca-app-pub-4276074242154795/1871498798")
             resValue("string", "splash_native_medium", "ca-app-pub-4276074242154795/6014047498")
             resValue("string", "splash_native_backup", "ca-app-pub-4276074242154795/3870976174")
 
 
-            resValue("string", "resume_app_open_high","ca-app-pub-4276074242154795/5352522071")
-            resValue("string", "resume_app_open_medium","ca-app-pub-4276074242154795/6068236748")
-            resValue("string", "resume_app_open_low","ca-app-pub-4276074242154795/5160950385")
+            resValue("string", "resume_app_open_high", "ca-app-pub-4276074242154795/3974762424")
+            resValue("string", "resume_app_open_medium", "ca-app-pub-4276074242154795/4732761587")
+            resValue("string", "resume_app_open_low", "ca-app-pub-4276074242154795/4981432777")
 
             resValue("string", "reward_high", "ca-app-pub-4276074242154795/2617884817")
             resValue("string", "reward_medium", "ca-app-pub-4276074242154795/3412091739")
             resValue("string", "reward_low", "ca-app-pub-4276074242154795/6861733220")
-
-
 
 
             //Rewarded_Unlock1 this id is used for reward frames unlock
@@ -69,22 +68,22 @@ android {
 
 
 
-            resValue("string", "splash_app_open_high","ca-app-pub-4276074242154795/1193499802")
-            resValue("string", "splash_app_open_medium","ca-app-pub-4276074242154795/2318879217")
-            resValue("string", "splash_app_open_low","ca-app-pub-4276074242154795/7381318419")
+            resValue("string", "splash_app_open_high", "ca-app-pub-4276074242154795/5403673406")
+            resValue("string", "splash_app_open_medium", "ca-app-pub-4276074242154795/1294690396")
+            resValue("string", "splash_app_open_low", "ca-app-pub-4276074242154795/7668527059")
 
 
 
-            resValue("string", "app_id", "ca-app-pub-4276074242154795~4235223438")
+            resValue("string", "app_id", "ca-app-pub-4276074242154795~9558261597")
             resValue("string", "app_open", "ca-app-pub-4276074242154795/5352522071")
             resValue("string", "banner", "ca-app-pub-3940256099942544/9214589741")
             resValue("string", "collapsable_banner", "ca-app-pub-4276074242154795/6701610537")
             resValue("string", "collapsable_banner_floor", "ca-app-pub-4276074242154795/4230697159")
 
-            resValue("string","native_gallery_back_up","ca-app-pub-4276074242154795/6965907177")
-            resValue("string","native_gallery_medium","ca-app-pub-4276074242154795/4360791104")
-            resValue("string","native_gallery_high","ca-app-pub-4276074242154795/8407777513")
-            resValue("string","open_guide_back_up","ca-app-pub-4276074242154795/8824382350")
+            resValue("string", "native_gallery_back_up", "ca-app-pub-4276074242154795/6965907177")
+            resValue("string", "native_gallery_medium", "ca-app-pub-4276074242154795/4360791104")
+            resValue("string", "native_gallery_high", "ca-app-pub-4276074242154795/8407777513")
+            resValue("string", "open_guide_back_up", "ca-app-pub-4276074242154795/8824382350")
 
             resValue("string", "native_uninstall_all", "ca-app-pub-4276074242154795/7153483120")
             resValue("string", "native_uninstall_medium", "ca-app-pub-4276074242154795/8526274547")
@@ -94,9 +93,9 @@ android {
             resValue("string", "banner_new_floor", "ca-app-pub-3940256099942544/9214589741")
             resValue("string", "large_banner", "ca-app-pub-3940256099942544/9214589741")
             resValue("string", "survey_native_backup", "ca-app-pub-4276074242154795/3076408872")
-            resValue("string","open_screen_high","ca-app-pub-4276074242154795/2775634311")
-            resValue("string","open_screen_medium","ca-app-pub-4276074242154795/3076408872")
-            resValue("string","open_screen_backup","ca-app-pub-4276074242154795/4564224676")
+            resValue("string", "open_screen_high", "ca-app-pub-4276074242154795/2775634311")
+            resValue("string", "open_screen_medium", "ca-app-pub-4276074242154795/3076408872")
+            resValue("string", "open_screen_backup", "ca-app-pub-4276074242154795/4564224676")
             resValue("string", "inline_banner", "ca-app-pub-4276074242154795/4176177401")
             resValue("string", "rewarded_interstitial", "ca-app-pub-4276074242154795/9445037725")
             resValue("string", "interstitial", "ca-app-pub-4276074242154795/9935225147")
@@ -127,14 +126,12 @@ android {
 //            resValue("string", "bigo_splash_id", "10182906-10158798")
 
 
-
-
             /* facebook app id for singular*/
             resValue("string", "facebook_id", "1116803502100807")
 
             /*new ad ids*/
             resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/8582719444")
-            resValue("string", "native_language_alt_back_up", "ca-app-pub-4276074242154795/1001928118")
+            resValue("string", "native_language_alt_back_up", "ca-app-pub-4276074242154795/3419679911")
 
 
 
@@ -147,7 +144,7 @@ android {
             resValue("string", "banner_splash_medium", "ca-app-pub-4276074242154795/3324717704")
             resValue("string", "interstitial_splash_back_up", "ca-app-pub-4276074242154795/2296387706")
 
-            resValue("string","native_backup_id","ca-app-pub-4276074242154795/9500207846")
+            resValue("string", "native_backup_id", "ca-app-pub-4276074242154795/9500207846")
             resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/7195679958")
 
             resValue("string", "banner_on_board_second_id", "ca-app-pub-4276074242154795/6306976403")
@@ -160,9 +157,9 @@ android {
             resValue("string", "banner_second_id", "ca-app-pub-4276074242154795/7564138209")
             resValue("string", "banner_medium", "  ca-app-pub-4276074242154795/6932618784")
 
-            resValue("string", "save_inter_high", "ca-app-pub-4276074242154795/3006951685")
-            resValue("string", "save_inter_medium", "ca-app-pub-4276074242154795/1318465499")
-            resValue("string", "save_inter_backup", "ca-app-pub-4276074242154795/9935225147")
+            resValue("string", "save_inter_high", "ca-app-pub-4276074242154795/8591243404")
+            resValue("string", "save_inter_medium", "ca-app-pub-4276074242154795/9369138450")
+            resValue("string", "save_inter_backup", "ca-app-pub-4276074242154795/1832170033")
 
 
 
@@ -174,7 +171,6 @@ android {
             resValue("string", "home_banner_backup", "ca-app-pub-4276074242154795/7564138209")
             resValue("string", "home_banner_medium", "ca-app-pub-4276074242154795/9200723312")//12
             resValue("string", "home_large_banner_high", "ca-app-pub-4276074242154795/6494107841")//41
-
 
 
             resValue("string", "onboard_one_medium", "ca-app-pub-4276074242154795/9322876771")
@@ -201,8 +197,8 @@ android {
             resValue("string", "native_advanced_video_high", "ca-app-pub-4276074242154795/3500941555")
 
             //language screen1 ids
-            resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/8582719444")
-            resValue("string", "native_language_medium", "ca-app-pub-4276074242154795/2208882783")
+            resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/3891712383")
+            resValue("string", "native_language_medium", "ca-app-pub-4276074242154795/9553843423")
 
             //language screen2 ids
             resValue("string", "native_high_setting_language", "ca-app-pub-4276074242154795/8193901008")
@@ -211,20 +207,20 @@ android {
 
 
             //nativeLanguageTwo
-            resValue("string", "native_language_alt_medium", "ca-app-pub-4276074242154795/2315009785")
+            resValue("string", "native_language_alt_medium", "ca-app-pub-4276074242154795/6409354074")
 
 
             //onBoarding one ids
-            resValue("string", "on_boarding_one_back_up", "ca-app-pub-4276074242154795/7051953845")
-            resValue("string", "on_boarding_one_medium", "ca-app-pub-4276074242154795/9551475745")
+            resValue("string", "on_boarding_one_back_up", "ca-app-pub-4276074242154795/4206147974")
+            resValue("string", "on_boarding_one_medium", "ca-app-pub-4276074242154795/6592638165")
 
             //onBoardingTwo ids
-            resValue("string", "on_boarding_two_medium", "ca-app-pub-4276074242154795/2458102716")
-            resValue("string", "on_boarding_two_back_up", "ca-app-pub-4276074242154795/4726524473")
+            resValue("string", "on_boarding_two_medium", "ca-app-pub-4276074242154795/2893066300")
+            resValue("string", "on_boarding_two_back_up", "ca-app-pub-4276074242154795/1579984639")
 
             //onBoardingThree ids
-            resValue("string", "on_boarding_three_medium", "ca-app-pub-4276074242154795/3795235113")
-            resValue("string", "on_boarding_three_back_up", "ca-app-pub-4276074242154795/3114059907")
+            resValue("string", "on_boarding_three_medium", "ca-app-pub-4276074242154795/3255387759")
+            resValue("string", "on_boarding_three_back_up", "ca-app-pub-4276074242154795/1299308257")
 
             //fullNative onBoarding ids
             resValue("string", "full_native_on_board_medium", "ca-app-pub-4276074242154795/5811108808")
@@ -236,28 +232,28 @@ android {
             resValue("string", "dialog_native_high", "ca-app-pub-4276074242154795/3500941555")
 
             //exit and save native id
-            resValue("string", "exit_save_native_high", "ca-app-pub-4276074242154795/7194585038")
-            resValue("string", "exit_save_native_medium", "ca-app-pub-4276074242154795/5881503366")
-            resValue("string", "exit_save_native_backup", "ca-app-pub-4276074242154795/9916472364")
+            resValue("string", "exit_save_native_high", "ca-app-pub-4276074242154795/4610608126")
+            resValue("string", "exit_save_native_medium", "ca-app-pub-4276074242154795/5306836023")
+            resValue("string", "exit_save_native_backup", "ca-app-pub-4276074242154795/3993754358")
             //all banner ad
-            resValue("string", "banner_overall_highs", "ca-app-pub-4276074242154795/8686069607")
-            resValue("string", "banner_overall_med", "ca-app-pub-4276074242154795/7372987936")
-            resValue("string", "banner_overall_low", "ca-app-pub-4276074242154795/3433742926")
+            resValue("string", "banner_overall_highs", "ca-app-pub-4276074242154795/6171101804")
+            resValue("string", "banner_overall_med", "ca-app-pub-4276074242154795/9918775128")
+            resValue("string", "banner_overall_low", "ca-app-pub-4276074242154795/3110372936")
 
 
             //nativeInProcessDialog ids
-            resValue("string", "processing_native_high", "ca-app-pub-4276074242154795/5868334575")
-            resValue("string", "processing_native_medium", "ca-app-pub-4276074242154795/4555252903")
-            resValue("string", "processing_native_backup", "ca-app-pub-4276074242154795/4436559753")
+            resValue("string", "processing_native_high", "ca-app-pub-4276074242154795/4610608126")
+            resValue("string", "processing_native_medium", "ca-app-pub-4276074242154795/5306836023")
+            resValue("string", "processing_native_backup", "ca-app-pub-4276074242154795/3993754358")
 
 
-            resValue("string","survey_native_all","ca-app-pub-4276074242154795/7891421120")
-            resValue("string","survey_native_medium","ca-app-pub-4276074242154795/6822915870")
-            resValue("string","survey_native_high","ca-app-pub-4276074242154795/3054227104")
+            resValue("string", "survey_native_all", "ca-app-pub-4276074242154795/7891421120")
+            resValue("string", "survey_native_medium", "ca-app-pub-4276074242154795/6822915870")
+            resValue("string", "survey_native_high", "ca-app-pub-4276074242154795/3054227104")
 
-            resValue("string","banner_onboarding_high","ca-app-pub-4276074242154795/8196257978")
-            resValue("string","banner_onboarding_medium","ca-app-pub-4276074242154795/8367825977")
-            resValue("string","banner_onboarding_all","ca-app-pub-4276074242154795/7656329786")
+            resValue("string", "banner_onboarding_high", "ca-app-pub-4276074242154795/8196257978")
+            resValue("string", "banner_onboarding_medium", "ca-app-pub-4276074242154795/8367825977")
+            resValue("string", "banner_onboarding_all", "ca-app-pub-4276074242154795/7656329786")
         }
 
         release {
@@ -290,17 +286,21 @@ android {
             resValue("string", "splash_native_backup", "ca-app-pub-4276074242154795/3870976174")
 
             resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/8462733975")
-            resValue("string", "native_language_alt_back_up", "ca-app-pub-4276074242154795/8584370512")
+            resValue("string", "native_language_alt_back_up", "ca-app-pub-4276074242154795/3419679911")
 
 
-            resValue("string", "all_inter_high", "")
-            resValue("string", "all_inter_medium", "")
-            resValue("string", "all_inter_backup", "")
+            resValue("string", "all_inter_high", "ca-app-pub-4276074242154795/9519088369")
+            resValue("string", "all_inter_medium", "ca-app-pub-4276074242154795/4302969446")
+            resValue("string", "all_inter_backup", "ca-app-pub-4276074242154795/5329110653")
+
+            resValue("string", "started_inter_high", "ca-app-pub-4276074242154795/4376897731")
+            resValue("string", "started_inter_medium", "ca-app-pub-4276074242154795/9862934809")
+            resValue("string", "started_inter_backup", "ca-app-pub-4276074242154795/3311228076")
 
 
-            resValue("string", "resume_app_open_high","ca-app-pub-4276074242154795/5036718180")
-            resValue("string", "resume_app_open_medium","ca-app-pub-4276074242154795/3196312460")
-            resValue("string", "resume_app_open_low","ca-app-pub-4276074242154795/1883230791")
+            resValue("string", "resume_app_open_high", "ca-app-pub-4276074242154795/3974762424")
+            resValue("string", "resume_app_open_medium", "ca-app-pub-4276074242154795/4732761587")
+            resValue("string", "resume_app_open_low", "ca-app-pub-4276074242154795/4981432777")
 
             resValue("string", "reward_high", "ca-app-pub-4276074242154795/4109691467")
             resValue("string", "reward_medium", "ca-app-pub-4276074242154795/6368915497")
@@ -312,29 +312,29 @@ android {
             resValue("string", "reward_frames_low", "ca-app-pub-4276074242154795/1483528127")
 
 
-            resValue("string", "splash_app_open_high","ca-app-pub-4276074242154795/7135557470")
-            resValue("string", "splash_app_open_medium","ca-app-pub-4276074242154795/7092035881")
-            resValue("string", "splash_app_open_low","ca-app-pub-4276074242154795/4509394131")
+            resValue("string", "splash_app_open_high", "ca-app-pub-4276074242154795/5403673406")
+            resValue("string", "splash_app_open_medium", "ca-app-pub-4276074242154795/1294690396")
+            resValue("string", "splash_app_open_low", "ca-app-pub-4276074242154795/7668527059")
 
             //exit and save native id
-            resValue("string", "exit_save_native_high", "ca-app-pub-4276074242154795/2681059728")
-            resValue("string", "exit_save_native_medium", "ca-app-pub-4276074242154795/4369010487")
-            resValue("string", "exit_save_native_backup", "ca-app-pub-4276074242154795/1413628369")
+            resValue("string", "exit_save_native_high", "ca-app-pub-4276074242154795/4610608126")
+            resValue("string", "exit_save_native_medium", "ca-app-pub-4276074242154795/5306836023")
+            resValue("string", "exit_save_native_backup", "ca-app-pub-4276074242154795/3993754358")
             //all banner ad
-            resValue("string", "banner_overall_highs", "ca-app-pub-4276074242154795/1813048226")
-            resValue("string", "banner_overall_med", "ca-app-pub-4276074242154795/6139306041")
-            resValue("string", "banner_overall_low", "ca-app-pub-4276074242154795/2541458921")
+            resValue("string", "banner_overall_highs", "ca-app-pub-4276074242154795/6171101804")
+            resValue("string", "banner_overall_med", "ca-app-pub-4276074242154795/9918775128")
+            resValue("string", "banner_overall_low", "ca-app-pub-4276074242154795/3110372936")
 
 
             //nativeInProcessDialog ids
-            resValue("string", "processing_native_high", "ca-app-pub-4276074242154795/5638395554")
-            resValue("string", "processing_native_medium", "ca-app-pub-4276074242154795/5307223069")
-            resValue("string", "processing_native_backup", "ca-app-pub-4276074242154795/9886979360")
+            resValue("string", "processing_native_high", "ca-app-pub-4276074242154795/4610608126")
+            resValue("string", "processing_native_medium", "ca-app-pub-4276074242154795/5306836023")
+            resValue("string", "processing_native_backup", "ca-app-pub-4276074242154795/3993754358")
 
 
             //language screen1 ids
-            resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/8462733975")
-            resValue("string", "native_language_medium", "ca-app-pub-4276074242154795/6149778868")
+            resValue("string", "native_language_back_up", "ca-app-pub-4276074242154795/3891712383")
+            resValue("string", "native_language_medium", "ca-app-pub-4276074242154795/9553843423")
 
             //language screen2 ids
             resValue("string", "native_high_setting_language", "ca-app-pub-4276074242154795/1097473173")
@@ -345,11 +345,11 @@ android {
 
 
 
-            resValue("string","banner_onboarding_high","ca-app-pub-4276074242154795/8196257978")
-            resValue("string","banner_onboarding_medium","ca-app-pub-4276074242154795/8367825977")
-            resValue("string","banner_onboarding_all","ca-app-pub-4276074242154795/7656329786")
+            resValue("string", "banner_onboarding_high", "ca-app-pub-4276074242154795/8196257978")
+            resValue("string", "banner_onboarding_medium", "ca-app-pub-4276074242154795/8367825977")
+            resValue("string", "banner_onboarding_all", "ca-app-pub-4276074242154795/7656329786")
 
-            resValue("string", "app_id", "ca-app-pub-4276074242154795~4235223438")
+            resValue("string", "app_id", "ca-app-pub-4276074242154795~9558261597")
             resValue("string", "app_open", "ca-app-pub-4276074242154795/5352522071")
             resValue("string", "banner", "ca-app-pub-4276074242154795/2208299436")
             resValue("string", "collapsable_banner", "ca-app-pub-4276074242154795/6701610537")
@@ -378,7 +378,7 @@ android {
             resValue("string", "large_banner_new", "ca-app-pub-4276074242154795/1287452587")
             resValue("string", "banner_new_floor", "ca-app-pub-4276074242154795/1036171145")
             resValue("string", "large_banner", "ca-app-pub-4276074242154795/3359575483")
-            resValue("string","open_guide_back_up","ca-app-pub-4276074242154795/8824382350")
+            resValue("string", "open_guide_back_up", "ca-app-pub-4276074242154795/8824382350")
             resValue("string", "inline_banner", "ca-app-pub-4276074242154795/4176177401")
             resValue("string", "rewarded_interstitial", "ca-app-pub-4276074242154795/9445037725")
             resValue("string", "interstitial", "ca-app-pub-4276074242154795/9935225147")
@@ -395,22 +395,21 @@ android {
 //            resValue("string", "bigo_splash_id", "10182906-10158798")
 
 
-
-            resValue("string","survey_native_backup","ca-app-pub-4276074242154795/3076408872")
-            resValue("string","survey_native_all","ca-app-pub-4276074242154795/7891421120")
-            resValue("string","survey_native_medium","ca-app-pub-4276074242154795/6822915870")
-            resValue("string","survey_native_high","ca-app-pub-4276074242154795/3054227104")
-            resValue("string","native_gallery_back_up","ca-app-pub-4276074242154795/6965907177")
-            resValue("string","native_gallery_medium","ca-app-pub-4276074242154795/4360791104")
-            resValue("string","native_gallery_high","ca-app-pub-4276074242154795/8407777513")
+            resValue("string", "survey_native_backup", "ca-app-pub-4276074242154795/3076408872")
+            resValue("string", "survey_native_all", "ca-app-pub-4276074242154795/7891421120")
+            resValue("string", "survey_native_medium", "ca-app-pub-4276074242154795/6822915870")
+            resValue("string", "survey_native_high", "ca-app-pub-4276074242154795/3054227104")
+            resValue("string", "native_gallery_back_up", "ca-app-pub-4276074242154795/6965907177")
+            resValue("string", "native_gallery_medium", "ca-app-pub-4276074242154795/4360791104")
+            resValue("string", "native_gallery_high", "ca-app-pub-4276074242154795/8407777513")
 
             resValue("string", "native_uninstall_all", "ca-app-pub-4276074242154795/7153483120")
             resValue("string", "native_uninstall_medium", "ca-app-pub-4276074242154795/8526274547")
             resValue("string", "native_uninstall_high", "ca-app-pub-4276074242154795/1449730305")
 
-            resValue("string","open_screen_high","ca-app-pub-4276074242154795/2775634311")
-            resValue("string","open_screen_medium","ca-app-pub-4276074242154795/3076408872")
-            resValue("string","open_screen_backup","ca-app-pub-4276074242154795/4564224676")
+            resValue("string", "open_screen_high", "ca-app-pub-4276074242154795/2775634311")
+            resValue("string", "open_screen_medium", "ca-app-pub-4276074242154795/3076408872")
+            resValue("string", "open_screen_backup", "ca-app-pub-4276074242154795/4564224676")
             /* facebook app id for singular*/
             resValue("string", "facebook_id", "1116803502100807")
 
@@ -420,7 +419,7 @@ android {
 
             resValue("string", "interstitial_splash_back_up", "ca-app-pub-4276074242154795/2296387706")
 
-            resValue("string","native_backup_id","ca-app-pub-4276074242154795/9500207846")
+            resValue("string", "native_backup_id", "ca-app-pub-4276074242154795/9500207846")
 
             resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/7195679958")
             resValue("string", "banner_splash_all", "ca-app-pub-4276074242154795/9559746150")
@@ -437,16 +436,14 @@ android {
 
             resValue("string", "banner_medium", "  ca-app-pub-4276074242154795/6932618784")/* need to discuss*/
 
-            resValue("string", "save_inter_high", "ca-app-pub-4276074242154795/3006951685")
-            resValue("string", "save_inter_medium", "ca-app-pub-4276074242154795/1318465499")
-            resValue("string", "save_inter_backup", "ca-app-pub-4276074242154795/9935225147")
+            resValue("string", "save_inter_high", "ca-app-pub-4276074242154795/8591243404")
+            resValue("string", "save_inter_medium", "ca-app-pub-4276074242154795/9369138450")
+            resValue("string", "save_inter_backup", "ca-app-pub-4276074242154795/1832170033")
 
 
             resValue("string", "home_banner_backup", "ca-app-pub-4276074242154795/7564138209")
             resValue("string", "home_banner_medium", "ca-app-pub-4276074242154795/9200723312")//12
             resValue("string", "home_large_banner_high", "ca-app-pub-4276074242154795/6494107841")//41
-
-
 
 
             resValue("string", "onboard_one_medium", "ca-app-pub-4276074242154795/9322876771")
@@ -472,27 +469,20 @@ android {
             resValue("string", "native_advanced_video_high", "ca-app-pub-4276074242154795/3500941555")
 
 
-
-
-
-
-
-
-
             //nativeLanguageTwo
-            resValue("string", "native_language_alt_medium", "ca-app-pub-4276074242154795/2315009785")
+            resValue("string", "native_language_alt_medium", "ca-app-pub-4276074242154795/6409354074")
 
             //onBoardingOne ids
-            resValue("string", "on_boarding_one_back_up", "ca-app-pub-4276074242154795/3532064824")
-            resValue("string", "on_boarding_one_medium", "ca-app-pub-4276074242154795/4458133682")
+            resValue("string", "on_boarding_one_back_up", "ca-app-pub-4276074242154795/4206147974")
+            resValue("string", "on_boarding_one_medium", "ca-app-pub-4276074242154795/6592638165")
 
             //onBoardingTwo ids
-            resValue("string", "on_boarding_two_medium", "ca-app-pub-4276074242154795/4832827762")
-            resValue("string", "on_boarding_two_back_up", "ca-app-pub-4276074242154795/2206664423")
+            resValue("string", "on_boarding_two_medium", "ca-app-pub-4276074242154795/2893066300")
+            resValue("string", "on_boarding_two_back_up", "ca-app-pub-4276074242154795/1579984639")
 
             //onBoardingThree ids
-            resValue("string", "on_boarding_three_medium", "ca-app-pub-4276074242154795/6105299419")
-            resValue("string", "on_boarding_three_back_up", "ca-app-pub-4276074242154795/1737026603")
+            resValue("string", "on_boarding_three_medium", "ca-app-pub-4276074242154795/3255387759")
+            resValue("string", "on_boarding_three_back_up", "ca-app-pub-4276074242154795/1299308257")
 
             //fullNative onBoarding ids
             resValue("string", "full_native_on_board_medium", "ca-app-pub-4276074242154795/5811108808")
@@ -506,8 +496,6 @@ android {
 
             // resValue("string", "banner_bottom_high", "ca-app-pub-4276074242154795/7502230890")
             //testing ids
-
-
 
 
         }

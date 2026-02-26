@@ -34,7 +34,6 @@ import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.FragmentFeaturedBinding
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity.Companion.isFirstTime
-import com.fahad.newtruelovebyfahad.ui.activities.pro.OfferPanelActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.feature.pager.FeaturedPagerAdapter
 import com.fahad.newtruelovebyfahad.utils.gone
 import com.fahad.newtruelovebyfahad.utils.invisible
@@ -239,26 +238,17 @@ class FeaturedFragment : Fragment() {
     private fun FragmentFeaturedBinding.initListeners() {
 
         goProBottomRv.setSingleClickListener {
-            if (goProBottomRv.tag != null && goProBottomRv.tag == "gift") {
-                if (!ConstantsCommon.isGoProBottomRvClicked) {
-                    mActivity?.let {
-                        startActivity(Intent(it, OfferPanelActivity::class.java))
-                        hideGoProBottomRv()
-                    }
-                }
-            } else {
-                if (!ConstantsCommon.isGoProBottomRvClicked) {
-                    mActivity?.let {
+            if (!ConstantsCommon.isGoProBottomRvClicked) {
+                mActivity?.let {
 
-                        startActivity(Intent().apply {
-                            setClassName(
-                                it.applicationContext,
-                                getProScreen()
-                            )
-                            putExtra("from_frames", false)
-                        })
-                        hideGoProBottomRv()
-                    }
+                    startActivity(Intent().apply {
+                        setClassName(
+                            it.applicationContext,
+                            getProScreen()
+                        )
+                        putExtra("from_frames", false)
+                    })
+                    hideGoProBottomRv()
                 }
             }
         }

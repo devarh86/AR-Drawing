@@ -449,16 +449,8 @@
     <string name="template">テンプレート</string>
     <string name="app_name_new">AR Drawing アプリ</string>
 
-    <string name="boarding1_title">カルーセル</string>
-    <string name="boarding1_text_body">複数の投稿を簡単にスワイプ。</string>
-    <string name="boarding3_title">ストーリーズ</string>
-    <string name="boarding3_text_body">短命の全画面ビジュアルコンテンツ。</string>
-
     <string name="boarding4_title">スティッチ</string>
     <string name="boarding4_text_body">異なるクリップをシームレスに結合。</string>
-
-    <string name="boarding2_title">コラージュ</string>
-    <string name="boarding2_text_body">写真を1つのフレームに組み合わせる。</string>
 
     <string name="upgrade_plan_now">今すぐプランをアップグレード！</string>
     <string name="enjoy_unlimited_benefits_amp_features">無制限の特典と機能を楽しむ</string>
@@ -527,7 +519,114 @@
     <string name="enjoy_50_off_on_weekly_premium">週間プレミアムが50%オフ!</string>
 
 
+    <string name="apply">適用する</string>
+    <string name="preview">プレビュー</string>
+    <string name="projects">プロジェクト</string>
+    <string name="see_all">すべてを見る</string>
+    <string name="with_ad">広告付き</string>
 
+    <string name="_3_day_free_trial">3日間無料トライアル</string>
+    <string name="join_crsl_premium">CRSLプレミアムに参加する</string>
+
+
+    <string name="boarding1_title">描きやすい</string>
+    <string name="boarding1_text_body">バター紙をスマホに貼って描いてみます。</string>
+    <string name="boarding2_title">カメラで描く</string>
+    <string name="boarding2_text_body">携帯電話を手に持ったり立てたりして簡単に描くことができます。</string>
+    <string name="boarding3_title">自分の絵を描いてみよう</string>
+    <string name="boarding3_text_body">好きな写真に絵を描いたり、トレースしたり、色を塗ったりできます。</string>
+    <string name="let_s_draw">描いてみよう</string>
+    <string name="create_draw_and_have_fun">作って、描いて、楽しんでください！</string>
+    <string name="ar_drawing">AR描画</string>
+    <string name="import_gallery">インポートギャラリー</string>
+    <string name="photo_to_sketch">写真からスケッチへ</string>
+    <string name="learn_to_draw">絵を描くことを学ぶ</string>
+    <string name="my_art">私のアート</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">練習する</string>
+    <string name="s_home_h1_detail">描画スキルを向上させる簡単なレッスン</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">創造性</string>
+    <string name="s_home_h2_detail">楽しいステップバイステップの描画レッスン</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">テーマ</string>
+    <string name="s_home_h3_detail">テーマとスタイル別に図面を探索する</string>
+
+    <string name="s_home_h4">写真へ</string>
+    <string name="s_home_h4_sub">スケッチ</string>
+    <string name="s_home_h4_detail">画像を芸術的な鉛筆スケッチに変換します。</string>
+
+    <string name="start">始める</string>
+    <string name="settings">設定</string>
+    <string name="unlock_premium_features">プレミアム機能のロックを解除</string>
+    <string name="terms_and_conditions">利用規約</string>
+
+    <string name="watch_an_ad">広告を見る</string>
+    <string name="pro_face_swap">プロのフェイススワップ</string>
+    <string name="swap">スワップ</string>
+    <string name="upload_image_template">画像テンプレートのアップロード</string>
+    <string name="upload_or_take_your_image_please_clear_face">画像をアップロードまたは撮影してください。顔が鮮明に写っている必要があります。</string>
+    <string name="upload_your_face">あなたの顔をアップロード</string>
+    <string name="create">作成する</string>
+    <string name="saving_your_image">画像を保存する</string>
+    <string name="processing_your_masterpiece">あなたの傑作を加工中…🎨</string>
+    <string name="face_swap">フェイススワップ</string>
+    <string name="edit_more">さらに編集</string>
+    <string name="please_crop">より良い結果を得るには、画像を同じ比率にトリミングしてください</string>
+    <string name="stay_with_us">私たちと一緒にいて、あなたの体験が\n始まります！\n</string>
+    <string name="got_it">わかった</string>
+
+    <string name="pencil_sketch">鉛筆スケッチ</string>
+    <string name="sketch_now">今すぐスケッチ</string>
+    <string name="upgrade_to_pro">プロにアップグレード</string>
+    <string name="enjoy_all_drawings">すべての絵、ツール、そして楽しみを楽しみましょう</string>
+    <string name="sketch_loading">写真をスケッチする — 線が生き生きと動き出す…</string>
+    <string name="sketch_ready">スケッチが形になりつつあります!</string>
+    <string name="memory_sketching">あなたの記憶を鉛筆アートに変える…</string>
+    <string name="sketch_details_fit">線と陰影がぴったり合う！</string>
+    <string name="sketch_progress">スケッチマジック進行中…</string>
+    <string name="sketch_placing_details">細部まで描き込む…</string>
+    <string name="sketch_looking_timeless">クラシックな外観 — スケッチとして登場!</string>
+    <string name="sketch_you_brought_it_back">わあ！そのスケッチは生き生きしてるね！</string>
+    <string name="sketch_healing_memories">思い出を大切にスケッチします…</string>
+    <string name="sketch_almost">もうすぐ終わりです。あとは最後のストロークだけです。</string>
+    <string name="sketch_damage_detected">エッジを調整してラインを洗練させます。</string>
+    <string name="sketch_transforming">写真を手描きアートに変える…</string>
+    <string name="sketch_uploading">あなたの写真をスケッチアーティストに送信しています…</string>
+    <string name="sketch_final_touch">最後のシェーディング — これにはスキルが必要です!</string>
+    <string name="sketch_blast">このスケッチは一味違います!</string>
+    <string name="sketch_new_life">新鮮なスケッチの雰囲気が漂ってきます!</string>
+    <string name="sketch_details_locked">詳細がロックされました - プロのようにスケッチします!</string>
+    <string name="sketch_wait">待って…鉛筆マジック装填！</string>
+    <string name="sketch_alignment">ストロークを完璧に揃える…</string>
+    <string name="sketch_memory_repairing">スケッチを改良中です…</string>
+    <string name="sketch_about_to_shine">準備してください。あなたのスケッチは輝きます!</string>
+    <string name="sketch_epic">壮大なスケッチを作成中です!</string>
+    <string name="sketch_ready_to_reveal">もうすぐ準備完了です。スケッチをすぐに公開します。</string>
+    <string name="sketch_restoring_clarity">線とコントラストを強調します…</string>
+    <string name="sketch_scratches_fading">角が取れてきた…</string>
+    <string name="sketch_time_travel_mode">スケッチモード：オン✏️</string>
+    <string name="sketch_magic_at_work">スケッチマジックの成果をお楽しみに！</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">私たちのアプリは気に入っていますか?</string>
+    <string name="sketch">スケッチ</string>
+    <string name="trace">トレース</string>
+    <string name="drawing_now">今すぐ描く</string>
+    <string name="how_to_draw">描き方</string>
+    <string name="picture">写真</string>
+    <string name="camera">カメラ</string>
+    <string name="stop_drawing">描くのをやめますか？</string>
+    <string name="you_want_to_stop_drawing">絵を描くのをやめたい</string>
+    <string name="yes_discard">いいえ、しないでください</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">カメラで続行</string>
+    <string name="with_cam">カメラ付き</string>
+    <string name="without_camera">カメラなしで続行</string>
+    <string name="without_cam">カメラなし</string>
 
 
 

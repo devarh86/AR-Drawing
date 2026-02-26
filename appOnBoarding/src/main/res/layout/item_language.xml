@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Vietnamese"
-            android:textColor="@color/language_item_txt_color"
+            android:textColor="@color/text_color"
             android:textSize="@dimen/_12sdp" />
 
         <ImageView

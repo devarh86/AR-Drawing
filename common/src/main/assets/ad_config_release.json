@@ -4,9 +4,9 @@
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-4276074242154795/1871498798",
-        "ca-app-pub-4276074242154795/6014047498",
-        "ca-app-pub-4276074242154795/3870976174"
+        "ca-app-pub-4276074242154795/1176659959",
+        "ca-app-pub-4276074242154795/2853252441",
+        "ca-app-pub-4276074242154795/1540170771"
       ]
     },
     "interstitial": {
@@ -24,9 +24,9 @@
     "app_open": {
       "is_enabled": true,
       "ad_unit_ids": [
-        "ca-app-pub-4276074242154795/7135557470",
-        "ca-app-pub-4276074242154795/7092035881",
-        "ca-app-pub-4276074242154795/4509394131"
+        "ca-app-pub-4276074242154795/5403673406",
+        "ca-app-pub-4276074242154795/1294690396",
+        "ca-app-pub-4276074242154795/7668527059"
       ]
     },
     "timeout": 7000,
@@ -38,35 +38,39 @@
     "start_count": 0,
     "after_start_count": 1,
     "always_show": false,
-    "is_enabled": false,
+    "is_enabled": true,
     "ad_unit_ids": [
-      "",
-      "",
-      ""
+      "ca-app-pub-4276074242154795/9519088369",
+      "ca-app-pub-4276074242154795/4302969446",
+      "ca-app-pub-4276074242154795/5329110653"
+    ]
+  },
+  "save_interstitial": {
+    "floor": 2,
+    "start_count": 0,
+    "after_start_count": 1,
+    "always_show": true,
+    "is_enabled": true,
+    "ad_unit_ids": [
+      "ca-app-pub-4276074242154795/8591243404",
+      "ca-app-pub-4276074242154795/9369138450",
+      "ca-app-pub-4276074242154795/1832170033"
     ]
   },
   "rewarded": {
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/4109691467",
-      "ca-app-pub-4276074242154795/6368915497",
-      "ca-app-pub-4276074242154795/5560721546"
-    ]
-  },
-  "rewarded_frames": {
-    "is_enabled": true,
-    "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/4247639877",
-      "ca-app-pub-4276074242154795/7933386400",
-      "ca-app-pub-4276074242154795/1483528127"
+      "ca-app-pub-4276074242154795/9493493043",
+      "ca-app-pub-4276074242154795/6867329705",
+      "ca-app-pub-4276074242154795/5554248034"
     ]
   },
   "app_open_resume": {
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/5036718180",
-      "ca-app-pub-4276074242154795/3196312460",
-      "ca-app-pub-4276074242154795/1883230791"
+      "ca-app-pub-4276074242154795/3974762424",
+      "ca-app-pub-4276074242154795/4732761587",
+      "ca-app-pub-4276074242154795/4981432777"
     ]
   },
   "language_screen": {
@@ -74,18 +78,18 @@
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-4276074242154795/8257067458",
-        "ca-app-pub-4276074242154795/6149778868",
-        "ca-app-pub-4276074242154795/8462733975"
+        "ca-app-pub-4276074242154795/2355269438",
+        "ca-app-pub-4276074242154795/9553843423",
+        "ca-app-pub-4276074242154795/3891712383"
       ]
     },
     "native_after_selection": {
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-4276074242154795/1097473173",
-        "ca-app-pub-4276074242154795/9526627533",
-        "ca-app-pub-4276074242154795/8584370512"
+        "ca-app-pub-4276074242154795/8729106095",
+        "ca-app-pub-4276074242154795/6409354074",
+        "ca-app-pub-4276074242154795/3419679911"
       ]
     },
     "interstitial": {
@@ -93,11 +97,11 @@
       "start_count": 0,
       "after_start_count": 1,
       "always_show": false,
-      "is_enabled": true,
+      "is_enabled": false,
       "ad_unit_ids": [
-        "ca-app-pub-4276074242154795/9362018141",
-        "ca-app-pub-4276074242154795/8971028104",
-        "ca-app-pub-4276074242154795/6811876422"
+        "",
+        "",
+        ""
       ]
     }
   },
@@ -105,63 +109,66 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/1085154440",
-      "ca-app-pub-4276074242154795/4458133682",
-      "ca-app-pub-4276074242154795/3532064824"
+      "ca-app-pub-4276074242154795/6026210694",
+      "ca-app-pub-4276074242154795/6592638165",
+      "ca-app-pub-4276074242154795/4206147974"
     ]
   },
   "onboarding_2_native": {
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/4531227820",
-      "ca-app-pub-4276074242154795/4832827762",
-      "ca-app-pub-4276074242154795/2206664423"
+      "ca-app-pub-4276074242154795/9296082304",
+      "ca-app-pub-4276074242154795/2893066300",
+      "ca-app-pub-4276074242154795/1579984639"
     ]
   },
   "onboarding_3_native": {
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/7094662041",
-      "ca-app-pub-4276074242154795/6105299419",
-      "ca-app-pub-4276074242154795/1737026603"
+      "ca-app-pub-4276074242154795/7983000630",
+      "ca-app-pub-4276074242154795/3255387759",
+      "ca-app-pub-4276074242154795/1299308257"
     ]
   },
-  "onboarding_4_native": {
+  "started_interstitial": {
+    "floor": 2,
+    "start_count": 1,
+    "after_start_count": 1,
+    "always_show": true,
     "is_enabled": true,
-    "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/4171618250",
-      "ca-app-pub-4276074242154795/1078551057",
-      "ca-app-pub-4276074242154795/2733030612"
+      "ca-app-pub-4276074242154795/4376897731",
+      "ca-app-pub-4276074242154795/9862934809",
+      "ca-app-pub-4276074242154795/3311228076"
     ]
   },
   "processing_native": {
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/5638395554",
-      "ca-app-pub-4276074242154795/5307223069",
-      "ca-app-pub-4276074242154795/9886979360"
+      "ca-app-pub-4276074242154795/4610608126",
+      "ca-app-pub-4276074242154795/5306836023",
+      "ca-app-pub-4276074242154795/3993754358"
     ]
   },
   "exit_save_native": {
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/2681059728",
-      "ca-app-pub-4276074242154795/4369010487",
-      "ca-app-pub-4276074242154795/1413628369"
+      "ca-app-pub-4276074242154795/4610608126",
+      "ca-app-pub-4276074242154795/5306836023",
+      "ca-app-pub-4276074242154795/3993754358"
     ]
   },
   "app_banner": {
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/1813048226",
-      "ca-app-pub-4276074242154795/6139306041",
-      "ca-app-pub-4276074242154795/2541458921"
+      "ca-app-pub-4276074242154795/6171101804",
+      "ca-app-pub-4276074242154795/9918775128",
+      "ca-app-pub-4276074242154795/3110372936"
     ]
   },
   "global_settings": {

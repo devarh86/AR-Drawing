@@ -30,8 +30,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/pro_tag_anim" />
+            app:lottie_loop="true" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text"
@@ -99,7 +98,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/shimmer" />
+            android:background="@color/container_clr_activity" />
     </com.facebook.shimmer.ShimmerFrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

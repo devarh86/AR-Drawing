@@ -451,16 +451,8 @@
     <string name="template">Template</string>
     <string name="app_name_new">Aplikasi AR Drawing</string>
 
-    <string name="boarding1_title">Carousel</string>
-    <string name="boarding1_text_body">Geser melalui beberapa postingan dengan mudah.</string>
-    <string name="boarding3_title">Cerita</string>
-    <string name="boarding3_text_body">Konten visual layar penuh yang berumur pendek.</string>
-
     <string name="boarding4_title">Gabungkan</string>
     <string name="boarding4_text_body">Satukan klip berbeda dengan mulus.</string>
-
-    <string name="boarding2_title">Kolase</string>
-    <string name="boarding2_text_body">Gabungkan foto dalam satu bingkai.</string>
 
     <string name="upgrade_plan_now">Tingkatkan Paket Sekarang!</string>
     <string name="enjoy_unlimited_benefits_amp_features">Nikmati Manfaat &amp; Fitur Tanpa Batas</string>
@@ -505,7 +497,6 @@
     <string name="unlock_all_premium_frames_forever">Buka kunci semua frame premium selamanya</string>
 
 
-
     <string name="upgrade_to_premium">Tingkatkan ke Premium</string>
     <string name="unlock_the_full_experience">Buka pengalaman lengkap</string>
     <string name="unlock_all_premium_templates">Buka Semua Template Premium</string>
@@ -524,13 +515,114 @@
 
     <string name="enjoy_50_off_on_weekly_premium">Genießen Sie 50% Rabatt auf Wöchentliches Premium!</string>
 
+    <string name="apply">Menerapkan</string>
+    <string name="preview">Pratinjau</string>
+    <string name="projects">Proyek</string>
+    <string name="see_all">Lihat Semua</string>
+    <string name="with_ad">Dengan iklan</string>
+
+    <string name="_3_day_free_trial">Uji Coba Gratis 3 Hari</string>
+    <string name="join_crsl_premium">Bergabunglah dengan CRSL Premium</string>
 
 
+    <string name="boarding1_title">Mudah Digambar</string>
+    <string name="boarding1_text_body">Letakkan kertas minyak di atas ponsel dan gambarlah di atasnya.</string>
+    <string name="boarding2_title">Menggambar dengan Kamera</string>
+    <string name="boarding2_text_body">Pegang atau letakkan ponsel Anda agar mudah menggambarnya.</string>
+    <string name="boarding3_title">Gambarlah Gambarmu Sendiri</string>
+    <string name="boarding3_text_body">Gambar, jiplak, dan warnai foto apa pun yang kamu sukai!</string>
+    <string name="let_s_draw">Mari Menggambar</string>
+    <string name="create_draw_and_have_fun">Berkreasi, menggambar, dan bersenang-senang!</string>
+    <string name="ar_drawing">Gambar AR</string>
+    <string name="import_gallery">Impor Galeri</string>
+    <string name="photo_to_sketch">Foto ke Sketsa</string>
+    <string name="learn_to_draw">Belajar Menggambar</string>
+    <string name="my_art">Seni Saya</string>
 
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">Praktik</string>
+    <string name="s_home_h1_detail">Pelajaran mudah untuk meningkatkan keterampilan menggambar</string>
 
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">Kreativitas</string>
+    <string name="s_home_h2_detail">Pelajaran menggambar langkah demi langkah yang menyenangkan</string>
 
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">Tema</string>
+    <string name="s_home_h3_detail">Jelajahi gambar berdasarkan tema dan gaya.</string>
 
+    <string name="s_home_h4">Foto ke</string>
+    <string name="s_home_h4_sub">Sketsa</string>
+    <string name="s_home_h4_detail">Ubah gambar menjadi sketsa pensil artistik.</string>
 
+    <string name="start">Awal</string>
+    <string name="settings">Pengaturan</string>
+    <string name="unlock_premium_features">Aktifkan Fitur Premium</string>
+    <string name="terms_and_conditions">syarat dan Ketentuan</string>
+
+    <string name="watch_an_ad">Tonton Iklan</string>
+    <string name="pro_face_swap">Pertukaran Wajah Profesional</string>
+    <string name="swap">Menukar</string>
+    <string name="upload_image_template">Unggah Templat Gambar</string>
+    <string name="upload_or_take_your_image_please_clear_face">Unggah atau ambil foto Anda. Harap pastikan wajah Anda terlihat jelas.</string>
+    <string name="upload_your_face">Unggah Wajah Anda</string>
+    <string name="create">Membuat</string>
+    <string name="saving_your_image">Menyimpan gambar Anda</string>
+    <string name="processing_your_masterpiece">Memproses karya agung Anda… 🎨</string>
+    <string name="face_swap">Pertukaran Wajah</string>
+    <string name="edit_more">Edit selengkapnya</string>
+    <string name="please_crop">Harap potong gambar dengan rasio yang sama untuk hasil yang lebih baik.</string>
+    <string name="stay_with_us">Tetaplah bersama kami, pengalaman Anda akan segera dimulai!</string>
+    <string name="got_it">Mengerti</string>
+
+    <string name="pencil_sketch">Sketsa Pensil</string>
+    <string name="sketch_now">Sketsa Sekarang</string>
+    <string name="upgrade_to_pro">Tingkatkan ke versi pro</string>
+    <string name="enjoy_all_drawings">Nikmati semua gambar, peralatan, dan keseruannya.</string>
+    <string name="sketch_loading">Menggambar sketsa foto Anda — garis-garis menjadi hidup…</string>
+    <string name="sketch_ready">Sketsa Anda mulai terbentuk!</string>
+    <string name="memory_sketching">Mengubah kenanganmu menjadi karya seni pensil…</string>
+    <string name="sketch_details_fit">Garis dan gradasi warna mulai tersusun rapi!</string>
+    <string name="sketch_progress">Proses pembuatan sketsa yang menakjubkan…</string>
+    <string name="sketch_placing_details">Menggambar setiap detail terkecil…</string>
+    <string name="sketch_looking_timeless">Tampilan klasik — kini dalam bentuk sketsa!</string>
+    <string name="sketch_you_brought_it_back">Wow! Sketsa itu terlihat hidup!</string>
+    <string name="sketch_healing_memories">Mengabadikan kenangan dengan penuh perhatian…</string>
+    <string name="sketch_almost">Hampir selesai — tinggal beberapa sentuhan akhir!</string>
+    <string name="sketch_damage_detected">Menyesuaikan tepi — menyempurnakan garis!</string>
+    <string name="sketch_transforming">Mengubah foto menjadi karya seni gambar tangan…</string>
+    <string name="sketch_uploading">Mengirim foto Anda ke seniman sketsa…</string>
+    <string name="sketch_final_touch">Pemberian bayangan akhir — ini membutuhkan keahlian!</string>
+    <string name="sketch_blast">Sketsa ini terasa berbeda!</string>
+    <string name="sketch_new_life">Nuansa sketsa segar mulai terasa!</string>
+    <string name="sketch_details_locked">Detail sudah dikunci — menggambar sketsa seperti seorang profesional!</string>
+    <string name="sketch_wait">Tunggu sebentar… keajaiban pensil sedang dimuat!</string>
+    <string name="sketch_alignment">Menyelaraskan goresan dengan sempurna…</string>
+    <string name="sketch_memory_repairing">Sketsa Anda sedang disempurnakan…</string>
+    <string name="sketch_about_to_shine">Bersiaplah — sketsa Anda akan bersinar!</string>
+    <string name="sketch_epic">Proses pembuatan sketsa epik sedang berlangsung!</string>
+    <string name="sketch_ready_to_reveal">Hampir siap — sketsanya akan segera diungkapkan!</string>
+    <string name="sketch_restoring_clarity">Meningkatkan garis dan kontras…</string>
+    <string name="sketch_scratches_fading">Sisi-sisi kasar mulai dihaluskan…</string>
+    <string name="sketch_time_travel_mode">Mode sketsa: AKTIF ✏️</string>
+    <string name="sketch_magic_at_work">Sketsa keajaiban sedang dibuat — pantau terus!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Apakah Anda menyukai aplikasi kami?</string>
+    <string name="sketch">Sketsa</string>
+    <string name="trace">Jejak</string>
+    <string name="drawing_now">Menggambar Sekarang</string>
+    <string name="how_to_draw">Cara menggambar</string>
+    <string name="picture">Gambar</string>
+    <string name="camera">Kamera</string>
+    <string name="stop_drawing">Berhenti Menggambar?</string>
+    <string name="you_want_to_stop_drawing">Anda ingin berhenti menggambar</string>
+    <string name="yes_discard">Tidak, jangan</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Lanjutkan dengan Kamera</string>
+    <string name="with_cam">Dengan Kamera</string>
+    <string name="without_camera">Lanjutkan Tanpa Kamera</string>
+    <string name="without_cam">Tanpa Kamera</string>
 
 
 </resources>

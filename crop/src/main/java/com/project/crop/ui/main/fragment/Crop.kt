@@ -20,9 +20,9 @@ import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.ads.Constants
-import com.example.ads.Constants.interstitialStrategyOld
-import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.example.ads.utils.interstitialBack
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.project.common.utils.eventForGalleryAndEditor
@@ -377,11 +377,12 @@ class Crop : Fragment() {
                                                 "CROP_AD",
                                                 "initClick:  cropper ad---${Constants.showCropAd} "
                                             )
-                                            activity?.showInterstitial({
+
+                                            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
                                                 findNavController().popBackStack()
-                                            }, {
-                                                findNavController().popBackStack()
-                                            }, showAd = Constants.showCropAd, onCheck = true)
+                                            }
+
                                         }
                                     }.onFailure {}
                                 } ?: run {}
@@ -410,24 +411,24 @@ class Crop : Fragment() {
     private fun backPress() {
         try {
 
-                runCatching {
-                    activity?.showNewInterstitial(activity?.interstitialBack()) {
-                        runCatching {
-                            if (isOpenFromBlend) {
-                                eventForGalleryAndEditor("crop_blend", "back")
-                            } else if (isOpenFromEnhancer) {
-                                eventForGalleryAndEditor("crop_enhancer", "back")
-                            }
-                            setFragmentResult(
-                                "fromCrop",
-                                bundleOf(
-                                    "refresh" to true
-                                )
-                            )
-                            findNavController().popBackStack()
+            runCatching {
+                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                    runCatching {
+                        if (isOpenFromBlend) {
+                            eventForGalleryAndEditor("crop_blend", "back")
+                        } else if (isOpenFromEnhancer) {
+                            eventForGalleryAndEditor("crop_enhancer", "back")
                         }
+                        setFragmentResult(
+                            "fromCrop",
+                            bundleOf(
+                                "refresh" to true
+                            )
+                        )
+                        findNavController().popBackStack()
                     }
                 }
+            }
 
         } catch (ex: Exception) {
             Log.e("error", "backPress: ", ex)

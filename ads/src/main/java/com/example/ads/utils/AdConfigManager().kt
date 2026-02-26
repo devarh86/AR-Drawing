@@ -6,11 +6,6 @@ import com.example.ads.Constants.InterstitialUnInstall
 import com.example.ads.Constants.adUnInstallNativeFloor
 import com.example.ads.Constants.enableHomeInterAd
 import com.example.ads.Constants.enableObLastInterAd
-import com.example.ads.Constants.interstitialBack
-import com.example.ads.Constants.interstitialBackAfterStartCount
-import com.example.ads.Constants.interstitialBackAlwaysShow
-import com.example.ads.Constants.interstitialBackFloor
-import com.example.ads.Constants.interstitialBackStartCount
 import com.example.ads.Constants.interstitialHomeAfterStartCount
 import com.example.ads.Constants.interstitialHomeAlwaysShow
 import com.example.ads.Constants.interstitialHomeFloor
@@ -38,14 +33,11 @@ import com.example.ads.Constants.introScreenAdUi
 import com.example.ads.Constants.introductionFloor
 import com.example.ads.Constants.lfoOneNativeId
 import com.example.ads.Constants.lfoTwoNativeId
-import com.example.ads.Constants.loadInterstitialSave
 import com.example.ads.Constants.loadNativeFullOne
 import com.example.ads.Constants.loadNativeFullTwo
-import com.example.ads.Constants.loadNativeLanguageSetting
 import com.example.ads.Constants.loadNativeLfOne
 import com.example.ads.Constants.loadNativeLfTwo
 import com.example.ads.Constants.loadNativeMetaLayout
-import com.example.ads.Constants.loadNativeObFour
 import com.example.ads.Constants.loadNativeObOne
 import com.example.ads.Constants.loadNativeObThree
 import com.example.ads.Constants.loadNativeObTwo
@@ -55,7 +47,6 @@ import com.example.ads.Constants.nativeProcessingId
 import com.example.ads.Constants.nativeReasonUninstall
 import com.example.ads.Constants.nativeReloadLimit
 import com.example.ads.Constants.newAdsConfig
-import com.example.ads.Constants.onBoardingFourNativeId
 import com.example.ads.Constants.onBoardingFullOneNativeId
 import com.example.ads.Constants.onBoardingFullTwoNativeId
 import com.example.ads.Constants.onBoardingOneNativeId
@@ -208,21 +199,24 @@ fun Activity.nativeShareConfig(): AdConfigModel? {
 
 fun Activity.interstitialBack(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.interstitial_back_high),
-            idMedium = ContextCompat.getString(this, R.string.interstitial_back_medium),
-            idBackUp = ContextCompat.getString(this, R.string.interstitial_back_all),
-            reloadLimit = interstitialBackFloor,
-            whichAd = AdsClassification.INTERSTITIAL,
-            enable = interstitialBack,
-            currentActivityOrFragment = "BACK",
-            interstitialAdModel = InterstitialAdModel().apply {
-                interstitialAdFirstShowCount = interstitialBackStartCount
-                interstitialAdAlwaysShow = interstitialBackAlwaysShow
-                interstitialAdAfterFirstShowSteps = interstitialBackAfterStartCount
-                interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
-            }
-        )
+        val interAd = newAdsConfig?.appInterstitial
+        interAd?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.all_inter_high),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.all_inter_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.all_inter_backup),
+                enable = enableHomeInterAd,
+                reloadLimit = interstitialHomeFloor,
+                whichAd = AdsClassification.INTERSTITIAL,
+                currentActivityOrFragment = "INTER_BACK_PRESS",
+                interstitialAdModel = InterstitialAdModel().apply {
+                    interstitialAdFirstShowCount = interstitialHomeStartCount
+                    interstitialAdAlwaysShow = interstitialHomeAlwaysShow
+                    interstitialAdAfterFirstShowSteps = interstitialHomeAfterStartCount
+                    interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
+                }
+            )
+        }
     } catch (ex: Exception) {
         null
     }
@@ -431,19 +425,23 @@ fun Activity.question(): AdConfigModel? {
 
 fun Activity.nativeLanguageSetting(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.native_high_setting_language),
-            idMedium = ContextCompat.getString(this, R.string.native_high_setting_medium),
-            idBackUp = ContextCompat.getString(this, R.string.native_high_setting_backup),
-            reloadLimit = nativeReloadLimit.toInt(),
-            whichAd = AdsClassification.NATIVE,
-            isAboveCtr = false,
-            isMetaLayout = loadNativeMetaLayout,
-            enable = loadNativeLanguageSetting,
-            adMobLayoutId = if (loadNativeOld) R.layout.layout_native_large_onboarding_old else R.layout.layout_native_large_onboarding,
-            metaLayoutId = R.layout.meta_native_layout_onboarding,
-            currentActivityOrFragment = "LF_SETTING"
-        )
+        newAdsConfig?.languageScreen?.nativeAfterSelection?.let {
+            AdConfigModel(
+                idHigh = lfoTwoNativeId,
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.native_language_alt_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.native_language_alt_back_up),
+                reloadLimit = it.reloadLimit ?: nativeReloadLimit.toInt(),
+                whichAd = AdsClassification.NATIVE,
+                isAboveCtr = false,
+                isMetaLayout = loadNativeMetaLayout,
+                enable = loadNativeLfTwo,
+                adMobLayoutId = if (loadNativeOld) R.layout.layout_native_large_onboarding_old else R.layout.layout_native_large_onboarding,
+                metaLayoutId = R.layout.meta_native_layout_onboarding,
+                currentActivityOrFragment = "LF_SETTING"
+            )
+        } ?: run {
+            null
+        }
     } catch (ex: Exception) {
         null
     }
@@ -458,9 +456,9 @@ fun nativeSplash(): AdConfigModel? {
         //              idBackUp = ContextCompat.getString(this, R.string.splash_native_backup),
 
         AdConfigModel(
-            idHigh = "ca-app-pub-3940256099942544/2247696110",
-            idMedium = "ca-app-pub-3940256099942544/2247696110",
-            idBackUp = "ca-app-pub-3940256099942544/2247696110",
+            idHigh = "ca-app-pub-4276074242154795/1176659959",
+            idMedium = "ca-app-pub-4276074242154795/2853252441",
+            idBackUp = "ca-app-pub-4276074242154795/1540170771",
             reloadLimit = 2,
             whichAd = AdsClassification.NATIVE,
             isAboveCtr = false,
@@ -601,7 +599,7 @@ fun Activity.onBoardNativeThree(): AdConfigModel? {
 }
 
 fun Activity.onBoardNativeFour(): AdConfigModel? {
-    return try {
+    /*return try {
         newAdsConfig?.onboarding4Native?.let {
             AdConfigModel(
                 idHigh = onBoardingFourNativeId,
@@ -622,7 +620,9 @@ fun Activity.onBoardNativeFour(): AdConfigModel? {
 
     } catch (ex: Exception) {
         null
-    }
+    }*/
+
+    return null
 }
 
 fun Activity.fullNativeOne(): AdConfigModel? {
@@ -739,30 +739,33 @@ fun obLastInterstitial(): AdConfigModel? {
 //old
 fun Activity.saveInterstitial(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.save_inter_high),
-            idMedium = ContextCompat.getString(this, R.string.save_inter_medium),
-            idBackUp = ContextCompat.getString(this, R.string.save_inter_backup),
-            enable = loadInterstitialSave,
-            whichAd = AdsClassification.INTERSTITIAL,
-        )
+        val interAd = newAdsConfig?.saveInterstitial
+        interAd?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_high),
+                idMedium = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_medium),
+                idBackUp = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_backup),
+                enable = it.isEnabled == true,
+                whichAd = AdsClassification.INTERSTITIAL,
+            )
+        }
     } catch (ex: Exception) {
         null
     }
 }
 
-fun Activity.languageInterstitial(): AdConfigModel? {
+fun Activity.startedInterstitial(): AdConfigModel? {
     return try {
-        val interAd = newAdsConfig?.languageScreen?.interstitial
+        val interAd = newAdsConfig?.startedInterstitial
         interAd?.let {
             AdConfigModel(
-                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.lang_inter_high),
-                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.lang_inter_medium),
-                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.lang_inter_backup),
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.started_inter_high),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.started_inter_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.started_inter_backup),
                 enable = it.isEnabled == true,
                 reloadLimit = it.floor ?: 2,
                 whichAd = AdsClassification.INTERSTITIAL,
-                currentActivityOrFragment = "LANGUAGE_INTER",
+                currentActivityOrFragment = "STARTED_INTER",
                 interstitialAdModel = InterstitialAdModel().apply {
                     interstitialAdFirstShowCount = it.startCount ?: 1
                     interstitialAdAlwaysShow = it.alwaysShow ?: false

@@ -261,6 +261,7 @@ class SavedFragment : Fragment() {
 
     private fun FragmentSavedBinding.initListeners() {
         tryNowBtn.setOnSingleClickListener { navController?.navigateUp() }
+        backImg.setOnSingleClickListener { navController?.navigateUp() }
     }
 
     private fun FragmentSavedBinding.initObservers() {
@@ -332,7 +333,7 @@ class SavedFragment : Fragment() {
         declineAction: () -> Unit
     ) {
         val appPermissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
-            arrayOf(Manifest.permission.READ_MEDIA_IMAGES,Manifest.permission.CAMERA)
+            arrayOf(Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA)
         else arrayOf(
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,

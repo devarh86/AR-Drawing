@@ -70,6 +70,7 @@ fun Context?.loadBitmap(path: Any, myCallback: (Bitmap) -> Unit) {
     }
 }
 
+
 suspend fun Bitmap.saveMediaToStorage(context: Context, onUriCreated: (String?) -> Unit) {
 
     var fos: OutputStream? = null

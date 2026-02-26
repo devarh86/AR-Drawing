@@ -32,7 +32,7 @@ class FeedbackRV(
                                 text.setTextColor(
                                     ContextCompat.getColor(
                                         root.context,
-                                        com.project.common.R.color.btn_txt_clr
+                                        com.project.common.R.color.text_color
                                     )
                                 )
                                 text.background = ContextCompat.getDrawable(

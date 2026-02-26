@@ -9,21 +9,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.ads.Constants
-import com.example.ads.Constants.homeNewInterStrategy
 import com.example.ads.Constants.loadBannerOnBoardFour
-import com.example.ads.Constants.loadBannerOnBoardThree
 import com.example.ads.admobs.utils.OnBoardingAds
 import com.example.ads.admobs.utils.loadAndShowOnBoardingAds
-import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
 import com.example.ads.admobs.utils.onPauseONBoardingBanner
 import com.example.ads.dialogs.hide
 import com.example.ads.dialogs.show
-import com.example.ads.utils.homeInterstitial
-import com.example.ads.utils.obLastInterstitial
 import com.example.ads.utils.onBoardNativeFour
-import com.example.ads.utils.onBoardNativeThree
 import com.example.apponboarding.databinding.FragmentOnBoardingFourBinding
-import com.example.apponboarding.databinding.FragmentOnBoardingThreeBinding
 import com.example.apponboarding.ui.main.activity.OnBoardingActivity
 import com.project.common.utils.setOnSingleClickListener
 import java.lang.ref.WeakReference
@@ -58,8 +51,6 @@ class FragmentOnBoardingFour : Fragment() {
             }
         }
 
-
-            activity?.loadNewInterstitialWithoutStrategyCheck(activity?.homeInterstitial()) {}
 
     }
 

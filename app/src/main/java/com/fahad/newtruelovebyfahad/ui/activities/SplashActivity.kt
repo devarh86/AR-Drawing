@@ -858,7 +858,7 @@ class SplashActivity : AppCompatActivity() {
             interstitialHomeStartCount = adConfigModel.appInterstitial?.startCount ?: 0
             interstitialHomeAfterStartCount = adConfigModel.appInterstitial?.afterStartCount ?: 1
             interstitialHomeAlwaysShow = adConfigModel.appInterstitial?.alwaysShow ?: false
-            splashTime =(adConfigModel.splashScreen?.time ?: 500L).toLong()
+            splashTime =(adConfigModel.splashScreen?.time ?: 5000L).toLong()
           //  splashTimeOut = (adConfigModel.splashScreen?.timeout ?: 10000L).toLong()
             splashTimeOut = (adConfigModel.splashScreen?.timeout ?: 7000L).toLong()
             // set in remote json
@@ -869,21 +869,19 @@ class SplashActivity : AppCompatActivity() {
             loadNativeObOne = adConfigModel.onboarding1Native?.isEnabled ?: true
             loadNativeObTwo = adConfigModel.onboarding2Native?.isEnabled ?: true
             loadNativeObThree = adConfigModel.onboarding3Native?.isEnabled ?: true
-            loadNativeObFour = adConfigModel.onboarding4Native?.isEnabled ?: true
+            loadNativeObFour = false
             showAllAppOpenAd = adConfigModel.appOpenResume?.isEnabled ?: true
-            onBoardingOneNativeId = adConfigModel.onboarding1Native?.adUnitIds?.getOrNull(0) ?: "ca-app-pub-4276074242154795/8502828396"
+            onBoardingOneNativeId = adConfigModel.onboarding1Native?.adUnitIds?.getOrNull(0) ?: "ca-app-pub-4276074242154795/6026210694"
             onBoardingTwoNativeId = adConfigModel.onboarding2Native?.adUnitIds?.getOrNull(0)
                 ?: "ca-app-pub-4276074242154795/8852923006"
             onBoardingThreeNativeId = adConfigModel.onboarding3Native?.adUnitIds?.getOrNull(0)
                 ?: "ca-app-pub-4276074242154795/1799627163"
-            onBoardingFourNativeId = adConfigModel.onboarding4Native?.adUnitIds?.getOrNull(0)
-                ?: "ca-app-pub-4276074242154795/8855990101"
             lfoOneNativeId =
                 adConfigModel.languageScreen?.nativeBeforeSelection?.adUnitIds?.getOrNull(0)
-                    ?: "ca-app-pub-4276074242154795/3847868719"
+                    ?: "ca-app-pub-4276074242154795/2355269438"
             lfoTwoNativeId =
                 adConfigModel.languageScreen?.nativeAfterSelection?.adUnitIds?.getOrNull(0)
-                    ?: "ca-app-pub-4276074242154795/6254254792"
+                    ?: "ca-app-pub-4276074242154795/8729106095"
             splashInterAdId = adConfigModel.splashScreen?.interstitial?.adUnitIds?.getOrNull(0)
                 ?: "ca-app-pub-4276074242154795/7571205893"
             notiLockScreen = adConfigModel.globalSettings?.notification?.lockscreen ?: false

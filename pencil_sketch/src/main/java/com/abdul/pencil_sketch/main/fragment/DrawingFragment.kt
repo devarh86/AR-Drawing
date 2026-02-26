@@ -35,17 +35,19 @@ import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.utils.AdjustableFrameLayout
 import com.abdul.pencil_sketch.utils.ZoomableImageView
+import com.abdul.pencil_sketch.utils.navigateFragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.ads.Constants.rewardedShown
-import com.example.ads.Constants.showDiscardClickAd
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
-import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
+import com.example.ads.utils.homeInterstitial
 import com.example.ads.utils.nativeDialogsConfig
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.labstyle.darioscrollruler.ScrollRulerListener
@@ -115,6 +117,7 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
             isSketch = sketchImageViewModel.sketchMode == "sketch"
             binding.surfaceView.isInvisible = !isSketch
             binding.seekBarLayout.isVisible = !isSketch
+            binding.seekBarLayoutCamera.isVisible = isSketch
 
             binding.apply {
 
@@ -299,6 +302,20 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 override fun onStopTrackingTouch(seekBar: SeekBar?) {}
             })
 
+            seekBarCamera.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    if (fromUser) {
+                        val value = seekBar?.progress ?: 10
+                        percentageTxtCamera.text = "${value + 10}"
+                        fgImage.setImageOpacity(value + 10)
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+
             lockMode.setOnSingleClickListener {
 
                 isLocked = !isLocked
@@ -368,6 +385,7 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
 
                 isSketch = true
                 seekBarLayout.isVisible = true
+                seekBarLayoutCamera.isVisible = false
                 rotationLL.isVisible = false
                 darioScrollRuler.isVisible = false
                 cameraShow(true)
@@ -396,6 +414,7 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                 darioScrollRuler.isVisible = true
                 reset.isVisible = true
                 seekBarLayout.isVisible = false
+                seekBarLayoutCamera.isVisible = false
 
 
                 darioScrollRuler.reload(-360f, 360f, 0f)
@@ -426,6 +445,7 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
 
                 isSketch = false
                 seekBarLayout.isVisible = false
+                seekBarLayoutCamera.isVisible = true
                 rotationLL.isVisible = false
                 darioScrollRuler.isVisible = false
                 cameraShow(false)
@@ -455,6 +475,13 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
 
             backPress.setOnSingleClickListener {
                 backPress()
+            }
+
+            doneBtn.setOnSingleClickListener {
+                mActivity.navigateFragment(
+                    DrawingFragmentDirections.actionDrawingFragmentToCameraFragment(),
+                    R.id.drawingFragment
+                )
             }
 
         }
@@ -639,7 +666,8 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
                     bottomSheetDiscardDialog?.dismiss()
                 }
 
-                it.showInterstitial(loadedAction = {
+                it.showNewInterstitial(it.homeInterstitial()) {
+                    it.loadNewInterstitial(it.homeInterstitial()) {}
 
                     runCatching {
                         if (it is PencilSketchActivity) {
@@ -664,29 +692,8 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
 
                         }
                     }
-                }, failedAction = {
-                    runCatching {
-                        if (it is PencilSketchActivity) {
 
-                            if (it.isOpenFromMain) {
-                                it.finish()
-                            } else {
-
-                                navController.navigateUp()
-                                // Notify the previous fragment if needed
-                                /*eventForGalleryAndEditor("drawing_screen", "back")
-                                setFragmentResult(
-                                    "requestKeyGallery", bundleOf("refresh" to true)
-                                )
-                                val direction = FaceSwapResultDirections.actionFaceSwapResultToGalleryFaceSwap(false)
-
-                                val navOptions = NavOptions.Builder().setPopUpTo(R.id.faceSwapResult, true).build()
-
-                                findNavController().navigate(direction, navOptions)*/
-                            }
-                        }
-                    }
-                }, showAd = showDiscardClickAd, onCheck = true)
+                }
 
             }
         }

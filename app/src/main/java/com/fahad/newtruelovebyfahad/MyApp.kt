@@ -15,13 +15,11 @@ import com.example.inapp.core.GoogleBilling
 import com.example.inapp.helpers.Constants
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.fahad.newtruelovebyfahad.utils.AppObserver
-import com.fahad.newtruelovebyfahad.utils.createProDialog
 import com.farimarwat.grizzly.GrizzlyMonitorBuilder
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
 import com.project.common.utils.ActivityTracker
-import com.project.common.utils.Constants.showProDialogClick8th
 import com.project.common.utils.ConstantsCommon.isOpenCVSuccess
 import com.project.common.utils.GlobalApp
 import com.xan.event_notifications.NotificationHelper
@@ -116,20 +114,6 @@ class MyApp : Application() {
                 .start()
         } catch (ex: Exception) {
             Log.e("error", "onCreate: ", ex)
-        }
-        showProDialogClick8th.observeForever {
-            if (it) {
-                kotlin.runCatching {
-                    val currentActivity = ActivityTracker.getCurrentActivity()
-                    if (currentActivity != null && ActivityTracker.isActivityActive()) {
-                        // Safe to use the activity
-                        currentActivity.createProDialog({}, {})
-//                        currentActivity.runOnUiThread {
-//                        }
-                    }
-                    // ActivityTracker.getCurrentActivity()?.createProDialog({},{})
-                }
-            }
         }
 
         Constants.isProVersion.observeForever {

@@ -20,7 +20,7 @@ class RemoteConfigRepo(@ApplicationContext private val context: Context) {
 
         remoteConfig.setDefaultsAsync(
             mapOf(
-                "carousal_ad_settings" to Gson().toJson(getDefaultRemoteAdSettings()),
+                "drawing_ad_settings" to Gson().toJson(getDefaultRemoteAdSettings()),
 //                context.getString(com.remotex.R.string.notification_topic) to Gson().toJson(getDefaultNotificationSettings())
             )
         )

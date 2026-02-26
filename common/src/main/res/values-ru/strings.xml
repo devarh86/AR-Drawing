@@ -7,8 +7,6 @@
     <string name="exit">Выход</string>
     <string name="cancel">Отмена</string>
     <string name="edit_photo">Редактировать фото</string>
-    <string name="are_you_want_to_discard">Вы хотите отказаться?</string>
-    <string name="if_you_go_back_your_work_will_be_discarded">Если вы вернетесь назад, ваша работа будет удалена!</string>
     <string name="try_again">Попробуйте еще раз</string>
     <string name="select_language">Выберите язык</string>
     <string name="term_of_use">Срок использования</string>
@@ -86,7 +84,6 @@
     <string name="write_text">Написать текст</string>
     <string name="close">Закрывать</string>
     <string name="replace">Заменять</string>
-    <string name="crop">Обрезать</string>
     <string name="remove_watermark">Удалить водяной знак</string>
     <string name="for_24_hours">На 24 часа</string>
     <string name="for_life_time">На всю жизнь</string>
@@ -441,16 +438,8 @@
     <string name="template">Шаблон</string>
     <string name="app_name_new">AR Drawing Приложение</string>
 
-    <string name="boarding1_title">Карусель</string>
-    <string name="boarding1_text_body">Легко пролистывайте несколько публикаций.</string>
-    <string name="boarding3_title">Истории</string>
-    <string name="boarding3_text_body">Кратковременный, полноэкранный визуальный контент.</string>
-
     <string name="boarding4_title">Сшивание</string>
     <string name="boarding4_text_body">Соединяйте разные клипы без швов.</string>
-
-    <string name="boarding2_title">Коллаж</string>
-    <string name="boarding2_text_body">Объедините фото в одну рамку.</string>
 
     <string name="upgrade_plan_now">Обновите план сейчас!</string>
     <string name="enjoy_unlimited_benefits_amp_features">Наслаждайтесь безлимитными преимуществами и функциями</string>
@@ -517,5 +506,117 @@
     <string name="enjoy_50_off_on_weekly_premium">Наслаждайтесь скидкой 50% на Еженедельный Premium!</string>
 
 
+    <string name="crop">Обрезать</string>
+    <string name="are_you_want_to_discard">Вы хотите удалить?</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">Если вы вернетесь назад, ваша работа будет удалена!</string>
+
+    <string name="apply">Применять</string>
+    <string name="preview">Предварительный просмотр</string>
+    <string name="projects">Проекты</string>
+    <string name="see_all">Посмотреть все</string>
+    <string name="with_ad">С рекламой</string>
+
+    <string name="_3_day_free_trial">3-дневная бесплатная пробная версия</string>
+    <string name="join_crsl_premium">Присоединяйтесь к CRSL Premium</string>
+
+
+    <string name="boarding1_title">Легко рисовать</string>
+    <string name="boarding1_text_body">Положите на телефон лист пергаментной бумаги и нарисуйте на нём что-нибудь.</string>
+    <string name="boarding2_title">Рисуйте камерой</string>
+    <string name="boarding2_text_body">Для удобства рисования держите или ставьте телефон вертикально.</string>
+    <string name="boarding3_title">Нарисуй свою собственную картинку</string>
+    <string name="boarding3_text_body">Рисуйте, обводите контуры и раскрашивайте любые фотографии, которые вам нравятся!</string>
+    <string name="let_s_draw">Давайте рисовать</string>
+    <string name="create_draw_and_have_fun">Творите, рисуйте и получайте удовольствие!</string>
+    <string name="ar_drawing">Рисунок дополненной реальности</string>
+    <string name="import_gallery">Импорт галереи</string>
+    <string name="photo_to_sketch">Фото в эскиз</string>
+    <string name="learn_to_draw">Научитесь рисовать</string>
+    <string name="my_art">Моё искусство</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">Упражняться</string>
+    <string name="s_home_h1_detail">Простые уроки для улучшения навыков рисования.</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">Креативность</string>
+    <string name="s_home_h2_detail">Увлекательные пошаговые уроки рисования</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">Темы</string>
+    <string name="s_home_h3_detail">Изучите рисунки по темам и стилям.</string>
+
+    <string name="s_home_h4">Фото к</string>
+    <string name="s_home_h4_sub">Эскиз</string>
+    <string name="s_home_h4_detail">Преобразуйте изображения в художественные карандашные эскизы.</string>
+
+    <string name="start">Начинать</string>
+    <string name="settings">Настройки</string>
+    <string name="unlock_premium_features">Разблокируйте премиум-функции</string>
+    <string name="terms_and_conditions">Условия и положения</string>
+
+    <string name="watch_an_ad">Посмотреть рекламу</string>
+    <string name="pro_face_swap">Профессиональная замена лица</string>
+    <string name="swap">Менять</string>
+    <string name="upload_image_template">Загрузить шаблон изображения</string>
+    <string name="upload_or_take_your_image_please_clear_face">Загрузите или сделайте снимок. Пожалуйста, убедитесь, что лицо четкое.</string>
+    <string name="upload_your_face">Загрузите своё лицо</string>
+    <string name="create">Создавать</string>
+    <string name="saving_your_image">Сохранение изображения</string>
+    <string name="processing_your_masterpiece">Обработка вашего шедевра… 🎨</string>
+    <string name="face_swap">Замена лица</string>
+    <string name="edit_more">Редактировать больше</string>
+    <string name="please_crop">Пожалуйста, обрежьте изображение, сохранив то же соотношение сторон, для достижения лучших результатов.</string>
+    <string name="stay_with_us">Оставайтесь с нами, ваше приключение вот-вот начнётся!</string>
+    <string name="got_it">Понятно</string>
+
+    <string name="pencil_sketch">Эскиз карандашом</string>
+    <string name="sketch_now">Нарисуй сейчас</string>
+    <string name="upgrade_to_pro">Перейти на Pro-версию</string>
+    <string name="enjoy_all_drawings">Наслаждайтесь всеми рисунками, инструментами и развлечениями.</string>
+    <string name="sketch_loading">Набросок вашей фотографии — линии оживают…</string>
+    <string name="sketch_ready">Ваш эскиз обретает форму!</string>
+    <string name="memory_sketching">Превратите свои воспоминания в рисунки карандашом…</string>
+    <string name="sketch_details_fit">Линии и тени встают на свои места!</string>
+    <string name="sketch_progress">Мастер-класс по созданию скетчей в процессе…</string>
+    <string name="sketch_placing_details">Прорисовывая каждую мельчайшую деталь…</string>
+    <string name="sketch_looking_timeless">Классический образ — теперь в виде эскиза!</string>
+    <string name="sketch_you_brought_it_back">Ух ты! Этот эскиз выглядит живым!</string>
+    <string name="sketch_healing_memories">Запечатлевая воспоминания с заботой…</string>
+    <string name="sketch_almost">Почти готово — остались последние мазки!</string>
+    <string name="sketch_damage_detected">Коррекция кромок — уточнение линий!</string>
+    <string name="sketch_transforming">Превращение фотографии в рисунок, выполненный от руки…</string>
+    <string name="sketch_uploading">Отправка вашей фотографии художнику-криминалисту…</string>
+    <string name="sketch_final_touch">Финальная штриховка — это требует мастерства!</string>
+    <string name="sketch_blast">Этот скетч производит совершенно другое впечатление!</string>
+    <string name="sketch_new_life">Включаем новые скетчи!</string>
+    <string name="sketch_details_locked">Подробности скрыты — рисую как профессионал!</string>
+    <string name="sketch_wait">Подождите... начинается волшебство карандаша!</string>
+    <string name="sketch_alignment">Идеальное выравнивание мазков…</string>
+    <string name="sketch_memory_repairing">Ваш эскиз дорабатывается…</string>
+    <string name="sketch_about_to_shine">Приготовьтесь — ваш эскиз засияет!</string>
+    <string name="sketch_epic">Процесс создания эпического эскиза в разгаре!</string>
+    <string name="sketch_ready_to_reveal">Практически готово — скоро покажем эскиз!</string>
+    <string name="sketch_restoring_clarity">Усиление линий и контраста…</string>
+    <string name="sketch_scratches_fading">Шероховатости сглаживаются…</string>
+    <string name="sketch_time_travel_mode">Режим эскизирования: ВКЛ. ✏️</string>
+    <string name="sketch_magic_at_work">Волшебные скетчи в действии — следите за обновлениями!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Вам нравится наше приложение?</string>
+    <string name="sketch">Эскиз</string>
+    <string name="trace">След</string>
+    <string name="drawing_now">Рисование сейчас</string>
+    <string name="how_to_draw">Как рисовать</string>
+    <string name="picture">Картина</string>
+    <string name="camera">Камера</string>
+    <string name="stop_drawing">Перестать рисовать?</string>
+    <string name="you_want_to_stop_drawing">Вы хотите перестать рисовать?</string>
+    <string name="yes_discard">Нет, не надо.</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Продолжить с камерой</string>
+    <string name="with_cam">С камерой</string>
+    <string name="without_camera">Продолжайте без камеры.</string>
+    <string name="without_cam">Без камеры</string>
 
 </resources>

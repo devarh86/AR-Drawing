@@ -50,12 +50,9 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import com.example.ads.Constants.interstitialStrategyOld
 import com.example.ads.Constants.rewardedShown
-import com.example.ads.Constants.showDiscardClickAd
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
-import com.example.ads.admobs.utils.showInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
@@ -63,6 +60,7 @@ import com.example.ads.utils.interstitialBack
 import com.example.ads.utils.nativeDialogsConfig
 import com.example.ads.utils.saveInterstitial
 import com.example.inapp.helpers.Constants.isProVersion
+import com.example.inapp.helpers.showToast
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.project.common.databinding.BottomSheetDiscardPhotoEditorBinding
@@ -331,6 +329,8 @@ class PencilSketchResult : Fragment() {
                     activity?.createOrShowSnackBar(binding.root, 0, "Saving Failed!", true)
                 }
 
+            } else {
+                context?.showToast("Image Already Saved!")
             }
 
 
@@ -339,6 +339,7 @@ class PencilSketchResult : Fragment() {
         backImg.setOnSingleClickListener {
             backPress()
         }
+
         homeIV.setOnSingleClickListener {
             runCatching {
                 val resultIntent = Intent()
@@ -818,54 +819,22 @@ class PencilSketchResult : Fragment() {
                     bottomSheetDiscardDialog?.dismiss()
                 }
 
-                if (!interstitialStrategyOld) {
-                    activity?.showNewInterstitial(activity?.interstitialBack()) {
-                        runCatching {
-                            if (it is PencilSketchActivity) {
+                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                    runCatching {
+                        if (it is PencilSketchActivity) {
 
-                                // Notify the previous fragment if needed
-                                eventForGalleryAndEditor("sketch_result", "back")
-                                setFragmentResult(
-                                    "requestKeyGallery",
-                                    bundleOf("refresh" to true)
-                                )
-                                val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
-                                findNavController().popBackStack(targetDestinationId, false)
-                            }
+                            // Notify the previous fragment if needed
+                            eventForGalleryAndEditor("sketch_result", "back")
+                            setFragmentResult(
+                                "requestKeyGallery",
+                                bundleOf("refresh" to true)
+                            )
+                            val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
+                            findNavController().popBackStack(targetDestinationId, false)
                         }
                     }
-                } else {
-                    it.showInterstitial(loadedAction = {
-
-                        runCatching {
-                            if (it is PencilSketchActivity) {
-
-                                // Notify the previous fragment if needed
-                                eventForGalleryAndEditor("sketch_result", "back")
-                                setFragmentResult(
-                                    "requestKeyGallery",
-                                    bundleOf("refresh" to true)
-                                )
-                                val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
-                                findNavController().popBackStack(targetDestinationId, false)
-                            }
-                        }
-                    }, failedAction = {
-                        runCatching {
-                            if (it is PencilSketchActivity) {
-
-                                // Notify the previous fragment if needed
-                                eventForGalleryAndEditor("sketch_result", "back")
-                                setFragmentResult(
-                                    "requestKeyGallery",
-                                    bundleOf("refresh" to true)
-                                )
-                                val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
-                                findNavController().popBackStack(targetDestinationId, false)
-                            }
-                        }
-                    }, showAd = showDiscardClickAd, onCheck = true)
                 }
+
             }
         }
 
@@ -982,22 +951,9 @@ class PencilSketchResult : Fragment() {
             if (rewardedShown)
                 rewardedShown = false
             restoreImageViewModel.resetSaveState()
-            kotlin.runCatching {
-                activity?.let {
-                    val intent = Intent()
-                    intent.setClassName(
-                        it.applicationContext,
-                        "com.fixai.main.ui.activities.save.SaveAndShareActivity"
-                    )
-                    intent.putExtra("image_path", finalPath)
-                    saveActivityLauncher?.launch(intent)
-                    if (it is PencilSketchActivity) {
-                        it.finish()
-                    }
-                }
-                alreadyAdShown = false
-            }
-            isSaving = false
+            alreadyAdShown = false
+            context?.showToast("Image Saved!")
+
         }
     }
 
@@ -1009,20 +965,8 @@ class PencilSketchResult : Fragment() {
         bottomSheetProcessDialogBinding = null
         fromSaved = true
         restoreImageViewModel.resetSaveState()
-        kotlin.runCatching {
-            activity?.let {
-                val intent = Intent()
-                intent.setClassName(
-                    it.applicationContext,
-                    "com.fixai.main.ui.activities.save.SaveAndShareActivity"
-                )
-                intent.putExtra("image_path", finalPath)
-                intent.putExtra("from_editor", "enhancer")
-                saveActivityLauncher?.launch(intent)
-            }
-            alreadyAdShown = false
-        }
-        isSaving = false
+        alreadyAdShown = false
+        context?.showToast("Image Saved!")
     }
 
 

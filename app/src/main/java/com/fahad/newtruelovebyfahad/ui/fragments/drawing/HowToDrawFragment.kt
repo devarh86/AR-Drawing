@@ -21,6 +21,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.FragmentHowDrawBinding
+import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderAdapterHD
 import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderItemHD
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
@@ -179,10 +180,20 @@ class HowToDrawFragment : Fragment() {
                 intent.putExtra("fromMain", true)
                 intent.putExtra("sketchMode", mode)
                 intent.putExtra("imagePath", path)
-                mActivity.startActivity(intent)
+                getParentActivity()?.getActivityLauncher()?.launch(intent)
+//                mActivity.startActivity(intent)
             }
         } catch (ex: Exception) {
         }
+    }
+
+    private fun getParentActivity(): MainActivity? {
+        activity?.let {
+            if (it is MainActivity) {
+                return it
+            }
+        }
+        return null
     }
 
 

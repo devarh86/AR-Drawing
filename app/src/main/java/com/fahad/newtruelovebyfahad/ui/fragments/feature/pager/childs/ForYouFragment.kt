@@ -21,33 +21,30 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.ads.Constants.showForYouFrameClickAd
-
-import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.admobs.utils.showRewardedInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
+import com.example.ads.dialogs.createDownloadingDialog
 import com.example.ads.dialogs.createProFramesDialog
+import com.example.ads.utils.homeInterstitial
 import com.example.analytics.Events
 import com.example.inapp.helpers.Constants.isProVersion
-import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.FragmentForYouBinding
 import com.fahad.newtruelovebyfahad.ui.activities.main.FrameObject
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
-import com.fahad.newtruelovebyfahad.ui.activities.pro.ProActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.common.TagsRVAdapter
 import com.fahad.newtruelovebyfahad.ui.fragments.feature.FeaturedFragment
 import com.fahad.newtruelovebyfahad.ui.fragments.feature.FeaturedFragment.Companion.downloadDialog
 import com.fahad.newtruelovebyfahad.ui.fragments.feature.FeaturedFragment.Companion.mFeaturePager
-import com.fahad.newtruelovebyfahad.ui.fragments.feature.FeaturedFragmentDirections
 import com.fahad.newtruelovebyfahad.ui.fragments.feature.adapter.FeatureRV
 import com.fahad.newtruelovebyfahad.utils.Permissions
 import com.fahad.newtruelovebyfahad.utils.enums.FrameThumbType
 import com.fahad.newtruelovebyfahad.utils.isNetworkAvailable
-import com.fahad.newtruelovebyfahad.utils.navigateFragment
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
 import com.google.android.gms.ads.nativead.NativeAd
 import com.project.common.datastore.FrameDataStore
-import com.example.ads.dialogs.createDownloadingDialog
 import com.project.common.repo.api.apollo.helper.Response
 import com.project.common.repo.room.model.FavouriteModel
 import com.project.common.repo.room.model.RecentsModel
@@ -131,159 +128,148 @@ class ForYouFragment : Fragment() {
                         Manifest.permission.CAMERA
                     )
                     else arrayOf(
-                         Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
                         Manifest.permission.CAMERA
                     )
 
-                (mActivity as Permissions).checkAndRequestPermissions(*permissions, action =
-                {
-                    mActivity?.let { it ->
-                        if (it is MainActivity) {
-                            it.eventForFrameClick(
-                                FrameObject(
-                                    frameBody.id,
-                                    frameBody.title,
-                                    Events.Screens.FEATURE,
-                                    "",
-                                    Events.Screens.FEATURE,
-                                    frameBody.tags ?: "",
-                                    frameBody.baseUrl ?: "",
-                                    frameBody.thumb,
-                                    frameBody.thumbtype,
-                                    showForYouFrameClickAd,
-                                    true,
-                                    frameBody,
-                                    "list"
-                                )
-                            )
-                        }
-                    }
-
-                    mContext?.let {
-                        if (frameBody.tags?.isNotEmpty() == true && frameBody.tags != "Free" && !isProVersion() && !ConstantsCommon.rewardedAssetsList.contains(
-                                frameBody.id
-                            )
-                        ) {
-                            mActivity?.createProFramesDialog(
-                                true,
-                                thumb = "${frameBody.baseUrl}${frameBody.thumb}",
-                                thumbType = ContextCompat.getDrawable(
-                                    it,
-                                    when (frameBody.thumbtype.lowercase()) {
-                                        FrameThumbType.PORTRAIT.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_portrait
-                                        FrameThumbType.LANDSCAPE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_landscape
-                                        FrameThumbType.SQUARE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_squre
-                                        else -> com.project.common.R.drawable.frame_placeholder_portrait
-                                    }
-                                ),
-                                action = {
-
-                                    downloadDialog =
-                                        mActivity?.createDownloadingDialog(
-                                            frameBody.baseUrl,
+                (mActivity as Permissions).checkAndRequestPermissions(
+                    *permissions, action =
+                        {
+                            mActivity?.let { it ->
+                                if (it is MainActivity) {
+                                    it.eventForFrameClick(
+                                        FrameObject(
+                                            frameBody.id,
+                                            frameBody.title,
+                                            Events.Screens.FEATURE,
+                                            "",
+                                            Events.Screens.FEATURE,
+                                            frameBody.tags ?: "",
+                                            frameBody.baseUrl ?: "",
                                             frameBody.thumb,
-                                            frameBody.thumbtype
+                                            frameBody.thumbtype,
+                                            showForYouFrameClickAd,
+                                            true,
+                                            frameBody,
+                                            "list"
                                         )
+                                    )
+                                }
+                            }
+
+                            mContext?.let {
+                                if (frameBody.tags?.isNotEmpty() == true && frameBody.tags != "Free" && !isProVersion() && !ConstantsCommon.rewardedAssetsList.contains(
+                                        frameBody.id
+                                    )
+                                ) {
+                                    mActivity?.createProFramesDialog(
+                                        true,
+                                        thumb = "${frameBody.baseUrl}${frameBody.thumb}",
+                                        thumbType = ContextCompat.getDrawable(
+                                            it,
+                                            when (frameBody.thumbtype.lowercase()) {
+                                                FrameThumbType.PORTRAIT.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_portrait
+                                                FrameThumbType.LANDSCAPE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_landscape
+                                                FrameThumbType.SQUARE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_squre
+                                                else -> com.project.common.R.drawable.frame_placeholder_portrait
+                                            }
+                                        ),
+                                        action = {
+
+                                            downloadDialog =
+                                                mActivity?.createDownloadingDialog(
+                                                    frameBody.baseUrl,
+                                                    frameBody.thumb,
+                                                    frameBody.thumbtype
+                                                )
+                                            mActivity?.let {
+                                                if (it is MainActivity) {
+                                                    it.downloadDialog = downloadDialog
+                                                }
+                                            }
+                                            mActivity?.showRewardedInterstitial(
+                                                true,
+                                                loadedAction = {
+
+                                                    apiViewModel.addToRecent(RecentsModel(frame = frameBody))
+
+                                                    lifecycleScope.launch(Dispatchers.IO) {
+                                                        frameDataStore.writeUnlockedId(frameBody.id)
+                                                        ConstantsCommon.rewardedAssetsList.add(frameBody.id)
+                                                        withContext(Main) {
+                                                            if (position != -1) forYouFramesAdapter?.notifyItemChanged(
+                                                                position
+                                                            )
+                                                            val onlineOrOfflineFrame =
+                                                                if (frameBody.thumb.contains("android_asset")) {
+                                                                    false
+                                                                } else {
+                                                                    isNetworkAvailable
+                                                                }
+                                                            apiViewModel.getFrame(
+                                                                frameBody.id,
+                                                                onlineOrOfflineFrame
+                                                            )
+                                                        }
+                                                    }.invokeOnCompletion {
+                                                    }
+                                                },
+                                                failedAction = {
+                                                    downloadDialog?.apply { if (isShowing) dismiss() }
+                                                }
+                                            )
+                                        },
+                                        goProAction = {
+                                            try {
+                                                mActivity?.applicationContext?.let { it1 ->
+                                                    startActivity(
+                                                        Intent().apply {
+                                                            setClassName(
+                                                                it1,
+                                                                getProScreen()
+                                                            )
+                                                            putExtra("from_frames", false)
+                                                        }
+                                                    )
+                                                }
+                                            } catch (_: Exception) {
+                                            }
+                                        },
+                                        dismissAction = {},
+                                        frameBody.tags?.lowercase() == "paid"
+                                    )
+                                } else {
+
+                                    downloadDialog = mActivity?.createDownloadingDialog(
+                                        frameBody.baseUrl, frameBody.thumb, frameBody.thumbtype
+                                    )
+
                                     mActivity?.let {
                                         if (it is MainActivity) {
                                             it.downloadDialog = downloadDialog
                                         }
                                     }
-                                    mActivity?.showRewardedInterstitial(true,
-                                        loadedAction = {
 
-                                            apiViewModel.addToRecent(RecentsModel(frame = frameBody))
+                                    apiViewModel.addToRecent(RecentsModel(frame = frameBody))
 
-                                            lifecycleScope.launch(Dispatchers.IO) {
-                                                frameDataStore.writeUnlockedId(frameBody.id)
-                                                ConstantsCommon.rewardedAssetsList.add(frameBody.id)
-                                                withContext(Main) {
-                                                    if (position != -1) forYouFramesAdapter?.notifyItemChanged(
-                                                        position
-                                                    )
-                                                    val onlineOrOfflineFrame =
-                                                        if (frameBody.thumb.contains("android_asset")) {
-                                                            false
-                                                        } else {
-                                                            isNetworkAvailable
-                                                        }
-                                                    apiViewModel.getFrame(
-                                                        frameBody.id,
-                                                        onlineOrOfflineFrame
-                                                    )
-                                                }
-                                            }.invokeOnCompletion {
+                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                        val onlineOrOfflineFrame =
+                                            if (frameBody.thumb.contains("android_asset")) {
+                                                false
+                                            } else {
+                                                isNetworkAvailable
                                             }
-                                        },
-                                        failedAction = {
-                                            downloadDialog?.apply { if (isShowing) dismiss() }
-                                        }
-                                    )
-                                },
-                                goProAction = {
-                                    try {
-                                        mActivity?.applicationContext?.let { it1 ->
-                                            startActivity(
-                                                Intent().apply {
-                                                    setClassName(
-                                                        it1,
-                                                        getProScreen()
-                                                    )
-                                                    putExtra("from_frames", false)
-                                                }
-                                            )
-                                        }
-                                    } catch (_: Exception) {
+                                        apiViewModel.getFrame(
+                                            frameBody.id,
+                                            onlineOrOfflineFrame
+                                        )
                                     }
-                                },
-                                dismissAction = {},
-                                frameBody.tags?.lowercase() == "paid"
-                            )
-                        } else {
-
-                            downloadDialog = mActivity?.createDownloadingDialog(
-                                frameBody.baseUrl, frameBody.thumb, frameBody.thumbtype
-                            )
-
-                            mActivity?.let {
-                                if (it is MainActivity) {
-                                    it.downloadDialog = downloadDialog
                                 }
                             }
-
-                            apiViewModel.addToRecent(RecentsModel(frame = frameBody))
-
-                            mActivity.showInterstitial(
-                                loadedAction = {
-                                    val onlineOrOfflineFrame =
-                                        if (frameBody.thumb.contains("android_asset")) {
-                                            false
-                                        } else {
-                                            isNetworkAvailable
-                                        }
-                                    apiViewModel.getFrame(
-                                        frameBody.id,
-                                        onlineOrOfflineFrame
-                                    )
-                                },
-                                failedAction = {
-                                    val onlineOrOfflineFrame =
-                                        if (frameBody.thumb.contains("android_asset")) {
-                                            false
-                                        } else {
-                                            isNetworkAvailable
-                                        }
-                                    apiViewModel.getFrame(
-                                        frameBody.id,
-                                        onlineOrOfflineFrame
-                                    )
-                                }, showAd = showForYouFrameClickAd, onCheck = true
-                            )
-                        }
-                    }
-                }, declineAction =
-                {})
+                        }, declineAction =
+                        {})
             },
             onFavouriteClick = {
 

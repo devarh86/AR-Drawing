@@ -18,13 +18,13 @@ android {
         multiDexEnabled =true
         minSdk 24
         targetSdk 35
-        versionCode 10
-        versionName "1.9"
+        versionCode 1
+        versionName "0.1"
 //        versionCode 10000
 //        versionName "10000"
         resourceConfigurations += ["en","ar","bn", "de", "es","fr", "hi","in","ja", "pt", "ru", "ur", "zh"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        archivesBaseName = "CRSL VC_$versionCode"
+        archivesBaseName = "AR Drawing VC_$versionCode"
     }
 
     buildTypes {

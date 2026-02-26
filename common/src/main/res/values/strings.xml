@@ -8,8 +8,6 @@
     <string name="edit_photo">Edit Photo</string>
     <string name="enhance">Enhancer</string>
     <string name="enhance_watch_ad">Enhancer \n Watch an ad</string>
-    <string name="are_you_want_to_discard">Are you want to Discard?</string>
-    <string name="if_you_go_back_your_work_will_be_discarded">If you go back Your work will be discarded!</string>
     <string name="try_again">Try Again</string>
     <string name="select_language">Select language</string>
     <string name="term_of_use">Term Of Use</string>
@@ -51,7 +49,7 @@
     <string name="write_text">Write Text</string>
     <string name="close">Close</string>
     <string name="replace">Replace</string>
-    <string name="crop">Crop</string>
+
     <string name="remove_watermark">Remove Watermark</string>
     <string name="for_24_hours">For 24 Hours</string>
     <string name="for_life_time">For Life-Time</string>
@@ -497,6 +495,10 @@
     <string name="_7_days_free_trial">7 Days Free Trial</string>
     <string name="carousal">Carousal</string>
     <string name="enjoy_50_off_on_weekly_premium">Enjoy 50% OFF on Weekly Premium!</string>
+
+    <string name="crop">Crop</string>
+    <string name="are_you_want_to_discard">Are you want to Discard?</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">If you go back Your work will be discarded!</string>
 
     <string name="apply">Apply</string>
     <string name="preview">Preview</string>

@@ -62,16 +62,7 @@
     <action
         android:id="@+id/action_global_nav_favourite"
         app:destination="@id/nav_favourite" />
-    <activity
-        android:id="@+id/nav_pro_activity"
-        android:name="com.fahad.newtruelovebyfahad.ui.activities.pro.ProActivity"
-        android:label="activity_pro"
-        tools:layout="@layout/activity_pro" />
-    <!--    <dialog-->
-    <!--        android:id="@+id/nav_pro"-->
-    <!--        android:name="com.fahad.newtruelovebyfahad.ui.activities.pro.ProFragment"-->
-    <!--        android:label="fragment_pro"-->
-    <!--        tools:layout="@layout/blend_farg_pro" />-->
+
     <dialog
         android:id="@+id/nav_rating"
         android:name="com.fahad.newtruelovebyfahad.ui.fragments.dialogs.RatingDialog"
@@ -150,6 +141,9 @@
         <action
             android:id="@+id/action_homeForYouFragment_to_drawingFramesFragment"
             app:destination="@id/drawingFramesFragment" />
+        <action
+            android:id="@+id/action_homeForYouFragment_to_howToDrawFragment"
+            app:destination="@id/howToDrawFragment" />
     </fragment>
     <fragment
         android:id="@+id/drawingFramesFragment"
@@ -175,5 +169,10 @@
             android:name="path"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/savedFragment"
+        android:name="com.fahad.newtruelovebyfahad.ui.fragments.mywork.pager.childs.SavedFragment"
+        android:label="fragment_saved"
+        tools:layout="@layout/fragment_saved" /><action android:id="@+id/action_global_savedFragment" app:destination="@id/savedFragment"/>
 
 </navigation>

@@ -208,7 +208,7 @@ object Constants {
     var allBannerReloadLimit = 2L
 
 
-    var onBoardingOneNativeId = "ca-app-pub-4276074242154795/1085154440"
+    var onBoardingOneNativeId = "ca-app-pub-4276074242154795/6026210694"
     var onBoardingTwoNativeId = "ca-app-pub-4276074242154795/4531227820"
     var onBoardingThreeNativeId = "ca-app-pub-4276074242154795/7094662041"
     var onBoardingFourNativeId = "ca-app-pub-4276074242154795/4171618250"
@@ -218,8 +218,8 @@ object Constants {
     var onBoardingFullOneNativeId = "ca-app-pub-4276074242154795/5811108808"
     var onBoardingFullTwoNativeId = "ca-app-pub-4276074242154795/5811108808"
 
-    var lfoOneNativeId = "ca-app-pub-4276074242154795/8257067458"
-    var lfoTwoNativeId = "ca-app-pub-4276074242154795/1097473173"
+    var lfoOneNativeId = "ca-app-pub-4276074242154795/2355269438"
+    var lfoTwoNativeId = "ca-app-pub-4276074242154795/8729106095"
     var splashInterAdId = "ca-app-pub-4276074242154795/7571205893"
 
 

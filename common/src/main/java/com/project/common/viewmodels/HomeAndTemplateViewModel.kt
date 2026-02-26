@@ -162,7 +162,7 @@ class HomeAndTemplateViewModel @Inject constructor(
 
                 if (screenType == "home" && (category.title == "AI Enhancer\uD83D\uDCAB")) { //AI Enhancer💫
                     framesModel.type = ViewHolderTypes.PHOTOEDITOR
-                    framesModel.thumbnail = R.raw.enhancer_home
+//                    framesModel.thumbnail = R.raw.enhancer_home
                     framesModel.apiOption = framesModel.categoryName
                 }else{
                     Log.i("ENHNACER_ANIM", "processFramesList:  ELSE")
@@ -189,7 +189,7 @@ class HomeAndTemplateViewModel @Inject constructor(
         val specialCategory = FramesModelHomeAndTemplates().apply {
             categoryName = if (index == 1) "Overlay" else "Double Exposure"
             type = ViewHolderTypes.PHOTOEDITOR
-            thumbnail = if (index == 1) R.raw.enhancer_home else R.raw.enhancer_home
+//            thumbnail = if (index == 1) R.raw.enhancer_home else R.raw.enhancer_home
             apiOption = categoryName
         }
 

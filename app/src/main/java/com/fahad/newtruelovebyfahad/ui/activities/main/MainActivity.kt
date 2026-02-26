@@ -3,7 +3,6 @@ package com.fahad.newtruelovebyfahad.ui.activities.main
 
 import android.Manifest
 import android.app.Activity
-import android.app.Dialog
 import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
@@ -19,8 +18,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
-import android.view.Window
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
@@ -45,7 +42,6 @@ import com.example.ads.Constants.homeMenuShowAd
 import com.example.ads.Constants.languageCode
 import com.example.ads.Constants.myWorkMenuShowAd
 import com.example.ads.Constants.native
-import com.example.ads.Constants.popupEventValentine
 import com.example.ads.Constants.showHomeScreen
 import com.example.ads.Constants.styleMenuShowAd
 import com.example.ads.Constants.templatesMenuShowAd
@@ -88,7 +84,6 @@ import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.project.common.databinding.BottomFullScreenPermissionBinding
-import com.project.common.databinding.ValentinePopUpBinding
 import com.project.common.datastore.FrameDataStore
 import com.project.common.repo.api.apollo.helper.ApiConstants
 import com.project.common.repo.room.helper.FavouriteTypeConverter
@@ -111,11 +106,8 @@ import com.xan.event_notifications.data.constants.Constants.notiLockScreen
 import com.xan.event_notifications.data.constants.Constants.notiLockscreenCountry
 import com.xan.event_notifications.data.constants.Constants.timePushNotiLockscreen1
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers.Default
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -160,7 +152,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             navController?.addOnDestinationChangedListener { _, destination, _ ->
 
                 when (destination.id) {
-                    R.id.homeForYouFragment, R.id.nav_featured, R.id.nav_home, R.id.nav_mywork, R.id.nav_frame_types,
+                    R.id.homeForYouFragment, R.id.nav_featured, R.id.nav_mywork, R.id.nav_frame_types,
                     R.id.nav_coming_soon, R.id.nav_favourite_menu, R.id.nav_styles, R.id.nav_templates_base -> {
                         binding.bottomBar.gone()
                         binding.crossPromoAdsCv.gone()
@@ -191,86 +183,6 @@ class MainActivity : Permissions(), InternetConnectivityListener {
     override fun onDestroy() {
         super.onDestroy()
         Log.i("TAG", "onStop: mainActivity onDestroy")
-    }
-
-
-    private var isPopUpShown = false
-
-    private fun showApplyPopUpValentine() {
-        if (isPopUpShown) {
-            return
-        }
-        isPopUpShown = true
-        var isValentineShown: Boolean
-
-        kotlin.runCatching {
-            dataStoreViewModel.valentinePopShown.observeOnce(this) {
-                isValentineShown = it
-                dataStoreViewModel.updateValentinePopShown()
-                Log.i("TAG", "showApplyPopUp: $it")
-                lifecycleScope.launch(Main) {
-                    if (popupEventValentine && !isValentineShown) {
-                        showValentinePopUp()
-
-                    }
-                }
-            }
-        }
-    }
-
-    private fun showValentinePopUp() {
-
-        val popUp = Dialog(this, com.project.common.R.style.PopUp)
-        popUp.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        popUp.setCancelable(false)
-        val bindingPopUp = ValentinePopUpBinding.inflate(layoutInflater)
-        popUp.setContentView(bindingPopUp.root)
-
-        bindingPopUp.closeImg.visibility = View.INVISIBLE
-
-        lifecycleScope.launch(Default) {
-            delay(2000)
-            withContext(Main) {
-                kotlin.runCatching {
-                    if (!isFinishing && !isDestroyed && popUp.isShowing && isActive) {
-                        bindingPopUp.closeImg.visibility = View.VISIBLE
-                    }
-                }
-            }
-        }
-
-        bindingPopUp.closeImg.setSingleClickListener {
-            if (!isDestroyed && !isFinishing) {
-                popUp.dismiss()
-            }
-        }
-
-        bindingPopUp.applyNow.setSingleClickListener {
-            if (!isDestroyed && !isFinishing) {
-                popUp.dismiss()
-            }
-
-            kotlin.runCatching {
-                navigateToValentineFrames()
-            }
-        }
-
-        if (!popUp.isShowing && !isDestroyed && !isFinishing) {
-            popUp.show()
-
-
-        }
-
-    }
-
-
-    private fun navigateToValentineFrames() {
-        val type = "valentine day\uD83D\uDC95".lowercase()
-        navController?.navigate(
-            MainScreenNavigationDirections.actionGlobalNavFramesFragment(type, type)
-        )
-
-
     }
 
     private fun scheduleNotification() {
@@ -436,8 +348,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
         }
 
         kotlin.runCatching {
-            val notificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             registerForFullScreenIntent(notificationManager)
         }
 
@@ -457,7 +368,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
 
 //        LeakCanary.config = LeakCanary.config.copy(retainedVisibleThreshold = 1)
 
-        checkAndRequestNotificationPermission(
+        /*checkAndRequestNotificationPermission(
             onGranted = {
                 initFullScreenPopUp()
             },
@@ -465,7 +376,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                 Log.d("Notification", "Notification permission denied")
                 //showApplyPopUp()
             }
-        )
+        )*/
         kotlin.runCatching {
             dataStoreViewModel.incrementAppSession()
             dataStoreViewModel.writeCurrentTime()
@@ -709,9 +620,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                         )
                     )
                 } else if (where.isNotEmpty() && where == "home") {
-                    kotlin.runCatching {
-                        navController?.navigateUp()
-                    }
+                    showHomeScreen()
                 }
             }
         }
@@ -738,12 +647,15 @@ class MainActivity : Permissions(), InternetConnectivityListener {
         try {
             ConstantsCommon.isSavedScreenHomeClicked = false
             val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomBar)
-            bottomNavigationView?.menu?.getItem(0)?.let { menuItem ->
-                navController?.let {
-                    if (it.currentDestination?.parent != null)
-                        NavigationUI.onNavDestinationSelected(menuItem, it)
+            navController?.let { controller ->
+                if (controller.currentDestination?.id != R.id.homeForYouFragment) {
+                    val poppedToHome = controller.popBackStack(R.id.homeForYouFragment, false)
+                    if (!poppedToHome) {
+                        controller.navigate(R.id.homeForYouFragment)
+                    }
                 }
             }
+            bottomNavigationView?.selectedItemId = R.id.homeForYouFragment
         } catch (_: Exception) {
         }
     }
@@ -1112,7 +1024,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                 try {
                     if (lastSelected != null && lastSelected != itemId) {
                         lastSelected = itemId
-                        if (itemId == R.id.nav_mywork || itemId == R.id.nav_home) {
+                        if (itemId == R.id.nav_mywork || itemId == R.id.homeForYouFragment) {
                             Log.i("ISWORKID", "handleMenuItemSelection:yes ")
                             showNewInterstitial(homeInterstitial()) {
                                 loadNewInterstitialWithoutStrategyCheck(homeInterstitial()) {}
@@ -1121,7 +1033,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                         loadBannerAd()
                     } else if (lastSelected == null) {
                         lastSelected = itemId
-                        if (itemId == R.id.nav_mywork || itemId == R.id.nav_home) {
+                        if (itemId == R.id.nav_mywork || itemId == R.id.homeForYouFragment) {
                             Log.i("ISWORKID", "handleMenuItemSelection:yes-B ")
                             showNewInterstitial(homeInterstitial()) {
                                 loadNewInterstitialWithoutStrategyCheck(homeInterstitial()) {}
@@ -1151,7 +1063,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                                 it.itemId
                             )
 
-                            R.id.nav_home -> {
+                            R.id.homeForYouFragment -> {
                                 handleMenuItemSelection(homeMenuShowAd, it.itemId)
                             }
 
@@ -1180,7 +1092,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             if (receivedData != null) {
                 if (receivedData.equals("ai_edit")) {
                     kotlin.runCatching {
-                        _binding?.bottomBar?.menu?.findItem(R.id.nav_home)?.let { menuItem ->
+                        _binding?.bottomBar?.menu?.findItem(R.id.homeForYouFragment)?.let { menuItem ->
                             navController?.let {
 //                        Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
                                 if (it.currentDestination?.parent != null) {

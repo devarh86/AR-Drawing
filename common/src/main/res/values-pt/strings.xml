@@ -442,16 +442,9 @@
     <string name="template">Modelo</string>
     <string name="app_name_new">App AR Drawing</string>
 
-    <string name="boarding1_title">Carrossel</string>
-    <string name="boarding1_text_body">Deslize facilmente por várias postagens.</string>
-    <string name="boarding3_title">Stories</string>
-    <string name="boarding3_text_body">Conteúdo visual de tela cheia e curta duração.</string>
 
     <string name="boarding4_title">Costurar</string>
     <string name="boarding4_text_body">Junte diferentes clipes perfeitamente.</string>
-
-    <string name="boarding2_title">Colagem</string>
-    <string name="boarding2_text_body">Combine fotos em uma única moldura.</string>
 
     <string name="upgrade_plan_now">Atualize o plano agora!</string>
     <string name="enjoy_unlimited_benefits_amp_features">Aproveite benefícios e recursos ilimitados</string>
@@ -517,5 +510,113 @@
     <string name="enjoy_50_off_on_weekly_premium">Aproveite 50% de desconto no Premium Semanal!</string>
 
 
+    <string name="apply">Aplicar</string>
+    <string name="preview">Pré-visualização</string>
+    <string name="projects">Projetos</string>
+    <string name="see_all">Ver tudo</string>
+    <string name="with_ad">Com anúncio</string>
+
+    <string name="_3_day_free_trial">Teste grátis por 3 dias</string>
+    <string name="join_crsl_premium">Torne-se membro do CRSL Premium</string>
+
+
+    <string name="boarding1_title">Fácil de desenhar</string>
+    <string name="boarding1_text_body">Coloque um papel manteiga no telefone e desenhe.</string>
+    <string name="boarding2_title">Desenhe com a câmera</string>
+    <string name="boarding2_text_body">Segure ou apoie o celular para desenhar com mais facilidade.</string>
+    <string name="boarding3_title">Desenhe sua própria imagem</string>
+    <string name="boarding3_text_body">Desenhe, trace e pinte qualquer foto que você ame!</string>
+    <string name="let_s_draw">Vamos desenhar</string>
+    <string name="create_draw_and_have_fun">Crie, desenhe e divirta-se!</string>
+    <string name="ar_drawing">Desenho AR</string>
+    <string name="import_gallery">Galeria de Importação</string>
+    <string name="photo_to_sketch">Transformar foto em desenho</string>
+    <string name="learn_to_draw">Aprenda a desenhar</string>
+    <string name="my_art">Minha Arte</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">Prática</string>
+    <string name="s_home_h1_detail">Lições fáceis para melhorar as habilidades de desenho</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">Criatividade</string>
+    <string name="s_home_h2_detail">Aulas divertidas de desenho passo a passo</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">Temas</string>
+    <string name="s_home_h3_detail">Explore desenhos por temas e estilos.</string>
+
+    <string name="s_home_h4">Foto para</string>
+    <string name="s_home_h4_sub">Esboço</string>
+    <string name="s_home_h4_detail">Converter imagens em esboços artísticos a lápis.</string>
+
+    <string name="start">Começar</string>
+    <string name="settings">Configurações</string>
+    <string name="unlock_premium_features">Desbloqueie recursos premium</string>
+    <string name="terms_and_conditions">Termos e Condições</string>
+
+    <string name="watch_an_ad">Veja um anúncio</string>
+    <string name="pro_face_swap">Troca de rosto profissional</string>
+    <string name="swap">Trocar</string>
+    <string name="upload_image_template">Carregar modelo de imagem</string>
+    <string name="upload_or_take_your_image_please_clear_face">Faça o upload ou tire uma foto sua. Por favor, certifique-se de que seu rosto esteja nítido.</string>
+    <string name="upload_your_face">Envie seu rosto</string>
+    <string name="create">Criar</string>
+    <string name="saving_your_image">Salvando sua imagem</string>
+    <string name="processing_your_masterpiece">Processando sua obra-prima… 🎨</string>
+    <string name="face_swap">Troca de rostos</string>
+    <string name="edit_more">Editar mais</string>
+    <string name="please_crop">Recorte a imagem na mesma proporção para obter melhores resultados.</string>
+    <string name="stay_with_us">Fique conosco, sua experiência está prestes a começar!</string>
+    <string name="got_it">Entendi</string>
+
+    <string name="pencil_sketch">Esboço a lápis</string>
+    <string name="sketch_now">Faça o esboço agora</string>
+    <string name="upgrade_to_pro">Faça o upgrade para a versão profissional.</string>
+    <string name="enjoy_all_drawings">Aproveite todos os desenhos, ferramentas e diversão.</string>
+    <string name="sketch_loading">Esboçando sua foto — linhas que ganham vida…</string>
+    <string name="sketch_ready">Seu esboço está ganhando forma!</string>
+    <string name="memory_sketching">Transformando suas memórias em arte a lápis…</string>
+    <string name="sketch_details_fit">Linhas e sombras se encaixando perfeitamente!</string>
+    <string name="sketch_progress">Esboço mágico em andamento…</string>
+    <string name="sketch_placing_details">Desenhar cada mínimo detalhe…</string>
+    <string name="sketch_looking_timeless">Visual clássico — agora em forma de esboço!</string>
+    <string name="sketch_you_brought_it_back">Uau! Esse desenho parece vivo!</string>
+    <string name="sketch_healing_memories">Esboçando memórias com carinho…</string>
+    <string name="sketch_almost">Quase terminando — faltam só os últimos traços!</string>
+    <string name="sketch_damage_detected">Ajustando as bordas — refinando as linhas!</string>
+    <string name="sketch_transforming">Transformando fotos em arte desenhada à mão…</string>
+    <string name="sketch_uploading">Enviando sua foto para o desenhista…</string>
+    <string name="sketch_final_touch">Sombreamento final — isso exige habilidade!</string>
+    <string name="sketch_blast">Este desenho é diferente de tudo!</string>
+    <string name="sketch_new_life">Vibrações de esboços frescos chegando!</string>
+    <string name="sketch_details_locked">Detalhes finalizados — desenhando como um profissional!</string>
+    <string name="sketch_wait">Aguarde… carregamento mágico do lápis!</string>
+    <string name="sketch_alignment">Alinhando os traços perfeitamente…</string>
+    <string name="sketch_memory_repairing">Seu esboço está sendo aprimorado…</string>
+    <string name="sketch_about_to_shine">Prepare-se — seu desenho vai brilhar!</string>
+    <string name="sketch_epic">Criação de um esboço épico em andamento!</string>
+    <string name="sketch_ready_to_reveal">Quase pronto — o esboço será revelado em breve!</string>
+    <string name="sketch_restoring_clarity">Realçando linhas e contraste…</string>
+    <string name="sketch_scratches_fading">As arestas ásperas estão sendo suavizadas…</string>
+    <string name="sketch_time_travel_mode">Modo esboço: LIGADO ✏️</string>
+    <string name="sketch_magic_at_work">A magia do desenho em ação — fique ligado!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Você gosta do nosso aplicativo?</string>
+    <string name="sketch">Esboço</string>
+    <string name="trace">Rastrear</string>
+    <string name="drawing_now">Desenhando agora</string>
+    <string name="how_to_draw">Como desenhar</string>
+    <string name="picture">Foto</string>
+    <string name="camera">Câmera</string>
+    <string name="stop_drawing">Pare de desenhar?</string>
+    <string name="you_want_to_stop_drawing">Você quer parar de desenhar?</string>
+    <string name="yes_discard">Não, não faça isso</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Continuar com a câmera</string>
+    <string name="with_cam">Com câmera</string>
+    <string name="without_camera">Continuar sem câmera</string>
+    <string name="without_cam">Sem câmera</string>
 
 </resources>

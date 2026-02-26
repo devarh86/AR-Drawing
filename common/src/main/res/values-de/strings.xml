@@ -448,16 +448,8 @@
     <string name="template">Vorlage</string>
     <string name="app_name_new">AR Drawing</string>
 
-    <string name="boarding1_title">Karussell</string>
-    <string name="boarding1_text_body">Wische einfach durch mehrere Beiträge.</string>
-    <string name="boarding3_title">Stories</string>
-    <string name="boarding3_text_body">Kurzlebige, bildschirmfüllende visuelle Inhalte.</string>
-
     <string name="boarding4_title">Zusammenfügen</string>
     <string name="boarding4_text_body">Verschiedene Clips nahtlos verbinden.</string>
-
-    <string name="boarding2_title">Collage</string>
-    <string name="boarding2_text_body">Fotos in einem Rahmen kombinieren.</string>
 
     <string name="upgrade_plan_now">Plan jetzt upgraden!</string>
     <string name="enjoy_unlimited_benefits_amp_features">Genießen Sie unbegrenzte Vorteile &amp; Funktionen</string>
@@ -516,5 +508,117 @@
     <string name="carousal">Karussell</string>
     <string name="enjoy_50_off_on_weekly_premium">Genießen Sie 50% Rabatt auf Wöchentliches Premium!</string>
 
+    <string name="crop">Ernte</string>
+    <string name="are_you_want_to_discard">Möchten Sie die Datei verwerfen?</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">Wenn Sie zurückgehen, wird Ihre Arbeit verworfen!</string>
+
+    <string name="apply">Anwenden</string>
+    <string name="preview">Vorschau</string>
+    <string name="projects">Projekte</string>
+    <string name="see_all">Alle anzeigen</string>
+    <string name="with_ad">Mit Werbung</string>
+
+    <string name="_3_day_free_trial">3 Tage kostenlos testen</string>
+    <string name="join_crsl_premium">Werden Sie CRSL Premium-Mitglied.</string>
+
+
+    <string name="boarding1_title">Einfach zu zeichnen</string>
+    <string name="boarding1_text_body">Lege ein Stück Butterpapier auf dein Handy und zeichne es.</string>
+    <string name="boarding2_title">Zeichnen mit der Kamera</string>
+    <string name="boarding2_text_body">Halten oder stellen Sie Ihr Handy auf, um es leichter zeichnen zu können.</string>
+    <string name="boarding3_title">Zeichne dein eigenes Bild</string>
+    <string name="boarding3_text_body">Zeichne, pausiere und male auf jedem Foto, das dir gefällt!</string>
+    <string name="let_s_draw">Lass uns zeichnen</string>
+    <string name="create_draw_and_have_fun">Kreativ sein, zeichnen und Spaß haben!</string>
+    <string name="ar_drawing">AR-Zeichnung</string>
+    <string name="import_gallery">Importgalerie</string>
+    <string name="photo_to_sketch">Foto zu Skizze</string>
+    <string name="learn_to_draw">Zeichnen lernen</string>
+    <string name="my_art">Meine Kunst</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">Üben</string>
+    <string name="s_home_h1_detail">Einfache Lektionen zur Verbesserung der Zeichenfähigkeiten</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">Kreativität</string>
+    <string name="s_home_h2_detail">Unterhaltsame Zeichenkurse mit Schritt-für-Schritt-Anleitung</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">Themen</string>
+    <string name="s_home_h3_detail">Entdecke Zeichnungen nach Themen und Stilen</string>
+
+    <string name="s_home_h4">Foto an</string>
+    <string name="s_home_h4_sub">Skizzieren</string>
+    <string name="s_home_h4_detail">Bilder in künstlerische Bleistiftskizzen umwandeln.</string>
+
+    <string name="start">Start</string>
+    <string name="settings">Einstellungen</string>
+    <string name="unlock_premium_features">Premium-Funktionen freischalten</string>
+    <string name="terms_and_conditions">Geschäftsbedingungen</string>
+
+    <string name="watch_an_ad">Werbung ansehen</string>
+    <string name="pro_face_swap">Pro Face Swap</string>
+    <string name="swap">Tauschen</string>
+    <string name="upload_image_template">Bildvorlage hochladen</string>
+    <string name="upload_or_take_your_image_please_clear_face">Laden Sie ein Bild hoch oder machen Sie ein Foto davon. Bitte achten Sie darauf, dass Ihr Gesicht nicht sichtbar ist.</string>
+    <string name="upload_your_face">Laden Sie Ihr Gesicht hoch</string>
+    <string name="create">Erstellen</string>
+    <string name="saving_your_image">Speichern Ihres Bildes</string>
+    <string name="processing_your_masterpiece">Wir verarbeiten dein Meisterwerk… 🎨</string>
+    <string name="face_swap">Gesichtstausch</string>
+    <string name="edit_more">Bearbeiten Sie mehr</string>
+    <string name="please_crop">Bitte schneiden Sie das Bild auf das gleiche Seitenverhältnis zu, um bessere Ergebnisse zu erzielen.</string>
+    <string name="stay_with_us">Bleiben Sie bei uns, Ihr Erlebnis beginnt jetzt!</string>
+    <string name="got_it">Habe es</string>
+
+    <string name="pencil_sketch">Bleistiftskizze</string>
+    <string name="sketch_now">Jetzt skizzieren</string>
+    <string name="upgrade_to_pro">Upgrade auf Pro</string>
+    <string name="enjoy_all_drawings">Viel Spaß mit allen Zeichnungen, Werkzeugen und dem ganzen Spaß!</string>
+    <string name="sketch_loading">Skizzieren Sie Ihr Foto – Linien erwachen zum Leben…</string>
+    <string name="sketch_ready">Ihre Skizze nimmt Gestalt an!</string>
+    <string name="memory_sketching">Erinnerungen in Bleistiftzeichnungen verwandeln…</string>
+    <string name="sketch_details_fit">Linien und Schattierungen fügen sich zusammen!</string>
+    <string name="sketch_progress">Skizzenmagie in Arbeit…</string>
+    <string name="sketch_placing_details">Jedes noch so kleine Detail zeichnen…</string>
+    <string name="sketch_looking_timeless">Klassischer Look – jetzt als Skizze!</string>
+    <string name="sketch_you_brought_it_back">Wow! Die Skizze sieht ja lebendig aus!</string>
+    <string name="sketch_healing_memories">Erinnerungen mit Sorgfalt skizzieren…</string>
+    <string name="sketch_almost">Fast geschafft – nur noch die letzten Striche!</string>
+    <string name="sketch_damage_detected">Kanten anpassen – Linien verfeinern!</string>
+    <string name="sketch_transforming">Aus Fotos handgezeichnete Kunstwerke machen…</string>
+    <string name="sketch_uploading">Senden Sie Ihr Foto an den Zeichner…</string>
+    <string name="sketch_final_touch">Die abschließende Schattierung – das erfordert Geschick!</string>
+    <string name="sketch_blast">Diese Skizze ist etwas ganz Besonderes!</string>
+    <string name="sketch_new_life">Frische Skizzen-Vibes machen sich breit!</string>
+    <string name="sketch_details_locked">Details abgeschlossen – Skizzieren wie ein Profi!</string>
+    <string name="sketch_wait">Warten Sie ab… die magische Stiftmagie wird geladen!</string>
+    <string name="sketch_alignment">Striche perfekt ausrichten…</string>
+    <string name="sketch_memory_repairing">Ihre Skizze wird verfeinert…</string>
+    <string name="sketch_about_to_shine">Mach dich bereit – deine Skizze wird glänzen!</string>
+    <string name="sketch_epic">Epische Skizzenerstellung in vollem Gange!</string>
+    <string name="sketch_ready_to_reveal">Fast fertig – die Skizze wird bald enthüllt!</string>
+    <string name="sketch_restoring_clarity">Linienführung und Kontraste verstärken…</string>
+    <string name="sketch_scratches_fading">Raue Kanten werden geglättet…</string>
+    <string name="sketch_time_travel_mode">Skizzenmodus: EIN ✏️</string>
+    <string name="sketch_magic_at_work">Skizzenmagie in Aktion – bleiben Sie dran!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Gefällt Ihnen unsere App?</string>
+    <string name="sketch">Skizzieren</string>
+    <string name="trace">Verfolgen</string>
+    <string name="drawing_now">Jetzt zeichnen</string>
+    <string name="how_to_draw">Wie man zeichnet</string>
+    <string name="picture">Bild</string>
+    <string name="camera">Kamera</string>
+    <string name="stop_drawing">Mit dem Zeichnen aufhören?</string>
+    <string name="you_want_to_stop_drawing">Du willst aufhören zu zeichnen</string>
+    <string name="yes_discard">Nein, tu es nicht.</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Weiter mit der Kamera</string>
+    <string name="with_cam">Mit Kamera</string>
+    <string name="without_camera">Ohne Kamera fortfahren</string>
+    <string name="without_cam">Ohne Kamera</string>
 
 </resources>

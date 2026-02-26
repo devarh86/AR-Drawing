@@ -72,6 +72,7 @@ class PencilSketchViewModel @Inject constructor(
 
     var imageEnhancedPath: MutableList<ImagesModel> = mutableListOf()
     var sketchMode = ""
+    var cameraPath = ""
 
     private val _state =
         MutableStateFlow<SketchImageActionViewState>(SketchImageActionViewState.Idle)

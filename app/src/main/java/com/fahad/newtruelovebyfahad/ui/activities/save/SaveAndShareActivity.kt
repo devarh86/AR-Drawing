@@ -8,8 +8,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.ViewTreeObserver
-import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResult
@@ -17,7 +15,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
@@ -25,19 +22,15 @@ import androidx.core.view.marginTop
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.ads.Constants
 import com.example.ads.Constants.enablePopUpSave
 import com.example.ads.Constants.languageCode
 import com.example.ads.admobs.utils.loadAppOpen
-import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.onPauseBanner
 import com.example.ads.admobs.utils.showAppOpen
-import com.example.ads.utils.interstitialSave
 import com.example.inapp.helpers.Constants.isProVersion
 import com.fahad.newtruelovebyfahad.utils.gone
-import com.fahad.newtruelovebyfahad.utils.visible
 import com.project.common.databinding.SaveCarousalBinding
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.fromSaveAndShare
@@ -97,6 +90,7 @@ class SaveAndShareActivity : AppCompatActivity() {
             eventScreenName = "save_new"
             eventForGalleryAndEditor("save_new", "", true)
         } else {
+            binding.saveTxt.gone()
             eventScreenName = "from_saved"
             eventForGalleryAndEditor("from_saved", "", true)
         }
@@ -206,7 +200,6 @@ class SaveAndShareActivity : AppCompatActivity() {
 
             } else {
                 if (clickFrom == "back") fromSaveAndShare = true
-                loadNewInterstitial(interstitialSave()) {}
                 resultIntent.putExtra("where", clickFrom)
             }
             setResult(RESULT_OK, resultIntent)
@@ -214,82 +207,20 @@ class SaveAndShareActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupDotsIndicator(
-        count: Int,
-    ) {
-        kotlin.runCatching {
-            _binding?.indicatorShare?.removeAllViews()
-
-            if (count <= 1) {
-                _binding?.indicatorShare?.gone()
-                return
-            }
-
-            _binding?.indicatorShare?.visible()
-            val dots = arrayOfNulls<ImageView>(count)
-
-            for (i in 0 until count) {
-                dots[i] = ImageView(this@SaveAndShareActivity)
-                dots[i]?.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this@SaveAndShareActivity,
-                        com.project.common.R.drawable.s_unselected
-                    )
-                )
-                val params = LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-                )
-                params.setMargins(6, 0, 6, 0)
-                _binding?.indicatorShare?.addView(dots[i], params)
-            }
-
-            // Set first dot as active
-            if (dots.isNotEmpty()) {
-                dots[0]?.setImageDrawable(
-                    ContextCompat.getDrawable(
-                        this@SaveAndShareActivity,
-                        com.project.common.R.drawable.s_selected
-                    )
-                )
-            }
-
-            // Register page change callback
-            _binding?.viewPager?.registerOnPageChangeCallback(object :
-                ViewPager2.OnPageChangeCallback() {
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-
-                    // Update dots
-                    for (i in dots.indices) {
-                        dots[i]?.setImageDrawable(
-                            ContextCompat.getDrawable(
-                                this@SaveAndShareActivity,
-                                if (i == position) com.project.common.R.drawable.s_selected
-                                else com.project.common.R.drawable.s_unselected
-                            )
-                        )
-                    }
-                }
-            })
-        }
-
-    }
-
     private fun init() {
 
         this.let {
             _binding?.shimmerView?.isVisible = true
-            _binding?.savedImage?.isVisible = true
+            _binding?.previewIV?.isVisible = true
             _binding?.let { binding ->
                 Glide.with(it).load(imagePath).apply {
-                    into(binding.savedImage)
-                    binding.savedImage.viewTreeObserver.addOnGlobalLayoutListener(object :
+                    into(binding.previewIV)
+                    binding.previewIV.viewTreeObserver.addOnGlobalLayoutListener(object :
                         ViewTreeObserver.OnGlobalLayoutListener {
                         override fun onGlobalLayout() {
                             _binding?.let { binding ->
-                                if (binding.savedImage.height > 50 && binding.savedImage.width > 50) {
-                                    binding.savedImage.viewTreeObserver.removeOnGlobalLayoutListener(
+                                if (binding.previewIV.height > 50 && binding.previewIV.width > 50) {
+                                    binding.previewIV.viewTreeObserver.removeOnGlobalLayoutListener(
                                         this
                                     )
                                     binding.shimmerView.isVisible = false
@@ -324,89 +255,18 @@ class SaveAndShareActivity : AppCompatActivity() {
 
     private fun SaveCarousalBinding.initClick() {
 
-        tikokShare.setOnSingleClickListener {
-
-            try {
-                eventForGalleryAndEditor(eventScreenName, "tiktok_button", true)
-                shareImageToApp(imagePath, "com.zhiliaoapp.musically")
-            } catch (ex: java.lang.Exception) {
-                Log.e("error", "initClick: ", ex)
-            }
-        }
-
-        instaShare.setOnSingleClickListener {
-            try {
-                eventForGalleryAndEditor(eventScreenName, "insta_button", true)
-                try {
-                    eventForGalleryAndEditor(eventScreenName, "insta_button", true)
-                    // Try full Instagram first, else fallback to Lite
-//                    val instagramPackages = listOf(
-//                        "com.instagram.android",        // full app
-//                        "com.instagram.lite",           // lite version 1
-//                        "com.instagram.android.lite"    // lite version 2 (common)
-//                    )
-                    when {
-                        isAppInstalled(this@SaveAndShareActivity, "com.instagram.android") ->
-                            shareImageToApp(imagePath, "com.instagram.android")
-                        //   isAppInstalled(this@SaveAndShareActivity, "com.instagram.lite") ->
-                        isAppInstalled(this@SaveAndShareActivity, "com.instagram.android.lite") ->
-                            //    shareImageToApp(imagePath, "com.instagram.lite")
-                            shareImageToApp(imagePath, "com.instagram.android.lite")
-
-                        else -> Toast.makeText(
-                            this@SaveAndShareActivity,
-                            "Instagram not installed",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-
-                } catch (ex: Exception) {
-                    Log.e("error", "initClick: ", ex)
-                }
-                // shareImageToApp(imagePath, "com.instagram.android")
-            } catch (ex: java.lang.Exception) {
-                Log.e("error", "initClick: ", ex)
-            }
-        }
-
-
-
-
-
-        homeButton.setOnSingleClickListener {
+        home.setOnSingleClickListener {
             ConstantsCommon.fromSaved = true
             eventForGalleryAndEditor(eventScreenName, "home", true)
             isSavedScreenHomeClicked = true
             backPress("home")
-
-            /*   kotlin.runCatching {
-                       val resultIntent = Intent()
-                       resultIntent.putExtra("backpress", true)
-                       setResult(RESULT_OK, resultIntent)
-                       finish()
-
-               }*/
-        }
-        seamlessBtn.setOnSingleClickListener {
-            backPress("carousal")
-        }
-        collageBtnN.setOnSingleClickListener {
-            backPress("collage")
-        }
-        storyBtn.setOnSingleClickListener {
-            backPress("stories")
         }
 
-        stitchBtn.setOnSingleClickListener {
-            backPress("stitch")
-        }
-
-        backButton.setOnSingleClickListener {
+        backPress.setOnSingleClickListener {
             backPress("back")
         }
 
-
-        moreShare.setOnSingleClickListener {
+        share.setOnSingleClickListener {
             try {
                 eventForGalleryAndEditor(eventScreenName, "more", true)
                 shareImage(imagePath)

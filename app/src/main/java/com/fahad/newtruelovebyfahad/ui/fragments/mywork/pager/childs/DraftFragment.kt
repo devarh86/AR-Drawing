@@ -15,8 +15,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.example.ads.Constants
-import com.example.ads.admobs.utils.showInterstitial
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.example.analytics.Constants.firebaseAnalytics
 import com.example.analytics.Constants.parentScreen
 import com.example.analytics.Events
@@ -122,52 +123,17 @@ class DraftFragment : Fragment() {
                                 )
                                 putString(Events.ParamsKeys.FRAME_ID, frameBody.id.toString())
                             })
-                        mActivity?.showInterstitial(
-                            loadedAction = {
-                                ConstantsCommon.resetCurrentFrames()
-                                ConstantsCommon.isDraft = true
-                                ConstantsCommon.parentId = frameBody.id
-                                ConstantsCommon.type = frameBody.type
-                                ConstantsCommon.editor = frameBody.editor
-                                ConstantsCommon.selectedId = frameBody.selectedId
-                                /*val intent = Intent(
-                                    it,
-                                    when (frameBody.editor) {
-                                        "photo_editor" -> PhotoEditorActivity::class.java
-                                        MainMenuOptions.BLEND.title -> BlendEffectEditorActivity::class.java
-                                        else -> BlendEffectEditorActivity::class.java
-                                    }
-                                )
-                                activity?.let {
-                                    if (it is MainActivity) {
-                                        it.getActivityLauncher().launch(intent)
-                                    }
-                                }*/
-                            },
-                            failedAction = {
-                                ConstantsCommon.resetCurrentFrames()
-                                ConstantsCommon.isDraft = true
-                                ConstantsCommon.parentId = frameBody.id
-                                ConstantsCommon.type = frameBody.type
-                                ConstantsCommon.ratio = frameBody.ratio
-                                ConstantsCommon.editor = frameBody.editor
-                                ConstantsCommon.selectedId = frameBody.selectedId
-                                /*val intent = Intent(
-                                    it,
-                                    when (frameBody.editor) {
-                                        "photo_editor" -> PhotoEditorActivity::class.java
-                                        MainMenuOptions.BLEND.title -> BlendEffectEditorActivity::class.java
-                                        else -> BlendEffectEditorActivity::class.java
-                                    }
-                                )
-                                //  activityLauncher.launch(intent)
-                                activity?.let {
-                                    if (it is MainActivity) {
-                                        it.getActivityLauncher().launch(intent)
-                                    }
-                                }*/
-                            }, showAd = Constants.showDraftFrameClickAd, onCheck = true
-                        )
+
+                        activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                            activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                            ConstantsCommon.resetCurrentFrames()
+                            ConstantsCommon.isDraft = true
+                            ConstantsCommon.parentId = frameBody.id
+                            ConstantsCommon.type = frameBody.type
+                            ConstantsCommon.ratio = frameBody.ratio
+                            ConstantsCommon.editor = frameBody.editor
+                            ConstantsCommon.selectedId = frameBody.selectedId
+                        }
                     } else {
                         it.showToast("Connect to Internet!")
                     }

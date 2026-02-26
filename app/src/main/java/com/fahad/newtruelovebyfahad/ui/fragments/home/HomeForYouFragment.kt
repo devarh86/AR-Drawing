@@ -13,7 +13,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +24,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
-import com.example.ads.Constants.showForYouFrameClickAd
 import com.example.ads.admobs.utils.loadNewInterstitial
-import com.example.ads.admobs.utils.showInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.admobs.utils.showRewardedInterstitial
 import com.example.ads.dialogs.ExitModel
@@ -69,6 +66,7 @@ import com.project.common.utils.enums.MainMenuOptions
 import com.project.common.utils.eventForGalleryAndEditor
 import com.project.common.utils.getProScreen
 import com.project.common.utils.setDrawable
+import com.project.common.utils.setOnSingleClickListener
 import com.project.common.viewmodels.ApiViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -201,15 +199,13 @@ class HomeForYouFragment : Fragment() {
                                                 if (position != -1) forYouFramesAdapter?.notifyItemChanged(
                                                     position
                                                 )
-                                                val onlineOrOfflineFrame =
-                                                    if (frameBody.thumb.contains("android_asset")) {
-                                                        false
-                                                    } else {
-                                                        isNetworkAvailable
-                                                    }
-                                                apiViewModel.getFrame(
-                                                    frameBody.id, onlineOrOfflineFrame
-                                                )
+                                                kotlin.runCatching {
+                                                    navController?.navigate(
+                                                        HomeForYouFragmentDirections.actionHomeForYouFragmentToHowToDrawFragment(
+                                                            frameBody.baseUrl+frameBody.thumb
+                                                        )
+                                                    )
+                                                }
                                             }
                                         }.invokeOnCompletion {}
                                     },
@@ -237,29 +233,21 @@ class HomeForYouFragment : Fragment() {
                         )
                     } else {
                         apiViewModel.addToRecent(RecentsModel(frame = frameBody))
-                        mActivity.showInterstitial(
-                            loadedAction = {
-                                val onlineOrOfflineFrame =
-                                    if (frameBody.thumb.contains("android_asset")) {
-                                        false
-                                    } else {
-                                        isNetworkAvailable
-                                    }
-                                apiViewModel.getFrame(
-                                    frameBody.id, onlineOrOfflineFrame
+                        activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                            activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                            kotlin.runCatching {
+                                navController?.navigate(
+                                    HomeForYouFragmentDirections.actionHomeForYouFragmentToHowToDrawFragment(
+                                        frameBody.baseUrl+frameBody.thumb
+                                    )
                                 )
-                            }, failedAction = {
-                                val onlineOrOfflineFrame =
-                                    if (frameBody.thumb.contains("android_asset")) {
-                                        false
-                                    } else {
-                                        isNetworkAvailable
-                                    }
-                                apiViewModel.getFrame(
-                                    frameBody.id, onlineOrOfflineFrame
-                                )
-                            }, showAd = showForYouFrameClickAd, onCheck = true
-                        )
+                            }
+
+                            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+
+                            }
+                        }
                     }
                 }
             }, declineAction = {})
@@ -338,8 +326,8 @@ class HomeForYouFragment : Fragment() {
                     }
 
                     else -> {
-                        binding.dot1.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot1
+                        binding.dot4.setImageDrawable(context.setDrawable(R.drawable.selected))
+                        lastSelected = binding.dot4
                     }
                 }
 
@@ -758,6 +746,13 @@ class HomeForYouFragment : Fragment() {
             }
         }
 
+        myWork.setOnSingleClickListener {
+            kotlin.runCatching {
+                navController?.navigate(
+                    HomeForYouFragmentDirections.actionGlobalSavedFragment()
+                )
+            }
+        }
 
     }
 

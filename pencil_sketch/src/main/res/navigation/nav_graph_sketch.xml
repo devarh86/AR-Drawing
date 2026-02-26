@@ -87,7 +87,11 @@
         tools:layout="@layout/fragment_drawing"
         android:id="@+id/drawingFragment"
         android:name="com.abdul.pencil_sketch.main.fragment.DrawingFragment"
-        android:label="DrawingFragment" />
+        android:label="DrawingFragment" >
+        <action
+            android:id="@+id/action_drawingFragment_to_cameraFragment"
+            app:destination="@id/cameraFragment" />
+    </fragment>
     <fragment
         tools:layout="@layout/fragment_how_to_draw"
         android:id="@+id/howToDrawFragment"
@@ -97,5 +101,19 @@
             android:id="@+id/action_howToDrawFragment_to_drawingFragment"
             app:destination="@id/drawingFragment" />
     </fragment>
+    <fragment
+        tools:layout="@layout/fragment_camera"
+        android:id="@+id/cameraFragment"
+        android:name="com.abdul.pencil_sketch.main.fragment.CameraFragment"
+        android:label="CameraFragment" >
+        <action
+            android:id="@+id/action_cameraFragment_to_saveAndShareFragment"
+            app:destination="@id/saveAndShareFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_save_share"
+        android:id="@+id/saveAndShareFragment"
+        android:name="com.abdul.pencil_sketch.main.fragment.SaveAndShareFragment"
+        android:label="SaveAndShareFragment" />
 
 </navigation>

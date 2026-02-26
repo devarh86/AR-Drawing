@@ -7,8 +7,6 @@
     <string name="exit">باہر نکلیں۔</string>
     <string name="cancel">منسوخ کریں۔</string>
     <string name="edit_photo">تصویر میں ترمیم کریں۔</string>
-    <string name="are_you_want_to_discard">کیا آپ مسترد کرنا چاہتے ہیں؟</string>
-    <string name="if_you_go_back_your_work_will_be_discarded">اگر آپ واپس جاتے ہیں تو آپ کا کام ضائع کر دیا جائے گا!</string>
     <string name="try_again">دوبارہ کوشش کریں۔</string>
     <string name="select_language">زبان منتخب کریں۔</string>
     <string name="welcome_to_collagepic">CollagePic میں خوش آمدید</string>
@@ -86,7 +84,6 @@
     <string name="write_text">متن لکھیں۔</string>
     <string name="close">بند</string>
     <string name="replace">بدل دیں۔</string>
-    <string name="crop">تصویر کو تراشیں</string>
     <string name="remove_watermark">واٹر مارک کو ہٹا دیں۔</string>
     <string name="for_24_hours">24 گھنٹے کے لیے</string>
     <string name="for_life_time">لائف ٹائم کے لیے</string>
@@ -440,16 +437,8 @@
     <string name="template">سانچہ</string>
     <string name="app_name_new">AR Drawing ایپ</string>
 
-    <string name="boarding1_title">کیراؤسل</string>
-    <string name="boarding1_text_body">آسانی سے متعدد پوسٹس سوائپ کریں۔</string>
-    <string name="boarding3_title">کہانیاں</string>
-    <string name="boarding3_text_body">مختصر مدت کی، فل اسکرین بصری مواد۔</string>
-
     <string name="boarding4_title">جوڑنا</string>
     <string name="boarding4_text_body">مختلف کلپس کو باآسانی جوڑیں۔</string>
-
-    <string name="boarding2_title">کولاج</string>
-    <string name="boarding2_text_body">تصویروں کو ایک ہی فریم میں جوڑیں۔</string>
 
     <string name="upgrade_plan_now">ابھی پلان اپ گریڈ کریں!</string>
     <string name="enjoy_unlimited_benefits_amp_features">لامحدود فوائد اور خصوصیات سے لطف اندوز ہوں</string>
@@ -513,6 +502,118 @@
 
     <string name="enjoy_50_off_on_weekly_premium">ہفتہ وار پریمیم پر 50% رعایت سے لطف اندوز ہوں!</string>
 
+    <string name="crop">فصل</string>
+    <string name="are_you_want_to_discard">کیا آپ مسترد کرنا چاہتے ہیں؟</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">اگر آپ واپس جاتے ہیں تو آپ کا کام ضائع کر دیا جائے گا!</string>
+
+    <string name="apply">لگائیں</string>
+    <string name="preview">پیش نظارہ</string>
+    <string name="projects">پروجیکٹس</string>
+    <string name="see_all">سب دیکھیں</string>
+    <string name="with_ad">اشتہار کے ساتھ</string>
+
+    <string name="_3_day_free_trial">3 دن کا مفت ٹرائل</string>
+    <string name="join_crsl_premium">CRSL پریمیم میں شامل ہوں۔</string>
+
+
+    <string name="boarding1_title">ڈرا کرنے میں آسان</string>
+    <string name="boarding1_text_body">فون پر بٹر پیپر رکھیں اور اسے کھینچیں۔</string>
+    <string name="boarding2_title">کیمرے کے ساتھ ڈرا</string>
+    <string name="boarding2_text_body">اپنے فون کو آسانی سے کھینچنے کے لیے اسے پکڑ کر رکھیں۔</string>
+    <string name="boarding3_title">اپنی تصویر خود بنائیں</string>
+    <string name="boarding3_text_body">اپنی پسند کی کسی بھی تصویر پر ڈرا، ٹریس اور رنگ کریں!</string>
+    <string name="let_s_draw">آئیے ڈرا کرتے ہیں۔</string>
+    <string name="create_draw_and_have_fun">تخلیق کریں، ڈرا کریں، اور مزہ کریں!</string>
+    <string name="ar_drawing">اے آر ڈرائنگ</string>
+    <string name="import_gallery">گیلری درآمد کریں۔</string>
+    <string name="photo_to_sketch">خاکہ کے لیے تصویر</string>
+    <string name="learn_to_draw">ڈرا کرنا سیکھیں۔</string>
+    <string name="my_art">میرا فن</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">مشق کریں۔</string>
+    <string name="s_home_h1_detail">ڈرائنگ کی مہارت\nبہتر کرنے کے لیے آسان اسباق</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">تخلیقی صلاحیت</string>
+    <string name="s_home_h2_detail">تفریحی مرحلہ وار\nاسباق ڈرائنگ</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">تھیمز</string>
+    <string name="s_home_h3_detail">تھیمز اور اسٹائلز کے لحاظ سے ڈرائنگ دریافت کریں۔</string>
+
+    <string name="s_home_h4">کے لیے تصویر</string>
+    <string name="s_home_h4_sub">خاکہ</string>
+    <string name="s_home_h4_detail">تصاویر کو فنکارانہ\nپنسل خاکوں میں تبدیل کریں۔</string>
+
+    <string name="start">شروع کریں۔</string>
+    <string name="settings">ترتیبات</string>
+    <string name="unlock_premium_features">پریمیم خصوصیات کو غیر مقفل کریں۔</string>
+    <string name="terms_and_conditions">شرائط و ضوابط</string>
+
+    <string name="watch_an_ad">ایک اشتہار دیکھیں</string>
+    <string name="pro_face_swap">پرو فیس سویپ</string>
+    <string name="swap">تبادلہ</string>
+    <string name="upload_image_template">تصویری سانچہ اپ لوڈ کریں۔</string>
+    <string name="upload_or_take_your_image_please_clear_face">اپ لوڈ کریں یا اپنی تصویر لیں۔ براہ کرم چہرہ صاف کریں۔</string>
+    <string name="upload_your_face">اپنا\nچہرہ اپ لوڈ کریں۔</string>
+    <string name="create">بنائیں</string>
+    <string name="saving_your_image">آپ کی تصویر محفوظ کر رہا ہے۔</string>
+    <string name="processing_your_masterpiece">آپ کے شاہکار پر کارروائی ہو رہی ہے… 🎨</string>
+    <string name="face_swap">چہرے کا تبادلہ</string>
+    <string name="edit_more">مزید ترمیم کریں۔</string>
+    <string name="please_crop">براہ کرم تصویر کو اسی تناسب میں تراشیں\nبہتر نتائج کے لیے</string>
+    <string name="stay_with_us">ہمارے ساتھ رہیں آپ کا تجربہ\nشروع ہونے والا ہے!\n</string>
+    <string name="got_it">سمجھ گیا</string>
+
+    <string name="pencil_sketch">پنسل اسکیچ</string>
+    <string name="sketch_now">ابھی خاکہ بنائیں</string>
+    <string name="upgrade_to_pro">پرو میں اپ گریڈ کریں۔</string>
+    <string name="enjoy_all_drawings">تمام ڈرائنگ، ٹولز اور تفریح ​​سے لطف اندوز ہوں۔</string>
+    <string name="sketch_loading">آپ کی تصویر کا خاکہ بنانا — لائنیں زندہ ہو رہی ہیں…</string>
+    <string name="sketch_ready">آپ کا خاکہ شکل اختیار کر رہا ہے!</string>
+    <string name="memory_sketching">اپنی یادداشت کو پنسل آرٹ میں بدلنا…</string>
+    <string name="sketch_details_fit">لکیریں اور سائے جگہ جگہ گر رہے ہیں!</string>
+    <string name="sketch_progress">اسکیچ میجک جاری ہے…</string>
+    <string name="sketch_placing_details">ہر چھوٹی سے چھوٹی تفصیل کھینچ رہا ہے…</string>
+    <string name="sketch_looking_timeless">کلاسیکی شکل - اب ایک خاکے کے طور پر!</string>
+    <string name="sketch_you_brought_it_back">واہ! وہ خاکہ زندہ لگتا ہے!</string>
+    <string name="sketch_healing_memories">یادوں کو احتیاط کے ساتھ خاکہ بنانا…</string>
+    <string name="sketch_almost">تقریباً ہو گیا — آخری اسٹروک باقی ہیں!</string>
+    <string name="sketch_damage_detected">کناروں کو ایڈجسٹ کرنا - لائنوں کو بہتر بنانا!</string>
+    <string name="sketch_transforming">تصویر کو ہاتھ سے تیار کردہ آرٹ میں تبدیل کرنا…</string>
+    <string name="sketch_uploading">خاکہ بنانے والے کو آپ کی تصویر بھیجی جا رہی ہے…</string>
+    <string name="sketch_final_touch">حتمی شیڈنگ - یہ مہارت لیتا ہے!</string>
+    <string name="sketch_blast">یہ خاکہ مختلف مار رہا ہے!</string>
+    <string name="sketch_new_life">تازہ خاکے کی آوازیں آ رہی ہیں!</string>
+    <string name="sketch_details_locked">تفصیلات مقفل ہیں — ایک پرو کی طرح خاکہ بنانا!</string>
+    <string name="sketch_wait">اس کا انتظار کریں… پنسل جادو لوڈ ہو رہا ہے!</string>
+    <string name="sketch_alignment">اسٹروک کو بالکل سیدھ میں لانا…</string>
+    <string name="sketch_memory_repairing">آپ کے خاکے کو بہتر بنایا جا رہا ہے…</string>
+    <string name="sketch_about_to_shine">تیار ہو جائیں — آپ کا خاکہ چمکے گا!</string>
+    <string name="sketch_epic">مہاکاوی خاکے کی تخلیق جاری ہے!</string>
+    <string name="sketch_ready_to_reveal">تقریباً تیار — جلد ہی خاکہ ظاہر کریں!</string>
+    <string name="sketch_restoring_clarity">لائنوں اور کنٹراسٹ کو بڑھانا…</string>
+    <string name="sketch_scratches_fading">کھردرے کنارے ہموار ہو رہے ہیں…</string>
+    <string name="sketch_time_travel_mode">خاکہ وضع: آن ✏️</string>
+    <string name="sketch_magic_at_work">کام پر جادو کا خاکہ بنائیں - دیکھتے رہیں!</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">کیا آپ کو ہماری ایپ پسند ہے؟</string>
+    <string name="sketch">خاکہ</string>
+    <string name="trace">ٹریس</string>
+    <string name="drawing_now">ابھی ڈرائنگ</string>
+    <string name="how_to_draw">کس طرح کھینچنا ہے۔</string>
+    <string name="picture">تصویر</string>
+    <string name="camera">کیمرہ</string>
+    <string name="stop_drawing">ڈرائنگ بند کریں؟</string>
+    <string name="you_want_to_stop_drawing">آپ ڈرائنگ بند کرنا چاہتے ہیں۔</string>
+    <string name="yes_discard">نہیں، مت کرو</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">کیمرے کے ساتھ جاری رکھیں</string>
+    <string name="with_cam">کیمرے کے ساتھ</string>
+    <string name="without_camera">کیمرے کے بغیر جاری رکھیں</string>
+    <string name="without_cam">کیمرہ کے بغیر</string>
 
 
 </resources>

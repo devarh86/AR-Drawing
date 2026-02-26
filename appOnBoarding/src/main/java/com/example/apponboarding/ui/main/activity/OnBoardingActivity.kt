@@ -12,11 +12,8 @@ import com.example.ads.Constants.languageCode
 import com.example.ads.Constants.showRoboPro
 import com.example.ads.Constants.surveyScreenEnable
 import com.example.ads.admobs.utils.loadNewInterstitialForPro
-import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
-import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitialPro
-import com.example.ads.utils.languageInterstitial
-import com.example.ads.utils.obLastInterstitial
+import com.example.ads.utils.startedInterstitial
 import com.example.analytics.Constants.firebaseAnalytics
 import com.example.analytics.Events
 import com.example.apponboarding.databinding.ActivityOnBoardingBinding
@@ -52,13 +49,13 @@ class OnBoardingActivity : AppCompatActivity() {
             this.setLocale(languageCode)
         }
         setContentView(binding.root)
-        loadNewInterstitialForPro(languageInterstitial()) {}
+        loadNewInterstitialForPro(startedInterstitial()) {}
         dataStoreViewModel.initViewModel()
 
         hideNavigation()
         initOnBoardingViewPager()
 
-       // loadNewInterstitialWithoutStrategyCheck(obLastInterstitial()) {}
+        // loadNewInterstitialWithoutStrategyCheck(obLastInterstitial()) {}
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -130,7 +127,7 @@ class OnBoardingActivity : AppCompatActivity() {
             Constants.firebaseAnalytics?.logEvent("event_fragment_onboarding_three", null)
             eventFragmentOnBoardingThree = true
             Log.i("firebase_event", "logEvent: $event")
-        }else if (event == "event_fragment_onboarding_four" && !eventFragmentOnBoardingFour) {
+        } else if (event == "event_fragment_onboarding_four" && !eventFragmentOnBoardingFour) {
             Constants.firebaseAnalytics?.logEvent("event_fragment_onboarding_four", null)
             eventFragmentOnBoardingFour = true
             Log.i("firebase_event", "logEvent: $event")
@@ -175,8 +172,8 @@ class OnBoardingActivity : AppCompatActivity() {
 
     private fun completeOnboarding() {
         kotlin.runCatching {
-           // showNewInterstitial(obLastInterstitial()) {
-            showNewInterstitialPro(languageInterstitial()) {
+            // showNewInterstitial(obLastInterstitial()) {
+            showNewInterstitialPro(startedInterstitial()) {
                 if (!surveyCompleted && surveyScreenEnable) {
                     kotlin.runCatching {
                         val intent = Intent()
@@ -232,7 +229,7 @@ class OnBoardingActivity : AppCompatActivity() {
                     }
                 }
             }
-           // }
+            // }
         }
     }
 

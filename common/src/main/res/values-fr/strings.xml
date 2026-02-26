@@ -447,16 +447,8 @@
     <string name="template">Modèle</string>
     <string name="app_name_new">AR Drawing App</string>
 
-    <string name="boarding1_title">Carrousel</string>
-    <string name="boarding1_text_body">Faites défiler facilement plusieurs publications.</string>
-    <string name="boarding3_title">Stories</string>
-    <string name="boarding3_text_body">Contenu visuel éphémère en plein écran.</string>
-
     <string name="boarding4_title">Assembler</string>
     <string name="boarding4_text_body">Assemblez différents clips sans effort.</string>
-
-    <string name="boarding2_title">Collage</string>
-    <string name="boarding2_text_body">Combinez des photos en un seul cadre.</string>
 
     <string name="upgrade_plan_now">Améliorez votre plan maintenant !</string>
     <string name="enjoy_unlimited_benefits_amp_features">Profitez d\'avantages et de fonctionnalités illimités</string>
@@ -520,5 +512,114 @@
     <string name="carousal">Carrousel</string>
 
     <string name="enjoy_50_off_on_weekly_premium">Profitez de 50% de réduction sur le Premium Hebdomadaire !</string>
+
+    <string name="apply">Appliquer</string>
+    <string name="preview">Aperçu</string>
+    <string name="projects">Projets</string>
+    <string name="see_all">Voir tout</string>
+    <string name="with_ad">Avec publicité</string>
+
+    <string name="_3_day_free_trial">Essai gratuit de 3 jours</string>
+    <string name="join_crsl_premium">Rejoignez CRSL Premium</string>
+
+
+    <string name="boarding1_title">Facile à dessiner</string>
+    <string name="boarding1_text_body">Posez une feuille de papier sulfurisé sur le téléphone et dessinez-le.</string>
+    <string name="boarding2_title">Dessiner avec un appareil photo</string>
+    <string name="boarding2_text_body">Tenez votre téléphone en position verticale ou horizontale pour dessiner facilement.</string>
+    <string name="boarding3_title">Dessine ta propre image</string>
+    <string name="boarding3_text_body">Dessinez, décalquez et coloriez n\'importe quelle photo que vous aimez !</string>
+    <string name="let_s_draw">Dessinons</string>
+    <string name="create_draw_and_have_fun">Créez, dessinez et amusez-vous !</string>
+    <string name="ar_drawing">Dessin AR</string>
+    <string name="import_gallery">Galerie d\'importation</string>
+    <string name="photo_to_sketch">Photo vers dessin</string>
+    <string name="learn_to_draw">Apprendre à dessiner</string>
+    <string name="my_art">Mon art</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">Pratique</string>
+    <string name="s_home_h1_detail">Leçons faciles pour améliorer ses compétences en dessin</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">Créativité</string>
+    <string name="s_home_h2_detail">Leçons de dessin amusantes étape par étape</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">Thèmes</string>
+    <string name="s_home_h3_detail">Explorez les dessins par thèmes et styles</string>
+
+    <string name="s_home_h4">Photo à</string>
+    <string name="s_home_h4_sub">Esquisser</string>
+    <string name="s_home_h4_detail">Transformer des images en croquis artistiques au crayon.</string>
+
+    <string name="start">Commencer</string>
+    <string name="settings">Paramètres</string>
+    <string name="unlock_premium_features">Débloquer les fonctionnalités premium</string>
+    <string name="terms_and_conditions">Termes et conditions</string>
+
+    <string name="watch_an_ad">Regardez une publicité</string>
+    <string name="pro_face_swap">Échange de visage professionnel</string>
+    <string name="swap">Échanger</string>
+    <string name="upload_image_template">Modèle de téléchargement d\'image</string>
+    <string name="upload_or_take_your_image_please_clear_face">Téléchargez ou prenez votre photo. Veuillez dégager votre visage.</string>
+    <string name="upload_your_face">Téléchargez votre visage</string>
+    <string name="create">Créer</string>
+    <string name="saving_your_image">Enregistrement de votre image</string>
+    <string name="processing_your_masterpiece">Traitement de votre chef-d\'œuvre… 🎨</string>
+    <string name="face_swap">Échange de visages</string>
+    <string name="edit_more">Modifier plus</string>
+    <string name="please_crop">Veuillez recadrer l\'image en conservant les mêmes proportions pour de meilleurs résultats.</string>
+    <string name="stay_with_us">Restez avec nous, votre expérience est sur le point de commencer !</string>
+    <string name="got_it">J\'ai compris</string>
+
+    <string name="pencil_sketch">Croquis au crayon</string>
+    <string name="sketch_now">Esquissez maintenant</string>
+    <string name="upgrade_to_pro">Passez à la version Pro</string>
+    <string name="enjoy_all_drawings">Profitez de tous les dessins, outils et du plaisir</string>
+    <string name="sketch_loading">Esquisse de votre photo — les lignes prennent vie…</string>
+    <string name="sketch_ready">Votre croquis prend forme !</string>
+    <string name="memory_sketching">Transformer ses souvenirs en dessins au crayon…</string>
+    <string name="sketch_details_fit">Les lignes et les nuances se mettent en place !</string>
+    <string name="sketch_progress">Magie du croquis en cours…</string>
+    <string name="sketch_placing_details">Dessiner chaque petit détail…</string>
+    <string name="sketch_looking_timeless">Un look classique — maintenant sous forme d\'esquisse !</string>
+    <string name="sketch_you_brought_it_back">Waouh ! Ce croquis a l\'air vivant !</string>
+    <string name="sketch_healing_memories">Croquer des souvenirs avec soin…</string>
+    <string name="sketch_almost">Presque terminé — dernières retouches à faire !</string>
+    <string name="sketch_damage_detected">Ajuster les bords — affiner les lignes !</string>
+    <string name="sketch_transforming">Transformer une photo en œuvre d\'art dessinée à la main…</string>
+    <string name="sketch_uploading">Envoyer votre photo au dessinateur…</string>
+    <string name="sketch_final_touch">La finition des ombres — cela demande du talent !</string>
+    <string name="sketch_blast">Ce sketch est vraiment différent !</string>
+    <string name="sketch_new_life">L\'inspiration pour les croquis frais arrive !</string>
+    <string name="sketch_details_locked">Détails verrouillés — croquis digne d\'un pro !</string>
+    <string name="sketch_wait">Attendez… la magie du crayon se charge !</string>
+    <string name="sketch_alignment">Aligner parfaitement les traits…</string>
+    <string name="sketch_memory_repairing">Votre croquis est en cours de perfectionnement…</string>
+    <string name="sketch_about_to_shine">Préparez-vous — votre croquis brillera !</string>
+    <string name="sketch_epic">Création d\'un croquis épique en cours !</string>
+    <string name="sketch_ready_to_reveal">Presque prêt — dévoilez bientôt le croquis !</string>
+    <string name="sketch_restoring_clarity">Améliorer les lignes et le contraste…</string>
+    <string name="sketch_scratches_fading">Les aspérités s\'estompent…</string>
+    <string name="sketch_time_travel_mode">Mode croquis : activé ✏️</string>
+    <string name="sketch_magic_at_work">La magie du dessin à l\'œuvre — restez à l\'écoute !</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">Aimez-vous notre application ?</string>
+    <string name="sketch">Esquisser</string>
+    <string name="trace">Tracer</string>
+    <string name="drawing_now">Dessiner maintenant</string>
+    <string name="how_to_draw">Comment dessiner</string>
+    <string name="picture">Image</string>
+    <string name="camera">Caméra</string>
+    <string name="stop_drawing">Arrêter de dessiner ?</string>
+    <string name="you_want_to_stop_drawing">Tu veux arrêter de dessiner</string>
+    <string name="yes_discard">Non, ne le faites pas</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">Continuer avec la caméra</string>
+    <string name="with_cam">Avec appareil photo</string>
+    <string name="without_camera">Continuer sans caméra</string>
+    <string name="without_cam">Sans appareil photo</string>
 
 </resources>

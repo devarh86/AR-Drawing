@@ -1,549 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/container_clr_activity"
+    android:background="@drawable/background"
     android:fitsSystemWindows="true">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolBar"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/container_clr_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/backButton"
+        <ImageView
+            android:id="@+id/backPress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:padding="8dp"
-            android:src="@drawable/arrow_save"
-            android:visibility="visible" />
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/ic_back_arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/s_home_ic"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolBar" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/reset"
+            style="@style/headingTextOnBoarding"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:gravity="center"
-            android:text="@string/saved"
-            android:textColor="@color/tab_txt_clr"
-            android:textSize="@dimen/_14sdp"
-            app:fontFamily="@font/robotom" />
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:text="@string/share_with_friends"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolBar"
+            app:layout_constraintEnd_toStartOf="@+id/home"
+            app:layout_constraintStart_toEndOf="@+id/backPress"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/homeButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:focusable="true"
-            android:padding="8dp"
-            android:src="@drawable/s_home_ic"
-            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
-            tools:layout_editor_absoluteX="337dp" />
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/saved_tv"
-        style="@style/ShareTextStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:text="Saved!"
-        android:visibility="gone"
-        android:textColor="@color/tab_txt_clr"
-        android:textSize="@dimen/_14sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:ignore="TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/saved_detail_txt"
-        style="@style/ShareTextStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:alpha="0.9"
-        android:visibility="gone"
-        android:text="Your photo has been successfully\n exported to your gallery."
-        android:textAlignment="center"
-        android:textColor="@color/tab_txt_clr"
-        android:textSize="@dimen/_12sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saved_tv"
-        tools:ignore="TextSizeCheck" />
-
-    <ImageView
-        android:id="@+id/savedImage"
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/previewIV"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:src="@drawable/blend_sample"
-        app:layout_constraintBottom_toTopOf="@+id/container"
+        android:layout_margin="@dimen/_12sdp"
+        app:layout_constraintBottom_toTopOf="@+id/share"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saved_detail_txt" />
-
-<!--    <androidx.viewpager2.widget.ViewPager2-->
-<!--        android:id="@+id/view_pager"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_marginStart="8dp"-->
-<!--        android:layout_marginTop="8dp"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:layout_marginBottom="16dp"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/indicator_share"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/saved_detail_txt" />-->
-
-<!--        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"-->
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintBottom_toTopOf="@+id/container"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginHorizontal="8dp"
-        android:layoutDirection="ltr"
-        android:elevation="1dp"
-        android:overScrollMode="never"
-        android:clipToPadding="false"
-        android:clipChildren="false"
-         />
-    <!-- android:paddingEnd="40dp"-->
-    <!--android:paddingStart="40dp"-->
-    <LinearLayout
-        android:id="@+id/indicator_share"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/view_pager" />
+        app:layout_constraintTop_toBottomOf="@+id/toolBar"
+        app:round="@dimen/_12sdp" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmer_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         app:layout_constrainedHeight="true"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@+id/container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/saved_detail_txt"
+        app:layout_constraintBottom_toBottomOf="@+id/previewIV"
+        app:layout_constraintEnd_toEndOf="@+id/previewIV"
+        app:layout_constraintStart_toStartOf="@+id/previewIV"
+        app:layout_constraintTop_toTopOf="@+id/previewIV"
         app:shimmer_auto_start="true">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/ad_shimmer" />
+
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/container"
+    <ImageView
+        android:id="@+id/share"
+        style="@style/headingText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/_15sdp"
-      app:layout_constraintBottom_toTopOf="@id/other_feature"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/insta_share"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginVertical="@dimen/_12sdp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:layout_constraintEnd_toStartOf="@id/tikok_share"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            app:srcCompat="@drawable/rounded_filled_7dp" />
-
-        <ImageView
-            android:id="@+id/insta_ic_sh"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/insta_share"
-            app:layout_constraintEnd_toStartOf="@+id/insta_share_tv"
-            app:layout_constraintHorizontal_bias="0.14"
-            app:layout_constraintHorizontal_chainStyle="spread"
-            app:layout_constraintStart_toStartOf="@+id/insta_share"
-            app:layout_constraintTop_toTopOf="@+id/insta_share"
-            app:srcCompat="@drawable/s_ic_instaa" />
-
-        <TextView
-            android:id="@+id/insta_share_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/_2sdp"
-            android:layout_marginEnd="@dimen/_8sdp"
-            android:fontFamily="@font/inter"
-            android:gravity="center"
-            android:text="@string/open_instagram"
-            android:textColor="@color/normal_txt_clr"
-            android:textSize="@dimen/_11sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/insta_share"
-    app:layout_constraintEnd_toEndOf="@id/insta_share"
-            app:layout_constraintStart_toEndOf="@+id/insta_ic_sh"
-            app:layout_constraintTop_toTopOf="@+id/insta_share" />
-
-        <ImageView
-            android:id="@+id/tikok_share"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginVertical="@dimen/_12sdp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/insta_share"
-            app:layout_constraintTop_toTopOf="parent"
-
-            app:srcCompat="@drawable/rounded_filled_7dp" />
-
-        <ImageView
-            android:id="@+id/tiktok_ic_s"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_15sdp"
-            app:layout_constraintBottom_toBottomOf="@+id/tikok_share"
-            app:layout_constraintEnd_toStartOf="@id/open_tik_tok_tv"
-            app:layout_constraintStart_toStartOf="@id/tikok_share"
-            app:layout_constraintTop_toTopOf="@+id/tikok_share"
-            app:srcCompat="@drawable/ic_tiktok" />
-
-        <TextView
-            android:id="@+id/open_tik_tok_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:fontFamily="@font/inter"
-            android:text="@string/open_tiktok"
-            android:textColor="@color/normal_txt_clr"
-            android:textSize="@dimen/_11sdp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/tikok_share"
-            app:layout_constraintStart_toEndOf="@id/tiktok_ic_s"
-            app:layout_constraintTop_toTopOf="@+id/tikok_share" />
-
-        <ImageView
-            android:id="@+id/more_share"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_30sdp"
-            android:layout_marginVertical="@dimen/_12sdp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:adjustViewBounds="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tikok_share"
-            app:layout_constraintWidth_percent="0.7"
-            app:srcCompat="@drawable/rounded_filled_7dp" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/other_feature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_semi_bold"
-        android:text="@string/more_features"
-        android:textColor="@color/normal_txt_clr"
-        android:textSize="@dimen/_14sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@id/buttons_layout"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:src="@drawable/share_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/save_txt"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-
-        <LinearLayout
-            android:id="@+id/buttons_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="visible"
-            android:weightSum="4"
-            android:layout_marginBottom="@dimen/_10sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-            <LinearLayout
-                android:id="@+id/seamless_btn"
-                android:layout_width="80dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginBottom="6dp"
-                    android:elevation="1dp"
-                    android:src="@drawable/seamless_ic"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/carousal"
-                    android:textColor="@color/tab_txt_clr"
-                    android:textSize="13sp"
-                    android:maxLines="1"
-                    android:gravity="center"
-                    android:ellipsize="end"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/stitch_btn"
-                android:layout_width="80dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginBottom="6dp"
-                    android:elevation="1dp"
-                    android:src="@drawable/stitch_ic"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/stitch"
-                    android:textColor="@color/tab_txt_clr"
-                    android:textSize="13sp"
-                    android:gravity="center"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-
-            <!-- Button 3: Collage -->
-            <LinearLayout
-                android:id="@+id/collage_btn_n"
-                android:layout_width="80dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginBottom="6dp"
-                    android:elevation="1dp"
-                    android:src="@drawable/collage_icn"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/collage"
-                    android:gravity="center"
-                    android:textColor="@color/tab_txt_clr"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-
-            <!-- Button 4: Story -->
-            <LinearLayout
-                android:id="@+id/story_btn"
-                android:layout_width="80dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginBottom="6dp"
-                    android:elevation="1dp"
-                    android:src="@drawable/story_ic"
-                    android:gravity="center" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/story"
-                    android:gravity="center"
-                    android:textColor="@color/tab_txt_clr"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/poppins_medium" />
-            </LinearLayout>
-
-
-        </LinearLayout>
-
-
-   <!-- <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/save_carousal_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_16sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/save_carousal_n"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save_collage_btn"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@+id/other_feature"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent="0.3"
-        android:visibility="gone"
-        android:layout_marginBottom="@dimen/_15sdp"
-        app:roundPercent="0.2" />
-
-    <TextView
+    <ImageView
+        android:id="@+id/save_txt"
+        style="@style/headingText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
-        android:fontFamily="@font/inter"
-        android:gravity="center"
-        android:singleLine="true"
-        android:text="Carousal"
-        android:textStyle="bold"
-        android:visibility="gone"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/save_carousal_btn"
-        app:layout_constraintEnd_toEndOf="@+id/save_carousal_btn"
-        app:layout_constraintStart_toStartOf="@+id/save_carousal_btn" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/save_collage_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:visibility="gone"
-        android:src="@drawable/save_collage_n"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/save_stories_btn"
-        app:layout_constraintHeight_percent="0.25"
-        app:layout_constraintStart_toEndOf="@+id/save_carousal_btn"
-        app:layout_constraintTop_toTopOf="@+id/save_carousal_btn"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent="0.3"
-        android:layout_marginBottom="@dimen/_15sdp"
-        app:roundPercent="0.2" />
-    &lt;!&ndash;android:src="@drawable/save_colag"&ndash;&gt;
-
-    <TextView
-
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
-        android:fontFamily="@font/inter"
-        android:gravity="center"
-        android:singleLine="true"
-        android:text="@string/collage"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
-        android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/save_collage_btn"
-        app:layout_constraintEnd_toEndOf="@+id/save_collage_btn"
-        app:layout_constraintStart_toStartOf="@+id/save_collage_btn" />
-
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/save_stories_btn"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:visibility="gone"
-        android:src="@drawable/save_stitched_n"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:src="@drawable/ic_saved"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.25"
-        android:layout_marginBottom="@dimen/_15sdp"
-        app:layout_constraintStart_toEndOf="@+id/save_collage_btn"
-        app:layout_constraintTop_toTopOf="@+id/save_carousal_btn"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintWidth_percent="0.3"
-        app:roundPercent="0.2" />
-    &lt;!&ndash;    android:src="@drawable/save_storeis"&ndash;&gt;
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_8sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
-        android:fontFamily="@font/inter"
-        android:gravity="center"
-        android:singleLine="true"
-        android:text="Stiched"
-        android:textStyle="bold"
-        android:visibility="gone"
-        android:textSize="@dimen/_13sdp"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/save_stories_btn"
-        app:layout_constraintEnd_toEndOf="@+id/save_stories_btn"
-        app:layout_constraintStart_toStartOf="@+id/save_stories_btn" />
--->
+        app:layout_constraintStart_toEndOf="@+id/share"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

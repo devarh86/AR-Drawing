@@ -69,7 +69,6 @@
     <string name="write_text">写文字</string>
     <string name="close">关闭</string>
     <string name="replace">代替</string>
-    <string name="crop">庄稼</string>
     <string name="remove_watermark">删除水印</string>
     <string name="for_24_hours">24小时</string>
     <string name="for_life_time">终身受益</string>
@@ -435,16 +434,8 @@
     <string name="template">模板</string>
     <string name="app_name_new">AR Drawing 应用</string>
 
-    <string name="boarding1_title">轮播</string>
-    <string name="boarding1_text_body">轻松浏览多个帖子。</string>
-    <string name="boarding3_title">故事</string>
-    <string name="boarding3_text_body">短暂的全屏视觉内容。</string>
-
     <string name="boarding4_title">拼接</string>
     <string name="boarding4_text_body">无缝连接不同的片段。</string>
-
-    <string name="boarding2_title">拼贴</string>
-    <string name="boarding2_text_body">将照片组合到一个画框中。</string>
 
     <string name="upgrade_plan_now">立即升级套餐！</string>
     <string name="enjoy_unlimited_benefits_amp_features">享受无限福利和功能</string>
@@ -507,4 +498,118 @@
 
 
     <string name="enjoy_50_off_on_weekly_premium">享受每周高级版50%折扣!</string>
+
+    <string name="crop">庄稼</string>
+    <string name="are_you_want_to_discard">您要删除吗？</string>
+    <string name="if_you_go_back_your_work_will_be_discarded">如果你返回，你的工作成果将被丢弃！</string>
+
+    <string name="apply">申请</string>
+    <string name="preview">预览</string>
+    <string name="projects">项目</string>
+    <string name="see_all">查看全部</string>
+    <string name="with_ad">广告</string>
+
+    <string name="_3_day_free_trial">3天免费试用</string>
+    <string name="join_crsl_premium">加入 CRSL Premium</string>
+
+
+    <string name="boarding1_title">容易画</string>
+    <string name="boarding1_text_body">在手机上放一张油纸，然后画出来。</string>
+    <string name="boarding2_title">用相机绘图</string>
+    <string name="boarding2_text_body">握住或立起手机即可轻松绘制。</string>
+    <string name="boarding3_title">画你自己的画</string>
+    <string name="boarding3_text_body">在你喜欢的任何照片上绘画、描摹和着色！</string>
+    <string name="let_s_draw">让我们来画画</string>
+    <string name="create_draw_and_have_fun">创作、绘画，尽情玩耍！</string>
+    <string name="ar_drawing">AR绘图</string>
+    <string name="import_gallery">导入图库</string>
+    <string name="photo_to_sketch">照片转草图</string>
+    <string name="learn_to_draw">学习绘画</string>
+    <string name="my_art">我的艺术</string>
+
+    <string name="s_home_h1"><![CDATA[Learning &]]></string>
+    <string name="s_home_h1_sub">实践</string>
+    <string name="s_home_h1_detail">轻松提升绘画技巧</string>
+
+    <string name="s_home_h2"><![CDATA[Drawing &]]></string>
+    <string name="s_home_h2_sub">创造力</string>
+    <string name="s_home_h2_detail">趣味分步绘画课程</string>
+
+    <string name="s_home_h3"><![CDATA[Categories &]]></string>
+    <string name="s_home_h3_sub">主题</string>
+    <string name="s_home_h3_detail">按主题和风格浏览绘画作品</string>
+
+    <string name="s_home_h4">照片到</string>
+    <string name="s_home_h4_sub">草图</string>
+    <string name="s_home_h4_detail">将图片转换为艺术铅笔素描。</string>
+
+    <string name="start">开始</string>
+    <string name="settings">设置</string>
+    <string name="unlock_premium_features">解锁高级功能</string>
+    <string name="terms_and_conditions">条款和条件</string>
+
+    <string name="watch_an_ad">观看广告</string>
+    <string name="pro_face_swap">专业换脸</string>
+    <string name="swap">交换</string>
+    <string name="upload_image_template">上传图片模板</string>
+    <string name="upload_or_take_your_image_please_clear_face">上传或拍摄您的照片。请露出面部。</string>
+    <string name="upload_your_face">上传你的脸</string>
+    <string name="create">创造</string>
+    <string name="saving_your_image">正在保存图像</string>
+    <string name="processing_your_masterpiece">正在处理您的杰作……🎨</string>
+    <string name="face_swap">换脸</string>
+    <string name="edit_more">编辑更多</string>
+    <string name="please_crop">请将图片裁剪成相同的比例，以获得更好的效果</string>
+    <string name="stay_with_us">请继续关注我们，您的精彩体验即将开始！</string>
+    <string name="got_it">知道了</string>
+
+    <string name="pencil_sketch">铅笔素描</string>
+    <string name="sketch_now">立即绘制</string>
+    <string name="upgrade_to_pro">升级到专业版</string>
+    <string name="enjoy_all_drawings">尽情享受所有的图画、工具和乐趣</string>
+    <string name="sketch_loading">用线条勾勒出照片的轮廓——线条仿佛活了起来……</string>
+    <string name="sketch_ready">你的草图正在成形！</string>
+    <string name="memory_sketching">将你的记忆化作铅笔画……</string>
+    <string name="sketch_details_fit">线条和阴影完美契合！</string>
+    <string name="sketch_progress">魔法草图正在绘制中……</string>
+    <string name="sketch_placing_details">细致入微地描绘每一个细节……</string>
+    <string name="sketch_looking_timeless">经典造型——现在以草图的形式呈现！</string>
+    <string name="sketch_you_brought_it_back">哇！这幅素描看起来栩栩如生！</string>
+    <string name="sketch_healing_memories">用心描绘回忆……</string>
+    <string name="sketch_almost">快完成了——只剩最后几笔了！</string>
+    <string name="sketch_damage_detected">调整边缘——优化线条！</string>
+    <string name="sketch_transforming">将照片转化为手绘艺术品……</string>
+    <string name="sketch_uploading">把你的照片发给素描艺术家……</string>
+    <string name="sketch_final_touch">最后上色——这需要技巧！</string>
+    <string name="sketch_blast">这幅素描画得真不一样！</string>
+    <string name="sketch_new_life">新鲜的素描灵感涌现！</string>
+    <string name="sketch_details_locked">细节已锁定——像专业人士一样素描！</string>
+    <string name="sketch_wait">稍等片刻……铅笔魔法上线啦！</string>
+    <string name="sketch_alignment">笔画完美对齐……</string>
+    <string name="sketch_memory_repairing">您的草图正在完善中……</string>
+    <string name="sketch_about_to_shine">准备好——你的草图将会大放异彩！</string>
+    <string name="sketch_epic">史诗级草图创作进行中！</string>
+    <string name="sketch_ready_to_reveal">快完成了——很快就会公布草图！</string>
+    <string name="sketch_restoring_clarity">增强线条和对比度……</string>
+    <string name="sketch_scratches_fading">粗糙的边缘逐渐变得光滑……</string>
+    <string name="sketch_time_travel_mode">草图模式：开启 ✏️</string>
+    <string name="sketch_magic_at_work">素描魔法正在上演——敬请期待！</string>
+    <string name="save_colored_text"><![CDATA[ All done! <font color="#FF1BA6"><b>Save</b></font> your photo now.]]></string>
+    <string name="cancel_underline"><u>Cancel</u></string>
+    <string name="do_you_like_our_app">你喜欢我们的应用吗？</string>
+    <string name="sketch">草图</string>
+    <string name="trace">痕迹</string>
+    <string name="drawing_now">现在开始绘画</string>
+    <string name="how_to_draw">如何画画</string>
+    <string name="picture">图片</string>
+    <string name="camera">相机</string>
+    <string name="stop_drawing">停止绘画？</string>
+    <string name="you_want_to_stop_drawing">你想停止画画</string>
+    <string name="yes_discard">不，不要</string>
+    <string name="yes_stop_it"><u>Yes, Stop it</u></string>
+    <string name="with_camera">继续使用相机</string>
+    <string name="with_cam">用相机</string>
+    <string name="without_camera">继续，无需摄像头</string>
+    <string name="without_cam">没有摄像头</string>
+
 </resources>
