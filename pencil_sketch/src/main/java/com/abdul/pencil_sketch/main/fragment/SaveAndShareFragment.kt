@@ -17,15 +17,12 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import com.abdul.pencil_sketch.R
 import com.abdul.pencil_sketch.databinding.FragmentSaveShareBinding
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.abdul.pencil_sketch.main.intents.SaveIntentSketch
@@ -56,7 +53,6 @@ import com.project.common.model.SavingModel
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.fromSaved
 import com.project.common.utils.ConstantsCommon.isNetworkAvailable
-import com.project.common.utils.ConstantsCommon.isOpenCVSuccess
 import com.project.common.utils.eventForGalleryAndEditor
 import com.project.common.utils.gettingQuality
 import com.project.common.utils.setOnSingleClickListener
@@ -199,63 +195,63 @@ class SaveAndShareFragment : Fragment() {
             saveTxt.setOnSingleClickListener {
                 if (!isSaving) {
                     isSaving = true
-                    if (isOpenCVSuccess) {
-                        eventForGalleryAndEditor("sketch_result", "save")
-                        currentFeature = EditorBottomTypes.SAVE
+//                    if (isOpenCVSuccess) {
+                    eventForGalleryAndEditor("sketch_result", "save")
+                    currentFeature = EditorBottomTypes.SAVE
 
-                        lifecycleScope.launch(IO) {
-                            runCatching {
-                                billingDataStore.readSaveQuality().first().let {
-                                    sketchImageViewModel.currentQuality =
-                                        when (it) {
-                                            SaveQuality.HIGH.name -> {
-                                                SaveQuality.HIGH
-                                            }
-
-                                            SaveQuality.MEDIUM.name -> {
-                                                SaveQuality.MEDIUM
-                                            }
-
-                                            else -> {
-                                                SaveQuality.LOW
-                                            }
+                    lifecycleScope.launch(IO) {
+                        runCatching {
+                            billingDataStore.readSaveQuality().first().let {
+                                sketchImageViewModel.currentQuality =
+                                    when (it) {
+                                        SaveQuality.HIGH.name -> {
+                                            SaveQuality.HIGH
                                         }
+
+                                        SaveQuality.MEDIUM.name -> {
+                                            SaveQuality.MEDIUM
+                                        }
+
+                                        else -> {
+                                            SaveQuality.LOW
+                                        }
+                                    }
+                            }
+
+                            context?.gettingQuality(
+                                sketchImageViewModel.currentQuality,
+                                sketchImageViewModel.originalWidth,
+                                sketchImageViewModel.originalHeight
+                            )?.let { qualityWithWaterMark ->
+                                qualityWithWaterMark.pair.apply {
+                                    sketchImageViewModel.savingWidth = first
+                                    sketchImageViewModel.savingHeight = second
                                 }
+                                sketchImageViewModel.waterMarkAsset = qualityWithWaterMark.drawable
+                            }
 
-                                context?.gettingQuality(
-                                    sketchImageViewModel.currentQuality,
-                                    sketchImageViewModel.originalWidth,
-                                    sketchImageViewModel.originalHeight
-                                )?.let { qualityWithWaterMark ->
-                                    qualityWithWaterMark.pair.apply {
-                                        sketchImageViewModel.savingWidth = first
-                                        sketchImageViewModel.savingHeight = second
-                                    }
-                                    sketchImageViewModel.waterMarkAsset = qualityWithWaterMark.drawable
+
+                            if (sketchImageViewModel.savingWidth != 0 || sketchImageViewModel.savingHeight != 0) {
+                                withContext(Main) {
+                                    saving()
                                 }
-
-
-                                if (sketchImageViewModel.savingWidth != 0 || sketchImageViewModel.savingHeight != 0) {
-                                    withContext(Main) {
-                                        saving()
-                                    }
-                                } else {
-                                    withContext(Main) {
-                                        isSaving = false
-                                        activity?.createOrShowSnackBar(
-                                            binding.root,
-                                            0,
-                                            "Saving Failed!",
-                                            true
-                                        )
-                                    }
+                            } else {
+                                withContext(Main) {
+                                    isSaving = false
+                                    activity?.createOrShowSnackBar(
+                                        binding.root,
+                                        0,
+                                        "Saving Failed!",
+                                        true
+                                    )
                                 }
                             }
                         }
-                    } else {
-                        isSaving = false
-                        activity?.createOrShowSnackBar(binding.root, 0, "Saving Failed!", true)
                     }
+//                    } else {
+//                        isSaving = false
+//                        activity?.createOrShowSnackBar(binding.root, 0, "Saving Failed!", true)
+//                    }
 
                 } else {
                     mContext.showToast("Image Already Saved!")
@@ -529,9 +525,9 @@ class SaveAndShareFragment : Fragment() {
                 }
 
                 activity?.showNewInterstitial(activity?.interstitialBack()) {
-                    if (from=="back"){
+                    if (from == "back") {
                         navController.navigateUp()
-                    }else{
+                    } else {
                         runCatching {
                             val resultIntent = Intent()
                             resultIntent.putExtra("where", "home")

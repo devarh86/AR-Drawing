@@ -61,7 +61,6 @@ dependencies {
     implementation("com.github.bumptech.glide:compose:1.0.0-alpha.5")
     implementation("com.intuit.sdp:sdp-android:1.1.0")
     implementation("com.intuit.ssp:ssp-android:1.1.0")
-    api("org.opencv:opencv:4.12.0")
 
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     kapt ("com.github.bumptech.glide:compiler:4.16.0")

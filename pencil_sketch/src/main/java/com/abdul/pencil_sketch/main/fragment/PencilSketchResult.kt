@@ -71,7 +71,6 @@ import com.project.common.model.ImagesModel
 import com.project.common.model.SavingModel
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.isNetworkAvailable
-import com.project.common.utils.ConstantsCommon.isOpenCVSuccess
 import com.project.common.utils.eventForGalleryAndEditor
 import com.project.common.utils.gettingQuality
 import com.project.common.utils.setOnSingleClickListener
@@ -271,63 +270,63 @@ class PencilSketchResult : Fragment() {
         saveTxt.setOnSingleClickListener {
             if (!isSaving) {
                 isSaving = true
-                if (isOpenCVSuccess) {
-                    eventForGalleryAndEditor("sketch_result", "save")
-                    currentFeature = EditorBottomTypes.SAVE
+//                if (isOpenCVSuccess) {
+                eventForGalleryAndEditor("sketch_result", "save")
+                currentFeature = EditorBottomTypes.SAVE
 
-                    lifecycleScope.launch(IO) {
-                        runCatching {
-                            billingDataStore.readSaveQuality().first().let {
-                                restoreImageViewModel.currentQuality =
-                                    when (it) {
-                                        SaveQuality.HIGH.name -> {
-                                            SaveQuality.HIGH
-                                        }
-
-                                        SaveQuality.MEDIUM.name -> {
-                                            SaveQuality.MEDIUM
-                                        }
-
-                                        else -> {
-                                            SaveQuality.LOW
-                                        }
+                lifecycleScope.launch(IO) {
+                    runCatching {
+                        billingDataStore.readSaveQuality().first().let {
+                            restoreImageViewModel.currentQuality =
+                                when (it) {
+                                    SaveQuality.HIGH.name -> {
+                                        SaveQuality.HIGH
                                     }
+
+                                    SaveQuality.MEDIUM.name -> {
+                                        SaveQuality.MEDIUM
+                                    }
+
+                                    else -> {
+                                        SaveQuality.LOW
+                                    }
+                                }
+                        }
+
+                        context?.gettingQuality(
+                            restoreImageViewModel.currentQuality,
+                            restoreImageViewModel.originalWidth,
+                            restoreImageViewModel.originalHeight
+                        )?.let { qualityWithWaterMark ->
+                            qualityWithWaterMark.pair.apply {
+                                restoreImageViewModel.savingWidth = first
+                                restoreImageViewModel.savingHeight = second
                             }
+                            restoreImageViewModel.waterMarkAsset = qualityWithWaterMark.drawable
+                        }
 
-                            context?.gettingQuality(
-                                restoreImageViewModel.currentQuality,
-                                restoreImageViewModel.originalWidth,
-                                restoreImageViewModel.originalHeight
-                            )?.let { qualityWithWaterMark ->
-                                qualityWithWaterMark.pair.apply {
-                                    restoreImageViewModel.savingWidth = first
-                                    restoreImageViewModel.savingHeight = second
-                                }
-                                restoreImageViewModel.waterMarkAsset = qualityWithWaterMark.drawable
+
+                        if (restoreImageViewModel.savingWidth != 0 || restoreImageViewModel.savingHeight != 0) {
+                            withContext(Main) {
+                                saving()
                             }
-
-
-                            if (restoreImageViewModel.savingWidth != 0 || restoreImageViewModel.savingHeight != 0) {
-                                withContext(Main) {
-                                    saving()
-                                }
-                            } else {
-                                withContext(Main) {
-                                    isSaving = false
-                                    activity?.createOrShowSnackBar(
-                                        binding.root,
-                                        0,
-                                        "Saving Failed!",
-                                        true
-                                    )
-                                }
+                        } else {
+                            withContext(Main) {
+                                isSaving = false
+                                activity?.createOrShowSnackBar(
+                                    binding.root,
+                                    0,
+                                    "Saving Failed!",
+                                    true
+                                )
                             }
                         }
                     }
-                } else {
-                    isSaving = false
-                    activity?.createOrShowSnackBar(binding.root, 0, "Saving Failed!", true)
                 }
+//                } else {
+//                    isSaving = false
+//                    activity?.createOrShowSnackBar(binding.root, 0, "Saving Failed!", true)
+//                }
 
             } else {
                 context?.showToast("Image Already Saved!")

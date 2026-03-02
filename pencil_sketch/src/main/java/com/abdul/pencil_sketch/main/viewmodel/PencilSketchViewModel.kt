@@ -7,6 +7,7 @@ import android.graphics.Bitmap
 import android.graphics.Bitmap.Config
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
+import android.graphics.Rect
 import android.media.ExifInterface
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
@@ -46,10 +47,6 @@ import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.opencv.android.Utils
-import org.opencv.core.Mat
-import org.opencv.core.Size
-import org.opencv.imgproc.Imgproc
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.FileOutputStream
@@ -57,7 +54,6 @@ import java.io.IOException
 import javax.inject.Inject
 import kotlin.coroutines.coroutineContext
 import kotlin.math.abs
-import kotlin.math.roundToInt
 
 
 @HiltViewModel
@@ -224,21 +220,19 @@ class PencilSketchViewModel @Inject constructor(
 
                 startMonitoringRAM(context)
 
-                val outputSize = Size((savingWidth.toDouble()), (savingHeight.toDouble()))
+                val targetWidth = savingWidth
+                val targetHeight = savingHeight
 
-
-                val newImageWidth = outputSize.width.toFloat()
-                val newImageHeight = outputSize.height.toFloat()
-
-                if (newImageHeight <= 0 || newImageWidth <= 0) {
+                if (targetHeight <= 0 || targetWidth <= 0) {
                     return@launch
                 }
 
                 val outBitmap = Bitmap.createBitmap(
-                    newImageWidth.roundToInt(), newImageHeight.roundToInt(), Config.ARGB_8888
+                    targetWidth, targetHeight, Config.ARGB_8888
                 )
 
                 val canvas = Canvas(outBitmap)
+                val dstRect = Rect(0, 0, targetWidth, targetHeight)
 
                 val total = imageEnhancedPath.size + 3 // 3 steps
 
@@ -259,43 +253,9 @@ class PencilSketchViewModel @Inject constructor(
                         if (index < savingModelList.size && index >= 0) {
                             savingModelList[index].apply {
                                 userImageBitmap?.let {
-                                    val cropMat = Mat()
-                                    val resizeMatCropImg = Mat()
-                                    Utils.bitmapToMat(it, cropMat)
-
-                                    val cropSize = Size(
-                                        (newImageWidth.toDouble() + 0),
-                                        (newImageHeight.toDouble() + 0)
-                                    )
-
-                                    Imgproc.resize(
-                                        cropMat,
-                                        resizeMatCropImg,
-                                        cropSize,
-                                        0.0,
-                                        0.0,
-                                        Imgproc.INTER_LINEAR
-                                    )
-                                    val finalImgBitmap = try {
-                                        Bitmap.createBitmap(
-                                            resizeMatCropImg.cols(),
-                                            resizeMatCropImg.rows(),
-                                            Config.ARGB_8888
-                                        )
-                                    } catch (ex: OutOfMemoryError) {
-                                        return@apply
-                                    }
-
-                                    Utils.matToBitmap(resizeMatCropImg, finalImgBitmap)
-                                    resizeMatCropImg.release()
-
-//                                    if (!it.isRecycled) {
-//                                        it.recycle()
-//                                    }
-
-                                    canvas.drawBitmap(finalImgBitmap, 0f, 0f, null)
-                                    if (!finalImgBitmap.isRecycled) {
-                                        finalImgBitmap.recycle()
+                                    if (!it.isRecycled && it.width > 0 && it.height > 0) {
+                                        val srcRect = Rect(0, 0, it.width, it.height)
+                                        canvas.drawBitmap(it, srcRect, dstRect, null)
                                     }
                                 }
 
@@ -322,44 +282,15 @@ class PencilSketchViewModel @Inject constructor(
                                         overlayBitmap?.let {
                                             val overlay = it
 
-                                            val overlayMat = Mat()
-
-                                            val resizeOverlayMat = Mat()
-
-                                            Utils.bitmapToMat(overlay, overlayMat)
-
                                             if (savingJob?.isActive != true) {
                                                 return@newChild
                                             }
 
-                                            Imgproc.resize(
-                                                overlayMat,
-                                                resizeOverlayMat,
-                                                outputSize,
-                                                0.0,
-                                                0.0,
-                                                Imgproc.INTER_LINEAR
-                                            )
-
-                                            overlayMat.release()
-
-                                            val overlayBitmap = Bitmap.createBitmap(
-                                                resizeOverlayMat.cols(),
-                                                resizeOverlayMat.rows(),
-                                                Config.ARGB_8888
-                                            )
-
-                                            Utils.matToBitmap(
-                                                resizeOverlayMat, overlayBitmap
-                                            )
-
-                                            canvas.drawBitmap(
-                                                overlayBitmap, 0f, 0f, null
-                                            )
-
-                                            if (!overlayBitmap.isRecycled) overlayBitmap.recycle()
-
-                                            if (!overlay.isRecycled) overlay.recycle()
+                                            if (!overlay.isRecycled && overlay.width > 0 && overlay.height > 0) {
+                                                val overlaySrcRect =
+                                                    Rect(0, 0, overlay.width, overlay.height)
+                                                canvas.drawBitmap(overlay, overlaySrcRect, dstRect, null)
+                                            }
                                         }
 
                                         currentProgress += 1
@@ -422,7 +353,11 @@ class PencilSketchViewModel @Inject constructor(
                                                             } else {
                                                                 savingJob?.let {
                                                                     if (it.isActive) {
-                                                                        if (File(path).length() == 0L) {
+                                                                        val isContentUri =
+                                                                            path.startsWith("content://")
+                                                                        val isSavedFileValid =
+                                                                            isContentUri || File(path).length() > 0L
+                                                                        if (!isSavedFileValid) {
                                                                             ramMonitoringJob?.cancel()
                                                                             _saveState.value =
                                                                                 SketchSaveViewState.Error(

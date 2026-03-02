@@ -20,15 +20,12 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.google.firebase.ktx.Firebase
 import com.project.common.utils.ActivityTracker
-import com.project.common.utils.ConstantsCommon.isOpenCVSuccess
 import com.project.common.utils.GlobalApp
 import com.xan.event_notifications.NotificationHelper
 import dagger.hilt.android.HiltAndroidApp
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.opencv.android.OpenCVLoader
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -56,7 +53,7 @@ class MyApp : Application() {
             this.registerActivityLifecycleCallbacks(it)
         }
 
-        runCatching {
+        /*runCatching {
             CoroutineScope(Dispatchers.Default).launch {
                 try {
                     if (!OpenCVLoader.initLocal()) {
@@ -71,7 +68,7 @@ class MyApp : Application() {
         }.onFailure { e ->
             Log.e("MyApp", "Error initializing OpenCV", e)
             isOpenCVSuccess = false
-        }
+        }*/
 
         try {
             firebaseAnalytics = Firebase.analytics

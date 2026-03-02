@@ -74,7 +74,7 @@ fun Context?.loadBitmap(path: Any, myCallback: (Bitmap) -> Unit) {
 suspend fun Bitmap.saveMediaToStorage(context: Context, onUriCreated: (String?) -> Unit) {
 
     var fos: OutputStream? = null
-    val filename = "${System.currentTimeMillis()}.jpg"
+    val filename = "${System.currentTimeMillis()}.png"
     try {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 
@@ -99,7 +99,7 @@ suspend fun Bitmap.saveMediaToStorage(context: Context, onUriCreated: (String?) 
                 MediaStore.MediaColumns.RELATIVE_PATH,
                 Environment.DIRECTORY_PICTURES + File.separator + "Ar Drawing"
             )
-            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
+            contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/png")
             val imageUri =
                 resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
             imageUri?.let {
@@ -123,15 +123,16 @@ suspend fun Bitmap.saveMediaToStorage(context: Context, onUriCreated: (String?) 
                     delay(200)
                     fos?.close()
                 }
-                it.let {
-                    Utils().getRealPathFromURI(context, it)?.let {
-                        withContext(Main) {
-                            onUriCreated(it)
+                it.let { savedUri ->
+                    val savedPath = Utils().getRealPathFromURI(context, savedUri) ?: savedUri.toString()
+                    withContext(Main) {
+                        onUriCreated(savedPath)
+                        if (!savedPath.startsWith("content://")) {
                             withContext(IO) {
                                 try {
                                     MediaScannerConnection.scanFile(
                                         context,
-                                        arrayOf<String>(it),
+                                        arrayOf(savedPath),
                                         null
                                     ) { _, _ -> }
                                 } catch (ex: java.lang.Exception) {
