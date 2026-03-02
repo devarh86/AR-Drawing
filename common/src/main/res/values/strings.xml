@@ -519,7 +519,7 @@
     <string name="let_s_draw">Let\'s Draw</string>
     <string name="create_draw_and_have_fun">Create, draw, and have fun!</string>
     <string name="ar_drawing">AR Drawing</string>
-    <string name="import_gallery">Import Gallery</string>
+    <string name="import_gallery">Import from Gallery</string>
     <string name="photo_to_sketch">Photo to Sketch</string>
     <string name="learn_to_draw">Learn to Draw</string>
     <string name="my_art">My Art</string>
@@ -545,7 +545,7 @@
     <string name="unlock_premium_features">Unlock Premium Features</string>
     <string name="terms_and_conditions">Terms and Conditions</string>
 
-    <string name="watch_an_ad">Watch an Ad</string>
+    <string name="watch_an_ad">Watch with Ad</string>
     <string name="pro_face_swap">Pro Face Swap</string>
     <string name="swap">Swap</string>
     <string name="upload_image_template">Upload Image Template</string>

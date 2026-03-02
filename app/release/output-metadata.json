@@ -4,55 +4,16 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.stories.collage.filters",
+  "applicationId": "com.pixin.drawing.art.editor",
   "variantName": "release",
   "elements": [
     {
       "type": "UNIVERSAL",
       "filters": [],
       "attributes": [],
-      "versionCode": 10000,
-      "versionName": "10000",
-      "outputFile": "CRSL VC_10000-universal-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "arm64-v8a"
-        }
-      ],
-      "attributes": [],
-      "versionCode": 10000,
-      "versionName": "10000",
-      "outputFile": "CRSL VC_10000-arm64-v8a-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "armeabi-v7a"
-        }
-      ],
-      "attributes": [],
-      "versionCode": 10000,
-      "versionName": "10000",
-      "outputFile": "CRSL VC_10000-armeabi-v7a-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "x86_64"
-        }
-      ],
-      "attributes": [],
-      "versionCode": 10000,
-      "versionName": "10000",
-      "outputFile": "CRSL VC_10000-x86_64-release.apk"
+      "versionCode": 2,
+      "versionName": "0.2",
+      "outputFile": "AR Drawing VC_2-universal-release.apk"
     },
     {
       "type": "ONE_OF_MANY",
@@ -63,9 +24,48 @@
         }
       ],
       "attributes": [],
-      "versionCode": 10000,
-      "versionName": "10000",
-      "outputFile": "CRSL VC_10000-x86-release.apk"
+      "versionCode": 2,
+      "versionName": "0.2",
+      "outputFile": "AR Drawing VC_2-x86-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 2,
+      "versionName": "0.2",
+      "outputFile": "AR Drawing VC_2-arm64-v8a-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 2,
+      "versionName": "0.2",
+      "outputFile": "AR Drawing VC_2-x86_64-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 2,
+      "versionName": "0.2",
+      "outputFile": "AR Drawing VC_2-armeabi-v7a-release.apk"
     }
   ],
   "elementType": "File",
@@ -74,22 +74,22 @@
       "minApi": 28,
       "maxApi": 30,
       "baselineProfiles": [
-        "baselineProfiles/1/CRSL VC_10000-universal-release.dm",
-        "baselineProfiles/1/CRSL VC_10000-arm64-v8a-release.dm",
-        "baselineProfiles/1/CRSL VC_10000-armeabi-v7a-release.dm",
-        "baselineProfiles/1/CRSL VC_10000-x86_64-release.dm",
-        "baselineProfiles/1/CRSL VC_10000-x86-release.dm"
+        "baselineProfiles/1/AR Drawing VC_2-universal-release.dm",
+        "baselineProfiles/1/AR Drawing VC_2-x86-release.dm",
+        "baselineProfiles/1/AR Drawing VC_2-arm64-v8a-release.dm",
+        "baselineProfiles/1/AR Drawing VC_2-x86_64-release.dm",
+        "baselineProfiles/1/AR Drawing VC_2-armeabi-v7a-release.dm"
       ]
     },
     {
       "minApi": 31,
       "maxApi": 2147483647,
       "baselineProfiles": [
-        "baselineProfiles/0/CRSL VC_10000-universal-release.dm",
-        "baselineProfiles/0/CRSL VC_10000-arm64-v8a-release.dm",
-        "baselineProfiles/0/CRSL VC_10000-armeabi-v7a-release.dm",
-        "baselineProfiles/0/CRSL VC_10000-x86_64-release.dm",
-        "baselineProfiles/0/CRSL VC_10000-x86-release.dm"
+        "baselineProfiles/0/AR Drawing VC_2-universal-release.dm",
+        "baselineProfiles/0/AR Drawing VC_2-x86-release.dm",
+        "baselineProfiles/0/AR Drawing VC_2-arm64-v8a-release.dm",
+        "baselineProfiles/0/AR Drawing VC_2-x86_64-release.dm",
+        "baselineProfiles/0/AR Drawing VC_2-armeabi-v7a-release.dm"
       ]
     }
   ],

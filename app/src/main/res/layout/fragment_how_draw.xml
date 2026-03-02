@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_8sdp"
+        android:padding="@dimen/_6sdp"
         android:src="@drawable/ic_back_arrow"
         app:layout_constraintBottom_toBottomOf="@+id/toolBar"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +58,9 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewPager">
 
         <ImageView
             android:id="@+id/dot_1"

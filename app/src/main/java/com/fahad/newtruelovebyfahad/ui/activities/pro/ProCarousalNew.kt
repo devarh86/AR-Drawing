@@ -1,5 +1,8 @@
 package com.fahad.newtruelovebyfahad.ui.activities.pro
 
+import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
+import android.animation.ValueAnimator
 import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
@@ -18,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.example.ads.Constants.introScreen
@@ -55,9 +59,11 @@ class ProCarousalNew : AppCompatActivity() {
     private val binding by lazy {
         ActivityProCarousalNewBinding.inflate(layoutInflater)
     }
-    private var selectedPosition: Int = 1
     private var showIntroScreens = false
     private val dataStoreViewModel by viewModels<DataStoreViewModel>()
+    private var pulseAnimator: ObjectAnimator? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -94,6 +100,22 @@ class ProCarousalNew : AppCompatActivity() {
             setLocale(languageCode)
         }
 
+        pulseAnimator = startPulseAnimation(binding.heading)
+
+    }
+
+    private fun startPulseAnimation(view: View): ObjectAnimator {
+        return ObjectAnimator.ofPropertyValuesHolder(
+            view,
+            PropertyValuesHolder.ofFloat(View.SCALE_X, 1f, 1.08f, 1f),
+            PropertyValuesHolder.ofFloat(View.SCALE_Y, 1f, 1.08f, 1f)
+        ).apply {
+            duration = 1200
+            repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.RESTART
+            interpolator = FastOutSlowInInterpolator()
+            start()
+        }
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
@@ -137,8 +159,6 @@ class ProCarousalNew : AppCompatActivity() {
         com.example.ads.Constants.firebaseAnalytics?.logEvent("premium_screen_open", null)
 
         getProductDetailMicroValueNew(SKU_LIST[5])?.let { obj ->
-            subheadingPrice.text = "${obj.currency} ${obj.price}"
-            subText.text = "Try 3 days for free, then ${obj.currency} ${obj.price}/week"
             kotlin.runCatching {
                 if (obj.currency.isEmpty()) {
                     heading.isClickable = false
@@ -159,12 +179,12 @@ class ProCarousalNew : AppCompatActivity() {
                     )
                 ) {
                     kotlin.runCatching {
-                        subText.visible()
+                        subheadingPrice.text = "Try 3 days for free, then ${obj.currency} ${obj.price}/week"
                         heading.text = remoteString
                     }
                 } else {
                     kotlin.runCatching {
-                        subText.hide()
+                        subheadingPrice.text = "${obj.currency} ${obj.price}/week"
                         heading.text = remoteString
                     }
                 }
@@ -389,5 +409,9 @@ class ProCarousalNew : AppCompatActivity() {
         super.onBackPressed()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        pulseAnimator?.cancel()
+    }
 
 }

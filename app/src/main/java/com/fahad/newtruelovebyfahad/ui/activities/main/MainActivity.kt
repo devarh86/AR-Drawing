@@ -485,8 +485,10 @@ class MainActivity : Permissions(), InternetConnectivityListener {
         }
 
         if (isNetworkAvailable()) {
+            ConstantsCommon.updateInternetStatusFeature.postValue(true)
             ConstantsCommon.updateInternetStatusFrames.postValue(true)
         } else {
+            ConstantsCommon.updateInternetStatusFeature.postValue(false)
             ConstantsCommon.updateInternetStatusFrames.postValue(false)
             searchViewModel.setNetworkState(false)
         }
@@ -1269,7 +1271,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                         }
                         runOnUiThread {
                             isNetworkAvailable = true
-//                            ConstantsCommon.updateInternetStatusFeature.postValue(true)
+                            ConstantsCommon.updateInternetStatusFeature.postValue(true)
                             ConstantsCommon.updateInternetStatusFrames.postValue(true)
                         }
                     }
@@ -1277,7 +1279,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                     override fun onLost(network: Network) {
                         runOnUiThread {
                             isNetworkAvailable = false
-//                            ConstantsCommon.updateInternetStatusFeature.postValue(false)
+                            ConstantsCommon.updateInternetStatusFeature.postValue(false)
                             ConstantsCommon.updateInternetStatusFrames.postValue(false)
                             searchViewModel.setNetworkState(false)
                             initDataOffline()
@@ -1298,7 +1300,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                     isNetworkAvailable = isNetworkAvailable()
                     if (!isNetworkAvailable) {
                         isNetworkAvailable = false
-//                        ConstantsCommon.updateInternetStatusFeature.postValue(false)
+                        ConstantsCommon.updateInternetStatusFeature.postValue(false)
                         ConstantsCommon.updateInternetStatusFrames.postValue(false)
                         searchViewModel.setNetworkState(false)
                         initDataOffline()
@@ -1320,7 +1322,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
 
     override fun onConnectivityChanged(isConnected: Boolean) {
         isNetworkAvailable = isConnected
-//        ConstantsCommon.updateInternetStatusFeature.postValue(isConnected)
+        ConstantsCommon.updateInternetStatusFeature.postValue(isConnected)
         ConstantsCommon.updateInternetStatusFrames.postValue(isConnected)
         if (!isConnected) {
             searchViewModel.setNetworkState(false)

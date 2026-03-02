@@ -52,6 +52,7 @@
             android:id="@+id/backPress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_6sdp"
             android:layout_marginStart="@dimen/_8sdp"
             android:src="@drawable/ic_back_arrow"
             app:layout_constraintBottom_toBottomOf="@+id/toolBar"
@@ -65,11 +66,11 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
             android:background="@drawable/rounded_red_btn_bg"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
+            android:paddingHorizontal="18dp"
+            android:paddingVertical="6dp"
             android:text="@string/done"
             android:textColor="@color/white"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="@+id/toolBar"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -206,9 +207,9 @@
             android:id="@+id/seekBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginBottom="16dp"
-            android:visibility="gone"
-            android:layout_marginHorizontal="@dimen/_12sdp">
+            android:visibility="gone">
 
             <SeekBar
                 android:id="@+id/seek_bar"
@@ -247,8 +248,8 @@
                 style="@style/headingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="255%"
                 android:gravity="center"
+                android:text="255%"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_9sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/category_name"
@@ -261,9 +262,9 @@
             android:id="@+id/seekBarLayoutCamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginBottom="16dp"
-            android:visibility="gone"
-            android:layout_marginHorizontal="@dimen/_12sdp">
+            android:visibility="gone">
 
             <SeekBar
                 android:id="@+id/seek_bar_Camera"
@@ -302,8 +303,8 @@
                 style="@style/headingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="255%"
                 android:gravity="center"
+                android:text="255%"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_9sdp"
                 app:layout_constraintBottom_toBottomOf="@+id/category_name_camera"

@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
 import android.util.Log
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.Keep
@@ -31,6 +32,7 @@ import com.fahad.newtruelovebyfahad.utils.visible
 import com.google.android.gms.ads.nativead.NativeAd
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.enums.PurchaseTag
+import kotlin.math.roundToInt
 
 class HomeForYouAdapter(
     private var mContext: Context?,
@@ -72,6 +74,7 @@ class HomeForYouAdapter(
     override fun onBindViewHolder(holder: ViewHolder, @SuppressLint("RecyclerView") position: Int) {
 
         currentPosition = position
+        applyBottomSpacingForLastItems(holder.itemView, position)
 
         if (dataList.checkForSafety(position)) {
             try {
@@ -217,6 +220,21 @@ class HomeForYouAdapter(
     }
 
     override fun getItemCount(): Int = dataList.size
+
+    private fun applyBottomSpacingForLastItems(itemView: android.view.View, position: Int) {
+        val marginParams = itemView.layoutParams as? ViewGroup.MarginLayoutParams ?: return
+        val targetBottom = if (itemCount > 29 && position >= itemCount - 2) dpToPx(32) else 0
+        if (marginParams.bottomMargin != targetBottom) {
+            marginParams.bottomMargin = targetBottom
+            itemView.layoutParams = marginParams
+        }
+    }
+
+    private fun dpToPx(dp: Int): Int {
+        val metrics = mContext?.resources?.displayMetrics ?: return dp
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp.toFloat(), metrics)
+            .roundToInt()
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     fun updateDataList(dataList: List<FrameModel>) {

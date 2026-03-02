@@ -35,8 +35,8 @@
   },
   "app_interstitial": {
     "floor": 2,
-    "start_count": 0,
-    "after_start_count": 1,
+    "start_count": 1,
+    "after_start_count": 3,
     "always_show": false,
     "is_enabled": true,
     "ad_unit_ids": [
@@ -47,7 +47,7 @@
   },
   "save_interstitial": {
     "floor": 2,
-    "start_count": 0,
+    "start_count": 1,
     "after_start_count": 1,
     "always_show": true,
     "is_enabled": true,

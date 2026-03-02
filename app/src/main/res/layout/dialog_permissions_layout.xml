@@ -4,7 +4,7 @@
     android:layout_width="@dimen/_270sdp"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_10dp"
-    android:backgroundTint="@color/container_clr_activity">
+    android:backgroundTint="@color/white">
 
     <ImageView
         android:id="@+id/cross_img"
@@ -40,8 +40,8 @@
         android:layout_marginEnd="16dp"
         android:gravity="center"
         android:text="@string/camera_and_storage"
+        android:textColor="@color/text_color"
         android:textSize="@dimen/_12sdp"
-        android:textColor="@color/tab_txt_clr"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -54,8 +54,8 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_5dp"
-        android:backgroundTint="@color/outline_clr"
+        android:background="@drawable/rounded_30dp"
+        android:backgroundTint="@color/selected_color"
         android:gravity="center"
         android:paddingVertical="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,9 +84,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="@string/cancel"
-        android:visibility="gone"
         android:textColor="@color/sub_heading_txt"
         android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,20 +94,20 @@
 
     <TextView
         android:id="@+id/textView13"
+        style="@style/subHeadingText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        style="@style/subHeadingText"
-        android:textColor="@color/tab_txt_clr"
         android:gravity="center"
+        android:text="AR Drawing requires camera and storage access for optimal performance."
+        android:textColor="@color/text_color"
         android:textSize="@dimen/_10sdp"
-        android:text="CRSL requires camera and storage access for optimal performance."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--        android:text="@string/collage_requires_camera_and_storage_access_for_optimal_performance"-->
+    <!--        android:text="@string/collage_requires_camera_and_storage_access_for_optimal_performance"-->

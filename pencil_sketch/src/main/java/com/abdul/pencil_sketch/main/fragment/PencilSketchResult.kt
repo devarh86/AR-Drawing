@@ -337,18 +337,23 @@ class PencilSketchResult : Fragment() {
         }
 
         backImg.setOnSingleClickListener {
-            backPress()
+            backPress("back")
         }
 
         homeIV.setOnSingleClickListener {
-            runCatching {
-                val resultIntent = Intent()
-                resultIntent.putExtra("where", "home")
-                activity?.setResult(RESULT_OK, resultIntent)
-                if (activity is PencilSketchActivity) {
-                    activity?.finish()
+            if (!isSaving) {
+                backPress("home")
+            } else {
+                runCatching {
+                    val resultIntent = Intent()
+                    resultIntent.putExtra("where", "home")
+                    activity?.setResult(RESULT_OK, resultIntent)
+                    if (activity is PencilSketchActivity) {
+                        activity?.finish()
+                    }
                 }
             }
+
         }
 
         draw.setOnSingleClickListener {
@@ -728,15 +733,15 @@ class PencilSketchResult : Fragment() {
         }
     }
 
-    private fun backPress() {
+    private fun backPress(from: String = "") {
         try {
-            initDiscardDialog()
+            initDiscardDialog(from)
         } catch (ex: Exception) {
             Log.e("error", "backPress: ", ex)
         }
     }
 
-    private fun initDiscardDialog() {
+    private fun initDiscardDialog(from: String = "") {
 
         if (bottomSheetDiscardDialogBinding == null) {
             bottomSheetDiscardDialogBinding =
@@ -792,7 +797,7 @@ class PencilSketchResult : Fragment() {
             }
         }
 
-        initDiscardBottomSheetClicks()
+        initDiscardBottomSheetClicks(from)
 
         kotlin.runCatching {
             if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == false) {
@@ -801,13 +806,21 @@ class PencilSketchResult : Fragment() {
         }
     }
 
-    private fun initDiscardBottomSheetClicks() {
+    private fun initDiscardBottomSheetClicks(from: String = "") {
 
         bottomSheetDiscardDialogBinding?.crossImg?.setOnSingleClickListener {
             if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
                 bottomSheetDiscardDialog?.dismiss()
             }
         }
+
+        runCatching {
+            bottomSheetDiscardDialogBinding?.discardBtn?.text = activity?.setString(com.project.common.R.string.discord)
+            bottomSheetDiscardDialogBinding?.stayBtn?.text = activity?.setString(com.project.common.R.string.stay)
+            bottomSheetDiscardDialogBinding?.textView8?.text = activity?.setString(com.project.common.R.string.are_you_want_to_discard)
+            bottomSheetDiscardDialogBinding?.textView11?.text = activity?.setString(com.project.common.R.string.if_you_go_back_your_work_will_be_discarded)
+        }
+
         bottomSheetDiscardDialogBinding?.discardBtn?.setOnSingleClickListener {
 
             if (rewardedShown)
@@ -820,27 +833,34 @@ class PencilSketchResult : Fragment() {
                 }
 
                 activity?.showNewInterstitial(activity?.interstitialBack()) {
-                    runCatching {
-                        if (it is PencilSketchActivity) {
+                    if (from == "back") {
+                        runCatching {
+                            if (it is PencilSketchActivity) {
 
-                            // Notify the previous fragment if needed
-                            eventForGalleryAndEditor("sketch_result", "back")
-                            setFragmentResult(
-                                "requestKeyGallery",
-                                bundleOf("refresh" to true)
-                            )
-                            val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
-                            findNavController().popBackStack(targetDestinationId, false)
+                                // Notify the previous fragment if needed
+                                eventForGalleryAndEditor("sketch_result", "back")
+                                setFragmentResult(
+                                    "requestKeyGallery",
+                                    bundleOf("refresh" to true)
+                                )
+                                val targetDestinationId = R.id.galleryPencilSketch // Replace with the actual ID of your target fragment in the navigation graph
+                                findNavController().popBackStack(targetDestinationId, false)
+                            }
+                        }
+                    } else {
+                        runCatching {
+                            val resultIntent = Intent()
+                            resultIntent.putExtra("where", "home")
+                            if (activity is PencilSketchActivity) {
+                                activity?.setResult(RESULT_OK, resultIntent)
+                                activity?.finish()
+                            }
                         }
                     }
+
                 }
 
             }
-        }
-
-        runCatching {
-            bottomSheetDiscardDialogBinding?.stayBtn?.text =
-                activity?.setString(com.project.common.R.string.stay)
         }
 
         bottomSheetDiscardDialogBinding?.stayBtn?.setOnSingleClickListener {

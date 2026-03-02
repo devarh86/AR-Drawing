@@ -12,11 +12,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.updateMargins
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
@@ -50,6 +54,7 @@ import com.fahad.newtruelovebyfahad.utils.isNetworkAvailable
 import com.fahad.newtruelovebyfahad.utils.navigateFragment
 import com.fahad.newtruelovebyfahad.utils.printLog
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
+import com.fahad.newtruelovebyfahad.utils.showToast
 import com.fahad.newtruelovebyfahad.utils.visible
 import com.project.common.datastore.FrameDataStore
 import com.project.common.repo.api.apollo.helper.Response
@@ -74,6 +79,7 @@ import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class HomeForYouFragment : Fragment() {
@@ -86,6 +92,7 @@ class HomeForYouFragment : Fragment() {
 
     private val slideHandler = Handler(Looper.getMainLooper())
     private var slideRunnable: Runnable? = null
+    private var sliderPageChangeCallback: ViewPager2.OnPageChangeCallback? = null
 
     private val apiViewModel by activityViewModels<ApiViewModel>()
     var exitModel: ExitModel? = null
@@ -122,9 +129,7 @@ class HomeForYouFragment : Fragment() {
                             kotlin.runCatching {
                                 mActivity?.let {
                                     Toast.makeText(
-                                        mActivity,
-                                        "Please connect to internet",
-                                        Toast.LENGTH_SHORT
+                                        mActivity, "Please connect to internet", Toast.LENGTH_SHORT
                                     ).show()
                                 }
                             }
@@ -134,102 +139,74 @@ class HomeForYouFragment : Fragment() {
                 }
             }
 
-            val permissions =
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                    Manifest.permission.READ_MEDIA_IMAGES,
-                    Manifest.permission.CAMERA
-                )
-                else arrayOf(
+            val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+            )
+            else arrayOf(
 
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.CAMERA
-                )
+                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+            )
 
             (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
                 mActivity?.let {
                     if (it is MainActivity) {
                         it.eventForFrameClick(
                             FrameObject(
-                                frameBody.id,
-                                frameBody.title,
-                                Events.Screens.FEATURE,
-                                "",
-                                Events.Screens.FEATURE,
-                                frameBody.tags ?: "",
-                                frameBody.baseUrl ?: "",
-                                frameBody.thumb,
-                                frameBody.thumbtype,
-                                true,
-                                true,
-                                frameBody,
-                                "list"
+                                frameBody.id, frameBody.title, Events.Screens.FEATURE, "", Events.Screens.FEATURE, frameBody.tags ?: "", frameBody.baseUrl ?: "", frameBody.thumb, frameBody.thumbtype, true, true, frameBody, "list"
                             )
                         )
                     }
                 }
 
                 mContext?.let { context ->
-                    if (frameBody.tags?.isNotEmpty() == true && frameBody.tags != "Free" &&
-                        !isProVersion() && !ConstantsCommon.rewardedAssetsList.contains(frameBody.id)
-                    ) {
+                    if (frameBody.tags?.isNotEmpty() == true && frameBody.tags != "Free" && !isProVersion() && !ConstantsCommon.rewardedAssetsList.contains(frameBody.id)) {
                         mActivity?.createProFramesDialog(
-                            true,
-                            thumb = "${frameBody.baseUrl}${frameBody.thumb}",
-                            thumbType = ContextCompat.getDrawable(
-                                context, when (frameBody.thumbtype.lowercase()) {
-                                    FrameThumbType.PORTRAIT.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_portrait
-                                    FrameThumbType.LANDSCAPE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_landscape
-                                    FrameThumbType.SQUARE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_squre
-                                    else -> com.project.common.R.drawable.frame_placeholder_portrait
-                                }
-                            ),
-                            action = {
+                            true, thumb = "${frameBody.baseUrl}${frameBody.thumb}", thumbType = ContextCompat.getDrawable(
+                            context, when (frameBody.thumbtype.lowercase()) {
+                                FrameThumbType.PORTRAIT.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_portrait
+                                FrameThumbType.LANDSCAPE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_landscape
+                                FrameThumbType.SQUARE.type.lowercase() -> com.project.common.R.drawable.frame_placeholder_squre
+                                else -> com.project.common.R.drawable.frame_placeholder_portrait
+                            }
+                        ), action = {
 
-                                mActivity?.showRewardedInterstitial(
-                                    true,
-                                    loadedAction = {
-                                        apiViewModel.addToRecent(RecentsModel(frame = frameBody))
-                                        lifecycleScope.launch(Dispatchers.IO) {
-                                            frameDataStore.writeUnlockedId(frameBody.id)
-                                            ConstantsCommon.rewardedAssetsList.add(
-                                                frameBody.id
-                                            )
-                                            withContext(Main) {
-                                                if (position != -1) forYouFramesAdapter?.notifyItemChanged(
-                                                    position
+                            mActivity?.showRewardedInterstitial(true, loadedAction = {
+                                apiViewModel.addToRecent(RecentsModel(frame = frameBody))
+                                lifecycleScope.launch(Dispatchers.IO) {
+                                    frameDataStore.writeUnlockedId(frameBody.id)
+                                    ConstantsCommon.rewardedAssetsList.add(
+                                        frameBody.id
+                                    )
+                                    withContext(Main) {
+                                        if (position != -1) forYouFramesAdapter?.notifyItemChanged(
+                                            position
+                                        )
+                                        kotlin.runCatching {
+                                            navController?.navigate(
+                                                HomeForYouFragmentDirections.actionHomeForYouFragmentToHowToDrawFragment(
+                                                    frameBody.baseUrl + frameBody.thumb
                                                 )
-                                                kotlin.runCatching {
-                                                    navController?.navigate(
-                                                        HomeForYouFragmentDirections.actionHomeForYouFragmentToHowToDrawFragment(
-                                                            frameBody.baseUrl+frameBody.thumb
-                                                        )
-                                                    )
-                                                }
-                                            }
-                                        }.invokeOnCompletion {}
-                                    },
-                                    failedAction = {
-
-                                    })
-
-                            },
-                            goProAction = {
-                                try {
-                                    activity?.let {
-                                        startActivity(Intent().apply {
-                                            setClassName(
-                                                it.applicationContext,
-                                                getProScreen()
                                             )
-                                            putExtra("from_frames", false)
-                                        })
+                                        }
                                     }
-                                } catch (_: Exception) {
+                                }.invokeOnCompletion {}
+                            }, failedAction = {
+
+                            })
+
+                        }, goProAction = {
+                            try {
+                                activity?.let {
+                                    startActivity(Intent().apply {
+                                        setClassName(
+                                            it.applicationContext, getProScreen()
+                                        )
+                                        putExtra("from_frames", false)
+                                    })
                                 }
-                            },
-                            dismissAction = {},
-                            frameBody.tags?.lowercase() == "paid"
+                            } catch (_: Exception) {
+                            }
+                        }, dismissAction = {}, frameBody.tags?.lowercase() == "paid"
                         )
                     } else {
                         apiViewModel.addToRecent(RecentsModel(frame = frameBody))
@@ -238,7 +215,7 @@ class HomeForYouFragment : Fragment() {
                             kotlin.runCatching {
                                 navController?.navigate(
                                     HomeForYouFragmentDirections.actionHomeForYouFragmentToHowToDrawFragment(
-                                        frameBody.baseUrl+frameBody.thumb
+                                        frameBody.baseUrl + frameBody.thumb
                                     )
                                 )
                             }
@@ -282,10 +259,10 @@ class HomeForYouFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding?.initViews()
+
     }
 
     private fun FragmentHomeBinding.initSliderViewPager() {
-        Log.e("initSliderViewPager", "initSliderViewPager: CALL")
         val list = getImageListHome(mContext ?: return)
 
         val adapter = HomeSliderAdapter(
@@ -296,47 +273,48 @@ class HomeForYouFragment : Fragment() {
 
         topPager.adapter = adapter
 
-        var lastSelected: ImageView = binding.dot1
+        // ✅ Build dots dynamically
+        dotContainer.removeAllViews()
+        val dots = Array(adapter.itemCount) { ImageView(context) }
+        dots.forEachIndexed { index, imageView ->
+            val params = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            params.marginStart = 4
+            params.marginEnd = 4
+            imageView.layoutParams = params
+            imageView.setImageDrawable(context.setDrawable(com.project.common.R.drawable.round_un_selected))
+            dotContainer.addView(imageView)
+        }
 
-        // ✅ Handle page change
-        topPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        fun updateDots(selectedPosition: Int) {
+            dots.forEach {
+                it.setImageDrawable(context.setDrawable(com.project.common.R.drawable.round_un_selected))
+            }
+            if (selectedPosition in dots.indices) {
+                dots[selectedPosition].setImageDrawable(context.setDrawable(com.project.common.R.drawable.round_select))
+            }
+        }
+
+        if (dots.isNotEmpty()) {
+            updateDots(topPager.currentItem.coerceIn(0, dots.lastIndex))
+        }
+
+        // Handle page change
+        sliderPageChangeCallback?.let { topPager.unregisterOnPageChangeCallback(it) }
+        sliderPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
 
-                lastSelected.setImageDrawable(context.setDrawable(com.project.common.R.drawable.round_un_selected))
-                when (position) {
-                    0 -> {
-                        binding.dot1.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot1
-                    }
-
-                    1 -> {
-                        binding.dot2.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot2
-                    }
-
-                    2 -> {
-                        binding.dot3.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot3
-                    }
-
-                    3 -> {
-                        binding.dot4.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot4
-                    }
-
-                    else -> {
-                        binding.dot4.setImageDrawable(context.setDrawable(R.drawable.selected))
-                        lastSelected = binding.dot4
-                    }
-                }
+                updateDots(position)
 
                 slideRunnable?.let {
                     slideHandler.removeCallbacks(it)
-                    slideHandler.postDelayed(it, 2600)
+                    slideHandler.postDelayed(it, 4000)
                 }
             }
-        })
+        }
+        sliderPageChangeCallback?.let { topPager.registerOnPageChangeCallback(it) }
 
         // ✅ Auto slide runnable
         slideRunnable = Runnable {
@@ -358,8 +336,7 @@ class HomeForYouFragment : Fragment() {
         initSliderViewPager()
 
         mActivity?.onBackPressedDispatcher?.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
+            viewLifecycleOwner, object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     if (mActivity is MainActivity) {
                         exitModel = mActivity?.createExitDialog()
@@ -397,6 +374,7 @@ class HomeForYouFragment : Fragment() {
                                 is Response.Loading -> {
                                     _binding?.swipeToRefresh?.isRefreshing = true
                                     offlinePlaceHolderViewStub.gone()
+                                    dataLayout.visible()
                                     loadingView.startShimmer()
                                     loadingView.visible()
                                     framesRv.invisible()
@@ -414,8 +392,7 @@ class HomeForYouFragment : Fragment() {
                                             framesRv.visible()
 
                                             forYouFramesAdapter?.let {
-                                                if (it.itemCount != featureData.size)
-                                                    it.updateDataList(featureData)
+                                                if (it.itemCount != featureData.size) it.updateDataList(featureData)
                                             }
                                         }
                                     } else {
@@ -427,8 +404,7 @@ class HomeForYouFragment : Fragment() {
                                                 response.data?.allTags?.filterNotNull()?.forEach {
                                                     when (it.title.lowercase()) {
                                                         FeatureSubMenuOptions.FEATURED.title.lowercase() -> {
-                                                            val featureTags =
-                                                                it.tags?.find { it?.title?.lowercase() == FeatureSubMenuOptions.FOR_YOU.title.lowercase() }
+                                                            val featureTags = it.tags?.find { it?.title?.lowercase() == FeatureSubMenuOptions.FOR_YOU.title.lowercase() }
                                                             kotlin.runCatching {
                                                                 featureTags?.frames?.let { mFrames ->
                                                                     if (_binding?.framesRv?.isComputingLayout == false) {
@@ -442,24 +418,21 @@ class HomeForYouFragment : Fragment() {
 //                                                                            var position = index
                                                                             frame?.let {
 
-                                                                                val result =
-                                                                                    HomeForYouAdapter.FrameModel(
-                                                                                        it
-                                                                                    )
+                                                                                val result = HomeForYouAdapter.FrameModel(
+                                                                                    it
+                                                                                )
 
-                                                                                result.isFavourite =
-                                                                                    withContext(
-                                                                                        Dispatchers.Default
-                                                                                    ) {
-                                                                                        favouriteFrames.mapNotNull { it?.id }
-                                                                                            .contains(
-                                                                                                FavouriteTypeConverter.fromJson(
-                                                                                                    FavouriteTypeConverter.toJson(
-                                                                                                        result.frame
-                                                                                                    )
-                                                                                                )?.id
-                                                                                            )
-                                                                                    }
+                                                                                result.isFavourite = withContext(
+                                                                                    Dispatchers.Default
+                                                                                ) {
+                                                                                    favouriteFrames.mapNotNull { it?.id }.contains(
+                                                                                            FavouriteTypeConverter.fromJson(
+                                                                                                FavouriteTypeConverter.toJson(
+                                                                                                    result.frame
+                                                                                                )
+                                                                                            )?.id
+                                                                                        )
+                                                                                }
 
                                                                                 withContext(Main) {
 
@@ -480,8 +453,7 @@ class HomeForYouFragment : Fragment() {
                                                                             }
                                                                         }
                                                                     }.invokeOnCompletion {
-                                                                        isCompleted =
-                                                                            true
+                                                                        isCompleted = true
                                                                     }
 
                                                                 } ?: kotlin.run {
@@ -505,6 +477,7 @@ class HomeForYouFragment : Fragment() {
                                     _binding?.swipeToRefresh?.isRefreshing = false
                                     if (!mActivity.isNetworkAvailable()) {
                                         offlinePlaceHolderViewStub.visible()
+                                        dataLayout.gone()
                                         loadingView.stopShimmer()
                                         loadingView.gone()
                                         framesRv.invisible()
@@ -518,6 +491,13 @@ class HomeForYouFragment : Fragment() {
 
                     }
                 } else {
+                    offlinePlaceHolderViewStub.visible()
+                    dataLayout.gone()
+                    loadingView.stopShimmer()
+                    loadingView.gone()
+                    framesRv.invisible()
+                    _binding?.swipeToRefresh?.isRefreshing = false
+
                     try {
                         if (apiViewModel.offlineFeatureScreen.hasObservers()) {
                             apiViewModel.offlineFeatureScreen.removeObservers(this@HomeForYouFragment)
@@ -525,48 +505,42 @@ class HomeForYouFragment : Fragment() {
                         apiViewModel.offlineFeatureScreen.observe(viewLifecycleOwner) {
                             when (it) {
                                 is Response.Loading -> {
-                                    offlinePlaceHolderViewStub.gone()
-                                    loadingView.startShimmer()
-                                    loadingView.visible()
+                                    offlinePlaceHolderViewStub.visible()
+                                    dataLayout.gone()
+                                    loadingView.stopShimmer()
+                                    loadingView.gone()
+                                    framesRv.invisible()
                                 }
 
                                 is Response.ShowSlowInternet -> {}
 
                                 is Response.Success -> {
+                                    offlinePlaceHolderViewStub.visible()
+                                    dataLayout.gone()
+                                    loadingView.stopShimmer()
+                                    loadingView.gone()
+                                    framesRv.invisible()
                                     forYouFramesAdapter?.clearData()
                                     if (featureForYouData != null && featureForYouData?.second?.first()?.thumb?.contains(
                                             "android_asset"
                                         ) == true
                                     ) {
                                         if (forYouFramesAdapter != null) {
-                                            loadingView.stopShimmer()
-                                            loadingView.gone()
                                             Log.e("FINDCOMING", "initObserver: IF ")
-                                            framesRv.visible()
                                             offlineDataSettingToAdapter()
                                         } else {
                                             Log.e("FINDCOMING", "initObserver: ELSE")
-                                            loadingView.stopShimmer()
-                                            loadingView.gone()
                                             initViewPager()
                                         }
                                     } else {
                                         Log.e("FINDCOMING", "initObserver: ELSE ELSE")
                                         it.data?.allTags?.let { mainMenuOptions ->
-                                            mainMenuOptions.filterNotNull()
-                                                .find { it.title == FeatureMainMenuOptions.FEATURED.title }?.tags?.let { subMenuOptions ->
+                                            mainMenuOptions.filterNotNull().find { it.title == FeatureMainMenuOptions.FEATURED.title }?.tags?.let { subMenuOptions ->
                                                     isDataLoaded = true
                                                     checkInternet()
                                                     val subMenuList = subMenuOptions.filterNotNull()
-                                                    subMenuList.find { it.title == FeatureSubMenuOptions.FOR_YOU.title }
-                                                        ?.let { taggedFrames ->
-                                                            featureForYouData =
-                                                                Pair(
-                                                                    taggedFrames.tags?.filterNotNull()
-                                                                        ?.map { it.title }
-                                                                        ?: emptyList(),
-                                                                    taggedFrames.frames?.filterNotNull()
-                                                                        ?: emptyList())
+                                                    subMenuList.find { it.title == FeatureSubMenuOptions.FOR_YOU.title }?.let { taggedFrames ->
+                                                            featureForYouData = Pair(taggedFrames.tags?.filterNotNull()?.map { it.title } ?: emptyList(), taggedFrames.frames?.filterNotNull() ?: emptyList())
                                                         }
                                                     Log.e(
                                                         "FINDCOMING",
@@ -575,18 +549,10 @@ class HomeForYouFragment : Fragment() {
                                                     initViewPager()
                                                 }
 
-                                            mainMenuOptions.filterNotNull()
-                                                .find { it.title == FeatureMainMenuOptions.SAVE.title }?.tags?.let { subMenuOptions ->
+                                            mainMenuOptions.filterNotNull().find { it.title == FeatureMainMenuOptions.SAVE.title }?.tags?.let { subMenuOptions ->
                                                     val subMenuList = subMenuOptions.filterNotNull()
-                                                    subMenuList.find { it.title == FeatureSubMenuOptions.TRENDING_SAVE.title }
-                                                        ?.let { taggedFrames ->
-                                                            ConstantsCommon.saveAndShareScreenTrendingData =
-                                                                Pair(
-                                                                    taggedFrames.tags?.filterNotNull()
-                                                                        ?.map { it.title }
-                                                                        ?: emptyList(),
-                                                                    taggedFrames.frames?.filterNotNull()
-                                                                        ?: emptyList())
+                                                    subMenuList.find { it.title == FeatureSubMenuOptions.TRENDING_SAVE.title }?.let { taggedFrames ->
+                                                            ConstantsCommon.saveAndShareScreenTrendingData = Pair(taggedFrames.tags?.filterNotNull()?.map { it.title } ?: emptyList(), taggedFrames.frames?.filterNotNull() ?: emptyList())
                                                         }
                                                 }
                                         }
@@ -596,8 +562,10 @@ class HomeForYouFragment : Fragment() {
                                 is Response.Error -> {
                                     if (mActivity?.isNetworkAvailable() == false) {
                                         offlinePlaceHolderViewStub.visible()
+                                        dataLayout.gone()
                                         loadingView.stopShimmer()
                                         loadingView.gone()
+                                        framesRv.invisible()
                                     }
                                 }
                             }
@@ -626,7 +594,10 @@ class HomeForYouFragment : Fragment() {
 
     private fun checkInternet() {
         _binding?.apply {
-            offlinePlaceHolderViewStub.gone()
+            if (mActivity?.isNetworkAvailable() == true) {
+                offlinePlaceHolderViewStub.gone()
+                dataLayout.visible()
+            }
 
             if (isDataLoaded) {
                 loadingView.stopShimmer()
@@ -654,15 +625,16 @@ class HomeForYouFragment : Fragment() {
     private fun FragmentHomeBinding.initListeners() {
 
 
-        swipeToRefresh.setOnRefreshListener {
-            if (apiViewModel.featureScreen.value?.data?.allTags.isNullOrEmpty()) apiViewModel.getFeatureScreen(true)
+        if (isNetworkAvailable){
+            swipeToRefresh.setOnRefreshListener {
+                if (apiViewModel.featureScreen.value?.data?.allTags.isNullOrEmpty()) apiViewModel.getFeatureScreen(true)
+            }
         }
 
         menuContainer.setSingleClickListener {
             try {
                 activity?.navigateFragment(
-                    HomeForYouFragmentDirections.actionHomeForYouFragmentToSettingFragment(),
-                    R.id.homeForYouFragment
+                    HomeForYouFragmentDirections.actionHomeForYouFragmentToSettingFragment(), R.id.homeForYouFragment
                 )
             } catch (ex: Exception) {
                 Log.e("error", "initListeners: ", ex)
@@ -673,8 +645,7 @@ class HomeForYouFragment : Fragment() {
             activity?.let {
                 startActivity(Intent().apply {
                     setClassName(
-                        it.applicationContext,
-                        getProScreen()
+                        it.applicationContext, getProScreen()
                     )
                     putExtra("from_frames", false)
                 })
@@ -684,10 +655,7 @@ class HomeForYouFragment : Fragment() {
         arDrawing.setSingleClickListener {
             eventForCategoryClick(
                 FrameObject(
-                    screenName = "home",
-                    categoryName = Events.ParamsValues.HomeScreen.DRAWING,
-                    from = "ardrawing_btn",
-                    frameBody = ""
+                    screenName = "home", categoryName = Events.ParamsValues.HomeScreen.DRAWING, from = "ardrawing_btn", frameBody = ""
                 )
             )
 
@@ -699,10 +667,7 @@ class HomeForYouFragment : Fragment() {
 
                 eventForCategoryClick(
                     FrameObject(
-                        screenName = "home",
-                        categoryName = Events.ParamsValues.HomeScreen.SKETCH,
-                        from = "photo_sketch_btn",
-                        frameBody = ""
+                        screenName = "home", categoryName = Events.ParamsValues.HomeScreen.SKETCH, from = "photo_sketch_btn", frameBody = ""
                     )
                 )
 
@@ -711,9 +676,7 @@ class HomeForYouFragment : Fragment() {
             } else {
                 context?.let { cntx ->
                     Toast.makeText(
-                        cntx,
-                        com.project.common.R.string.no_internet_connect_found_please_try_again,
-                        Toast.LENGTH_SHORT
+                        cntx, com.project.common.R.string.no_internet_connect_found_please_try_again, Toast.LENGTH_SHORT
                     ).show()
 
                 }
@@ -725,10 +688,7 @@ class HomeForYouFragment : Fragment() {
 
                 eventForCategoryClick(
                     FrameObject(
-                        screenName = "home",
-                        categoryName = Events.ParamsValues.HomeScreen.IMPORT_GALLERY,
-                        from = "import_gallery_btn",
-                        frameBody = ""
+                        screenName = "home", categoryName = Events.ParamsValues.HomeScreen.IMPORT_GALLERY, from = "import_gallery_btn", frameBody = ""
                     )
                 )
 
@@ -737,9 +697,7 @@ class HomeForYouFragment : Fragment() {
             } else {
                 context?.let { cntx ->
                     Toast.makeText(
-                        cntx,
-                        com.project.common.R.string.no_internet_connect_found_please_try_again,
-                        Toast.LENGTH_SHORT
+                        cntx, com.project.common.R.string.no_internet_connect_found_please_try_again, Toast.LENGTH_SHORT
                     ).show()
 
                 }
@@ -754,6 +712,17 @@ class HomeForYouFragment : Fragment() {
             }
         }
 
+        learnDrawing.setOnSingleClickListener {
+
+            eventForCategoryClick(
+                FrameObject(
+                    screenName = "home", categoryName = Events.ParamsValues.HomeScreen.IMPORT_GALLERY, from = "import_gallery_btn", frameBody = ""
+                )
+            )
+
+            selectCategory(MainMenuOptions.LEARNING.title)
+        }
+
     }
 
     private fun selectCategory(from: String) {
@@ -763,34 +732,26 @@ class HomeForYouFragment : Fragment() {
                 MainMenuOptions.DRAWING.title -> {
 
                     try {
-                        val permissions =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                                Manifest.permission.READ_MEDIA_IMAGES,
-                                Manifest.permission.CAMERA
-                            )
-                            else arrayOf(
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.CAMERA
-                            )
-                        (mActivity as Permissions).checkAndRequestPermissions(
-                            *permissions,
-                            action = {
-                                runCatching {
-                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
-                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
-                                        kotlin.runCatching {
-                                            navController?.navigate(
-                                                HomeForYouFragmentDirections.actionHomeForYouFragmentToDrawingFramesFragment(
-                                                    from,
-                                                    from
-                                                )
+                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+                        )
+                        else arrayOf(
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+                        )
+                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
+                            runCatching {
+                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                    kotlin.runCatching {
+                                        navController?.navigate(
+                                            HomeForYouFragmentDirections.actionHomeForYouFragmentToDrawingFramesFragment(
+                                                from, from
                                             )
-                                        }
+                                        )
                                     }
                                 }
-                            },
-                            declineAction = {})
+                            }
+                        }, declineAction = {})
                     } catch (ex: Exception) {
                         printLog(ex.message.toString())
                     }
@@ -800,30 +761,23 @@ class HomeForYouFragment : Fragment() {
                 MainMenuOptions.SKETCH.title -> {
 
                     try {
-                        val permissions =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                                Manifest.permission.READ_MEDIA_IMAGES,
-                                Manifest.permission.CAMERA
-                            )
-                            else arrayOf(
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.CAMERA
-                            )
-                        (mActivity as Permissions).checkAndRequestPermissions(
-                            *permissions,
-                            action = {
-                                runCatching {
-                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
-                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
-                                        kotlin.runCatching {
-                                            val intent = Intent(mActivity, PencilSketchActivity::class.java)
-                                            getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
-                                        }
+                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+                        )
+                        else arrayOf(
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+                        )
+                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
+                            runCatching {
+                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                    kotlin.runCatching {
+                                        val intent = Intent(mActivity, PencilSketchActivity::class.java)
+                                        getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
                                     }
                                 }
-                            },
-                            declineAction = {})
+                            }
+                        }, declineAction = {})
                     } catch (ex: Exception) {
                         printLog(ex.message.toString())
                     }
@@ -833,35 +787,32 @@ class HomeForYouFragment : Fragment() {
                 MainMenuOptions.IMPORT_GALLERY.title -> {
 
                     try {
-                        val permissions =
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                                Manifest.permission.READ_MEDIA_IMAGES,
-                                Manifest.permission.CAMERA
-                            )
-                            else arrayOf(
-                                Manifest.permission.READ_EXTERNAL_STORAGE,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                                Manifest.permission.CAMERA
-                            )
-                        (mActivity as Permissions).checkAndRequestPermissions(
-                            *permissions,
-                            action = {
-                                runCatching {
-                                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
-                                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
-                                        kotlin.runCatching {
-                                            val intent = Intent(mActivity, PencilSketchActivity::class.java)
-                                            intent.putExtra("fromImport", true)
-                                            getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
-                                        }
+                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+                        )
+                        else arrayOf(
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+                        )
+                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
+                            runCatching {
+                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                    kotlin.runCatching {
+                                        val intent = Intent(mActivity, PencilSketchActivity::class.java)
+                                        intent.putExtra("fromImport", true)
+                                        getParentActivity()?.getActivityLauncher()?.launch(intent) //mActivity.startActivity(intent)
                                     }
                                 }
-                            },
-                            declineAction = {})
+                            }
+                        }, declineAction = {})
                     } catch (ex: Exception) {
                         printLog(ex.message.toString())
                     }
 
+                }
+
+                MainMenuOptions.LEARNING.title -> {
+                    context?.showToast(ContextCompat.getString(mContext ?: return, com.project.common.R.string.coming_soon))
                 }
 
                 else -> {}
@@ -878,13 +829,25 @@ class HomeForYouFragment : Fragment() {
         return null
     }
 
-    override fun onPause() {
-        super.onPause()
-        exitModel?.dialog?.apply { if (!isDetached && isVisible && isShowing) dismiss() }
+    override fun onResume() {
+        super.onResume()
+        slideRunnable?.let { slideHandler.removeCallbacks(it) }
+        slideRunnable?.let { slideHandler.postDelayed(it, 50) }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onDestroyView() {
+        slideRunnable?.let { slideHandler.removeCallbacks(it) }
+        sliderPageChangeCallback?.let { callback ->
+            _binding?.topPager?.unregisterOnPageChangeCallback(callback)
+        }
+        sliderPageChangeCallback = null
+        super.onDestroyView()
+
+        _binding = null
+    }
+
+    override fun onPause() {
+        super.onPause()
         slideRunnable?.let { slideHandler.removeCallbacks(it) }
         exitModel?.dialog?.apply { if (!isDetached && isVisible && isShowing) dismiss() }
     }
@@ -895,17 +858,14 @@ class HomeForYouFragment : Fragment() {
 
             putString(Events.ParamsKeys.FROM, frameBody.from)
 
-            if (frameBody.categoryName.isNotBlank())
-                putString(Events.ParamsKeys.CATNAME, frameBody.categoryName)
+            if (frameBody.categoryName.isNotBlank()) putString(Events.ParamsKeys.CATNAME, frameBody.categoryName)
 
-            if (frameBody.subCategoryName.isNotBlank())
-                putString(Events.ParamsKeys.SUB_SCREEN, frameBody.subCategoryName)
+            if (frameBody.subCategoryName.isNotBlank()) putString(Events.ParamsKeys.SUB_SCREEN, frameBody.subCategoryName)
         }
         firebaseAnalytics?.logEvent(frameBody.screenName, bundle)
 
         Log.i(
-            "firebase_events_clicks",
-            "events: screenName: ${frameBody.screenName} bundle:  $bundle"
+            "firebase_events_clicks", "events: screenName: ${frameBody.screenName} bundle:  $bundle"
         )
     }
 

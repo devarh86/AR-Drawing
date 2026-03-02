@@ -18,7 +18,6 @@ import androidx.lifecycle.lifecycleScope
 import com.example.ads.Constants.ADS_SDK_INITIALIZE
 import com.example.ads.Constants.InterstitialUnInstall
 import com.example.ads.Constants.adGalleryNative
-import com.example.ads.Constants.loadNativeSplash
 import com.example.ads.Constants.adGalleryNativeFloor
 import com.example.ads.Constants.allBannerReloadLimit
 import com.example.ads.Constants.enableHomeInterAd
@@ -51,10 +50,10 @@ import com.example.ads.Constants.loadNativeObThree
 import com.example.ads.Constants.loadNativeObTwo
 import com.example.ads.Constants.loadNativeOld
 import com.example.ads.Constants.loadNativeOnResume
+import com.example.ads.Constants.loadNativeSplash
 import com.example.ads.Constants.loadSplashAppOpen
 import com.example.ads.Constants.nativeReasonUninstall
 import com.example.ads.Constants.newAdsConfig
-import com.example.ads.Constants.onBoardingFourNativeId
 import com.example.ads.Constants.onBoardingOneNativeId
 import com.example.ads.Constants.onBoardingThreeNativeId
 import com.example.ads.Constants.onBoardingTwoNativeId
@@ -137,7 +136,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.EnumMap
-import kotlin.collections.set
 
 @SuppressLint("CustomSplashScreen")
 const val TAG = "SplashActivity"
@@ -170,6 +168,20 @@ class SplashActivity : AppCompatActivity() {
         _binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        try {
+            if (isProVersion.hasObservers()) {
+                isProVersion.removeObservers(this@SplashActivity as LifecycleOwner)
+            }
+
+            isProVersion.observe(this@SplashActivity) {
+                if (it) {
+                    _binding?.nativeContainer?.hide()
+                }
+            }
+        } catch (ex: Exception) {
+            Log.e("error", "onCreate: ", ex)
+        }
+
         hideNavigation()
         runCatching {
             animationStopListener()
@@ -199,38 +211,30 @@ class SplashActivity : AppCompatActivity() {
 //        ADS_SDK_INITIALIZE_BIGO.set(false)
         interstitialNew = InterstitialNew()
 
-        try {
-            if (isProVersion.hasObservers()) {
-                isProVersion.removeObservers(this@SplashActivity as LifecycleOwner)
-            }
 
-            isProVersion.observe(this@SplashActivity) {
-                if (it) {
-                    _binding?.nativeContainer?.hide()
-                }
-            }
-        } catch (ex: Exception) {
-            Log.e("error", "onCreate: ", ex)
+
+        if (isNetworkAvailable()) {
+            initConsentForum()
+        } else {
+            initObserver()
         }
-
-        initConsentForum()
         firebaseAnalytics?.logEvent(Events.Screens.SPLASH, Bundle().apply {
             putString(Events.ParamsKeys.ACTION, Events.ParamsValues.DISPLAYED)
         })
     }
 
     private fun animationStopListener() {
-      /*  _binding?.appIconAnim?.let { lottieV ->
-            // Add a listener to detect when the animation ends
-            lottieV.addAnimatorListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator) {
-                    super.onAnimationEnd(animation)
-                    _binding?.animView?.isVisible = true
-                    _binding?.animView?.playAnimation()
-                }
-            })
+        /*  _binding?.appIconAnim?.let { lottieV ->
+              // Add a listener to detect when the animation ends
+              lottieV.addAnimatorListener(object : AnimatorListenerAdapter() {
+                  override fun onAnimationEnd(animation: Animator) {
+                      super.onAnimationEnd(animation)
+                      _binding?.animView?.isVisible = true
+                      _binding?.animView?.playAnimation()
+                  }
+              })
 
-        }*/
+          }*/
 
     }
 
@@ -317,10 +321,10 @@ class SplashActivity : AppCompatActivity() {
 //                                             }*/
 //                                        }
 //                                    } else {
-                                    if(loadSplashAppOpen) {
+                                    if (loadSplashAppOpen) {
                                         loadAppOpenSplash(true)
                                     }
-                                  //  }
+                                    //  }
 
                                     if (!isProVersion() && !showAppOpen) {
                                         if (loadNativeSplash) {
@@ -429,6 +433,7 @@ class SplashActivity : AppCompatActivity() {
                             }
                         }
                     }
+
                     is Response.Error -> {
                         Log.i("TAG", "initData: error")
                         if (!initDataInit) {
@@ -532,7 +537,7 @@ class SplashActivity : AppCompatActivity() {
                 initIntro()
             }
 
-            if (BuildConfig.DEBUG){
+            if (BuildConfig.DEBUG) {
                 myCallback.invoke()
                 return@runCatching
             }
@@ -542,13 +547,13 @@ class SplashActivity : AppCompatActivity() {
 //                    myCallback.invoke()
 //                }
 //            } else {
-                if(loadSplashAppOpen) {
-                    _binding?.nativeContainer?.visibility = View.INVISIBLE
-                    showAppOpenSplash {
-                        myCallback.invoke()
-                    }
+            if (loadSplashAppOpen) {
+                _binding?.nativeContainer?.visibility = View.INVISIBLE
+                showAppOpenSplash {
+                    myCallback.invoke()
                 }
-           // }
+            }
+            // }
         }
     }
 
@@ -598,8 +603,8 @@ class SplashActivity : AppCompatActivity() {
                                                     surveyCompleted = survey
 
                                                     if (!intro && introScreen) {
-                                                            if(!proSplashOrHome){
-                                                                kotlin.runCatching {
+                                                        if (!proSplashOrHome) {
+                                                            kotlin.runCatching {
                                                                 val intent = Intent(
                                                                     applicationContext,
                                                                     com.example.apponboarding.ui.main.activity.LanguageActivity::class.java
@@ -607,33 +612,33 @@ class SplashActivity : AppCompatActivity() {
                                                                 startActivity(intent)
                                                                 finish()
                                                             }
-                                                                //
-                                                            }else if(proSplashOrHome&& !isProVersion()){
+                                                            //
+                                                        } else if (proSplashOrHome && !isProVersion()) {
+                                                            kotlin.runCatching {
+                                                                sendEvent(true)
+                                                                val intent = Intent()
+                                                                intent.setClassName(
+                                                                    applicationContext,
+                                                                    getProScreen()
+                                                                )
+                                                                intent.putExtra("show_ad", true)
+                                                                intent.putExtra("is_intro_complete", !intro)
                                                                 kotlin.runCatching {
-                                                                    sendEvent(true)
-                                                                    val intent = Intent()
-                                                                    intent.setClassName(
-                                                                        applicationContext,
-                                                                        getProScreen()
-                                                                    )
-                                                                    intent.putExtra("show_ad", true)
-                                                                    intent.putExtra("is_intro_complete", !intro )
-                                                                    kotlin.runCatching {
-                                                                        this@SplashActivity.setLocale(languageCode)
-                                                                    }
-                                                                    startActivity(intent)
-                                                                    finish()
+                                                                    this@SplashActivity.setLocale(languageCode)
                                                                 }
-                                                            }else{
-                                                                kotlin.runCatching {
-                                                                    val intent = Intent(
-                                                                        applicationContext,
-                                                                        com.example.apponboarding.ui.main.activity.LanguageActivity::class.java
-                                                                    )
-                                                                    startActivity(intent)
-                                                                    finish()
-                                                                }
+                                                                startActivity(intent)
+                                                                finish()
                                                             }
+                                                        } else {
+                                                            kotlin.runCatching {
+                                                                val intent = Intent(
+                                                                    applicationContext,
+                                                                    com.example.apponboarding.ui.main.activity.LanguageActivity::class.java
+                                                                )
+                                                                startActivity(intent)
+                                                                finish()
+                                                            }
+                                                        }
 
 
                                                     } else if (!surveyCompleted && surveyScreenEnable) {
@@ -723,7 +728,7 @@ class SplashActivity : AppCompatActivity() {
                                                                 )
                                                                 if (it > 0 && !isProVersion()) {
                                                                     runCatching {
-                                                                        if (proSplashOrHome&& !isProVersion()) {
+                                                                        if (proSplashOrHome && !isProVersion()) {
                                                                             kotlin.runCatching {
                                                                                 sendEvent(true)
                                                                                 val intent = Intent()
@@ -732,41 +737,9 @@ class SplashActivity : AppCompatActivity() {
                                                                                     getProScreen()
                                                                                 )
                                                                                 intent.putExtra("show_ad", true)
-                                                                                intent.putExtra("is_intro_complete", !intro )
+                                                                                intent.putExtra("is_intro_complete", !intro)
                                                                                 kotlin.runCatching {
                                                                                     this@SplashActivity.setLocale(languageCode)
-                                                                                }
-                                                                                startActivity(intent)
-                                                                                finish()
-                                                                            }
-                                                                        }else{
-                                                                            kotlin.runCatching {
-                                                                                val intent = Intent(
-                                                                                    applicationContext,
-                                                                                    MainActivity::class.java
-                                                                                )
-                                                                                startActivity(intent)
-                                                                                finish()
-                                                                            }
-                                                                        }
-
-                                                                      /*  if (showRoboPro) {
-                                                                            kotlin.runCatching {
-                                                                                sendEvent(true)
-                                                                                val intent =
-                                                                                    Intent()
-                                                                                intent.setClassName(
-                                                                                    applicationContext,
-                                                                                    getProScreen()
-                                                                                )
-                                                                                intent.putExtra(
-                                                                                    "show_ad",
-                                                                                    true
-                                                                                )
-                                                                                kotlin.runCatching {
-                                                                                    this@SplashActivity.setLocale(
-                                                                                        languageCode
-                                                                                    )
                                                                                 }
                                                                                 startActivity(intent)
                                                                                 finish()
@@ -780,7 +753,39 @@ class SplashActivity : AppCompatActivity() {
                                                                                 startActivity(intent)
                                                                                 finish()
                                                                             }
-                                                                        }*/
+                                                                        }
+
+                                                                        /*  if (showRoboPro) {
+                                                                              kotlin.runCatching {
+                                                                                  sendEvent(true)
+                                                                                  val intent =
+                                                                                      Intent()
+                                                                                  intent.setClassName(
+                                                                                      applicationContext,
+                                                                                      getProScreen()
+                                                                                  )
+                                                                                  intent.putExtra(
+                                                                                      "show_ad",
+                                                                                      true
+                                                                                  )
+                                                                                  kotlin.runCatching {
+                                                                                      this@SplashActivity.setLocale(
+                                                                                          languageCode
+                                                                                      )
+                                                                                  }
+                                                                                  startActivity(intent)
+                                                                                  finish()
+                                                                              }
+                                                                          } else {
+                                                                              kotlin.runCatching {
+                                                                                  val intent = Intent(
+                                                                                      applicationContext,
+                                                                                      MainActivity::class.java
+                                                                                  )
+                                                                                  startActivity(intent)
+                                                                                  finish()
+                                                                              }
+                                                                          }*/
 //                                }
                                                                     }
                                                                 }
@@ -847,7 +852,7 @@ class SplashActivity : AppCompatActivity() {
             loadBannerOnBoardThree = false
             loadBannerOnBoardFour = false
             loadBannerOnBoardMedium = false
-            proSplashOrHome =adConfigModel.splashScreen?.splashProHome ?: false
+            proSplashOrHome = adConfigModel.splashScreen?.splashProHome ?: false
             allBannerReloadLimit = (newAdsConfig?.appBanner?.reloadLimit ?: 2L).toLong()
             loadNativeSplash = newAdsConfig?.splashScreen?.native?.isEnabled ?: false
             loadInterstitialSplash = newAdsConfig?.splashScreen?.interstitial?.isEnabled ?: false
@@ -858,8 +863,8 @@ class SplashActivity : AppCompatActivity() {
             interstitialHomeStartCount = adConfigModel.appInterstitial?.startCount ?: 0
             interstitialHomeAfterStartCount = adConfigModel.appInterstitial?.afterStartCount ?: 1
             interstitialHomeAlwaysShow = adConfigModel.appInterstitial?.alwaysShow ?: false
-            splashTime =(adConfigModel.splashScreen?.time ?: 5000L).toLong()
-          //  splashTimeOut = (adConfigModel.splashScreen?.timeout ?: 10000L).toLong()
+            splashTime = (adConfigModel.splashScreen?.time ?: 5000L).toLong()
+            //  splashTimeOut = (adConfigModel.splashScreen?.timeout ?: 10000L).toLong()
             splashTimeOut = (adConfigModel.splashScreen?.timeout ?: 7000L).toLong()
             // set in remote json
             Log.d("SPLASH_TIME_ISSUE", "remoteConfig splash time  :$splashTime ")

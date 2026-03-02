@@ -67,6 +67,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginBottom="@dimen/_12sdp"
             android:overScrollMode="never"
             android:scrollbars="none"
             app:layout_constraintBottom_toTopOf="@id/bottom_lay_prices"
@@ -79,7 +80,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:layout_marginBottom="@dimen/_8sdp"
                 android:orientation="vertical"
                 android:paddingVertical="@dimen/_8sdp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -408,7 +408,6 @@
 
             <TextView
                 android:id="@+id/subheadingPrice"
-                style="@style/TextOnHomeBold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_12sdp"
@@ -418,12 +417,10 @@
                 android:maxLines="1"
                 android:text="just $10/Week"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/_14sdp"
-                android:textStyle="bold"
+                android:textSize="@dimen/_12sdp"
                 app:layout_constraintBottom_toTopOf="@+id/heading"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/heading"
@@ -440,27 +437,10 @@
                 android:text="@string/try_for_free"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"
-                app:layout_constraintBottom_toTopOf="@+id/subText"
+                app:layout_constraintBottom_toTopOf="@+id/cancel_txt"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.483"
                 app:layout_constraintStart_toStartOf="parent" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/subText"
-                style="@style/subHeadingText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:alpha="0.8"
-                android:text="Try 3 days for free, then $20/week"
-                android:textColor="@color/text_color"
-                android:textSize="@dimen/_9sdp"
-                android:textStyle="bold"
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/cancel_txt"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
 
             <TextView
                 android:id="@+id/cancel_txt"

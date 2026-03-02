@@ -58,6 +58,7 @@ class PencilSketchRequest : Fragment() {
     private val restoreImageViewModel: PencilSketchViewModel by activityViewModels()
     private var callback: OnBackPressedCallback? = null
     private var rewardGranted = false
+    private var failLimit = false
 
 
     fun hideOrShowAd(showAd: Boolean) {
@@ -290,50 +291,50 @@ class PencilSketchRequest : Fragment() {
                 "sketch_request", "restore_btn"
             )
             binding.progressText.text = "0%"
-            if (!isProVersion() && !rewardGranted) {
-                activity?.showRewardedInterstitial(true, loadedAction = {
-                    activity?.loadRewarded(loadedAction = {}, failedAction = {})
-                    rewardGranted = true
-                    eventForGalleryAndEditor(
-                        "sketch_request",
-                        "next"
-                    )
-                    lifecycleScope.launch(IO) {
-                        activity?.let {
-                            restoreImageViewModel.restoreIntent?.send(
-                                SketchIntent.GenerateToken(
-                                    it,
-                                )
-                            )
-                        }
-                    }
 
-                }, failedAction = {
-                    eventForGalleryAndEditor(
-                        "sketch_request",
-                        "failed"
-                    )
-                })
+            if (failLimit) {
+                failLimit = false
+                apiRequest()
             } else {
-                eventForGalleryAndEditor(
-                    "sketch_request", "next"
-                )
-                lifecycleScope.launch(IO) {
-                    activity?.let {
-                        restoreImageViewModel.restoreIntent?.send(
-                            SketchIntent.GenerateToken(
-                                it
-                            )
+                if (!isProVersion() && !rewardGranted) {
+                    activity?.showRewardedInterstitial(true, loadedAction = {
+                        activity?.loadRewarded(loadedAction = {}, failedAction = {})
+                        rewardGranted = true
+                        apiRequest()
+                    }, failedAction = {
+                        failLimit = true
+                        eventForGalleryAndEditor(
+                            "sketch_request",
+                            "failed"
                         )
-                    }
+                    })
+                } else {
+                    apiRequest()
                 }
             }
+
+
         }
 
         backImg.setOnSingleClickListener {
             backPress()
         }
 
+    }
+
+    private fun apiRequest() {
+        eventForGalleryAndEditor(
+            "sketch_request", "next"
+        )
+        lifecycleScope.launch(IO) {
+            activity?.let {
+                restoreImageViewModel.restoreIntent?.send(
+                    SketchIntent.GenerateToken(
+                        it
+                    )
+                )
+            }
+        }
     }
 
 

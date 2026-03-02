@@ -13,15 +13,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
 import androidx.core.net.toUri
+import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.abdul.pencil_sketch.R
 import com.abdul.pencil_sketch.databinding.FragmentSaveShareBinding
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
 import com.abdul.pencil_sketch.main.intents.SaveIntentSketch
@@ -33,12 +37,18 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.example.ads.Constants.rewardedShown
+import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
 import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.crosspromo.helper.hide
+import com.example.ads.crosspromo.helper.show
+import com.example.ads.utils.interstitialBack
+import com.example.ads.utils.nativeDialogsConfig
 import com.example.ads.utils.saveInterstitial
 import com.example.inapp.helpers.showToast
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.project.common.databinding.BottomSheetDiscardPhotoEditorBinding
 import com.project.common.databinding.BottomSheetProcessDialogBinding
 import com.project.common.enum_classes.EditorBottomTypes
 import com.project.common.enum_classes.SaveQuality
@@ -80,6 +90,10 @@ class SaveAndShareFragment : Fragment() {
     private var bottomSheetProcessDialog: BottomSheetDialog? = null
     private var bottomSheetProcessDialogBinding: BottomSheetProcessDialogBinding? = null
 
+    private var bottomSheetDiscardDialog: BottomSheetDialog? = null
+    private var bottomSheetDiscardDialogBinding: BottomSheetDiscardPhotoEditorBinding? = null
+    private var callback: OnBackPressedCallback? = null
+
     @set:Inject
     lateinit var billingDataStore: BillingDataStore
 
@@ -109,6 +123,7 @@ class SaveAndShareFragment : Fragment() {
         setUserImage()
         listener()
         observerSave()
+        onBackPress()
 
         activity?.loadNewInterstitialWithoutStrategyCheck(activity?.saveInterstitial()) {}
     }
@@ -158,18 +173,23 @@ class SaveAndShareFragment : Fragment() {
         binding.apply {
 
             backPress.setOnSingleClickListener {
-                navController.navigateUp()
+                backPress("back")
             }
 
             home.setOnSingleClickListener {
-                runCatching {
-                    val resultIntent = Intent()
-                    resultIntent.putExtra("where", "home")
-                    if (activity is PencilSketchActivity) {
-                        activity?.setResult(RESULT_OK, resultIntent)
-                        activity?.finish()
+                if (!isSaving) {
+                    backPress("home")
+                } else {
+                    runCatching {
+                        val resultIntent = Intent()
+                        resultIntent.putExtra("where", "home")
+                        if (activity is PencilSketchActivity) {
+                            activity?.setResult(RESULT_OK, resultIntent)
+                            activity?.finish()
+                        }
                     }
                 }
+
             }
 
             share.setOnSingleClickListener {
@@ -394,6 +414,141 @@ class SaveAndShareFragment : Fragment() {
                 )
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                 startActivity(Intent.createChooser(shareIntent, "Share via"))
+            }
+        }
+    }
+
+    private fun onBackPress() {
+        callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                backPress("back")
+            }
+        }
+        callback?.let {
+            activity?.onBackPressedDispatcher?.addCallback(this.viewLifecycleOwner, it)
+        }
+    }
+
+    private fun backPress(from: String = "") {
+        try {
+            initDiscardDialog(from)
+        } catch (ex: Exception) {
+            Log.e("error", "backPress: ", ex)
+        }
+    }
+
+    private fun initDiscardDialog(from: String = "") {
+
+        if (bottomSheetDiscardDialogBinding == null) {
+            bottomSheetDiscardDialogBinding =
+                BottomSheetDiscardPhotoEditorBinding.inflate(layoutInflater)
+            bottomSheetDiscardDialog = context?.let {
+                BottomSheetDialog(it, com.project.common.R.style.BottomSheetDialogNew).apply {
+                    window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                }
+            }
+            bottomSheetDiscardDialogBinding?.root?.let {
+                bottomSheetDiscardDialog?.setContentView(it)
+            }
+            bottomSheetDiscardDialog?.setCancelable(true)
+        }
+
+        bottomSheetDiscardDialogBinding?.let { binding ->
+            runCatching {
+                activity?.let { mActivity ->
+                    mActivity.loadAndShowNativeOnBoarding(
+                        loadedAction = {
+                            if (isVisible && !isDetached) {
+                                binding.nativeContainer.show()
+                                binding.mediumNativeLayout.adContainer.show()
+                                binding.mediumNativeLayout.shimmerViewContainer.hide()
+                                binding.mediumNativeLayout.adContainer.removeAllViews()
+                                if (it?.parent != null) {
+                                    (it.parent as ViewGroup).removeView(it)
+                                }
+                                binding.mediumNativeLayout.adContainer.addView(it)
+                            }
+                        }, failedAction = {
+                            if (isVisible && !isDetached) {
+                                binding.apply {
+                                    nativeContainer.hide()
+                                    mediumNativeLayout.adContainer.hide()
+                                    mediumNativeLayout.shimmerViewContainer.hide()
+                                }
+                            }
+                        },
+                        mActivity.nativeDialogsConfig(), mActivity.nativeDialogsConfig(),
+                        showContainer = {
+                            if (isVisible && !isDetached) {
+                                binding.apply {
+                                    nativeContainer.show()
+                                    if (mediumNativeLayout.shimmerViewContainer.isVisible) {
+                                        mediumNativeLayout.shimmerViewContainer.startShimmer()
+                                    }
+                                }
+                            }
+                        }
+                    )
+                }
+            }
+        }
+
+        initDiscardBottomSheetClicks(from)
+
+        kotlin.runCatching {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == false) {
+                bottomSheetDiscardDialog?.show()
+            }
+        }
+    }
+
+    private fun initDiscardBottomSheetClicks(from: String = "") {
+
+        bottomSheetDiscardDialogBinding?.crossImg?.setOnSingleClickListener {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
+                bottomSheetDiscardDialog?.dismiss()
+            }
+        }
+
+        runCatching {
+            bottomSheetDiscardDialogBinding?.discardBtn?.text = activity?.setString(com.project.common.R.string.discord)
+            bottomSheetDiscardDialogBinding?.stayBtn?.text = activity?.setString(com.project.common.R.string.stay)
+            bottomSheetDiscardDialogBinding?.textView8?.text = activity?.setString(com.project.common.R.string.are_you_want_to_discard)
+            bottomSheetDiscardDialogBinding?.textView11?.text = activity?.setString(com.project.common.R.string.if_you_go_back_your_work_will_be_discarded)
+        }
+
+        bottomSheetDiscardDialogBinding?.discardBtn?.setOnSingleClickListener {
+
+            if (rewardedShown)
+                rewardedShown = false
+
+            activity?.let {
+
+                if (!it.isFinishing && !it.isDestroyed && bottomSheetDiscardDialog?.isShowing == true) {
+                    bottomSheetDiscardDialog?.dismiss()
+                }
+
+                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                    if (from=="back"){
+                        navController.navigateUp()
+                    }else{
+                        runCatching {
+                            val resultIntent = Intent()
+                            resultIntent.putExtra("where", "home")
+                            if (activity is PencilSketchActivity) {
+                                activity?.setResult(RESULT_OK, resultIntent)
+                                activity?.finish()
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        bottomSheetDiscardDialogBinding?.stayBtn?.setOnSingleClickListener {
+            if (isVisible && !isDetached && bottomSheetDiscardDialog?.isShowing == true) {
+                bottomSheetDiscardDialog?.dismiss()
             }
         }
     }

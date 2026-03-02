@@ -34,10 +34,6 @@ private const val loggerName = "INTMobifyAds"
 
 class InterstitialNew {
 
-    private var job: Job? = null
-
-    private var onEventLoaded: ((Boolean) -> Unit)? = null
-
     private var mInterstitialAdsList: MutableList<AdConfigModel> = mutableListOf()
 
     /**
@@ -56,53 +52,17 @@ class InterstitialNew {
      *         or the original [adConfig] if no match is found.
      */
 
-    private fun MutableList<AdConfigModel>.containsObject(
-        adConfig: AdConfigModel,
-        alsoAdd: Boolean = false
-    ): AdConfigModel {
-
+    private fun MutableList<AdConfigModel>.containsObject(adConfig: AdConfigModel): AdConfigModel {
         val tempList: MutableList<AdConfigModel> = mutableListOf()
         tempList.addAll(this)
-
         tempList.forEach {
             if (it.currentActivityOrFragment == adConfig.currentActivityOrFragment) {
-
-                Log.i(loggerName, "containsObject: in list ${adConfig.currentActivityOrFragment}")
-
                 return it
             }
         }
 
-        Log.i(loggerName, "containsObject: not in list ${adConfig.currentActivityOrFragment}")
-
-        if (alsoAdd) {
-            Log.i(
-                loggerName,
-                "containsObject: adding in list ${adConfig.currentActivityOrFragment}"
-            )
-            this.add(adConfig)
-        }
-
         return adConfig
     }
-
-    private fun MutableList<AdConfigModel>.removeObject(
-        adConfig: AdConfigModel
-    ) {
-
-        val tempList: MutableList<AdConfigModel> = mutableListOf()
-        tempList.addAll(this)
-
-        tempList.forEach {
-            if (it.currentActivityOrFragment == adConfig.currentActivityOrFragment) {
-
-                Log.i(loggerName, "containsObject: in list ${adConfig.currentActivityOrFragment}")
-
-                this.remove(it)
-            }
-        }
-    }
-
 
     /**
      * Loads an interstitial ad based on the provided ad configuration.
@@ -120,7 +80,7 @@ class InterstitialNew {
     ) {
         kotlin.runCatching {
             // Retrieve the ad configuration from the list or use the provided one
-            val adConfig = mInterstitialAdsList.containsObject(adConfigModel, true)
+            val adConfig = mInterstitialAdsList.containsObject(adConfigModel)
 
             adConfig.apply {
                 Log.i(
@@ -139,7 +99,7 @@ class InterstitialNew {
                             idHigh
                         }
 
-                        (reload && reloadLimit == 2 && interstitialAdModel.interstitialAdFailedCounter == 1) || (idMedium.isNotBlank() && reloadLimit == 1 && !reload) -> {
+                        reload && reloadLimit == 2 || (idMedium.isNotBlank() && reloadLimit == 1 && !reload) -> {
                             Log.i(loggerName, "loadInterstitial: config.idMedium $idMedium")
                             idMedium
                         }
@@ -175,7 +135,6 @@ class InterstitialNew {
                                     interstitialAdModel.interstitialAdFailedCounter = 0
                                     interstitialAdModel.interstitialAd = null
                                     callback.invoke()
-                                    onEventLoaded?.invoke(false)
                                 }
                             }
 
@@ -193,119 +152,112 @@ class InterstitialNew {
                                     mInterstitialAdsList.add(this@apply)
                                     interstitialAd.onPaidEventListener =
                                         OnPaidEventListener { adValue ->
+                                            val newInterstitialAdModel = this@apply
                                             kotlin.runCatching {
-                                                val loadedAdapterResponseInfo =
-                                                    interstitialAd.responseInfo.loadedAdapterResponseInfo
-                                                val adSourceName =
-                                                    loadedAdapterResponseInfo?.adSourceName
-                                                val adSourceId =
-                                                    loadedAdapterResponseInfo?.adSourceId
+                                                val loadedAdapterResponseInfo = interstitialAd.responseInfo?.loadedAdapterResponseInfo
+                                                val adSourceName = loadedAdapterResponseInfo?.adSourceName
+                                                val adSourceId = loadedAdapterResponseInfo?.adSourceId
 
                                                 val bundle = Bundle().apply {
                                                     putString("ad_source", "AdMob")
                                                     putString(
                                                         "source_activity",
-                                                        "${(currentActivityOrFragment.lowercase())}_interstitial_ad"
+                                                        "${newInterstitialAdModel.currentActivityOrFragment.lowercase()}_inter_ad"
                                                     )
+                                                    putString("ad_format", "interstitial")
                                                     putString("currency_code", adValue.currencyCode)
                                                     putLong(
                                                         "value_micros",
                                                         adValue.valueMicros
                                                     )
+
+                                                    putDouble(
+                                                        "ad_value",
+                                                        adValue.valueMicros / 1000000.0
+                                                    )
                                                     adSourceName?.let {
                                                         putString("ad_source_name", adSourceName)
                                                     }
-                                                    putString("ad_format", "interstitial")
                                                     adSourceId?.let {
                                                         putString("ad_source_id", adSourceId)
                                                     }
-                                                    putDouble(
-                                                        "value",
-                                                        adValue.valueMicros / 1000000.0
-                                                    )
                                                 }
-
                                                 firebaseAnalytics?.logEvent(
                                                     "ad_revenue_event", bundle
                                                 )
-
-                                                Log.i(
-                                                    "logger",
-                                                    "onAdLoaded: ad_revenue_event, $bundle"
-                                                )
+                                                Log.i(loggerName, "onAdLoaded: ad_revenue_event, $bundle")
                                                 logRevenue(adValue.valueMicros / 1000000.0, context)
-
                                             }
                                             val data = SingularAdData(
                                                 "AdMob",
                                                 adValue.currencyCode,
                                                 adValue.valueMicros / 1000000.0
                                             )
+
                                             Singular.adRevenue(data)
+
                                             interstitialAd.onPaidEventListener = null
                                         }
                                 } else {
+
+                                    if (interstitialAd.onPaidEventListener == null) {
+                                        interstitialAd.onPaidEventListener =
+                                            OnPaidEventListener { adValue ->
+                                                val newInterstitialAdModel = this@apply
+                                                kotlin.runCatching {
+                                                    val loadedAdapterResponseInfo = interstitialAd.responseInfo?.loadedAdapterResponseInfo
+                                                    val adSourceName = loadedAdapterResponseInfo?.adSourceName
+                                                    val adSourceId = loadedAdapterResponseInfo?.adSourceId
+
+                                                    val bundle = Bundle().apply {
+                                                        putString("ad_source", "AdMob")
+                                                        putString(
+                                                            "source_activity",
+                                                            "${newInterstitialAdModel.currentActivityOrFragment.lowercase()}_inter_ad"
+                                                        )
+                                                        putString("ad_format", "interstitial")
+                                                        putString("currency_code", adValue.currencyCode)
+                                                        putLong(
+                                                            "value_micros",
+                                                            adValue.valueMicros
+                                                        )
+
+                                                        putDouble(
+                                                            "ad_value",
+                                                            adValue.valueMicros / 1000000.0
+                                                        )
+                                                        adSourceName?.let {
+                                                            putString("ad_source_name", adSourceName)
+                                                        }
+                                                        adSourceId?.let {
+                                                            putString("ad_source_id", adSourceId)
+                                                        }
+                                                    }
+                                                    firebaseAnalytics?.logEvent(
+                                                        "ad_revenue_event", bundle
+                                                    )
+                                                    Log.i(loggerName, "onAdLoaded: ad_revenue_event, $bundle")
+                                                    logRevenue(adValue.valueMicros / 1000000.0, context)
+                                                }
+                                                val data = SingularAdData(
+                                                    "AdMob",
+                                                    adValue.currencyCode,
+                                                    adValue.valueMicros / 1000000.0
+                                                )
+
+                                                Singular.adRevenue(data)
+
+                                                interstitialAd.onPaidEventListener = null
+                                            }
+                                    }
                                     Log.e(
                                         loggerName,
                                         "loadInterstitial: onAdLoaded already having this config"
                                     )
-                                    interstitialAd.onPaidEventListener =
-                                        OnPaidEventListener { adValue ->
-                                            kotlin.runCatching {
-                                                val loadedAdapterResponseInfo =
-                                                    interstitialAd.responseInfo?.loadedAdapterResponseInfo
-                                                val adSourceName =
-                                                    loadedAdapterResponseInfo?.adSourceName
-                                                val adSourceId =
-                                                    loadedAdapterResponseInfo?.adSourceId
-
-                                                val bundle = Bundle().apply {
-                                                    putString("ad_source", "AdMob")
-                                                    putString(
-                                                        "source_activity",
-                                                        "${(currentActivityOrFragment.lowercase())}_interstitial_ad"
-                                                    )
-                                                    putString("currency_code", adValue.currencyCode)
-                                                    putLong(
-                                                        "value_micros",
-                                                        adValue.valueMicros
-                                                    )
-                                                    adSourceName?.let {
-                                                        putString("ad_source_name", adSourceName)
-                                                    }
-                                                    putString("ad_format", "interstitial")
-                                                    adSourceId?.let {
-                                                        putString("ad_source_id", adSourceId)
-                                                    }
-                                                    putDouble(
-                                                        "value",
-                                                        adValue.valueMicros / 1000000.0
-                                                    )
-                                                }
-
-                                                firebaseAnalytics?.logEvent(
-                                                    "ad_revenue_event", bundle
-                                                )
-
-                                                Log.i(
-                                                    "logger",
-                                                    "onAdLoaded: ad_revenue_event, $bundle"
-                                                )
-                                                logRevenue(adValue.valueMicros / 1000000.0, context)
-                                            }
-                                            val data = SingularAdData(
-                                                "AdMob",
-                                                adValue.currencyCode,
-                                                adValue.valueMicros / 1000000.0
-                                            )
-                                            Singular.adRevenue(data)
-                                        }
                                 }
 
                                 interstitialAdModel.isAlreadyLoading = false
                                 callback.invoke()
-
-                                onEventLoaded?.invoke(true)
                             }
                         })
                 }
@@ -338,12 +290,12 @@ class InterstitialNew {
                     // Check if the ad should be shown based on the first show count and current counter
                     if (!interstitialAdModel.interstitialAdFirstShow && interstitialAdModel.interstitialAdFirstShowCount > 0) {
                         kotlin.runCatching {
-                            interstitialAdModel.interstitialAdFirstShow =
-                                (interstitialAdModel.interstitialAdFirstShowCount % (interstitialAdModel.interstitialAdCurrentCounter + 1)) == 0
+                            interstitialAdModel.interstitialAdFirstShow = ((interstitialAdModel.interstitialAdCurrentCounter + 1) % interstitialAdModel.interstitialAdFirstShowCount) == 0
                             if (interstitialAdModel.interstitialAdFirstShow) {
                                 interstitialAdModel.interstitialAdFirstShowCount = 0
                                 interstitialAdModel.interstitialAdCurrentCounter = 0
                             } else {
+                                interstitialAdModel.interstitialAdCurrentCounter += 1
                                 nextAction.invoke()
                                 Log.i(loggerName, "showInterstitial first step check not Match yet")
                                 return@apply
@@ -449,89 +401,14 @@ class InterstitialNew {
                         nextAction.invoke()
                     }
                 } ?: run {
-                    if (interstitialAdModel.waitTime > 0L) {
-                        Log.d(
-                            loggerName,
-                            "showInterstitial with wait ${interstitialAdModel.waitTime}"
-                        )
-
-                        if (!interstitialAdModel.isAlreadyLoading && adConfig.interstitialAdModel.interstitialAd == null) {
-                            Log.d(loggerName, "showInterstitial ad may fail")
-                            nextAction.invoke()
-                        } else if (!interstitialAdModel.isAlreadyLoading && adConfig.interstitialAdModel.interstitialAd != null) {
-                            showInterstitial(activity, adConfigModel, nextAction)
-                        } else {
-                            Log.d(loggerName, "showInterstitial ad still in loading")
-
-                            startCountdown(
-                                CoroutineScope(Default),
-                                interstitialAdModel.waitTime,
-                                failedAction = nextAction
-                            )
-                            onEventLoaded = {
-                                Log.i("TAG", "showSplashInterstitial: $it")
-                                if (it) {
-
-                                    Log.d(loggerName, "showInterstitial ad successfully loaded")
-
-                                    stopCountdown()
-
-                                    interstitialAdModel.waitTime = 0L
-                                    onEventLoaded = null
-                                    showInterstitial(activity, adConfigModel, nextAction)
-                                } else {
-                                    Log.d(loggerName, "showInterstitial ad loading failed")
-                                    stopCountdown()
-                                    onEventLoaded = null
-                                    nextAction.invoke()
-                                }
-                            }
-
-                        }
-
-                    } else {
-                        Log.d(loggerName, "showInterstitial The interstitial ad wasn't ready yet.")
-                        nextAction.invoke()
-                    }
+                    Log.d(loggerName, "showInterstitial The interstitial ad wasn't ready yet.")
+                    nextAction.invoke()
                 }
             }
         }.onFailure {
-            Log.d(loggerName, "showInterstitial crash ${it.message} ${it.cause}")
+            Log.d(loggerName, "showInterstitial crash")
+            Log.d(loggerName, "showInterstitial $it")
             nextAction.invoke()
         }
-    }
-
-    private fun startCountdown(scope: CoroutineScope, timeOut: Long, failedAction: () -> Unit) {
-        Log.d(loggerName, "showInterstitial start count down")
-        job = scope.launch {
-            var remainingTime = timeOut // 10 seconds
-            val interval = 1000L // 1 second
-
-            while (remainingTime > 0) {
-                delay(interval)
-                remainingTime -= interval
-                Log.d(loggerName, "showInterstitial timeOut in $remainingTime")
-                // Update UI
-            }
-            withContext(Main) {
-                onEventLoaded = null
-                if (job?.isActive == true) {
-                    Log.d(loggerName, "showInterstitial time out")
-                    failedAction.invoke()
-                }
-            }
-        }
-    }
-
-    private fun stopCountdown() {
-        job?.cancel()
-        Log.d(loggerName, "showInterstitial stop count down")
-    }
-
-    fun cancelAllInterstitialAd() {
-        stopCountdown()
-        onEventLoaded = null
-        mNewInterstitial = null
-        Log.d(loggerName, "cancel all interstitial ad successfully")
     }
 }

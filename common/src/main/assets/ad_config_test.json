@@ -37,7 +37,7 @@
     "floor": 2,
     "start_count": 1,
     "after_start_count": 3,
-    "always_show": true,
+    "always_show": false,
     "is_enabled": true,
     "ad_unit_ids": [
       "ca-app-pub-3940256099942544/1033173712",

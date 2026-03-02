@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -19,13 +18,11 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
-import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.FragmentHowDrawBinding
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderAdapterHD
 import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderItemHD
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
-import com.google.android.material.tabs.TabLayoutMediator
 import com.project.common.utils.setDrawable
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.math.abs

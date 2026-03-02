@@ -62,7 +62,7 @@
             android:exported="false"
             android:resizeableActivity="false"
             android:screenOrientation="portrait"
-            android:theme="@style/WholeFullScreenTheme"
+            android:theme="@style/FullScreenTheme"
             android:windowSoftInputMode="adjustNothing"
             />
         <activity

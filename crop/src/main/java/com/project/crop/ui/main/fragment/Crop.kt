@@ -199,11 +199,9 @@ class Crop : Fragment() {
 
     private fun setSelection(currentView: ImageView) {
         try {
-            lastSelected?.imageTintList =
-                ColorStateList.valueOf(context.setColor(com.project.common.R.color.btn_icon_clr))
+            lastSelected?.imageTintList = ColorStateList.valueOf(context.setColor(com.project.common.R.color.text_color))
             lastSelected = currentView
-            lastSelected?.imageTintList =
-                ColorStateList.valueOf(context.setColor(com.project.common.R.color.selected_color))
+            lastSelected?.imageTintList = ColorStateList.valueOf(context.setColor(com.project.common.R.color.selected_color))
         } catch (ex: java.lang.Exception) {
             Log.e("error", "initClick: ", ex)
         }

@@ -44,7 +44,7 @@
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:text="@string/share_with_friends"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/_10sdp"
+            android:textSize="@dimen/_12sdp"
             app:layout_constraintBottom_toBottomOf="@+id/toolBar"
             app:layout_constraintEnd_toStartOf="@+id/home"
             app:layout_constraintStart_toEndOf="@+id/backPress"

@@ -114,13 +114,12 @@ class PencilSketchActivity : AppCompatActivity() {
                         }, 220)
 
                     } else {
-                        isEnhanceRequest = true
                         _binding?.nativeContainer?.isVisible = false
                         isGallery = false
                         loadBannerAd()
                     }
                 } else {
-                    isEnhanceRequest = false
+                    isEnhanceRequest = true
                     isGallery = false
                     binding.bannerContainer.visibility = View.GONE
                     binding.nativeContainer.visibility = View.GONE
@@ -292,22 +291,6 @@ class PencilSketchActivity : AppCompatActivity() {
                 } else {
                     _binding?.bannerContainer?.hide()
                 }
-                /* navHostFragment?.let { it ->
-                     val currentFragment = it.childFragmentManager.fragments.firstOrNull()
-                     currentFragment?.let {
-                         if (it is RestoreImageRequest) {
-                             binding.bannerContainer.visibility = View.GONE
-                             it.hideOrShowAd(hide)
-                         }else{
-                             if (!isEnhanceRequest) {
-                                 loadBannerAd()
-                             } else {
-                                 _binding?.bannerContainer?.hide()
-                             }
-                         }
-                     }
-                 }*/
-
             }
         }
     }
