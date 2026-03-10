@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.example.ads.Constants.newAdsConfig
 import com.example.ads.Constants.rewardTime
 import com.example.ads.Constants.showAllReward
 import com.example.ads.R
@@ -84,7 +85,7 @@ fun Activity.createProFramesDialog(
 
             var countDownTimer: CountDownTimer? = null
 
-            if (showRewardAd || showAllReward) {
+            if (showRewardAd || newAdsConfig?.rewarded?.isEnabled==true) {
                 binding.watchAdTimerTv.text = "Watch Ad to unlock"
                 binding.watchAd.setOnClickListener {
                     if (!this@createProFramesDialog.isFinishing && !this@createProFramesDialog.isDestroyed && isShowing)

@@ -187,24 +187,6 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <TextView
-                    android:id="@+id/like_layout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_6sdp"
-                    android:background="@drawable/rounded_30dp"
-                    android:backgroundTint="#1C7BFB"
-                    android:layoutDirection="ltr"
-                    android:maxLines="1"
-                    android:paddingHorizontal="@dimen/_4sdp"
-                    android:paddingVertical="@dimen/_2sdp"
-                    android:text="@string/coming_soon"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_8sdp"
-                    app:layout_constraintBottom_toTopOf="@+id/learnDrawing"
-                    app:layout_constraintEnd_toEndOf="@+id/learnDrawing"
-                    app:layout_constraintTop_toTopOf="@+id/learnDrawing" />
-
                 <LinearLayout
                     android:id="@+id/sketch"
                     android:layout_width="0dp"

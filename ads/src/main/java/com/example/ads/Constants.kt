@@ -30,6 +30,8 @@ object Constants {
     var interstitialObLastAfterStartCount = 1
     var interstitialObLastAlwaysShow = false
     var loadNativeSplash = false
+    var loadBannerSplash = true
+    var splashBannerReloadLimit = 2
     var loadBannerSurvey = true
     var loadBannerOnBoardOne = true
     var loadBannerOnBoardTwo = true
@@ -242,7 +244,6 @@ object Constants {
     var loadNativeOld = true
     var popupEventValentine = false
     var bannerReload = true
-    var loadBannerSplash = true
     var loadInterstitialSave = true
     var loadInterstitialSplash = true
 

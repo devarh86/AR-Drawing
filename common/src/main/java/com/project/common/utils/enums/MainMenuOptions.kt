@@ -33,6 +33,7 @@ enum class MainMenuOptions(val title: String) {
     TOP_PICK("TopPick"),
     DRAWING("Drawing"),
     LEARNING("learn_draw"),
+    LEARN("Learning"),
     SKETCH("sketch"),
     IMPORT_GALLERY("import_gallery")
 }
@@ -57,7 +58,7 @@ enum class MainMenuBlendOptions(val title: String) {
     BG_ART("Bg Art"),
     COLLAGE("Collage"),
     DRAWING("Drawing"),
-    LEARNING("learn_draw"),
+    LEARNING("Learning"),
     SKETCH("sketch"),
     IMPORT_GALLERY("import_gallery")
 }

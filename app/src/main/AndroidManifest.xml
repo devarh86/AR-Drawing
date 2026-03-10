@@ -97,13 +97,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name="com.example.questions_intro.ui.activity.BlendOnBoardingActivity"
-            android:exported="false"
-            android:resizeableActivity="false"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullScreenTheme"
-            android:windowSoftInputMode="adjustNothing" />
 
         <profileable
             android:shell="true"

@@ -23,10 +23,12 @@ import com.example.ads.Constants.loadNativeObOne
 import com.example.ads.Constants.loadNativeObThree
 import com.example.ads.Constants.loadNativeObTwo
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
+import com.example.ads.admobs.utils.showNewInterstitialPro
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.model.AdConfigModel
 import com.example.ads.utils.fullNativeOne
 import com.example.ads.utils.fullNativeTwo
+import com.example.ads.utils.languageInterstitial
 import com.example.ads.utils.nativeLanguageOne
 import com.example.ads.utils.nativeLanguageTwo
 import com.example.ads.utils.onBoardNativeFour
@@ -76,7 +78,6 @@ class LanguageActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //loadOnBoardingBanner(getObBannerPosition())
-        //   loadNewInterstitialForPro(languageInterstitial()) {}
         kotlin.runCatching {
             firebaseAnalytics?.logEvent("event_fragment_language_one", null)
             Log.i("firebase_event", "logEvent: event_fragment_language_one")
@@ -99,23 +100,23 @@ class LanguageActivity : AppCompatActivity() {
 
         checkIcon.setOnSingleClickListener {
 
-            // showNewInterstitialPro(languageInterstitial()){
-            intent.getBooleanExtra("from_setting", false).let {
-                if (it) {
-                    setResult(Activity.RESULT_OK)
-                    finish()
-
-                } else {
-                    kotlin.runCatching {
-                        val intent = Intent(
-                            applicationContext,
-                            OnBoardingActivity::class.java
-                        )
-                        startActivity(intent)
+            showNewInterstitialPro(languageInterstitial()) {
+                intent.getBooleanExtra("from_setting", false).let {
+                    if (it) {
+                        setResult(Activity.RESULT_OK)
                         finish()
+
+                    } else {
+                        kotlin.runCatching {
+                            val intent = Intent(
+                                applicationContext,
+                                OnBoardingActivity::class.java
+                            )
+                            startActivity(intent)
+                            finish()
+                        }
                     }
                 }
-                //   }
             }
 
         }

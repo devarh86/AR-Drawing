@@ -12,8 +12,10 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.ads.Constants.firebaseAnalytics
+import com.example.ads.Constants.splashBannerReloadLimit
 import com.example.ads.R
 import com.example.ads.admobs.utils.logRevenue
+import com.example.ads.model.AdConfigModel
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
@@ -30,7 +32,7 @@ class BannerSplash {
     private var bannerView: AdView? = null
     private var bannerFailed = 0
     private var isMedium = false
-
+    var adConfig: AdConfigModel? = null
     private fun loadAdaptiveBanner(
         activity: Activity,
         container: ConstraintLayout,
@@ -42,19 +44,24 @@ class BannerSplash {
 
         bannerView = AdView(activity.applicationContext)
         bannerView?.apply {
-            //  adUnitId = activity.applicationContext.getString(R.string.banner)
-            adUnitId = if (!bnrLoadingFailed) {
-                isMedium = true
-                activity.applicationContext.getString(R.string.banner_splash_high)
-            } else if (bnrLoadingFailed && isMedium) {
-                isMedium = false
-                activity.applicationContext.getString(R.string.banner_splash_medium)
-            } else {
-                isMedium = false
-                Log.e("BANNER_SEC", "loadAdaptiveBanner: second banner id ")
-                activity.applicationContext.getString(R.string.banner_splash_all)
+
+            adUnitId = when {
+                !bnrLoadingFailed && splashBannerReloadLimit >= 2 -> {
+                    Log.i("BannerSplash", "loadAdaptiveBanner: config.idHigh")
+                    adConfig?.idHigh ?: activity.getString(R.string.banner_splash_high)
+                }
+                (bnrLoadingFailed && splashBannerReloadLimit == 2 && bannerFailed == 1) || (splashBannerReloadLimit == 1 && !bnrLoadingFailed) -> {
+                    Log.i("BannerSplash", "loadAdaptiveBanner: config.idMedium")
+                    adConfig?.idMedium ?: activity.getString(R.string.banner_splash_medium)
+                }
+                else -> {
+                    Log.i("BannerSplash", "loadAdaptiveBanner: config.idBackUp")
+                    adConfig?.idBackUp ?: activity.getString(R.string.banner_splash_all)
+                }
             }
-            setAdSize(adSizeBanner(activity))
+
+//            setAdSize(adSizeBanner(activity))
+            setAdSize(AdSize.MEDIUM_RECTANGLE)
             val adRequest = AdRequest.Builder().build()
             loadAd(adRequest)
             adListener = object : AdListener() {
@@ -69,7 +76,8 @@ class BannerSplash {
                     bannerFailed += 1
 
                     //  crossBanner?.visibility = View.VISIBLE
-                    if (bannerFailed <= 2) {
+                    if (bannerFailed <= splashBannerReloadLimit) {
+                        if (splashBannerReloadLimit > 2) bannerFailed = splashBannerReloadLimit.toInt() + 1
                         loadAdaptiveBanner(
                             activity,
                             container,
@@ -84,6 +92,7 @@ class BannerSplash {
                         shimmerFrameLayout.visibility = View.GONE
                         bannerFailed = 0
                     }
+
                 }
 
                 override fun onAdLoaded() {

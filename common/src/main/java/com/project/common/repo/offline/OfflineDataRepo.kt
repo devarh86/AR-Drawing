@@ -324,10 +324,6 @@ class OfflineDataRepo @Inject constructor(
                 Log.d("Fahad", "initApiObservers: ")
             }
 
-            is Response.Success -> {
-                Log.d("Fahad", "initApiObservers: ")
-            }
-
             else -> {
                 _frame.postValue(Response.Loading())
                 withContext(Dispatchers.IO) {

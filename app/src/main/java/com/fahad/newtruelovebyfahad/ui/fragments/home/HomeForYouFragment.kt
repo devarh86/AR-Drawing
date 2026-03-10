@@ -368,12 +368,12 @@ class HomeForYouFragment : Fragment() {
             ) {
                 checkInternet()
                 if (it == true) {
+                    offlinePlaceHolderViewStub.gone()
                     try {
                         apiViewModel.featureScreen.observe(viewLifecycleOwner) myObserver@{ response ->
                             when (response) {
                                 is Response.Loading -> {
                                     _binding?.swipeToRefresh?.isRefreshing = true
-                                    offlinePlaceHolderViewStub.gone()
                                     dataLayout.visible()
                                     loadingView.startShimmer()
                                     loadingView.visible()
@@ -476,7 +476,6 @@ class HomeForYouFragment : Fragment() {
                                 is Response.Error -> {
                                     _binding?.swipeToRefresh?.isRefreshing = false
                                     if (!mActivity.isNetworkAvailable()) {
-                                        offlinePlaceHolderViewStub.visible()
                                         dataLayout.gone()
                                         loadingView.stopShimmer()
                                         loadingView.gone()
@@ -497,86 +496,6 @@ class HomeForYouFragment : Fragment() {
                     loadingView.gone()
                     framesRv.invisible()
                     _binding?.swipeToRefresh?.isRefreshing = false
-
-                    try {
-                        if (apiViewModel.offlineFeatureScreen.hasObservers()) {
-                            apiViewModel.offlineFeatureScreen.removeObservers(this@HomeForYouFragment)
-                        }
-                        apiViewModel.offlineFeatureScreen.observe(viewLifecycleOwner) {
-                            when (it) {
-                                is Response.Loading -> {
-                                    offlinePlaceHolderViewStub.visible()
-                                    dataLayout.gone()
-                                    loadingView.stopShimmer()
-                                    loadingView.gone()
-                                    framesRv.invisible()
-                                }
-
-                                is Response.ShowSlowInternet -> {}
-
-                                is Response.Success -> {
-                                    offlinePlaceHolderViewStub.visible()
-                                    dataLayout.gone()
-                                    loadingView.stopShimmer()
-                                    loadingView.gone()
-                                    framesRv.invisible()
-                                    forYouFramesAdapter?.clearData()
-                                    if (featureForYouData != null && featureForYouData?.second?.first()?.thumb?.contains(
-                                            "android_asset"
-                                        ) == true
-                                    ) {
-                                        if (forYouFramesAdapter != null) {
-                                            Log.e("FINDCOMING", "initObserver: IF ")
-                                            offlineDataSettingToAdapter()
-                                        } else {
-                                            Log.e("FINDCOMING", "initObserver: ELSE")
-                                            initViewPager()
-                                        }
-                                    } else {
-                                        Log.e("FINDCOMING", "initObserver: ELSE ELSE")
-                                        it.data?.allTags?.let { mainMenuOptions ->
-                                            mainMenuOptions.filterNotNull().find { it.title == FeatureMainMenuOptions.FEATURED.title }?.tags?.let { subMenuOptions ->
-                                                    isDataLoaded = true
-                                                    checkInternet()
-                                                    val subMenuList = subMenuOptions.filterNotNull()
-                                                    subMenuList.find { it.title == FeatureSubMenuOptions.FOR_YOU.title }?.let { taggedFrames ->
-                                                            featureForYouData = Pair(taggedFrames.tags?.filterNotNull()?.map { it.title } ?: emptyList(), taggedFrames.frames?.filterNotNull() ?: emptyList())
-                                                        }
-                                                    Log.e(
-                                                        "FINDCOMING",
-                                                        "initObserver: ELSE ELSE  DATA",
-                                                    )
-                                                    initViewPager()
-                                                }
-
-                                            mainMenuOptions.filterNotNull().find { it.title == FeatureMainMenuOptions.SAVE.title }?.tags?.let { subMenuOptions ->
-                                                    val subMenuList = subMenuOptions.filterNotNull()
-                                                    subMenuList.find { it.title == FeatureSubMenuOptions.TRENDING_SAVE.title }?.let { taggedFrames ->
-                                                            ConstantsCommon.saveAndShareScreenTrendingData = Pair(taggedFrames.tags?.filterNotNull()?.map { it.title } ?: emptyList(), taggedFrames.frames?.filterNotNull() ?: emptyList())
-                                                        }
-                                                }
-                                        }
-                                    }
-                                }
-
-                                is Response.Error -> {
-                                    if (mActivity?.isNetworkAvailable() == false) {
-                                        offlinePlaceHolderViewStub.visible()
-                                        dataLayout.gone()
-                                        loadingView.stopShimmer()
-                                        loadingView.gone()
-                                        framesRv.invisible()
-                                    }
-                                }
-                            }
-                        }
-                    } catch (_: Exception) {
-                        runCatching {
-                            (mActivity as? MainActivity)?.showHomeScreen()
-                        }
-                        isFirstTime = true
-                    }
-
                 }
 
 
@@ -595,7 +514,6 @@ class HomeForYouFragment : Fragment() {
     private fun checkInternet() {
         _binding?.apply {
             if (mActivity?.isNetworkAvailable() == true) {
-                offlinePlaceHolderViewStub.gone()
                 dataLayout.visible()
             }
 
@@ -716,7 +634,7 @@ class HomeForYouFragment : Fragment() {
 
             eventForCategoryClick(
                 FrameObject(
-                    screenName = "home", categoryName = Events.ParamsValues.HomeScreen.IMPORT_GALLERY, from = "import_gallery_btn", frameBody = ""
+                    screenName = "home", categoryName = Events.ParamsValues.HomeScreen.LEARNING, from = "learning_btn", frameBody = ""
                 )
             )
 
@@ -812,7 +730,28 @@ class HomeForYouFragment : Fragment() {
                 }
 
                 MainMenuOptions.LEARNING.title -> {
-                    context?.showToast(ContextCompat.getString(mContext ?: return, com.project.common.R.string.coming_soon))
+
+                    try {
+                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+                        )
+                        else arrayOf(
+                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+                        )
+                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
+                            runCatching {
+                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                                    kotlin.runCatching {
+                                        navController?.navigate(HomeForYouFragmentDirections.actionHomeForYouFragmentToLearningFramesFragment())
+                                    }
+                                }
+                            }
+                        }, declineAction = {})
+                    } catch (ex: Exception) {
+                        printLog(ex.message.toString())
+                    }
+
                 }
 
                 else -> {}

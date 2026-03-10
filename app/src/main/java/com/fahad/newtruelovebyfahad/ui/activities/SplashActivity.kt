@@ -6,8 +6,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -38,6 +36,7 @@ import com.example.ads.Constants.loadBannerOnBoardMedium
 import com.example.ads.Constants.loadBannerOnBoardOne
 import com.example.ads.Constants.loadBannerOnBoardThree
 import com.example.ads.Constants.loadBannerOnBoardTwo
+import com.example.ads.Constants.loadBannerSplash
 import com.example.ads.Constants.loadInterstitialSave
 import com.example.ads.Constants.loadInterstitialSplash
 import com.example.ads.Constants.loadNativeFullOne
@@ -50,7 +49,6 @@ import com.example.ads.Constants.loadNativeObThree
 import com.example.ads.Constants.loadNativeObTwo
 import com.example.ads.Constants.loadNativeOld
 import com.example.ads.Constants.loadNativeOnResume
-import com.example.ads.Constants.loadNativeSplash
 import com.example.ads.Constants.loadSplashAppOpen
 import com.example.ads.Constants.nativeReasonUninstall
 import com.example.ads.Constants.newAdsConfig
@@ -65,6 +63,7 @@ import com.example.ads.Constants.proSplashOrHome
 import com.example.ads.Constants.questionScreenEnable
 import com.example.ads.Constants.showAllAppOpenAd
 import com.example.ads.Constants.showBlendGuideScreen
+import com.example.ads.Constants.splashBannerReloadLimit
 import com.example.ads.Constants.splashInterAdId
 import com.example.ads.Constants.splashTime
 import com.example.ads.Constants.splashTimeOut
@@ -72,20 +71,22 @@ import com.example.ads.Constants.surveyScreenEnable
 import com.example.ads.Constants.tutorialScr
 import com.example.ads.admobs.scripts.InterstitialNew
 import com.example.ads.admobs.utils.MobileAds
-import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadAppOpenSplash
+import com.example.ads.admobs.utils.loadNewInterstitialForPro
 import com.example.ads.admobs.utils.onPauseSplashBanner
+import com.example.ads.admobs.utils.onResumeSplashBanner
 import com.example.ads.admobs.utils.preLoadNative
 import com.example.ads.admobs.utils.setOnClick
 import com.example.ads.admobs.utils.showAppOpenSplash
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.model.AdConfigModel
+import com.example.ads.utils.bannerSplash
 import com.example.ads.utils.fullNativeOne
 import com.example.ads.utils.fullNativeTwo
+import com.example.ads.utils.languageInterstitial
 import com.example.ads.utils.nativeLanguageOne
 import com.example.ads.utils.nativeLanguageTwo
-import com.example.ads.utils.nativeSplash
 import com.example.ads.utils.onBoardNativeOne
 import com.example.ads.utils.onBoardNativeThree
 import com.example.ads.utils.onBoardNativeTwo
@@ -96,7 +97,6 @@ import com.example.apponboarding.ui.main.viewModels.LanguageViewModel
 import com.example.inapp.helpers.Constants.SINGULAR_API_KEY
 import com.example.inapp.helpers.Constants.SINGULAR_SECRET
 import com.example.inapp.helpers.Constants.isProVersion
-import com.example.questions_intro.ui.activity.BlendOnBoardingActivity
 import com.example.questions_intro.ui.activity.QuestionsActivity
 import com.fahad.newtruelovebyfahad.BuildConfig
 import com.fahad.newtruelovebyfahad.databinding.ActivitySplashBinding
@@ -175,7 +175,7 @@ class SplashActivity : AppCompatActivity() {
 
             isProVersion.observe(this@SplashActivity) {
                 if (it) {
-                    _binding?.nativeContainer?.hide()
+                    _binding?.bannerContainer?.hide()
                 }
             }
         } catch (ex: Exception) {
@@ -259,41 +259,20 @@ class SplashActivity : AppCompatActivity() {
 
                         initSingularSDK()
                         Log.i(TAG, "initConsentForum: firstCall")
-                        if (!showAppOpen && !isProVersion() && isNetworkAvailable()) {//loadNativeSplash &&
-                            loadAndShowNativeOnBoarding(
-                                loadedAction = {
-                                    kotlin.runCatching {
-                                        if (!isFinishing && !isDestroyed && _binding != null) {
-                                            binding.mediumNativeLayout.adContainer.show()
-                                            binding.mediumNativeLayout.shimmerViewContainer.visibility =
-                                                View.INVISIBLE
-                                            binding.mediumNativeLayout.adContainer.removeAllViews()
-                                            if (it?.parent != null) {
-                                                (it.parent as ViewGroup).removeView(it)
-                                            }
-                                            if (!isFinishing && !isDestroyed && _binding != null) {
-                                                Log.d(
-                                                    "ActivityState",
-                                                    "isFinishing 0 OB: $isFinishing, isDestroyed: $isDestroyed"
-                                                )
-                                                binding.mediumNativeLayout.adContainer.addView(it)
-                                            }
-                                        }
-                                    }
-                                },
-                                failedAction = {
-                                    if (!isFinishing && !isDestroyed && _binding != null) {
-                                        binding.nativeContainer.hide()
-                                        binding.mediumNativeLayout.shimmerViewContainer.visibility = View.INVISIBLE
-                                    }
-                                },
-                                nativeSplash(),
-                                adImpression = {
-                                },
-                            )
+                        if (!showAppOpen && !isProVersion() && isNetworkAvailable()) {
+                            _binding?.apply {
+                                bannerContainer.show()
+                                onResumeSplashBanner(
+                                    adBannerContainer,
+                                    crossBannerIv,
+                                    bannerLayout.adContainer,
+                                    bannerLayout.shimmerViewContainer,
+                                    config = bannerSplash()
+                                )
+                            }
                         } else {
                             if (!isFinishing && !isDestroyed && _binding != null) {
-                                binding.nativeContainer.hide()
+                                binding.bannerContainer.hide()
                             }
                         }
 
@@ -327,10 +306,10 @@ class SplashActivity : AppCompatActivity() {
                                     //  }
 
                                     if (!isProVersion() && !showAppOpen) {
-                                        if (loadNativeSplash) {
-                                            _binding?.nativeContainer?.show()
+                                        if (loadBannerSplash) {
+                                            _binding?.bannerContainer?.show()
                                         } else {
-                                            _binding?.nativeContainer?.hide()
+                                            _binding?.bannerContainer?.hide()
                                         }
                                     }
 
@@ -548,7 +527,7 @@ class SplashActivity : AppCompatActivity() {
 //                }
 //            } else {
             if (loadSplashAppOpen) {
-                _binding?.nativeContainer?.visibility = View.INVISIBLE
+                _binding?.bannerContainer?.visibility = View.INVISIBLE
                 showAppOpenSplash {
                     myCallback.invoke()
                 }
@@ -556,8 +535,6 @@ class SplashActivity : AppCompatActivity() {
             // }
         }
     }
-
-    private var lastSelected: ImageView? = null
 
     private fun initIntro() {
 
@@ -604,6 +581,8 @@ class SplashActivity : AppCompatActivity() {
 
                                                     if (!intro && introScreen) {
                                                         if (!proSplashOrHome) {
+                                                            loadNewInterstitialForPro(languageInterstitial()) {}
+
                                                             kotlin.runCatching {
                                                                 val intent = Intent(
                                                                     applicationContext,
@@ -614,6 +593,8 @@ class SplashActivity : AppCompatActivity() {
                                                             }
                                                             //
                                                         } else if (proSplashOrHome && !isProVersion()) {
+                                                            loadNewInterstitialForPro(languageInterstitial()) {}
+
                                                             kotlin.runCatching {
                                                                 sendEvent(true)
                                                                 val intent = Intent()
@@ -630,6 +611,8 @@ class SplashActivity : AppCompatActivity() {
                                                                 finish()
                                                             }
                                                         } else {
+                                                            loadNewInterstitialForPro(languageInterstitial()) {}
+
                                                             kotlin.runCatching {
                                                                 val intent = Intent(
                                                                     applicationContext,
@@ -684,29 +667,7 @@ class SplashActivity : AppCompatActivity() {
                                                                 startActivity(intent)
                                                                 overridePendingTransition(0, 0)
                                                                 finish()
-//                                                                val intent = Intent(
-//                                                                    applicationContext,
-//                                                                    IntroActivity::class.java
-//                                                                )
-//                                                                intent.putExtra(
-//                                                                    "shortcut_extra_key",
-//                                                                    receivedData
-//                                                                )
-//                                                                intent.putExtra("screen", counter)
-//                                                                startActivity(intent)
-//                                                                overridePendingTransition(0, 0)
-//                                                                finish()
                                                             }
-                                                        }
-                                                    } else if (showBlendGuideScreen) {
-                                                        kotlin.runCatching {
-                                                            val intent = Intent(
-                                                                this@SplashActivity,
-                                                                BlendOnBoardingActivity::class.java
-                                                            )
-                                                            startActivity(intent)
-                                                            overridePendingTransition(0, 0)
-                                                            finish()
                                                         }
                                                     } else if (isProVersion()) {
                                                         kotlin.runCatching {
@@ -755,38 +716,6 @@ class SplashActivity : AppCompatActivity() {
                                                                             }
                                                                         }
 
-                                                                        /*  if (showRoboPro) {
-                                                                              kotlin.runCatching {
-                                                                                  sendEvent(true)
-                                                                                  val intent =
-                                                                                      Intent()
-                                                                                  intent.setClassName(
-                                                                                      applicationContext,
-                                                                                      getProScreen()
-                                                                                  )
-                                                                                  intent.putExtra(
-                                                                                      "show_ad",
-                                                                                      true
-                                                                                  )
-                                                                                  kotlin.runCatching {
-                                                                                      this@SplashActivity.setLocale(
-                                                                                          languageCode
-                                                                                      )
-                                                                                  }
-                                                                                  startActivity(intent)
-                                                                                  finish()
-                                                                              }
-                                                                          } else {
-                                                                              kotlin.runCatching {
-                                                                                  val intent = Intent(
-                                                                                      applicationContext,
-                                                                                      MainActivity::class.java
-                                                                                  )
-                                                                                  startActivity(intent)
-                                                                                  finish()
-                                                                              }
-                                                                          }*/
-//                                }
                                                                     }
                                                                 }
                                                             }
@@ -854,7 +783,8 @@ class SplashActivity : AppCompatActivity() {
             loadBannerOnBoardMedium = false
             proSplashOrHome = adConfigModel.splashScreen?.splashProHome ?: false
             allBannerReloadLimit = (newAdsConfig?.appBanner?.reloadLimit ?: 2L).toLong()
-            loadNativeSplash = newAdsConfig?.splashScreen?.native?.isEnabled ?: false
+            loadBannerSplash = newAdsConfig?.splashScreen?.banner?.isEnabled ?: false
+            splashBannerReloadLimit = newAdsConfig?.splashScreen?.banner?.reloadLimit ?: 2
             loadInterstitialSplash = newAdsConfig?.splashScreen?.interstitial?.isEnabled ?: false
             enableHomeInterAd = adConfigModel.appInterstitial?.isEnabled ?: false
             isProWithInterOn = enableHomeInterAd // to on off pro with inter

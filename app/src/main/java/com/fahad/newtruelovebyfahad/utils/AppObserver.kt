@@ -17,7 +17,6 @@ import com.example.ads.Constants.showAppOpen
 import com.example.ads.admobs.scripts.AppOpen
 import com.example.analytics.Constants.firebaseAnalytics
 import com.example.analytics.Events
-import com.example.questions_intro.ui.activity.BlendOnBoardingActivity
 import com.example.questions_intro.ui.activity.IntroActivity
 import com.example.questions_intro.ui.activity.QuestionsActivity
 import com.example.questions_intro.ui.activity.SurveyActivity
@@ -94,15 +93,11 @@ class AppObserver(
                             }
                         }
 
-                        is BlendOnBoardingActivity -> {
-                            it.showAppOpen = true
-                            it.showAppOpenAd()
-                        }
-
                         is SaveAndShareActivity -> {
                             it.showAppOpen = true
                             it.showAppOpenAd()
                         }
+
                         is PencilSketchActivity -> {
                             it.showAppOpen = true
                             it.showAppOpenAd()

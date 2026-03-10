@@ -153,7 +153,7 @@ class FramesRV(
         position: Int
     ) {
         with(holder.binding) {
-            imagesMaskCount.text = item.frame.masks.toString()
+            imagesMaskCoun.text = item.frame.masks.toString()
             bindSingleContent(this, item, position, holder.itemView)
         }
     }

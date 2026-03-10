@@ -266,6 +266,7 @@ object Events {
 
             val SEAMLESS = "seamless"
             val DRAWING = "ar_drawing"
+            val LEARNING = "learning"
             val SKETCH = "photo_sketch"
             val IMPORT_GALLERY = "import_gallery"
             val TAPE = "tape"

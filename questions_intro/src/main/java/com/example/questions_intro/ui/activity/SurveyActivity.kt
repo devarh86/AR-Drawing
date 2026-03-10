@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
 import android.view.View.GONE
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -19,12 +18,10 @@ import com.bumptech.glide.Glide
 import com.example.ads.Constants
 import com.example.ads.Constants.firebaseAnalytics
 import com.example.ads.Constants.languageCode
-import com.example.ads.Constants.showBlendGuideScreen
 import com.example.ads.Constants.showRoboPro
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadAppOpen
 import com.example.ads.admobs.utils.onPauseSurveyBanner
-import com.example.ads.admobs.utils.onResumeBlendBoardingBanner
 import com.example.ads.admobs.utils.onResumeSurveyBanner
 import com.example.ads.admobs.utils.showAppOpen
 import com.example.ads.crosspromo.helper.show
@@ -201,15 +198,7 @@ class SurveyActivity : AppCompatActivity() {
                     dataStoreViewModel.updateSurveyComplete()
                 }
             }
-            if (showBlendGuideScreen) {
-                kotlin.runCatching {
-                    alreadyLaunch = true
-                    val intent = Intent(this, BlendOnBoardingActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(0, 0)
-                    finish()
-                }
-            } else if (!isProVersion() && showRoboPro) {
+            if (!isProVersion() && showRoboPro) {
                 openPro()
             } else {
                 kotlin.runCatching {
@@ -300,51 +289,51 @@ class SurveyActivity : AppCompatActivity() {
                 _binding?.nativeContainer?.visibility = INVISIBLE
                 _binding?.bannerContainer?.visibility = GONE
             } else {
-                    if (Constants.loadBannerSurvey) {
-                        _binding?.bannerContainer?.visibility = VISIBLE
-                        _binding?.nativeContainer?.visibility = INVISIBLE
-                        onResumeSurveyBanner(
-                            binding.bannerContainer,
-                            null,
-                            binding.bannerLayout.adContainer,
-                            binding.bannerLayout.shimmerViewContainer
-                        )
-                    } else {
-                        _binding?.nativeContainer?.visibility = VISIBLE
-                        _binding?.bannerContainer?.visibility = GONE
-                        if (_binding?.shimmerContainerNative?.visibility == VISIBLE) {
-                            _binding?.shimmerContainerNative?.startShimmer()
-                        }
+                if (Constants.loadBannerSurvey) {
+                    _binding?.bannerContainer?.visibility = VISIBLE
+                    _binding?.nativeContainer?.visibility = INVISIBLE
+                    onResumeSurveyBanner(
+                        binding.bannerContainer,
+                        null,
+                        binding.bannerLayout.adContainer,
+                        binding.bannerLayout.shimmerViewContainer
+                    )
+                } else {
+                    _binding?.nativeContainer?.visibility = VISIBLE
+                    _binding?.bannerContainer?.visibility = GONE
+                    if (_binding?.shimmerContainerNative?.visibility == VISIBLE) {
+                        _binding?.shimmerContainerNative?.startShimmer()
+                    }
 
-                        _binding?.let { binding ->
-                       loadAndShowNativeOnBoarding(
-                                loadedAction = {
-                                    kotlin.runCatching {
+                    _binding?.let { binding ->
+                        loadAndShowNativeOnBoarding(
+                            loadedAction = {
+                                kotlin.runCatching {
+                                    if (!isFinishing && !isDestroyed && _binding != null) {
+                                        binding.nativeContainer.show()
+                                        binding.nativeAdContainer.show()
+                                        binding.shimmerContainerNative.visibility =
+                                            INVISIBLE
+                                        binding.nativeAdContainer.removeAllViews()
+                                        if (it?.parent != null) {
+                                            (it.parent as ViewGroup).removeView(it)
+                                        }
                                         if (!isFinishing && !isDestroyed && _binding != null) {
-                                            binding.nativeContainer.show()
-                                            binding.nativeAdContainer.show()
-                                            binding.shimmerContainerNative.visibility =
-                                                INVISIBLE
-                                            binding.nativeAdContainer.removeAllViews()
-                                            if (it?.parent != null) {
-                                                (it.parent as ViewGroup).removeView(it)
-                                            }
-                                            if (!isFinishing && !isDestroyed && _binding != null) {
-                                                binding.nativeAdContainer.addView(it)
-                                            }
+                                            binding.nativeAdContainer.addView(it)
                                         }
                                     }
-                                },
-                                failedAction = {
-                                    if (!isFinishing && !isDestroyed) {
-                                        _binding?.nativeContainer?.visibility = INVISIBLE
-                                        _binding?.shimmerContainerNative?.visibility
-                                    }
-                                },
-                                survey(), nextConfig = survey()
-                            )
-                        }
+                                }
+                            },
+                            failedAction = {
+                                if (!isFinishing && !isDestroyed) {
+                                    _binding?.nativeContainer?.visibility = INVISIBLE
+                                    _binding?.shimmerContainerNative?.visibility
+                                }
+                            },
+                            survey(), nextConfig = survey()
+                        )
                     }
+                }
             }
         }
     }

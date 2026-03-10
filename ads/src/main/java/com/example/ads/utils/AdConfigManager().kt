@@ -2,7 +2,6 @@ package com.example.ads.utils
 
 import android.app.Activity
 import androidx.core.content.ContextCompat
-import com.example.ads.Constants.InterstitialUnInstall
 import com.example.ads.Constants.adUnInstallNativeFloor
 import com.example.ads.Constants.enableHomeInterAd
 import com.example.ads.Constants.enableObLastInterAd
@@ -24,10 +23,6 @@ import com.example.ads.Constants.interstitialSaveAfterStartCount
 import com.example.ads.Constants.interstitialSaveAlwaysShow
 import com.example.ads.Constants.interstitialSaveFloor
 import com.example.ads.Constants.interstitialSaveStartCount
-import com.example.ads.Constants.interstitialUninstallAfterStartCount
-import com.example.ads.Constants.interstitialUninstallAlwaysShow
-import com.example.ads.Constants.interstitialUninstallFloor
-import com.example.ads.Constants.interstitialUninstallStartCount
 import com.example.ads.Constants.introScreenAdButtonPosition
 import com.example.ads.Constants.introScreenAdUi
 import com.example.ads.Constants.introductionFloor
@@ -79,6 +74,23 @@ fun Activity.allBanner(): AdConfigModel? {
             )
         }
     } catch (ex: kotlin.Exception) {
+        null
+    }
+}
+
+fun Activity.bannerSplash(): AdConfigModel? {
+    return try {
+        newAdsConfig?.splashScreen?.banner?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.banner_overall_highs),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.banner_overall_med),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.banner_overall_low),
+                enable = it.isEnabled ?: false,
+                reloadLimit = it.reloadLimit ?: 2,
+                whichAd = AdsClassification.BANNER,
+            )
+        }
+    } catch (ex: Exception) {
         null
     }
 }
@@ -665,23 +677,26 @@ fun Activity.fullNativeTwo(): AdConfigModel? {
     }
 }
 
-fun Activity.unInstallInterstitial(): AdConfigModel? {
+fun Activity.languageInterstitial(): AdConfigModel? {
     return try {
-        AdConfigModel(
-            idHigh = ContextCompat.getString(this, R.string.interstitial_uninstall_high),
-            idMedium = ContextCompat.getString(this, R.string.interstitial_uninstall_medium),
-            idBackUp = ContextCompat.getString(this, R.string.interstitial_uninstall_all),
-            enable = InterstitialUnInstall,
-            reloadLimit = interstitialUninstallFloor,
-            whichAd = AdsClassification.INTERSTITIAL,
-            currentActivityOrFragment = "UNINSTALL",
-            interstitialAdModel = InterstitialAdModel().apply {
-                interstitialAdFirstShowCount = interstitialUninstallStartCount
-                interstitialAdAlwaysShow = interstitialUninstallAlwaysShow
-                interstitialAdAfterFirstShowSteps = interstitialUninstallAfterStartCount
-                interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
-            }
-        )
+        val interAd = newAdsConfig?.languageScreen?.interstitial
+        interAd?.let {
+            AdConfigModel(
+                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.language_high),
+                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.language_medium),
+                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.language_all),
+                enable = it.isEnabled ?: false,
+                reloadLimit = it.floor ?: 2,
+                whichAd = AdsClassification.INTERSTITIAL,
+                currentActivityOrFragment = "LANGUAGE_INTER",
+                interstitialAdModel = InterstitialAdModel().apply {
+                    interstitialAdFirstShowCount = it.startCount ?: 1
+                    interstitialAdAlwaysShow = it.alwaysShow ?: false
+                    interstitialAdAfterFirstShowSteps = it.afterStartCount ?: 1
+                    interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
+                }
+            )
+        }
     } catch (ex: Exception) {
         null
     }
@@ -784,8 +799,6 @@ fun Activity.splashInterstitial(): AdConfigModel? {
     return try {
         val interAd = newAdsConfig?.splashScreen?.interstitial
         interAd?.let {
-//            Log.i("SplashIDSINTER", "splashInterstitial: ${it.adUnitIds?.get(0)}   ${it.adUnitIds?.get(1)}  ${
-//                it.adUnitIds?.get(2)}  ${ it.isEnabled }  ${ it.floor }  ${ it.startCount }  ${ it.afterStartCount }  ${ it.alwaysShow }")
             AdConfigModel(
                 idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.splash_inter_high),
                 idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.splash_inter_medium),
@@ -803,23 +816,6 @@ fun Activity.splashInterstitial(): AdConfigModel? {
                 }
             )
         }
-//        AdConfigModel(
-//            idHigh = ContextCompat.getString(this, R.string.splash_inter_high),
-//            idMedium =  ContextCompat.getString(this, R.string.splash_inter_medium),
-//            idBackUp = ContextCompat.getString(this, R.string.splash_inter_backup),
-//            enable = true,
-//            reloadLimit = 2,
-//            whichAd = AdsClassification.INTERSTITIAL,
-//            currentActivityOrFragment = "SPLASH",
-//            interstitialAdModel = InterstitialAdModel().apply {
-//                interstitialAdFirstShowCount =1
-//                interstitialAdAlwaysShow = false
-//                interstitialAdAfterFirstShowSteps =1
-//                interstitialAdCurrentCounter = 0
-//                waitTime = (newAdsConfig?.splashScreen?.timeout?: splashTimeOut).toLong()
-//            }
-//        )
-
     } catch (ex: java.lang.Exception) {
         null
     }

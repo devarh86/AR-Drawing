@@ -1,14 +1,11 @@
 package com.fahad.newtruelovebyfahad.ui.fragments.drawing
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -18,9 +15,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.analytics.Events
 import com.example.inapp.helpers.Constants.isProVersion
 import com.fahad.newtruelovebyfahad.databinding.FragmentDrawingFramesBinding
-import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.common.CategoriesRVAdapter
-import com.fahad.newtruelovebyfahad.ui.fragments.home.HomeForYouFragmentDirections
 import com.fahad.newtruelovebyfahad.ui.fragments.home.adapter.DrawingFramesRV
 import com.fahad.newtruelovebyfahad.utils.gone
 import com.fahad.newtruelovebyfahad.utils.invisible
@@ -28,7 +23,6 @@ import com.fahad.newtruelovebyfahad.utils.isNetworkAvailable
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
 import com.fahad.newtruelovebyfahad.utils.visible
 import com.google.android.gms.ads.nativead.NativeAd
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.project.common.datastore.FrameDataStore
 import com.project.common.repo.api.apollo.helper.Response
 import com.project.common.repo.room.helper.FavouriteTypeConverter
@@ -55,7 +49,6 @@ class DrawingFramesFragment : Fragment() {
     private lateinit var navController: NavController
     private val apiViewModel by activityViewModels<ApiViewModel>()
     private var categoryTagsAdapter: CategoriesRVAdapter? = null
-    private var downloadDialog: BottomSheetDialog? = null
 
     @Inject
     lateinit var frameDataStore: FrameDataStore
@@ -109,12 +102,12 @@ class DrawingFramesFragment : Fragment() {
         }
 
         framesAdapter = DrawingFramesRV(mContext, arrayListOf(), nativeAd, onClick = { frameBody, position ->
-            Log.d("DrawingFramesFragment", "onCreate: ${frameBody.baseUrl+frameBody.thumb}")
+            Log.d("DrawingFramesFragment", "onCreate: ${frameBody.baseUrl + frameBody.thumb}")
 
             kotlin.runCatching {
                 navController.navigate(
                     DrawingFramesFragmentDirections.actionDrawingFramesFragmentToHowToDrawFragment(
-                        frameBody.baseUrl+frameBody.thumb
+                        frameBody.baseUrl + frameBody.thumb
                     )
                 )
             }
@@ -314,20 +307,8 @@ class DrawingFramesFragment : Fragment() {
         }
     }
 
-    private val activityLauncher: ActivityResultLauncher<Intent> = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { result ->
-        if (result.resultCode == AppCompatActivity.RESULT_OK) {
-            val backDecision = result.data?.getBooleanExtra("backpress", false) ?: false
-            if (backDecision) {
-                navController.navigateUp()
-            }
-        }
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
-        downloadDialog?.apply { if (isShowing) dismiss() }
         _binding = null
     }
 

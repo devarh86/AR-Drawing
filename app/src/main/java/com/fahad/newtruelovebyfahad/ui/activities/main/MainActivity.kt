@@ -33,18 +33,13 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.ads.Constants.CAN_LOAD_ADS
 import com.example.ads.Constants.failureMsg
-import com.example.ads.Constants.featureMenuShowAd
 import com.example.ads.Constants.homeMenuShowAd
 import com.example.ads.Constants.languageCode
 import com.example.ads.Constants.myWorkMenuShowAd
 import com.example.ads.Constants.native
-import com.example.ads.Constants.showHomeScreen
-import com.example.ads.Constants.styleMenuShowAd
-import com.example.ads.Constants.templatesMenuShowAd
 import com.example.ads.admobs.utils.loadAppOpen
 import com.example.ads.admobs.utils.loadNewInterstitialForPro
 import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
@@ -62,18 +57,11 @@ import com.example.analytics.Constants.firebaseAnalytics
 import com.example.analytics.Constants.parentScreen
 import com.example.analytics.Events
 import com.example.inapp.helpers.Constants.isProVersion
-import com.fahad.newtruelovebyfahad.MainScreenNavigationDirections
 import com.fahad.newtruelovebyfahad.MyApp
 import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.databinding.ActivityMainBinding
-import com.fahad.newtruelovebyfahad.ui.fragments.feature.FeaturedFragment
-import com.fahad.newtruelovebyfahad.ui.fragments.frames.FramesFragment
 import com.fahad.newtruelovebyfahad.ui.fragments.home.HomeForYouFragment
-import com.fahad.newtruelovebyfahad.ui.fragments.home.HomeFragment
 import com.fahad.newtruelovebyfahad.ui.fragments.mywork.MyWorkFragment
-import com.fahad.newtruelovebyfahad.ui.fragments.styles.StylesFragment
-import com.fahad.newtruelovebyfahad.ui.fragments.template.TemplatesBaseFragment
-import com.fahad.newtruelovebyfahad.ui.fragments.template.TemplatesFragment
 import com.fahad.newtruelovebyfahad.utils.InternetConnectivityReceiver
 import com.fahad.newtruelovebyfahad.utils.Permissions
 import com.fahad.newtruelovebyfahad.utils.enums.FrameThumbType
@@ -91,7 +79,6 @@ import com.project.common.repo.room.model.RecentsModel
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.favouriteFrames
 import com.project.common.utils.ConstantsCommon.isNetworkAvailable
-import com.project.common.utils.ConstantsCommon.receivedData
 import com.project.common.utils.enums.MainMenuOptions
 import com.project.common.utils.getProScreen
 import com.project.common.utils.hideNavigation
@@ -152,8 +139,9 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             navController?.addOnDestinationChangedListener { _, destination, _ ->
 
                 when (destination.id) {
-                    R.id.homeForYouFragment, R.id.nav_featured, R.id.nav_mywork, R.id.nav_frame_types,
-                    R.id.nav_coming_soon, R.id.nav_favourite_menu, R.id.nav_styles, R.id.nav_templates_base -> {
+                    R.id.homeForYouFragment, R.id.nav_mywork,
+                    R.id.nav_coming_soon, R.id.nav_favourite_menu,
+                        -> {
                         binding.bottomBar.gone()
                         binding.crossPromoAdsCv.gone()
                         binding.adTv.gone()
@@ -166,12 +154,6 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                         binding.crossPromoAdsCv.gone()
                         binding.adTv.gone()
                         loadBannerAd()
-                    }
-                }
-                if (destination.id == R.id.nav_featured && isFirstTime) {
-                    runCatching {
-                        isFirstTime = false
-                        showHomeScreen()
                     }
                 }
             }
@@ -426,16 +408,18 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                         ConstantsCommon.currentFrameMain = it.data?.frame
                         downloadDialog?.onDismissDialog(1000L) {
                             try {
+
                                 if (it.data?.frame == null) {
-                                    Toast.makeText(this, "Please try again", Toast.LENGTH_SHORT)
-                                        .show()
+                                    Toast.makeText(this, "Please try again", Toast.LENGTH_SHORT).show()
                                     apiViewModel.clearFrame()
 
-                                } else if (it.data?.frame?.editor == MainMenuOptions.BLEND.title) {
-                                    Log.i("TAG", "initClickMainelseif: ${it.data?.frame}")
+                                } else if (it.data?.frame?.editor?.lowercase() == MainMenuOptions.LEARN.title.lowercase()) {
+                                    Log.i("FRAME", "initClickMainelseif: ${it.data?.frame}")
+                                    navController?.navigate(R.id.subFramesFragment)
                                 } else {
-                                    Log.i("TAG", "initClickMainelse: ${it.data?.frame}")
+                                    Log.i("FRAME", "initClickMainelse: ${it.data?.frame}")
                                 }
+
                             } catch (_: Exception) {
                             }
 
@@ -586,42 +570,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                 }
 
             } else {
-
-                if (where.isNotEmpty() && where == "collage" && resultBack) {
-                    navController?.navigate(
-                        MainScreenNavigationDirections.actionGlobalNavFramesFragment(
-                            MainMenuOptions.COLLAGE.title, MainMenuOptions.COLLAGE.title
-                        )
-                    )
-
-                } else if (where.isNotEmpty() && where == "carousal" && resultBack) {
-                    navController?.navigate(
-                        MainScreenNavigationDirections.actionGlobalNavFramesFragment(
-                            MainMenuOptions.SEAMLESS.title, MainMenuOptions.SEAMLESS.title
-                        )
-                    )
-                } else if (where.isNotEmpty() && where == "stories" && resultBack) {
-                    navController?.navigate(
-                        MainScreenNavigationDirections.actionGlobalNavFramesFragment(
-                            MainMenuOptions.STORIES.title, MainMenuOptions.STORIES.title
-                        )
-                    )
-
-                    /* navController?.navigate(
-                         MainScreenNavigationDirections.actionGlobalNavFramesFragment(
-                             MainMenuOptions.STORIES.title,  MainMenuOptions.STORIES.title
-                         )
-                     )*/
-
-                } else if (where.isNotEmpty() && where == "overlay" && resultBack) {
-                    val overlay = "Overlay Effects".lowercase()
-                    navController?.navigate(
-                        MainScreenNavigationDirections.actionGlobalNavFramesFragment(
-                            overlay,
-                            overlay
-                        )
-                    )
-                } else if (where.isNotEmpty() && where == "home") {
+                if (where.isNotEmpty() && where == "home") {
                     showHomeScreen()
                 }
             }
@@ -687,9 +636,6 @@ class MainActivity : Permissions(), InternetConnectivityListener {
         try {
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
             when (val fragment = navHostFragment?.childFragmentManager?.fragments?.get(0)) {
-                is HomeFragment -> {
-                    if (show) fragment.showGoProBottomRv() else fragment.hideGoProBottomRv()
-                }
 
                 is MyWorkFragment -> {
                     if (show) fragment.showGoProBottomRv() else fragment.hideGoProBottomRv()
@@ -705,35 +651,12 @@ class MainActivity : Permissions(), InternetConnectivityListener {
         try {
             val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
             when (val fragment = navHostFragment?.childFragmentManager?.fragments?.get(0)) {
-                is FramesFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
-                }
-
-                is HomeFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAd()
-                }
 
                 is HomeForYouFragment -> {
                     if (hideViews) fragment.hideScreenAds() else fragment.showScreenAd()
                 }
 
-                is FeaturedFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
-                }
-
                 is MyWorkFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
-                }
-
-                is TemplatesFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
-                }
-
-                is TemplatesBaseFragment -> {
-                    if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
-                }
-
-                is StylesFragment -> {
                     if (hideViews) fragment.hideScreenAds() else fragment.showScreenAds()
                 }
 
@@ -993,6 +916,12 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                                                         title, it
                                                     )
                                                 }
+
+                                                MainMenuOptions.LEARN.title.lowercase() -> {
+                                                    ConstantsCommon.learningFramesSubData?.set(
+                                                        title, it
+                                                    )
+                                                }
                                             }
 
                                         }
@@ -1051,25 +980,12 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             kotlin.runCatching {
                 _binding?.bottomBar?.menu?.children?.forEach {
                     it.setOnMenuItemClickListener {
-                        updateBottomBarBackground(it.itemId)
                         when (it.itemId) {
-                            R.id.nav_featured -> {
-                                handleMenuItemSelection(
-                                    featureMenuShowAd,
-                                    it.itemId
-                                )
-                            }
-
-                            R.id.nav_templates_base -> handleMenuItemSelection(
-                                templatesMenuShowAd,
-                                it.itemId
-                            )
 
                             R.id.homeForYouFragment -> {
                                 handleMenuItemSelection(homeMenuShowAd, it.itemId)
                             }
 
-                            R.id.nav_styles -> handleMenuItemSelection(styleMenuShowAd, it.itemId)
                             R.id.nav_mywork -> handleMenuItemSelection(myWorkMenuShowAd, it.itemId)
                         }
                         false
@@ -1077,126 +993,9 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                 }
             }
 
-            /*    if (!showHomeScreen) {
-                    kotlin.runCatching {
-                        _binding?.bottomBar?.menu?.findItem(R.id.nav_featured)?.let { menuItem ->
-                            navController?.let {
-    //                        Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                if (it.currentDestination?.parent != null) {
-                                    showHomeScreen = true
-                                    NavigationUI.onNavDestinationSelected(menuItem, it)
-                                }
-                            }
-                        }
-                    }
-                }*/
-
-            if (receivedData != null) {
-                if (receivedData.equals("ai_edit")) {
-                    kotlin.runCatching {
-                        _binding?.bottomBar?.menu?.findItem(R.id.homeForYouFragment)?.let { menuItem ->
-                            navController?.let {
-//                        Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                if (it.currentDestination?.parent != null) {
-                                    showHomeScreen = true
-                                    NavigationUI.onNavDestinationSelected(menuItem, it)
-                                }
-                            }
-                        }
-                    }
-
-                } else if (receivedData.equals("uninstall")) {
-                    runCatching {
-                        receivedData = ""
-//                        startActivity(Intent(this@MainActivity, UnInStallActivity::class.java))
-//                        finish()
-                    }
-                } else {
-                    if (!showHomeScreen) {
-                        kotlin.runCatching {
-                            _binding?.bottomBar?.menu?.findItem(R.id.nav_featured)
-                                ?.let { menuItem ->
-                                    navController?.let {
-//                                   Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                        if (it.currentDestination?.parent != null) {
-                                            showHomeScreen = true
-                                            NavigationUI.onNavDestinationSelected(menuItem, it)
-                                        }
-                                    }
-                                }
-                        }
-                    }
-                }
-            } else if (receivedData1 != null) {
-                if (receivedData1.equals("ai_edit")) {
-                    kotlin.runCatching {
-                        _binding?.bottomBar?.menu?.findItem(R.id.nav_home)?.let { menuItem ->
-                            navController?.let {
-//                        Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                if (it.currentDestination?.parent != null) {
-                                    showHomeScreen = true
-                                    NavigationUI.onNavDestinationSelected(menuItem, it)
-                                }
-                            }
-                        }
-                    }
-
-                } else {
-                    if (!showHomeScreen) {
-                        kotlin.runCatching {
-                            _binding?.bottomBar?.menu?.findItem(R.id.nav_featured)
-                                ?.let { menuItem ->
-                                    navController?.let {
-//                                   Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                        if (it.currentDestination?.parent != null) {
-                                            showHomeScreen = true
-                                            NavigationUI.onNavDestinationSelected(menuItem, it)
-                                        }
-                                    }
-                                }
-                        }
-                    }
-                }
-            } else {
-
-                if (!showHomeScreen) {
-                    kotlin.runCatching {
-                        _binding?.bottomBar?.menu?.findItem(R.id.nav_featured)?.let { menuItem ->
-                            navController?.let {
-//                              Log.i("TAG", "setupSmoothBottomMenu: ${it.currentDestination?.parent}")
-                                if (it.currentDestination?.parent != null) {
-                                    showHomeScreen = true
-                                    NavigationUI.onNavDestinationSelected(menuItem, it)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-
         } catch (ex: java.lang.Exception) {
             Log.e("error", "setupSmoothBottomMenu: ", ex)
         }
-    }
-
-    private fun updateBottomBarBackground(itemId: Int) {
-        //TODO LATER
-        /*_binding?.bottomBar?.apply {
-            when (itemId) {
-                R.id.nav_home -> {
-                    setBackgroundResource(com.project.frame_placer.R.drawable.bg_nav_homn) // Gradient background
-                }
-
-                R.id.nav_mywork -> {
-                    setBackgroundResource(com.project.frame_placer.R.drawable.bg_navi) // Solid background
-                }
-
-                else -> {
-                    setBackgroundResource(com.project.frame_placer.R.drawable.bg_nav_homn) // Default gradient
-                }
-            }
-        }*/
     }
 
     override fun onResume() {
@@ -1420,40 +1219,6 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             "events: screenName: ${frameBody.screenName} bundle:  $bundle"
         )
     }
-
-
-    private fun openTemplates(categoryName: String, itemId: Int) {
-
-        navController?.navigate(
-            MainScreenNavigationDirections.actionGlobalNavTemplatesFragment(
-                categoryName.lowercase(),
-                itemId,
-                fromHome = false
-            )
-        )
-
-    }
-
-    fun frameClickFrames(frameBody: FrameObject, updateRecycler: () -> Unit) {
-        if (!isNetworkAvailable) {
-            kotlin.runCatching {
-                Toast.makeText(
-                    this,
-                    "Please connect to internet",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            return
-        }
-
-        kotlin.runCatching {
-            Log.d("WHOLEOBJ", "frameClick:${frameBody.subCategoryName},${frameBody.id} ")
-            eventForFrameClick(frameBody)
-            openTemplates(frameBody.subCategoryName, frameBody.id)
-
-        }
-    }
-
 
     fun frameClick(frameBody: FrameObject, updateRecycler: () -> Unit) {
 

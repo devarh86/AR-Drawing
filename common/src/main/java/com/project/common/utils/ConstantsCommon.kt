@@ -56,38 +56,22 @@ object ConstantsCommon {
     var filePathForDraft: String = ""
     var selectedId: Long = -1
     var favouriteFrames: List<GetFeatureScreenQuery.Frame?> = emptyList()
-    var saveAndShareScreenTrendingData: Pair<List<String>, List<GetFeatureScreenQuery.Frame?>>? =
-        null
 
-    var multiFitImageEnhancedPath: MutableList<ImagesModel> = mutableListOf()
 
-    var featureTodaySpecialData: Pair<List<String>, List<GetFeatureScreenQuery.Frame?>>? = null
+
     var featureForYouData: Pair<List<String>, List<GetFeatureScreenQuery.Frame?>>? = null
-    var featureMostUsedData: Pair<List<String>, List<GetFeatureScreenQuery.Frame?>>? = null
-
-    var soloFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
     var drawingFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var multiplexFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? =
-        linkedMapOf()
-    var pipFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var collageFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var greetingFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var shapeFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var templatesFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
-    var blendFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
+    var learningFramesSubData: LinkedHashMap<String, List<GetMainScreenQuery.Frame?>>? = linkedMapOf()
 
-    var stickersSubData: LinkedHashMap<String, List<GetStickersQuery.Sticker?>>? = linkedMapOf()
 
     var notifyAdapterForRewardedAssets = false
 
     val rewardedAssetsList: MutableList<Int> = mutableListOf()
 
-    var currentFrameFeature: GetFrameQuery.Frame? = null
     var currentFrameMain: GetFrameQuery.Frame? = null
 
     fun resetCurrentFrames() {
         currentFrameMain = null
-        currentFrameFeature = null
         isDraft = false
     }
 

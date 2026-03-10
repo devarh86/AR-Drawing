@@ -20,14 +20,12 @@ import androidx.navigation.NavController
 import com.example.ads.Constants.firebaseAnalytics
 import com.example.ads.Constants.introScreenUiButton
 import com.example.ads.Constants.languageCode
-import com.example.ads.Constants.showBlendGuideScreen
 import com.example.ads.Constants.showRoboPro
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadAppOpen
 import com.example.ads.admobs.utils.showAppOpen
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.utils.intro
-import com.example.ads.utils.survey
 import com.example.inapp.helpers.Constants.isProVersion
 import com.example.questions_intro.databinding.ActivityIntroBinding
 import com.example.questions_intro.ui.compose_views.IntroView
@@ -281,12 +279,7 @@ class IntroActivity : AppCompatActivity() {
         alreadyLaunched = true
 
         kotlin.runCatching {
-            if (showBlendGuideScreen) {
-                val intent = Intent(this, BlendOnBoardingActivity::class.java)
-                startActivity(intent)
-                overridePendingTransition(0, 0)
-                finish()
-            } else if (!isProVersion() && showRoboPro) {
+            if (!isProVersion() && showRoboPro) {
 
                 openPro()
             } else {

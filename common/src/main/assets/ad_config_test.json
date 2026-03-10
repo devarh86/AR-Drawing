@@ -1,31 +1,15 @@
 {
   "splash_screen": {
-    "native": {
+    "banner": {
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-3940256099942544/2247696110",
-        "ca-app-pub-3940256099942544/2247696110",
-        "ca-app-pub-3940256099942544/2247696110"
-      ]
-    },
-    "interstitial": {
-      "floor": 2,
-      "start_count": 0,
-      "after_start_count": 1,
-      "always_show": true,
-      "is_enabled": false,
-      "ad_unit_ids": [
-        "",
-        "",
-        ""
+        "ca-app-pub-3940256099942544/2014213617"
       ]
     },
     "app_open": {
       "is_enabled": true,
       "ad_unit_ids": [
-        "ca-app-pub-3940256099942544/9257395921",
-        "ca-app-pub-3940256099942544/9257395921",
         "ca-app-pub-3940256099942544/9257395921"
       ]
     },
@@ -35,13 +19,11 @@
   },
   "app_interstitial": {
     "floor": 2,
-    "start_count": 1,
+    "start_count": 2,
     "after_start_count": 3,
     "always_show": false,
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/1033173712",
-      "ca-app-pub-3940256099942544/1033173712",
       "ca-app-pub-3940256099942544/1033173712"
     ]
   },
@@ -52,24 +34,18 @@
     "always_show": true,
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/1033173712",
-      "ca-app-pub-3940256099942544/1033173712",
       "ca-app-pub-3940256099942544/1033173712"
     ]
   },
   "rewarded": {
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/5224354917",
-      "ca-app-pub-3940256099942544/5224354917",
       "ca-app-pub-3940256099942544/5224354917"
     ]
   },
   "app_open_resume": {
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/9257395921",
-      "ca-app-pub-3940256099942544/9257395921",
       "ca-app-pub-3940256099942544/9257395921"
     ]
   },
@@ -78,8 +54,6 @@
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-3940256099942544/2247696110",
-        "ca-app-pub-3940256099942544/2247696110",
         "ca-app-pub-3940256099942544/2247696110"
       ]
     },
@@ -87,8 +61,6 @@
       "is_enabled": true,
       "reload_limit": 2,
       "ad_unit_ids": [
-        "ca-app-pub-3940256099942544/2247696110",
-        "ca-app-pub-3940256099942544/2247696110",
         "ca-app-pub-3940256099942544/2247696110"
       ]
     },
@@ -96,11 +68,9 @@
       "floor": 2,
       "start_count": 0,
       "after_start_count": 1,
-      "always_show": false,
+      "always_show": true,
       "is_enabled": true,
       "ad_unit_ids": [
-        "ca-app-pub-3940256099942544/1033173712",
-        "ca-app-pub-3940256099942544/1033173712",
         "ca-app-pub-3940256099942544/1033173712"
       ]
     }
@@ -109,8 +79,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2247696110",
-      "ca-app-pub-3940256099942544/2247696110",
       "ca-app-pub-3940256099942544/2247696110"
     ]
   },
@@ -118,8 +86,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2247696110",
-      "ca-app-pub-3940256099942544/2247696110",
       "ca-app-pub-3940256099942544/2247696110"
     ]
   },
@@ -127,8 +93,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2247696110",
-      "ca-app-pub-3940256099942544/2247696110",
       "ca-app-pub-3940256099942544/2247696110"
     ]
   },
@@ -139,8 +103,6 @@
     "always_show": true,
     "is_enabled": true,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/1033173712",
-      "ca-app-pub-3940256099942544/1033173712",
       "ca-app-pub-3940256099942544/1033173712"
     ]
   },
@@ -148,8 +110,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2247696110",
-      "ca-app-pub-3940256099942544/2247696110",
       "ca-app-pub-3940256099942544/2247696110"
     ]
   },
@@ -157,8 +117,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2247696110",
-      "ca-app-pub-3940256099942544/2247696110",
       "ca-app-pub-3940256099942544/2247696110"
     ]
   },
@@ -166,8 +124,6 @@
     "is_enabled": true,
     "reload_limit": 2,
     "ad_unit_ids": [
-      "ca-app-pub-3940256099942544/2014213617",
-      "ca-app-pub-3940256099942544/2014213617",
       "ca-app-pub-3940256099942544/2014213617"
     ]
   },

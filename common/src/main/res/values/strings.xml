@@ -164,7 +164,7 @@
     <string name="saturation">Saturation</string>
     <string name="tint">Tint</string>
     <string name="warmth">Warmth</string>
-    <string name="color">Color</string>
+    <string name="color">Colors</string>
     <string name="sharpen">Sharpen</string>
     <string name="vignette">Vignette</string>
     <string name="highlight">Highlight</string>
@@ -621,5 +621,11 @@
     <string name="my_drawing">My Drawing</string>
     <string name="there_s_no_any_saved_data">There’s no any saved data!</string>
     <string name="go_to_drawings">Go to Drawings</string>
+    <string name="learning">Learning</string>
+    <string name="let_s_draw_it">Let’s Draw it</string>
+    <string name="learn_to_draw_step_by_step">Learn to draw step by step</string>
+    <string name="brush">Brush</string>
+    <string name="off_set">Off Set</string>
+    <string name="eraser">Eraser</string>
 
 </resources>

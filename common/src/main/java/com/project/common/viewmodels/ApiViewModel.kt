@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
-class ApiViewModel @Inject public constructor(
+class ApiViewModel @Inject constructor(
     private val offlineDataRepo: OfflineDataRepo,
     private val networkCallRepo: NetworkCallRepo,
     private val favouriteRepo: FavouriteRepo,
@@ -119,19 +119,4 @@ class ApiViewModel @Inject public constructor(
         }
     }
 
-    /*fun favourite(frame: RecentsModel) {
-        if (frame.isFavourite) addToFavourite(frame) else removeFromFavourite(frame)
-    }
-
-    private fun addToFavourite(frame: FavouriteModel) = viewModelScope.launch {
-        withContext(Dispatchers.IO) {
-            favouriteRepo.insertFavouriteFrame(frame)
-        }
-    }
-
-    private fun removeFromFavourite(frame: FavouriteModel) = viewModelScope.launch {
-        withContext(Dispatchers.IO) {
-            favouriteRepo.deleteFavouriteFrame(frame)
-        }
-    }*/
 }

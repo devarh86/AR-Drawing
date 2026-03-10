@@ -16,14 +16,12 @@ import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.ads.Constants.languageCode
-import com.example.ads.Constants.showBlendGuideScreen
 import com.example.ads.Constants.showRoboPro
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadAppOpen
 import com.example.ads.admobs.utils.showAppOpen
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.utils.question
-import com.example.ads.utils.survey
 import com.example.inapp.helpers.Constants.isProVersion
 import com.example.questions_intro.R
 import com.example.questions_intro.databinding.ActivityQuestionsBinding
@@ -215,12 +213,7 @@ class QuestionsActivity : AppCompatActivity() {
                 appDataStore.writeQuestionComplete()
             }
             kotlin.runCatching {
-                if (showBlendGuideScreen) {
-                    val intent = Intent(this, BlendOnBoardingActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(0, 0)
-                    finish()
-                } else if (!isProVersion() && showRoboPro) {
+                if (!isProVersion() && showRoboPro) {
                     openPro()
                 } else {
                     val intent = Intent()
@@ -249,12 +242,7 @@ class QuestionsActivity : AppCompatActivity() {
 
         kotlin.runCatching {
             kotlin.runCatching {
-                if (showBlendGuideScreen) {
-                    val intent = Intent(this, BlendOnBoardingActivity::class.java)
-                    startActivity(intent)
-                    overridePendingTransition(0, 0)
-                    finish()
-                } else if (!isProVersion() && showRoboPro) {
+                if (!isProVersion() && showRoboPro) {
                     openPro()
                 } else {
                     val intent = Intent()

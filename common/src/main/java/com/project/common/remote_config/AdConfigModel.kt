@@ -2,6 +2,7 @@ package com.project.common.remote_config
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+
 @Keep
 data class AdConfigModel(
     @SerializedName("splash_screen") val splashScreen: SplashScreenConfig? = null,
@@ -22,6 +23,7 @@ data class AdConfigModel(
 @Keep
 data class SplashScreenConfig(
     @SerializedName("native") val native: NativeAdConfig? = null,
+    @SerializedName("banner") val banner: NativeAdConfig? = null,
     @SerializedName("interstitial") val interstitial: InterstitialConfig? = null,
     @SerializedName("app_open") val appOpen: BasicAdConfig? = null,
     @SerializedName("timeout") val timeout: Int? = null,

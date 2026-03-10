@@ -15,7 +15,6 @@
         android:layout_marginBottom="@dimen/_8sdp"
         android:src="@drawable/ic_no_internet"
         android:visibility="visible"
-        app:layout_anchor="@id/home_parent_recycler_view"
         app:layout_anchorGravity="center_horizontal" />
 
     <com.google.android.material.textview.MaterialTextView

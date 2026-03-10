@@ -88,7 +88,7 @@
                 android:textSize="@dimen/_7sdp" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/images_mask_count"
+                android:id="@+id/images_mask_coun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/img_count_ic"
@@ -115,7 +115,7 @@
                 android:maxLines="1"
                 android:paddingHorizontal="@dimen/_2sdp"
                 android:text="1"
-                android:layout_toEndOf="@id/images_mask_count"
+                android:layout_toEndOf="@id/images_mask_coun"
                 android:layout_alignBottom="@id/use_template_btn"
                 android:textColor="@color/btn_txt_clr"
                 android:textSize="@dimen/_10sdp" />

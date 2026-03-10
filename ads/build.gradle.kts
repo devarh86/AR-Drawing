@@ -25,7 +25,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-// activity?.showRewarded( search this in whole project  also remove interstitial
 
             resValue("string", "splash_inter_high", "ca-app-pub-4276074242154795/7571205893")
             resValue("string", "splash_inter_medium", "ca-app-pub-4276074242154795/6148127797")
@@ -140,12 +139,17 @@ android {
             resValue("string", "on_boarding_four_medium", "ca-app-pub-4276074242154795/1078551057")
             resValue("string", "on_boarding_four_back_up", "ca-app-pub-4276074242154795/2733030612")
 
-            resValue("string", "banner_splash_all", "ca-app-pub-4276074242154795/9559746150")
-            resValue("string", "banner_splash_medium", "ca-app-pub-4276074242154795/3324717704")
+            resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/1731053759")
+            resValue("string", "banner_splash_medium", "ca-app-pub-4276074242154795/1731053759")
+            resValue("string", "banner_splash_all", "ca-app-pub-4276074242154795/1731053759")
+
+            resValue("string", "language_high", "ca-app-pub-4276074242154795/8245179922")
+            resValue("string", "language_medium", "ca-app-pub-4276074242154795/8245179922")
+            resValue("string", "language_all", "ca-app-pub-4276074242154795/8245179922")
+
             resValue("string", "interstitial_splash_back_up", "ca-app-pub-4276074242154795/2296387706")
 
             resValue("string", "native_backup_id", "ca-app-pub-4276074242154795/9500207846")
-            resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/7195679958")
 
             resValue("string", "banner_on_board_second_id", "ca-app-pub-4276074242154795/6306976403")
             resValue("string", "interstitial_splash_medium", "ca-app-pub-4276074242154795/8385472699")
@@ -421,9 +425,13 @@ android {
 
             resValue("string", "native_backup_id", "ca-app-pub-4276074242154795/9500207846")
 
-            resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/7195679958")
-            resValue("string", "banner_splash_all", "ca-app-pub-4276074242154795/9559746150")
-            resValue("string", "banner_splash_medium", "ca-app-pub-4276074242154795/3324717704")
+            resValue("string", "banner_splash_high", "ca-app-pub-4276074242154795/1731053759")
+            resValue("string", "banner_splash_medium", "ca-app-pub-4276074242154795/1731053759")
+            resValue("string", "banner_splash_all", "ca-app-pub-4276074242154795/1731053759")
+
+            resValue("string", "language_high", "ca-app-pub-4276074242154795/8245179922")
+            resValue("string", "language_medium", "ca-app-pub-4276074242154795/8245179922")
+            resValue("string", "language_all", "ca-app-pub-4276074242154795/8245179922")
 
             resValue("string", "banner_on_board_second_id", "ca-app-pub-4276074242154795/6306976403")
             resValue("string", "interstitial_splash_medium", "ca-app-pub-4276074242154795/8385472699")

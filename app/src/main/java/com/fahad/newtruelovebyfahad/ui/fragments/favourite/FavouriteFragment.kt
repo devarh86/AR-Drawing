@@ -19,7 +19,7 @@ import com.example.analytics.Events
 import com.fahad.newtruelovebyfahad.databinding.FragmentFavouriteBinding
 import com.fahad.newtruelovebyfahad.ui.activities.main.FrameObject
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
-import com.fahad.newtruelovebyfahad.ui.fragments.feature.adapter.FeatureRV
+import com.fahad.newtruelovebyfahad.ui.fragments.favourite.FeatureRV
 import com.fahad.newtruelovebyfahad.utils.gone
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
 import com.fahad.newtruelovebyfahad.utils.visible

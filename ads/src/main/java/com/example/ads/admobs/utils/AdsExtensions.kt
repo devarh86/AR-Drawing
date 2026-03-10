@@ -46,7 +46,6 @@ import com.example.ads.Constants.rewardedInterstitial
 import com.example.ads.Constants.rewardedShown
 import com.example.ads.Constants.showAllAppOpenAd
 import com.example.ads.Constants.showAllInterstitialAd
-import com.example.ads.Constants.showAllReward
 import com.example.ads.R
 import com.example.ads.admobs.scripts.AppOpen
 import com.example.ads.bigo.loadBigoPopup
@@ -1510,7 +1509,7 @@ fun Activity?.showRewardedInterstitial(
     this?.let {
         if (isNetworkAvailable() && !isProVersion() && !OTHER_AD_ON_DISPLAY && Constants.appIsForeground) {
             if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
-                if (showAllReward || showRewardAd) {
+                if (newAdsConfig?.rewarded?.isEnabled == true || showRewardAd) {
                     rewarded.showRewarded(this, rewardGrantedAction = {
                         rewardedShown = true
                         showInterstitialAd = false
@@ -1523,7 +1522,7 @@ fun Activity?.showRewardedInterstitial(
                         failedAction.invoke()
                     })
                 } else {
-
+                    failedAction.invoke()
                     /* rewardedInterstitial.showRewardedInterstitial(
                          this,
                          rewardGrantedAction = {
@@ -1567,19 +1566,22 @@ fun Activity?.showSplashAdaptiveBanner(
     frameLayout: FrameLayout,
     shimmerFrameLayout: ShimmerFrameLayout,
     loadNewAd: Boolean = false,
+    config: AdConfigModel? = null
 ) {
 
     this?.let {
         if (isNetworkAvailable() && !isProVersion()) {
-            if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) bannerSplash.showAdaptiveBannerAd(
-                this,
-                container,
-                crossBanner,
-                frameLayout,
-                shimmerFrameLayout,
-                loadNewAd = loadNewAd
-            )
-            else {
+            if (ADS_SDK_INITIALIZE.get() && Constants.CAN_LOAD_ADS) {
+                bannerSplash.adConfig = config
+                bannerSplash.showAdaptiveBannerAd(
+                    this,
+                    container,
+                    crossBanner,
+                    frameLayout,
+                    shimmerFrameLayout,
+                    loadNewAd = loadNewAd
+                )
+            } else {
                 try {
                     MobileAds().initialize(application) { ADS_SDK_INITIALIZE.set(true) }
                 } catch (_: Exception) {
@@ -1606,6 +1608,7 @@ fun Activity?.onResumeSplashBanner(
     frameLayout: FrameLayout,
     shimmerFrameLayout: ShimmerFrameLayout,
     loadNewAd: Boolean = false,
+    config: AdConfigModel? = null
 ) {
     this?.let {
         if (isNetworkAvailable() && !isProVersion()) {
@@ -1615,7 +1618,8 @@ fun Activity?.onResumeSplashBanner(
                 crossBanner,
                 frameLayout,
                 shimmerFrameLayout,
-                loadNewAd
+                loadNewAd,
+                config
             )
         } else {
             container.hide()
