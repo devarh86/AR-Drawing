@@ -478,10 +478,15 @@ class DrawingFragment : Fragment(), ZoomableImageView.ZoomImgEvents, AdjustableF
             }
 
             doneBtn.setOnSingleClickListener {
-                mActivity.navigateFragment(
-                    DrawingFragmentDirections.actionDrawingFragmentToCameraFragment(),
-                    R.id.drawingFragment
-                )
+
+                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                    mActivity.navigateFragment(
+                        DrawingFragmentDirections.actionDrawingFragmentToCameraFragment(),
+                        R.id.drawingFragment
+                    )
+                }
+
             }
 
         }

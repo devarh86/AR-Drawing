@@ -550,13 +550,18 @@ class HomeForYouFragment : Fragment() {
         }
 
         menuContainer.setSingleClickListener {
-            try {
-                activity?.navigateFragment(
-                    HomeForYouFragmentDirections.actionHomeForYouFragmentToSettingFragment(), R.id.homeForYouFragment
-                )
-            } catch (ex: Exception) {
-                Log.e("error", "initListeners: ", ex)
+
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                try {
+                    activity?.navigateFragment(
+                        HomeForYouFragmentDirections.actionHomeForYouFragmentToSettingFragment(), R.id.homeForYouFragment
+                    )
+                } catch (ex: Exception) {
+                    Log.e("error", "initListeners: ", ex)
+                }
             }
+
         }
 
         proBtn.setSingleClickListener {
@@ -623,11 +628,16 @@ class HomeForYouFragment : Fragment() {
         }
 
         myWork.setOnSingleClickListener {
-            kotlin.runCatching {
-                navController?.navigate(
-                    HomeForYouFragmentDirections.actionGlobalSavedFragment()
-                )
+
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                kotlin.runCatching {
+                    navController?.navigate(
+                        HomeForYouFragmentDirections.actionGlobalSavedFragment()
+                    )
+                }
             }
+
         }
 
         learnDrawing.setOnSingleClickListener {
@@ -731,26 +741,29 @@ class HomeForYouFragment : Fragment() {
 
                 MainMenuOptions.LEARNING.title -> {
 
-                    try {
-                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
-                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
-                        )
-                        else arrayOf(
-                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
-                        )
-                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
-                            runCatching {
-                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
-                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
-                                    kotlin.runCatching {
-                                        navController?.navigate(HomeForYouFragmentDirections.actionHomeForYouFragmentToLearningFramesFragment())
-                                    }
-                                }
-                            }
-                        }, declineAction = {})
-                    } catch (ex: Exception) {
-                        printLog(ex.message.toString())
-                    }
+                    context?.showToast(ContextCompat.getString(mContext ?: return, com.project.common.R.string.coming_soon))
+
+
+//                    try {
+//                        val permissions = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) arrayOf(
+//                            Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.CAMERA
+//                        )
+//                        else arrayOf(
+//                            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA
+//                        )
+//                        (mActivity as Permissions).checkAndRequestPermissions(*permissions, action = {
+//                            runCatching {
+//                                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+//                                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+//                                    kotlin.runCatching {
+//                                        navController?.navigate(HomeForYouFragmentDirections.actionHomeForYouFragmentToLearningFramesFragment())
+//                                    }
+//                                }
+//                            }
+//                        }, declineAction = {})
+//                    } catch (ex: Exception) {
+//                        printLog(ex.message.toString())
+//                    }
 
                 }
 

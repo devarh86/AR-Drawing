@@ -18,6 +18,9 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.abdul.pencil_sketch.main.activity.PencilSketchActivity
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.fahad.newtruelovebyfahad.databinding.FragmentHowDrawBinding
 import com.fahad.newtruelovebyfahad.ui.activities.main.MainActivity
 import com.fahad.newtruelovebyfahad.ui.fragments.drawing.adapter.SliderAdapterHD
@@ -159,7 +162,14 @@ class HowToDrawFragment : Fragment() {
         }
 
         binding.drawBtn.setSingleClickListener {
-            openPencilSketch(path = args.path, mode = currentMode)
+
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                kotlin.runCatching {
+                    openPencilSketch(path = args.path, mode = currentMode)
+                }
+            }
+
         }
 
         binding.backPress.setSingleClickListener {
@@ -178,7 +188,6 @@ class HowToDrawFragment : Fragment() {
                 intent.putExtra("sketchMode", mode)
                 intent.putExtra("imagePath", path)
                 getParentActivity()?.getActivityLauncher()?.launch(intent)
-//                mActivity.startActivity(intent)
             }
         } catch (ex: Exception) {
         }

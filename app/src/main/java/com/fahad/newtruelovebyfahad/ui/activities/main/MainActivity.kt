@@ -18,6 +18,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
@@ -45,6 +46,7 @@ import com.example.ads.admobs.utils.loadNewInterstitialForPro
 import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
 import com.example.ads.admobs.utils.loadRewarded
 import com.example.ads.admobs.utils.onPauseBanner
+import com.example.ads.admobs.utils.onResumeBanner
 import com.example.ads.admobs.utils.showAppOpen
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.admobs.utils.showRewardedInterstitial
@@ -67,6 +69,7 @@ import com.fahad.newtruelovebyfahad.utils.Permissions
 import com.fahad.newtruelovebyfahad.utils.enums.FrameThumbType
 import com.fahad.newtruelovebyfahad.utils.gone
 import com.fahad.newtruelovebyfahad.utils.interfaces.InternetConnectivityListener
+import com.fahad.newtruelovebyfahad.utils.invisible
 import com.fahad.newtruelovebyfahad.utils.isNetworkAvailable
 import com.fahad.newtruelovebyfahad.utils.setSingleClickListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -139,13 +142,14 @@ class MainActivity : Permissions(), InternetConnectivityListener {
             navController?.addOnDestinationChangedListener { _, destination, _ ->
 
                 when (destination.id) {
-                    R.id.homeForYouFragment, R.id.nav_mywork,
-                    R.id.nav_coming_soon, R.id.nav_favourite_menu,
+                    R.id.homeForYouFragment,
                         -> {
                         binding.bottomBar.gone()
                         binding.crossPromoAdsCv.gone()
                         binding.adTv.gone()
                         binding.addIcon.gone()
+
+                        binding.bannerContainer.gone()
                     }
 
                     else -> {
@@ -523,7 +527,17 @@ class MainActivity : Permissions(), InternetConnectivityListener {
 
     private fun loadBannerAd(fromButton: Boolean = false) {
         kotlin.runCatching {
-            /*   runOnUiThread {
+               runOnUiThread {
+
+                   // Check if current destination should hide banner ad
+                   val currentDestinationId = navController?.currentDestination?.id
+                   val shouldHideBanner = currentDestinationId == R.id.homeForYouFragment
+
+                   if (shouldHideBanner) {
+                       _binding?.bannerContainer?.visibility = View.GONE
+                       return@runOnUiThread
+                   }
+
                    if (!showAppOpen && !isProVersion()) {
                        _binding?.let {
                            _binding?.bannerContainer?.visibility = View.VISIBLE
@@ -546,7 +560,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
                            Log.e("error", "onResume: ", ex)
                        }
                    }
-               }*/
+               }
         }
     }
 
@@ -613,7 +627,7 @@ class MainActivity : Permissions(), InternetConnectivityListener {
 
     fun showAppOpenAd() {
         binding.let {
-            //it.bannerContainer.invisible()
+            it.bannerContainer.invisible()
             showAppOpen = true
             checkFragment(hideViews = true)
             Handler(Looper.getMainLooper()).postDelayed({

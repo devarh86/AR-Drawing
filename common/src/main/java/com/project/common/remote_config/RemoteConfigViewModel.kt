@@ -19,11 +19,11 @@ class RemoteConfigViewModel @Inject constructor(private val repository: RemoteCo
     var adConfig: MutableLiveData<AdConfigModel> = MutableLiveData()
 
     fun getRemoteConfigSplash(context: Activity) {
-        if (BuildConfig.DEBUG) {
-            adConfig.value = repository.getDefaultRemoteAdSettings()
-//            Logger.log(getLog("getRemoteConfigSplash_adConfig", "${adConfig.value}"))
-            return
-        }
+//        if (BuildConfig.DEBUG) {
+//            adConfig.value = repository.getDefaultRemoteAdSettings()
+////            Logger.log(getLog("getRemoteConfigSplash_adConfig", "${adConfig.value}"))
+//            return
+//        }
 
         val rc = repository.getFirebaseRemoteConfig()
         rc.fetchAndActivate()

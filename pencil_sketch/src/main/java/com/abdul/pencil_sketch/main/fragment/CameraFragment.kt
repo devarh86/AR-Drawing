@@ -27,6 +27,9 @@ import com.abdul.pencil_sketch.R
 import com.abdul.pencil_sketch.databinding.FragmentCameraBinding
 import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.utils.navigateFragment
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.project.common.utils.setOnSingleClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.File
@@ -184,10 +187,14 @@ class CameraFragment : Fragment() {
 
                     sketchImageViewModel.cameraPath = filePath
 
-                    mActivity.navigateFragment(
-                        CameraFragmentDirections.actionCameraFragmentToSaveAndShareFragment(),
-                        R.id.cameraFragment
-                    )
+                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                        mActivity.navigateFragment(
+                            CameraFragmentDirections.actionCameraFragmentToSaveAndShareFragment(),
+                            R.id.cameraFragment
+                        )
+                    }
+
 
                 }
 

@@ -24,16 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_pro_cross" />
 
-        <ImageView
-            android:id="@+id/imageView32"
-            android:layout_width="@dimen/_120sdp"
-            android:layout_height="@dimen/_80sdp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_star_pro"
-            app:layout_constrainedWidth="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/close_btn" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/upgradeTv"
@@ -41,6 +31,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:gravity="center"
             android:includeFontPadding="false"
             android:text="@string/unlock_the_magic"
@@ -48,7 +39,7 @@
             android:textSize="@dimen/_18sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView32" />
+            app:layout_constraintTop_toBottomOf="@+id/close_btn" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/unlockTv"
@@ -200,7 +191,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/textView23"
                     app:layout_constraintStart_toStartOf="@+id/textView23"
                     app:layout_constraintTop_toTopOf="@+id/tv2"
-                    app:srcCompat="@drawable/cross_pro_new" />
+                    app:srcCompat="@drawable/tick_pro_new" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -248,7 +239,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/textView23"
                     app:layout_constraintStart_toStartOf="@+id/textView23"
                     app:layout_constraintTop_toTopOf="@+id/tv3"
-                    app:srcCompat="@drawable/cross_pro_new" />
+                    app:srcCompat="@drawable/tick_pro_new" />
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -426,14 +417,13 @@
                 android:id="@+id/heading"
                 style="@style/headingTextOnBoarding"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/_45sdp"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="@dimen/_12sdp"
                 android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_red_btn_bg"
+                android:background="@drawable/pro_anim_bg"
                 android:gravity="center"
                 android:maxLines="1"
-                android:padding="12dp"
                 android:text="@string/try_for_free"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_15sdp"

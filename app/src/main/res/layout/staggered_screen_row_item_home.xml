@@ -28,6 +28,7 @@
         android:layout_height="@dimen/_20sdp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
+        android:visibility="gone"
         android:background="@drawable/corner_radius_bg_20dp"
         android:backgroundTint="@color/alpha_black"
         android:padding="@dimen/_6sdp"

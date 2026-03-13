@@ -16,7 +16,7 @@
       ]
     },
     "timeout": 7000,
-    "time": 5000,
+    "time": 6000,
     "splash_pro_home": true
   },
   "app_interstitial": {
@@ -24,18 +24,6 @@
     "start_count": 1,
     "after_start_count": 3,
     "always_show": false,
-    "is_enabled": true,
-    "ad_unit_ids": [
-      "ca-app-pub-4276074242154795/9519088369",
-      "ca-app-pub-4276074242154795/4302969446",
-      "ca-app-pub-4276074242154795/5329110653"
-    ]
-  },
-  "save_interstitial": {
-    "floor": 2,
-    "start_count": 1,
-    "after_start_count": 1,
-    "always_show": true,
     "is_enabled": true,
     "ad_unit_ids": [
       "ca-app-pub-4276074242154795/8591243404",

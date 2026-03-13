@@ -258,6 +258,7 @@ class SplashActivity : AppCompatActivity() {
                         isConsentFormCompleted = true
 
                         initSingularSDK()
+
                         Log.i(TAG, "initConsentForum: firstCall")
                         if (!showAppOpen && !isProVersion() && isNetworkAvailable()) {
                             _binding?.apply {
@@ -496,15 +497,12 @@ class SplashActivity : AppCompatActivity() {
 
     private fun initTimer(waitTime: Long = 2000) {
         splashTimerJob = lifecycleScope.launch(IO) {
-            //delay(waitTime)
             withContext(Main) {
                 lifecycleScope.launch {
                     delay(waitTime)
                     navigateToAfterNative()
                 }
                 Log.i("TAG", "initData: initTimer")
-
-
             }
         }
     }
@@ -581,7 +579,6 @@ class SplashActivity : AppCompatActivity() {
 
                                                     if (!intro && introScreen) {
                                                         if (!proSplashOrHome) {
-                                                            loadNewInterstitialForPro(languageInterstitial()) {}
 
                                                             kotlin.runCatching {
                                                                 val intent = Intent(
@@ -611,7 +608,6 @@ class SplashActivity : AppCompatActivity() {
                                                                 finish()
                                                             }
                                                         } else {
-                                                            loadNewInterstitialForPro(languageInterstitial()) {}
 
                                                             kotlin.runCatching {
                                                                 val intent = Intent(
@@ -624,7 +620,7 @@ class SplashActivity : AppCompatActivity() {
                                                         }
 
 
-                                                    } else if (!surveyCompleted && surveyScreenEnable) {
+                                                    } /*else if (!surveyCompleted && surveyScreenEnable) {
                                                         kotlin.runCatching {
                                                             val intent = Intent()
                                                             intent.setClassName(
@@ -669,7 +665,7 @@ class SplashActivity : AppCompatActivity() {
                                                                 finish()
                                                             }
                                                         }
-                                                    } else if (isProVersion()) {
+                                                    }*/ else if (isProVersion()) {
                                                         kotlin.runCatching {
                                                             val intent = Intent(
                                                                 applicationContext,

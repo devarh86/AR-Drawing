@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.view.ViewTreeObserver
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -28,9 +29,12 @@ import com.example.ads.Constants.enablePopUpSave
 import com.example.ads.Constants.languageCode
 import com.example.ads.admobs.utils.loadAppOpen
 import com.example.ads.admobs.utils.onPauseBanner
+import com.example.ads.admobs.utils.onResumeBanner
 import com.example.ads.admobs.utils.showAppOpen
 import com.example.inapp.helpers.Constants.isProVersion
+import com.fahad.newtruelovebyfahad.R
 import com.fahad.newtruelovebyfahad.utils.gone
+import com.fahad.newtruelovebyfahad.utils.invisible
 import com.project.common.databinding.SaveCarousalBinding
 import com.project.common.utils.ConstantsCommon
 import com.project.common.utils.ConstantsCommon.fromSaveAndShare
@@ -156,13 +160,14 @@ class SaveAndShareActivity : AppCompatActivity() {
 
     fun showAppOpenAd() {
         _binding?.let {
-
+            binding.bannerContainer.invisible()
             Handler(Looper.getMainLooper()).postDelayed({
                 showAppOpen {
                     _binding?.let {
                         Handler(Looper.getMainLooper()).postDelayed({
                             loadAppOpen()
                             showAppOpen = false
+                            loadBannerAd()
                         }, 800L)
                     }
                 }
@@ -243,6 +248,40 @@ class SaveAndShareActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadBannerAd()
+    }
+
+    private fun loadBannerAd(fromButton: Boolean = false) {
+        kotlin.runCatching {
+            runOnUiThread {
+
+                if (!showAppOpen && !isProVersion()) {
+                    _binding?.let {
+                        _binding?.bannerContainer?.visibility = View.VISIBLE
+                        onResumeBanner(
+                            binding.adBannerContainer,
+                            binding.crossBannerIv,
+                            binding.bannerLayout.adContainer,
+                            binding.bannerLayout.shimmerViewContainer,
+                            fromButton = fromButton
+                        )
+                    }
+                } else {
+                    try {
+                        if (isProVersion()) {
+                            _binding?.bannerContainer?.visibility = View.GONE
+                        } else {
+                            _binding?.bannerContainer?.visibility = View.INVISIBLE
+                        }
+                    } catch (ex: java.lang.Exception) {
+                        Log.e("error", "onResume: ", ex)
+                    }
+                }
+            }
+        }
+    }
 
     private fun isAppInstalled(context: Context, packageName: String): Boolean {
         return try {

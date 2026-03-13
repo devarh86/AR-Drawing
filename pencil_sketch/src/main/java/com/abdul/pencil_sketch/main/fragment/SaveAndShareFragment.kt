@@ -35,13 +35,12 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.example.ads.Constants.rewardedShown
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
-import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
+import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
-import com.example.ads.utils.interstitialBack
+import com.example.ads.utils.homeInterstitial
 import com.example.ads.utils.nativeDialogsConfig
-import com.example.ads.utils.saveInterstitial
 import com.example.inapp.helpers.showToast
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -121,7 +120,7 @@ class SaveAndShareFragment : Fragment() {
         observerSave()
         onBackPress()
 
-        activity?.loadNewInterstitialWithoutStrategyCheck(activity?.saveInterstitial()) {}
+        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
     }
 
     private fun setUserImage() {
@@ -361,7 +360,7 @@ class SaveAndShareFragment : Fragment() {
     private fun navigateSaveAndShare() {
         if (!alreadyAdShown) {
             alreadyAdShown = true
-            activity?.showNewInterstitial(activity?.saveInterstitial()) {
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
                 afterSaveAdNavigate()
             }
         } else {
@@ -524,7 +523,8 @@ class SaveAndShareFragment : Fragment() {
                     bottomSheetDiscardDialog?.dismiss()
                 }
 
-                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
                     if (from == "back") {
                         navController.navigateUp()
                     } else {

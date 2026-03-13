@@ -23,7 +23,6 @@ import com.example.ads.Constants
 import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.utils.homeInterstitial
-import com.example.ads.utils.interstitialBack
 import com.example.inapp.repo.datastore.BillingDataStore
 import com.project.common.utils.eventForGalleryAndEditor
 import com.project.common.utils.setOnSingleClickListener
@@ -410,7 +409,8 @@ class Crop : Fragment() {
         try {
 
             runCatching {
-                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
                     runCatching {
                         if (isOpenFromBlend) {
                             eventForGalleryAndEditor("crop_blend", "back")

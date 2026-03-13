@@ -4,7 +4,6 @@ import android.app.Activity
 import androidx.core.content.ContextCompat
 import com.example.ads.Constants.adUnInstallNativeFloor
 import com.example.ads.Constants.enableHomeInterAd
-import com.example.ads.Constants.enableObLastInterAd
 import com.example.ads.Constants.interstitialHomeAfterStartCount
 import com.example.ads.Constants.interstitialHomeAlwaysShow
 import com.example.ads.Constants.interstitialHomeFloor
@@ -14,10 +13,6 @@ import com.example.ads.Constants.interstitialMyWorkAfterStartCount
 import com.example.ads.Constants.interstitialMyWorkAlwaysShow
 import com.example.ads.Constants.interstitialMyWorkFloor
 import com.example.ads.Constants.interstitialMyWorkStartCount
-import com.example.ads.Constants.interstitialObLastAfterStartCount
-import com.example.ads.Constants.interstitialObLastAlwaysShow
-import com.example.ads.Constants.interstitialObLastFloor
-import com.example.ads.Constants.interstitialObLastStartCount
 import com.example.ads.Constants.interstitialSave
 import com.example.ads.Constants.interstitialSaveAfterStartCount
 import com.example.ads.Constants.interstitialSaveAlwaysShow
@@ -203,32 +198,6 @@ fun Activity.nativeShareConfig(): AdConfigModel? {
             adMobLayoutId = R.layout.layout_native_large_onboarding,
             currentActivityOrFragment = "SHARE"
         )
-    } catch (ex: Exception) {
-        null
-    }
-}
-
-
-fun Activity.interstitialBack(): AdConfigModel? {
-    return try {
-        val interAd = newAdsConfig?.appInterstitial
-        interAd?.let {
-            AdConfigModel(
-                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.all_inter_high),
-                idMedium = it.adUnitIds?.getOrNull(1) ?: ContextCompat.getString(this, R.string.all_inter_medium),
-                idBackUp = it.adUnitIds?.getOrNull(2) ?: ContextCompat.getString(this, R.string.all_inter_backup),
-                enable = enableHomeInterAd,
-                reloadLimit = interstitialHomeFloor,
-                whichAd = AdsClassification.INTERSTITIAL,
-                currentActivityOrFragment = "INTER_BACK_PRESS",
-                interstitialAdModel = InterstitialAdModel().apply {
-                    interstitialAdFirstShowCount = interstitialHomeStartCount
-                    interstitialAdAlwaysShow = interstitialHomeAlwaysShow
-                    interstitialAdAfterFirstShowSteps = interstitialHomeAfterStartCount
-                    interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
-                }
-            )
-        }
     } catch (ex: Exception) {
         null
     }
@@ -720,48 +689,6 @@ fun Activity.homeInterstitial(): AdConfigModel? {
                     interstitialAdAfterFirstShowSteps = interstitialHomeAfterStartCount
                     interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
                 }
-            )
-        }
-    } catch (ex: Exception) {
-        null
-    }
-}
-
-
-fun obLastInterstitial(): AdConfigModel? {
-    return try {
-        AdConfigModel(
-            idHigh = "ca-app-pub-4276074242154795/8046822382",
-            idMedium = "ca-app-pub-4276074242154795/6971228643",
-            idBackUp = "ca-app-pub-4276074242154795/3930966483",
-            enable = enableObLastInterAd,
-            reloadLimit = interstitialObLastFloor,
-            whichAd = AdsClassification.INTERSTITIAL,
-            currentActivityOrFragment = "OB_LAST",
-            interstitialAdModel = InterstitialAdModel().apply {
-                interstitialAdFirstShowCount = interstitialObLastStartCount
-                interstitialAdAlwaysShow = interstitialObLastAlwaysShow
-                interstitialAdAfterFirstShowSteps = interstitialObLastAfterStartCount
-                interstitialAdCurrentCounter = if (interstitialAdFirstShowCount > 0) 0 else 1
-            }
-        )
-    } catch (ex: Exception) {
-        null
-    }
-}
-
-
-//old
-fun Activity.saveInterstitial(): AdConfigModel? {
-    return try {
-        val interAd = newAdsConfig?.saveInterstitial
-        interAd?.let {
-            AdConfigModel(
-                idHigh = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_high),
-                idMedium = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_medium),
-                idBackUp = it.adUnitIds?.getOrNull(0) ?: ContextCompat.getString(this, R.string.save_inter_backup),
-                enable = it.isEnabled == true,
-                whichAd = AdsClassification.INTERSTITIAL,
             )
         }
     } catch (ex: Exception) {

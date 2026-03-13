@@ -102,11 +102,11 @@ class DrawingFramesRV(
                                             holder.itemView.setSingleClickListener {
                                                 onClick.invoke(item.frame, position)
                                             }
-                                            favouriteIv.setSingleClickListener {
+                                           /* favouriteIv.setSingleClickListener {
                                                 item.isFavourite = !item.isFavourite
                                                 favouriteIv.setImageResource(if (item.isFavourite) R.drawable.ic_favourite_filled else R.drawable.ic_favourite_unselected_white)
                                                 onFavouriteClick.invoke(item)
-                                            }
+                                            }*/
                                             purchaseTagIv.setSingleClickListener {
                                                 onPurchaseTypeTagClick.invoke(item.frame)
                                             }
@@ -141,7 +141,7 @@ class DrawingFramesRV(
                                 purchaseTagIv.apply { invisible() }
                             }
 
-                            favouriteIv.setImageResource(if (item.isFavourite) R.drawable.ic_favourite_filled else R.drawable.ic_favourite_unselected_white)
+                          //  favouriteIv.setImageResource(if (item.isFavourite) R.drawable.ic_favourite_filled else R.drawable.ic_favourite_unselected_white)
                         }
                     }
                 } else {

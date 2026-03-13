@@ -21,7 +21,6 @@ import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.example.ads.Constants
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
 import com.example.ads.admobs.utils.loadAppOpen
-import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.loadRewarded
 import com.example.ads.admobs.utils.onPauseBanner
 import com.example.ads.admobs.utils.onResumeBanner
@@ -29,7 +28,6 @@ import com.example.ads.admobs.utils.showAppOpen
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.utils.galleryBottom
-import com.example.ads.utils.interstitialBack
 import com.project.common.utils.getColorWithSafetyCheck
 import com.project.common.utils.hideNavigation
 import com.project.common.utils.setLocale
@@ -74,12 +72,11 @@ class PencilSketchActivity : AppCompatActivity() {
         kotlin.runCatching {
             isOpenFromMain = intent.getBooleanExtra("fromMain", false)
             isOpenFromImportGallery = intent.getBooleanExtra("fromImport", false)
-            sketchMode = intent.getStringExtra("sketchMode")?:""
-            imgPath = intent.getStringExtra("imagePath")?:""
+            sketchMode = intent.getStringExtra("sketchMode") ?: ""
+            imgPath = intent.getStringExtra("imagePath") ?: ""
         }
 
         restoreViewModel.initViewModel()
-        loadNewInterstitial(interstitialBack()) {}
         runCatching {
             navHostFragment =
                 supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment?

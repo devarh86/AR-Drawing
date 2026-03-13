@@ -12,10 +12,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.example.analytics.Events
 import com.example.inapp.helpers.Constants.isProVersion
 import com.fahad.newtruelovebyfahad.databinding.FragmentDrawingFramesBinding
 import com.fahad.newtruelovebyfahad.ui.fragments.common.CategoriesRVAdapter
+import com.fahad.newtruelovebyfahad.ui.fragments.home.HomeForYouFragmentDirections
 import com.fahad.newtruelovebyfahad.ui.fragments.home.adapter.DrawingFramesRV
 import com.fahad.newtruelovebyfahad.utils.gone
 import com.fahad.newtruelovebyfahad.utils.invisible
@@ -104,12 +108,15 @@ class DrawingFramesFragment : Fragment() {
         framesAdapter = DrawingFramesRV(mContext, arrayListOf(), nativeAd, onClick = { frameBody, position ->
             Log.d("DrawingFramesFragment", "onCreate: ${frameBody.baseUrl + frameBody.thumb}")
 
-            kotlin.runCatching {
-                navController.navigate(
-                    DrawingFramesFragmentDirections.actionDrawingFramesFragmentToHowToDrawFragment(
-                        frameBody.baseUrl + frameBody.thumb
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                kotlin.runCatching {
+                    navController.navigate(
+                        DrawingFramesFragmentDirections.actionDrawingFramesFragmentToHowToDrawFragment(
+                            frameBody.baseUrl + frameBody.thumb
+                        )
                     )
-                )
+                }
             }
 
         }, onFavouriteClick = {

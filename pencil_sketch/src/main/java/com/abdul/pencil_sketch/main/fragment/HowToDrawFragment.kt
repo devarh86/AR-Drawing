@@ -25,6 +25,9 @@ import com.abdul.pencil_sketch.main.fragment.adapter.SliderAdapterSketch
 import com.abdul.pencil_sketch.main.fragment.adapter.SliderItemSketch
 import com.abdul.pencil_sketch.main.viewmodel.PencilSketchViewModel
 import com.abdul.pencil_sketch.utils.navigateFragment
+import com.example.ads.admobs.utils.loadNewInterstitial
+import com.example.ads.admobs.utils.showNewInterstitial
+import com.example.ads.utils.homeInterstitial
 import com.project.common.utils.setDrawable
 import com.project.common.utils.setOnSingleClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -177,16 +180,21 @@ class HowToDrawFragment : Fragment() {
         }
 
         binding.drawBtn.setOnSingleClickListener {
-            activity?.let { mActivity ->
-                if (mActivity is PencilSketchActivity) {
-                    mActivity.sketchMode = currentMode
-                    sketchImageViewModel.sketchMode = currentMode
-                    mActivity.navigateFragment(
-                        HowToDrawFragmentDirections.actionHowToDrawFragmentToDrawingFragment(),
-                        R.id.howToDrawFragment
-                    )
+
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+                activity?.let { mActivity ->
+                    if (mActivity is PencilSketchActivity) {
+                        mActivity.sketchMode = currentMode
+                        sketchImageViewModel.sketchMode = currentMode
+                        mActivity.navigateFragment(
+                            HowToDrawFragmentDirections.actionHowToDrawFragmentToDrawingFragment(),
+                            R.id.howToDrawFragment
+                        )
+                    }
                 }
             }
+
         }
 
         binding.backPress.setOnSingleClickListener {

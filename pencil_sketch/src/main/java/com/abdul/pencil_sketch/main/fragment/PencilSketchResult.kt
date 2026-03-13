@@ -52,13 +52,12 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.ads.Constants.rewardedShown
 import com.example.ads.admobs.utils.loadAndShowNativeOnBoarding
-import com.example.ads.admobs.utils.loadNewInterstitialWithoutStrategyCheck
+import com.example.ads.admobs.utils.loadNewInterstitial
 import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
-import com.example.ads.utils.interstitialBack
+import com.example.ads.utils.homeInterstitial
 import com.example.ads.utils.nativeDialogsConfig
-import com.example.ads.utils.saveInterstitial
 import com.example.inapp.helpers.Constants.isProVersion
 import com.example.inapp.helpers.showToast
 import com.example.inapp.repo.datastore.BillingDataStore
@@ -140,7 +139,7 @@ class PencilSketchResult : Fragment() {
 
             }
             eventForGalleryAndEditor("sketch_result", "")
-            activity?.loadNewInterstitialWithoutStrategyCheck(activity?.saveInterstitial()) {}
+            activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
             binding.initViews()
 
         }
@@ -831,7 +830,9 @@ class PencilSketchResult : Fragment() {
                     bottomSheetDiscardDialog?.dismiss()
                 }
 
-                activity?.showNewInterstitial(activity?.interstitialBack()) {
+                activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                    activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
+
                     if (from == "back") {
                         runCatching {
                             if (it is PencilSketchActivity) {
@@ -957,7 +958,7 @@ class PencilSketchResult : Fragment() {
     private fun navigateSaveAndShare() {
         if (!alreadyAdShown) {
             alreadyAdShown = true
-            activity?.showNewInterstitial(activity?.saveInterstitial()) {
+            activity?.showNewInterstitial(activity?.homeInterstitial()) {
                 afterSaveAdNavigate()
             }
         } else {

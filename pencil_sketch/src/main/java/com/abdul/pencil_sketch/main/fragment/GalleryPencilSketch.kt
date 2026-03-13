@@ -36,7 +36,6 @@ import com.example.ads.admobs.utils.showNewInterstitial
 import com.example.ads.crosspromo.helper.hide
 import com.example.ads.crosspromo.helper.show
 import com.example.ads.utils.homeInterstitial
-import com.example.ads.utils.interstitialBack
 import com.example.ads.utils.nativeProcessingConfig
 import com.example.analytics.Constants.firebaseAnalytics
 import com.example.inapp.helpers.Constants.isProVersion
@@ -363,7 +362,9 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
 
             if (gallerySaveTracker) {
                 runCatching {
-                    activity?.showNewInterstitial(activity?.interstitialBack()) {
+
+                    activity?.showNewInterstitial(activity?.homeInterstitial()) {
+                        activity?.loadNewInterstitial(activity?.homeInterstitial()) {}
                         activity?.let {
                             if (it is PencilSketchActivity) {
                                 if (!it.isFinishing && !it.isDestroyed) {
@@ -372,6 +373,7 @@ class GalleryPencilSketch : Fragment(), GalleryListDialogFragment.OnImageSelecti
                             }
                         }
                     }
+
                 }
             }
 
